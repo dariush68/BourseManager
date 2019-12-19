@@ -60,7 +60,7 @@ ROOT_URLCONF = 'Bourse.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -158,5 +158,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-# local
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# host
+STATICFILES_DIRS = [ BASE_DIR + "/assets", ]
+STATIC_ROOT = '/home/boorchin/public_html/static'
+MEDIA_ROOT = '/home/boorchin/public_html/media'
