@@ -1,0 +1,102 @@
+<!-- use base html template -->
+{% extends 'bourseapp/base.html' %}
+{% load humanize %}
+{% block title %}
+    <title>شرکت مدیاسافت | خانه</title>
+{% endblock %}
+<!-- begin of body block -->
+{% block body %}
+    <!-- load static file in django -->
+    {% load staticfiles %}
+
+
+    <link rel="stylesheet" href="{% static 'bourseapp/styles.css' %}">
+    <!-- top section -->
+
+    <!-- auth checking -->
+    {% if user.is_authenticated%}
+        <div class="card-body grey lighten-5 rounded-bottom">
+            {{ user }}
+        </div>
+
+    {% else %}
+        <!-- Material form subscription -->
+        <div class="d-flex justify-content-center">
+            <div class="card w-50" style="margin-top: 10%">
+
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <strong>مدیریت پروژه ها</strong>
+                </h5>
+
+                <!--Card content-->
+                <div class="card-body px-lg-5 h-50">
+
+                    <!-- Form -->
+                    <form class="text-center" style="color: #757575" action="#!">
+
+                        <!-- logo -->
+                        <div class="md-form">
+                            <img src="http://mediasoft.ir/wp-content/uploads/2019/11/Logo.png" alt="" style="width: 100%">
+                        </div>
+
+                        <!-- Sign in button -->
+                        <a  href="{% url 'login'%}?next={{request.path}}" class="btn btn-rounded btn-lg btn-info mx-4 w-75"><i class="fas fa-user-lock"></i></a>
+
+                    </form>
+                    <!-- Form -->
+
+                </div>
+
+            </div>
+        </div>
+        <!-- Material form subscription -->
+    {% endif %}
+
+<!-- end of body block -->
+{% endblock %}
+
+<!-- begin of section block -->
+{% block section %}
+
+    {% load staticfiles %}
+
+
+
+    <!-- product tiles -->
+    <div class="row mt-3 mx-auto">
+
+        <div class="col-12 col-md-10 p-0 pr-2">
+            <div class="">
+
+                <a href="#" id="go-to-top">
+                    <i class="fa fa-chevron-up" style="margin-top: 12px"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="url-home" data-url="{% url 'bourseapp:index' %}" />
+    <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
+
+
+    <script src="{% static 'bourseapp/js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'bourseapp/js/wow.min.js' %}"></script>
+    <script src="{% static 'bourseapp/js/smooth-scroll.js' %}"></script>
+    <script src="{% static 'bourseapp/js/base-scripts.js' %}"></script>
+    <script src="{% static 'bourseapp/js/scripts.js' %}"></script>
+    <script>
+        $(".breadcrumb").addClass('d-none')
+    </script>
+
+    {% for category in categories %}
+        <script type="text/javascript">
+            showProducts({{ category.id }})
+        </script>
+    {% endfor %}
+
+    <script>
+        $("#filtering-cities").addClass('d-none')
+    </script>
+<!-- end of section block -->
+{% endblock %}
+
