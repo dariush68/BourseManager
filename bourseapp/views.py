@@ -31,16 +31,14 @@ def index(request):
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
-        })
+    })
 
     # HttpResponseRedirect(reverse('admin:login'))
-
 
 
 # @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def category_list(request):
-    categories = models.Category.objects.all()
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
     search = request.GET.get('search', '')
@@ -59,6 +57,62 @@ def category_list(request):
 
     return render(request, 'bourseapp/category_list.html', {
         'categories': categories,
+        'search': search,
+        'page_size': page_size
+    })
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def company_list(request):
+    page = request.GET.get('page', 1)
+    page_size = request.GET.get('page-size', 10)
+    search = request.GET.get('search', '')
+
+    companies = models.Company.objects.filter(Q(symbol__icontains=search)
+                                              | Q(fullName__icontains=search)
+                                              | Q(category__title__icontains=search)
+                                              | Q(bourseType__icontains=search)
+                                              | Q(createAt__icontains=search)
+                                              | Q(description__icontains=search)
+                                              )
+    paginator = Paginator(companies, page_size)
+    try:
+        companies = paginator.page(page)
+    except PageNotAnInteger:
+        companies = paginator.page(1)
+    except EmptyPage:
+        companies = paginator.page(paginator.num_pages)
+
+    return render(request, 'bourseapp/company_list.html', {
+        'companies': companies,
+        'search': search,
+        'page_size': page_size
+    })
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def new_list(request):
+    page = request.GET.get('page', 1)
+    page_size = request.GET.get('page-size', 10)
+    search = request.GET.get('search', '')
+
+    news = models.News.objects.filter(Q(title__icontains=search)
+                                      | Q(company__symbol__icontains=search)
+                                      | Q(reference__icontains=search)
+                                      | Q(createAt__icontains=search)
+                                      | Q(tag__icontains=search)
+                                      | Q(description__icontains=search)
+                                      )
+    paginator = Paginator(news, page_size)
+    try:
+        news = paginator.page(page)
+    except PageNotAnInteger:
+        news = paginator.page(1)
+    except EmptyPage:
+        news = paginator.page(paginator.num_pages)
+
+    return render(request, 'bourseapp/new_list.html', {
+        'newss': news,
         'search': search,
         'page_size': page_size
     })

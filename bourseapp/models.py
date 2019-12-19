@@ -36,6 +36,7 @@ class Company(models.Model):
     bourseType = models.CharField(max_length=120, null=True, blank=True, help_text='بازار بورس')
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename, help_text='تصویر')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+    tse = models.URLField(null=True, blank=True, help_text='لینک tse')
     description = models.CharField(max_length=120, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
@@ -80,7 +81,7 @@ class Targets(models.Model):
         ordering = ["createAt"]
 
     def __str__(self):
-        return  self.company.symbol
+        return self.company.symbol
 
     @property
     def owner(self):
