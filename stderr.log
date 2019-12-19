@@ -1,0 +1,35 @@
+2019-12-18 19:06:37.643430 [330129] Child process with pid: 330132 was killed by signal: 15, core dump: 0
+2019-12-18 19:06:41.524813 [330129] Child process with pid: 330204 was killed by signal: 15, core dump: 0
+Traceback (most recent call last):
+  File "/home/boorchin/bourse/passenger_wsgi.py", line 1, in <module>
+    from bourse.wsgi import application
+ModuleNotFoundError: No module named 'bourse'
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+2019-12-18 15:48:39.547829 [338824] Child process with pid: 338987 was killed by signal: 15, core dump: 0
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Invalid HTTP_HOST header: 'bitfin.ir'. You may need to add 'bitfin.ir' to ALLOWED_HOSTS.
+Bad Request: /bourse/
+Not Found: /bourse/
