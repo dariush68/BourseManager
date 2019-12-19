@@ -9,6 +9,7 @@ from bourseapp import models
 
 # from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.forms import ModelForm
 
 from django.db.models import CharField, Value
@@ -26,10 +27,14 @@ from jalali_date import datetime2jalali, date2jalali
 
 # first page
 def index(request):
-    jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
+    # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
+    # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
-    })
+        })
+
+    # HttpResponseRedirect(reverse('admin:login'))
+
 
 
 # @login_required
