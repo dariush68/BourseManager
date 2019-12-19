@@ -25,6 +25,8 @@ class CategoryAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(models.Company)
 class CompanyAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    formfield_overrides = {
+    }
 
     # override add function
     def response_add(self, request, obj, post_url_continue=None):
@@ -41,6 +43,8 @@ class CompanyAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(models.News)
 class NewsAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    formfield_overrides = {
+    }
 
     # override add function
     def response_add(self, request, obj, post_url_continue=None):
