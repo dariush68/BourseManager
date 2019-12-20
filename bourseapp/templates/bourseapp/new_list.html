@@ -87,7 +87,7 @@
                         <tr>
                             <input class="newsId" type="hidden" dataId={{ news.id }}>
                             <th scope="row" >{{ forloop.counter }}</th>
-                            <td class="" >{{ news.title }}</td>
+                            <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
                             <td class="" >{{ news.company.symbol }}</td>
                             <td class=""><a href="{{ news.reference }}" target="_blank"><span class="textShorted">{{ news.reference }}</span></a></td>
                             <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>

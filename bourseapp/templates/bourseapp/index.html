@@ -1,6 +1,7 @@
 <!-- use base html template -->
 {% extends 'bourseapp/base.html' %}
 {% load humanize %}
+{% load jalali_tags %}
 {% block title %}
     <title>بورس | خانه</title>
 {% endblock %}
@@ -15,9 +16,119 @@
 
     <!-- auth checking -->
     {% if user.is_authenticated%}
-        <div class="card-body grey lighten-5 rounded-bottom">
-            {{ user }}
-        </div>
+
+
+            <div class="row">
+                <div class="col-sm">
+                    <!--Section: Content-->
+                    <section>
+
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h5 class="text-center font-weight-bold mb-4">آخرین خبرها</h5>
+
+                                <hr>
+
+                                <!--Grid row-->
+                                <div class="row">
+
+                                    <!--Grid column-->
+                                    <div class="col-12 mb-3 mx-auto">
+
+                                        {% for new in news %}
+                                <div class="media">
+                                    {% if new.pic %}
+                                        <img class="d-flex mr-3" src="{{ new.pic.url }}" alt="Generic placeholder image">
+                                    {% else %}
+                                        <img class="d-flex mr-3" src="{% static 'bourseapp/images/news.png' %}" alt="News" style="width: 70px; height: 70px">
+                                    {% endif %}
+                                    <div class="media-body">
+                                        <h6 class="mt-1 font-weight-bold mr-3">
+                                            <a href="{% url 'bourseapp:news-detail' new.id %}">{{ new.title }}</a>
+                                            <a href="{{ new.reference }}" target="_blank"><span class="badge badge-default float-left">منبع</span></a>
+                                            <span class="badge badge-info  float-left ml-1">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                        </h6>
+                                        <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ new.description }}</p>
+
+                                    </div>
+                                </div>
+                                <hr>
+                            {% endfor %}
+
+                                    </div>
+                                    <!--Grid column-->
+
+                                </div>
+                                <!--Grid row-->
+
+                                <hr>
+
+                                <p class="text-center mt-4 mb-1"><a href="#!">مشاهده تمامی خبرها</a></p>
+
+                            </div>
+                        </div>
+
+                    </section>
+                    <!--Section: Content-->
+                </div>
+
+                <div class="col-sm">
+                    <!--Section: Content-->
+                    <section>
+
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h5 class="text-center font-weight-bold mb-4">نمادهای تحت نظر</h5>
+
+                                <hr>
+
+                                <!--Grid row-->
+                                <div class="row">
+
+                                    <!--Grid column-->
+                                    <div class="col-12 mb-3 mx-auto">
+
+                                        {% for target in targets %}
+                                            <div class="media">
+                                                {% if target.company.pic %}
+                                                    <img class="d-flex mr-3" src="{{ target.company.pic.url }}" alt="image" style="width: 70px; height: 70px">
+                                                {% else %}
+                                                    <img class="d-flex mr-3" src="{% static 'bourseapp/images/placeholder-company.png' %}" alt="News" style="width: 70px; height: 70px">
+                                                {% endif %}
+                                                <div class="media-body">
+                                                    <h6 class="mt-1 font-weight-bold mr-3">
+                                                        <a href="{% url 'bourseapp:company-detail' target.company.id %}">{{ target.company.symbol }}</a>
+                                                        <span class="badge badge-info  float-left ml-1">{{ target.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                    </h6>
+                                                    <p class="text-muted mr-3">{{ target.description }}</p>
+
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        {% endfor %}
+
+                                    </div>
+                                    <!--Grid column-->
+
+                                </div>
+                                <!--Grid row-->
+
+                                <hr>
+
+                                <p class="text-center mt-4 mb-1"><a href="#!">مشاهده تمامی خبرها</a></p>
+
+                            </div>
+                        </div>
+
+                    </section>
+                    <!--Section: Content-->
+                </div>
+
+            </div>
+
+
 
     {% else %}
 

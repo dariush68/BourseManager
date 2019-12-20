@@ -92,7 +92,7 @@
             <div id="inner-header" class="container-fluid">
                 <ul id="header-nav" class="list-unstyled">
                     <li class="d-none d-md-flex">
-                        <a href="#">
+                        <a href="{% url 'bourseapp:index' %}">
                             <i class="fas fa-home" style="cursor: pointer; font-size: 28px; color: rgb(102, 102, 102)"></i>
                         </a>
                     </li>
@@ -117,6 +117,30 @@
                             <span id="companies" style="font-size: 16px; cursor: pointer; color: black">
                                 <i id="companies-icon" class="fa fa-newspaper align-middle mr-1" style="font-size: 12px; color: gray"></i>
                                 اخبار
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'bourseapp:technical-list' %}">
+                            <span id="companies" style="font-size: 16px; cursor: pointer; color: black">
+                                <i id="companies-icon" class="fa fa-analytics align-middle mr-1" style="font-size: 12px; color: gray"></i>
+                                تحلیل تکنیکال
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'bourseapp:fundamental-list' %}">
+                            <span id="companies" style="font-size: 16px; cursor: pointer; color: black">
+                                <i id="companies-icon" class="fa fa-book-open align-middle mr-1" style="font-size: 12px; color: gray"></i>
+                                تحلیل بنیادی
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'bourseapp:targets-list' %}">
+                            <span id="companies" style="font-size: 16px; cursor: pointer; color: black">
+                                <i id="companies-icon" class="fa fa-list-alt align-middle mr-1" style="font-size: 12px; color: gray"></i>
+                                لیست تحت نظر
                             </span>
                         </a>
                     </li>

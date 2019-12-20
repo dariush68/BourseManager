@@ -86,7 +86,7 @@
                         <tr>
                             <input class="categoryId" type="hidden" dataId={{ category.id }}>
                             <th scope="row" >{{ forloop.counter }}</th>
-                            <td class="title" >{{ category.title }}</td>
+                            <td class="title" ><a href="{% url 'bourseapp:category-detail' category.id%}">{{ category.title }}</a></td>
                             <td class="createAt" style="font-family: 'IRANSansNum';">{{ category.createAt|to_jalali:'%y/%m/%d' }}</td>
                             <td class="description">{{ category.description }}</td>
                             {% if category.pic %}

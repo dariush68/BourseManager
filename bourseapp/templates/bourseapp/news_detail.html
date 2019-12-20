@@ -1,0 +1,82 @@
+<!-- use base html template -->
+{% extends 'bourseapp/base.html' %}
+{% load jalali_tags %}
+{% block title %}
+    <title>خبر {{ news.title }}</title>
+{% endblock %}
+<!-- begin of body block -->
+{% block body %}
+
+    <!-- load static file in django -->
+    {% load staticfiles %}
+
+
+    <!-- Material Design Bootstrap table -->
+    <link rel="stylesheet" href="{% static 'bourseapp/css/addons/datatables.min.css' %}"><!-- MDBootstrap Datatables  -->
+    <!-- Material Design Bootstrap table -->
+    <link rel="stylesheet" href="{% static 'bourseapp/css/addons/datatables-select.min.css' %}"><!-- MDBootstrap Datatables  -->
+
+    <div class="container my-5 py-5 z-depth-1">
+
+        <!--Section: Content-->
+        <section class="px-md-5 mx-md-5 dark-grey-text text-center text-lg-left">
+
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-lg-6 mb-4 mb-lg-0 ">
+
+                    <h3 class="font-weight-bold text-right">{{ news.company.fullName }} ({{ news.company.symbol }})</h3>
+
+                    <p class="font-weight-bold text-right">{{ news.title }} - {{ news.createAt|to_jalali:'%y/%m/%d' }}</p>
+
+                    <p class="text-muted text-right text-justify">{{ news.description }}</p>
+{#                    <textarea class="form-control border-0 disabled text-muted" rows="5">#}
+{#                        {{ news.description }}#}
+{#                    </textarea>#}
+
+                    <a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"><span style="font-family: IRANSans"> مرجع  </span></i></a>
+                    <p class="mt-2"><span class="badge badge-info  float-left">{{ news.tag }}</span></p>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-6 mb-4 mb-lg-0 d-flex align-items-center justify-content-center">
+
+                    {% if news.pic %}
+                        <img src="{{ news.pic.url }}" class="img-fluid" alt="">
+                    {% else %}
+                        <img src="{% static 'bourseapp/images/news.png' %}" class="img-fluid" alt="">
+                    {% endif %}
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+
+        </section>
+        <!--Section: Content-->
+
+    </div>
+
+    <!-- base url address -->
+    <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
+
+    <!-- selected category id -->
+{#    <input type="hidden" id="category-selected-id" selected-id="-1">#}
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>
+    <!-- MDB table core JavaScript -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables.min.js' %}"></script><!-- MDBootstrap Datatables  -->
+    <!-- MDB table core JavaScript -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables-select.min.js' %}"></script><!-- MDBootstrap Datatables  -->
+
+
+{% endblock %}
