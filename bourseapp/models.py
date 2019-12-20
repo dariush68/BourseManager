@@ -37,6 +37,7 @@ class Company(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename, help_text='تصویر')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     tse = models.URLField(null=True, blank=True, help_text='لینک tse')
+    site = models.URLField(null=True, blank=True, help_text='وبسایت')
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
