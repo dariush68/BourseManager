@@ -81,6 +81,7 @@
                         <th scope="col">تاریخ</th>
                         <th scope="col">توضیحات</th>
                         <th scope="col">tse</th>
+                        <th scope="col">وبسایت</th>
                         <th scope="col">تصویر</th>
                     </tr>
                     </thead>
@@ -96,6 +97,7 @@
                             <td class="" style="font-family: 'IRANSansNum';">{{ company.createAt|to_jalali:'%y/%m/%d' }}</td>
                             <td class="">{{ company.description }}</td>
                             <td class=""><a href="{{ company.tse }}" target="_blank">tse</a></td>
+                            <td class=""><a href="{{ company.site }}" target="_blank">site</a></td>
                             {% if company.pic %}
                                 <td ><a href="{{ company.pic.url }}"><i class="fa fa-image"></i></a></td>
                             {% else %}
