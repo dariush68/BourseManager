@@ -294,3 +294,121 @@ Traceback (most recent call last):
   File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 257, in inner
     return func(self._wrapped, *args)
 AttributeError: 'AnonymousUser' object has no attribute 'date_joined'
+Internal Server Error: /bourse/news-list/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'News' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/models/fields/related_descriptors.py", line 164, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/models/fields/mixins.py", line 13, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'company'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.OperationalError: (1054, "Unknown column 'bourseapp_company.tse' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/bourse/bourseapp/views.py", line 117, in new_list
+    'page_size': page_size
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/models/fields/related_descriptors.py", line 178, in __get__
+    rel_obj = self.get_object(instance)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/models/fields/related_descriptors.py", line 145, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 402, in get
+    num = len(clone)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1100, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/bourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'bourseapp_company.tse' in 'field list'")
