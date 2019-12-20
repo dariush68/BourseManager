@@ -2,7 +2,7 @@
 {% extends 'bourseapp/base.html' %}
 {% load jalali_tags %}
 {% block title %}
-    <title>نمادها</title>
+    <title>نمادهای برگزیده</title>
 {% endblock %}
 <!-- begin of body block -->
 {% block body %}
@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="{% static 'bourseapp/css/addons/datatables-select.min.css' %}"><!-- MDBootstrap Datatables  -->
 
     <div class="alert alert-primary" role="alert">
-        نماد ها
+        نمادهای تحت نظر
     </div>
 
     <!-- new/delete/edit buttons -->
     <div class="text-center">
-      <a href="{% url 'admin:bourseapp_company_add' %}?next={{ request.path|urlencode }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
-      <a id="company-edit" href="{% url 'admin:bourseapp_company_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm"><i class="fas fa-edit mr-1"></i> ویرایش</a>
-      <a id="company-delete" href="{% url 'admin:bourseapp_company_delete' 1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-danger btn-sm"><i class="fas fa-trash mr-1"></i> حذف</a>
+      <a href="{% url 'admin:bourseapp_targets_add' %}?next={{ request.path|urlencode }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
+      <a id="targets-edit" href="{% url 'admin:bourseapp_targets_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm"><i class="fas fa-edit mr-1"></i> ویرایش</a>
+      <a id="targets-delete" href="{% url 'admin:bourseapp_targets_delete' 1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-danger btn-sm"><i class="fas fa-trash mr-1"></i> حذف</a>
     </div>
 
 
@@ -34,19 +34,19 @@
             <div class="col-6 select-outline">
 
                 <label>تعداد صفحات</label>
-                <select id="company-selector-page-size"  class="browser-default custom-select"  onchange="companyPageSizeChanged(this.options[this.selectedIndex].value)">
+                <select id="targets-selector-page-size"  class="browser-default custom-select"  onchange="targetsPageSizeChanged(this.options[this.selectedIndex].value)">
                     <option value="10">10</option>
                     <option value="20" >20</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
                 </select>
-                <a id="company-tag-a-page-size" class="d-none" href="?page-size=10">10</a>
+                <a id="technical-tag-a-page-size" class="d-none" href="?page-size=10">10</a>
                 <script>
-                    document.getElementById('company-selector-page-size').value={{ page_size }};
-                    function companyPageSizeChanged(page_size) {
+                    document.getElementById('targets-selector-page-size').value={{ page_size }};
+                    function targetsPageSizeChanged(page_size) {
                         {#alert(page_size)#}
-                        let tag_a = document.getElementById("company-tag-a-page-size");
-                        let srchterm = $("#search-company").val();
+                        let tag_a = document.getElementById("targets-tag-a-page-size");
+                        let srchterm = $("#search-targets").val();
                         tag_a.href = "?page-size=" + page_size + "&search=" + srchterm;
                         tag_a.click();
                     }
@@ -57,7 +57,7 @@
                 <!-- Search form -->
                 <label>جست و جو</label>
                 <div class="active-cyan-4">
-                    <input id="search-company" class="form-control" type="text" placeholder="جست و جو" aria-label="Search" value="{{ search }}">
+                    <input id="search-targets" class="form-control" type="text" placeholder="جست و جو" aria-label="Search" value="{{ search }}">
                 </div>
             </div>
         </div>
@@ -70,34 +70,26 @@
 
             <div class="row pagination-sm" id="category-list">
 
-                <table class="table table-sm table-hover table-striped"  id="company-table">
+                <table class="table table-sm table-hover table-striped"  id="targets-table">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">نماد</th>
-                        <th scope="col">شرکت</th>
-                        <th scope="col">گروه</th>
-                        <th scope="col">بورس</th>
                         <th scope="col">تاریخ</th>
                         <th scope="col">توضیحات</th>
-                        <th scope="col">tse</th>
                         <th scope="col">تصویر</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for company in companies %}
+                    {% for target in targets %}
                         <tr>
-                            <input class="companyId" type="hidden" dataId={{ company.id }}>
+                            <input class="targetslId" type="hidden" dataId={{ target.id }}>
                             <th scope="row" >{{ forloop.counter }}</th>
-                            <td class="" ><a href="{% url 'bourseapp:company-detail' company.id%}">{{ company.symbol }}</a></td>
-                            <td class="" >{{ company.fullName }}</td>
-                            <td class="" >{{ company.category.title }}</td>
-                            <td class="" >{{ company.bourseType }}</td>
-                            <td class="" style="font-family: 'IRANSansNum';">{{ company.createAt|to_jalali:'%y/%m/%d' }}</td>
-                            <td class="">{{ company.description }}</td>
-                            <td class=""><a href="{{ company.tse }}" target="_blank">tse</a></td>
-                            {% if company.pic %}
-                                <td ><a href="{{ company.pic.url }}"><i class="fa fa-image"></i></a></td>
+                            <td class="" >{{ target.company.symbol }}</td>
+                            <td class="" style="font-family: 'IRANSansNum';">{{ target.createAt|to_jalali:'%y/%m/%d' }}</td>
+                            <td class="">{{ target.description }}</td>
+                            {% if target.pic %}
+                                <td ><a href="{{ target.pic.url }}" target="_blank"><i class="fa fa-image"></i></a></td>
                             {% else %}
                                 <td ><a href="#"></a></td>
 
@@ -113,13 +105,13 @@
 
     <!-- pagination -->
     <div class="d-flex justify-content-center">
-        {% if companies.has_other_pages %}
+        {% if targets.has_other_pages %}
             <nav aria-label="Page navigation example">
                 <ul class="pagination pagination-circle pg-blue">
-                    <li class="page-item"><a class="page-link"  href="?page=1&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-company').value">First</a></li>
-                    {% if companies.has_previous %}
+                    <li class="page-item"><a class="page-link"  href="?page=1&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-targets').value">First</a></li>
+                    {% if targets.has_previous %}
                         <li class="page-item">
-                            <a class="page-link" aria-label="Previous" href="?page={{ companies.previous_page_number }}&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-company').value">
+                            <a class="page-link" aria-label="Previous" href="?page={{ targets.previous_page_number }}&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-targets').value">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
@@ -134,18 +126,18 @@
                     {% endif %}
 
                     <!-- center page numbers -->
-                    {% for i in companies.paginator.page_range %}
-                        {% if companies.number == i %}
+                    {% for i in targets.paginator.page_range %}
+                        {% if targets.number == i %}
                             <li class="page-item active"><a class="page-link">{{ i }}</a></li>
 
                         {% else %}
-                            <li class="page-item"><a class="page-link"  href="?page={{ i }}&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-company').value">{{ i }}</a></li>
+                            <li class="page-item"><a class="page-link"  href="?page={{ i }}&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-targets').value">{{ i }}</a></li>
                         {% endif %}
                     {% endfor %}
 
                     <!-- center page numbers -->
-                    {% if companies.has_next %}
-                        <a class="page-link" aria-label="Next"  href="?page={{ companies.next_page_number }}&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-company').value">
+                    {% if targets.has_next %}
+                        <a class="page-link" aria-label="Next"  href="?page={{ targets.next_page_number }}&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-targets').value">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -182,21 +174,21 @@
 
     <script>
 
-        $("#company-table tr").click(function(){
+        $("#targets-table tr").click(function(){
            $(this).addClass('table-primary').siblings().removeClass('table-primary');
-           var value=$(this).find('input.companyId').attr("dataId");
+           var value=$(this).find('input.targetsId').attr("dataId");
 
-           var url_mask_edit = "{% url 'admin:bourseapp_company_change' 12345 %}".replace(/12345/, value.toString());
-           $("#company-edit").attr("href", url_mask_edit)
+           var url_mask_edit = "{% url 'admin:bourseapp_targets_change' 12345 %}".replace(/12345/, value.toString());
+           $("#targets-edit").attr("href", url_mask_edit)
 
-           var url_mask_delete = "{% url 'admin:bourseapp_company_delete' 12345 %}".replace(/12345/, value.toString());
-           $("#company-delete").attr("href", url_mask_delete)
+           var url_mask_delete = "{% url 'admin:bourseapp_targets_delete' 12345 %}".replace(/12345/, value.toString());
+           $("#targets-delete").attr("href", url_mask_delete)
 
            {#alert(value)#}
                    });
 
         $('.ok').on('click', function(e){
-            alert($("#company-table tr.selected td:first").html());
+            alert($("#targets-table tr.selected td:first").html());
         });
 
         // Material Select Initialization
@@ -214,10 +206,10 @@
 
     <!-- search -->
     <script>
-        $("#search-company").on('keyup', function (e) {
+        $("#search-targets").on('keyup', function (e) {
             if (e.keyCode === 13) {
-                let srchterm = $("#search-company").val();
-                let tag_a = document.getElementById("company-tag-a-page-size");
+                let srchterm = $("#search-targets").val();
+                let tag_a = document.getElementById("targets-tag-a-page-size");
                 tag_a.href = "?page-size=" + {{ page_size }} + "&search=" + srchterm;
                 tag_a.click();
             }
