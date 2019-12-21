@@ -3,6 +3,7 @@ from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
 import uuid
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 def scramble_uploaded_filename(instance, filename):
@@ -59,7 +60,7 @@ class News(models.Model):
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename, help_text='تصویر')
     tag = models.CharField(max_length=120, null=True, blank=True, help_text='تگ ها')
-    description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
+    description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
     class Meta:
         ordering = ["-createAt"]
@@ -76,7 +77,7 @@ class Targets(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, help_text='کاربر')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
-    description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
+    description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
     class Meta:
         ordering = ["-createAt"]
@@ -95,7 +96,7 @@ class Technical(models.Model):
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
-    description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
+    description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
     class Meta:
         ordering = ["-createAt"]
@@ -114,7 +115,7 @@ class Fundamental(models.Model):
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
-    description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
+    description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
     class Meta:
         ordering = ["-createAt"]

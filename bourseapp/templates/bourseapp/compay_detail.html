@@ -16,6 +16,7 @@
     <!-- Material Design Bootstrap table -->
     <link rel="stylesheet" href="{% static 'bourseapp/css/addons/datatables-select.min.css' %}"><!-- MDBootstrap Datatables  -->
 
+    <!-- company info -->
     <div class="container my-5 py-5 z-depth-1">
 
         <!--Section: Content-->
@@ -92,7 +93,7 @@
                                             <a href="{{ new.reference }}" target="_blank"><span class="badge badge-default float-left">منبع</span></a>
                                             <span class="badge badge-info  float-left ml-1">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
                                         </h6>
-                                        <p class="text-muted mr-3">{{ new.description }}</p>
+                                        <p class="text-muted mr-3">{{ new.description | truncatechars:60 }}</p>
 
                                     </div>
                                 </div>
@@ -148,7 +149,7 @@
                                             <a href="{% url 'bourseapp:technical-detail' technical.id %}">{{ technical.title }}</a>
                                             <span class="badge badge-info  float-left ml-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
                                         </h6>
-                                        <p class="text-muted mr-3">{{ technical.description }}</p>
+                                        <p class="text-muted mr-3">{{ technical.description | truncatechars:60 }}</p>
 
                                     </div>
                                 </div>
@@ -204,7 +205,7 @@
                                             <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">{{ fundamental.title }}</a>
                                             <span class="badge badge-info  float-left ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
                                         </h6>
-                                        <p class="text-muted mr-3">{{ fundamental.description }}</p>
+                                        <p class="text-muted mr-3">{{ fundamental.description | truncatechars:60 }}</p>
 
                                     </div>
                                 </div>
