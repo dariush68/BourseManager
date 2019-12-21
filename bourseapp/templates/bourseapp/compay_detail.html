@@ -82,7 +82,7 @@
                             {% for new in news %}
                                 <div class="media">
                                     {% if new.pic %}
-                                        <img class="d-flex mr-3" src="{{ new.pic.url }}" alt="Generic placeholder image">
+                                        <img class="d-flex mr-3" src="{{ new.pic.url }}" alt="{{ new.title }}" style="width: 70px; height: 70px">
                                     {% else %}
                                         <img class="d-flex mr-3" src="{% static 'bourseapp/images/news.png' %}" alt="News" style="width: 70px; height: 70px">
                                     {% endif %}
@@ -107,7 +107,7 @@
 
                     <hr>
 
-                    <p class="text-center mt-4 mb-1"><a href="#!">مشاهده تمامی خبرها</a></p>
+                    <p class="text-center mt-4 mb-1"><a href="{% url 'admin:bourseapp_news_add' %}?next={{ request.path|urlencode }}&company={{ company.id }}&user={{ user.id }}">افزودن خبر</a></p>
 
                 </div>
             </div>
@@ -163,7 +163,7 @@
 
                     <hr>
 
-                    <p class="text-center mt-4 mb-1"><a href="#!">مشاهده تمامی تحلیل ها</a></p>
+                    <p class="text-center mt-4 mb-1"><a href="{% url 'admin:bourseapp_technical_add' %}?next={{ request.path|urlencode }}&company={{ company.id }}&user={{ user.id }}">افزودن تحلیل</a></p>
 
                 </div>
             </div>
@@ -219,7 +219,7 @@
 
                     <hr>
 
-                    <p class="text-center mt-4 mb-1"><a href="#!">مشاهده تمامی تحلیل های بنیادی</a></p>
+                    <p class="text-center mt-4 mb-1"><a href="{% url 'admin:bourseapp_fundamental_add' %}?next={{ request.path|urlencode }}&company={{ company.id }}&user={{ user.id }}">افزودن تحلیل بنیادی</a></p>
 
                 </div>
             </div>

@@ -85,7 +85,7 @@
                         <tr>
                             <input class="targetslId" type="hidden" dataId={{ target.id }}>
                             <th scope="row" >{{ forloop.counter }}</th>
-                            <td class="" >{{ target.company.symbol }}</td>
+                            <td class="" ><a href="{% url 'bourseapp:company-detail' target.company.id %}">{{ target.company.symbol }}</a></td>
                             <td class="" style="font-family: 'IRANSansNum';">{{ target.createAt|to_jalali:'%y/%m/%d' }}</td>
                             <td class="">{{ target.description }}</td>
                             {% if target.pic %}
