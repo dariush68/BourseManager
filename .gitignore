@@ -1,6 +1,7 @@
 # ignore an entire directory   
 /.idea/
 /bourseapp/__pycache__/
+/Bourse/__pycache__/
 /bourseapp/migrations/
 /venv/ 
 /__pycache__/
