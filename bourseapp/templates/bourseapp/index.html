@@ -19,6 +19,7 @@
 
 
             <div class="row">
+
                 <!-- news -->
                 <div class="col-sm">
                     <!--Section: Content-->
@@ -40,7 +41,7 @@
                                         {% for new in news %}
                                 <div class="media">
                                     {% if new.pic %}
-                                        <img class="d-flex mr-3" src="{{ new.pic.url }}" alt="Generic placeholder image">
+                                        <img class="d-flex mr-3" src="{{ new.pic.url }}" alt="{{ new.title }}" style="width: 70px; height: 70px">
                                     {% else %}
                                         <img class="d-flex mr-3" src="{% static 'bourseapp/images/news.png' %}" alt="News" style="width: 70px; height: 70px">
                                     {% endif %}

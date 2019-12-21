@@ -62,7 +62,7 @@ class News(models.Model):
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
-        ordering = ["createAt"]
+        ordering = ["-createAt"]
 
     def __str__(self):
         return  self.title
@@ -79,7 +79,7 @@ class Targets(models.Model):
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
-        ordering = ["createAt"]
+        ordering = ["-createAt"]
 
     def __str__(self):
         return self.company.symbol
@@ -98,7 +98,7 @@ class Technical(models.Model):
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
-        ordering = ["createAt"]
+        ordering = ["-createAt"]
 
     def __str__(self):
         return  self.company.symbol
@@ -117,7 +117,7 @@ class Fundamental(models.Model):
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
-        ordering = ["createAt"]
+        ordering = ["-createAt"]
 
     def __str__(self):
         return  self.company.symbol
