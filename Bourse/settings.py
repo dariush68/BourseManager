@@ -41,7 +41,19 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'jalali_date',
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 500,
+    }
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
