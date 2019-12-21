@@ -89,7 +89,7 @@
                             <td class="" >{{ fundamental.company.symbol }}</td>
                             <td class="" ><a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">{{ fundamental.title }}</a></td>
                             <td class="" style="font-family: 'IRANSansNum';">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</td>
-                            <td class="">{{ fundamental.description }}</td>
+                            <td class="">{{ fundamental.description | truncatechars:60 }}</td>
                             {% if fundamental.pic %}
                                 <td ><a href="{{ fundamental.pic.url }}" target="_blank"><i class="fa fa-image"></i></a></td>
                             {% else %}

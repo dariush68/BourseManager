@@ -31,7 +31,8 @@
 
                     <p class="font-weight-bold text-right">{{ news.title }} - {{ news.createAt|to_jalali:'%y/%m/%d' }}</p>
 
-                    <p class="text-muted text-right text-justify">{{ news.description }}</p>
+
+{#                    {{ news.description | safe }}#}
 {#                    <textarea class="form-control border-0 disabled text-muted" rows="5">#}
 {#                        {{ news.description }}#}
 {#                    </textarea>#}
@@ -46,9 +47,9 @@
                 <div class="col-lg-6 mb-4 mb-lg-0 d-flex align-items-center justify-content-center">
 
                     {% if news.pic %}
-                        <img src="{{ news.pic.url }}" class="img-fluid" alt="">
+                        <img src="{{ news.pic.url }}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover">
                     {% else %}
-                        <img src="{% static 'bourseapp/images/news.png' %}" class="img-fluid" alt="">
+                        <img src="{% static 'bourseapp/images/news.png' %}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover">
                     {% endif %}
 
                 </div>
@@ -56,6 +57,9 @@
 
             </div>
             <!--Grid row-->
+
+            <hr>
+            <p class="text-muted text-right text-justify" dir="rtl">{{ news.description | safe  }}</p>
 
 
         </section>

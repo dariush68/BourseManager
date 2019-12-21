@@ -89,9 +89,9 @@
                             <th scope="row" >{{ forloop.counter }}</th>
                             <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
                             <td class="" >{{ news.company.symbol }}</td>
-                            <td class=""><a href="{{ news.reference }}" target="_blank"><span class="textShorted">{{ news.reference }}</span></a></td>
+                            <td class=""><a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"></i></a></td>
                             <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
-                            <td class="">{{ news.description }}</td>
+                            <td class="">{{ news.description | truncatechars:60 }}</td>
                             <td class="">{{ news.tag }}</td>
                             {% if news.pic %}
                                 <td ><a href="{{ news.pic.url }}"><i class="fa fa-image"></i></a></td>

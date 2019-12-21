@@ -89,7 +89,7 @@
                             <td class="" >{{ tech.company.symbol }}</td>
                             <td class="" ><a href="{% url 'bourseapp:technical-detail' tech.id %}">{{ tech.title }}</a></td>
                             <td class="" style="font-family: 'IRANSansNum';">{{ tech.createAt|to_jalali:'%y/%m/%d' }}</td>
-                            <td class="">{{ tech.description }}</td>
+                            <td class="">{{ tech.description | truncatechars:60 }}</td>
                             {% if tech.pic %}
                                 <td ><a href="{{ tech.pic.url }}" target="_blank"><i class="fa fa-image"></i></a></td>
                             {% else %}
