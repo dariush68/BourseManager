@@ -74,29 +74,31 @@ def category_list(request):
 
 @user_passes_test(lambda u: u.is_superuser)
 def company_list(request):
-    page = request.GET.get('page', 1)
-    page_size = request.GET.get('page-size', 10)
     search = request.GET.get('search', '')
+    category_id = request.GET.get('category_id', -1)
 
-    companies = models.Company.objects.filter(Q(symbol__icontains=search)
+    companies = models.Company.objects.filter((Q(symbol__icontains=search)
                                               | Q(fullName__icontains=search)
-                                              | Q(category__title__icontains=search)
                                               | Q(bourseType__icontains=search)
                                               | Q(createAt__icontains=search)
-                                              | Q(description__icontains=search)
+                                              | Q(description__icontains=search))
+                                              & Q(category=category_id)
                                               )
-    paginator = Paginator(companies, page_size)
-    try:
-        companies = paginator.page(page)
-    except PageNotAnInteger:
-        companies = paginator.page(1)
-    except EmptyPage:
-        companies = paginator.page(paginator.num_pages)
 
-    return render(request, 'bourseapp/company_list.html', {
+
+    search_category = request.GET.get('search-category', '')
+
+    categories = models.Category.objects.filter(Q(title__icontains=search_category)
+                                                | Q(createAt__icontains=search_category)
+                                                | Q(description__icontains=search_category)
+                                                )
+
+    # return render(request, 'bourseapp/company_list.html', {
+    return render(request, 'bourseapp/symbols_list.html', {
+        'categories': categories,
         'companies': companies,
         'search': search,
-        'page_size': page_size
+        'search_category': search_category,
     })
 
 
