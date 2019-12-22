@@ -12,15 +12,15 @@ class CategoryAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
     # override add function
     def response_add(self, request, obj, post_url_continue=None):
-        return redirect('bourseapp:category-list')
+        return redirect('bourseapp:company-list')
 
     # override edit function
     def response_change(self, request, obj):
-        return redirect('bourseapp:category-list')
+        return redirect('bourseapp:company-list')
 
     # override delete function
     def response_delete(self, request, obj_display, obj_id):
-        return redirect('bourseapp:category-list')
+        return redirect('bourseapp:company-list')
 
 
 @admin.register(models.Company)
