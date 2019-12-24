@@ -29,7 +29,10 @@
 
                     <h3 class="font-weight-bold text-right">{{ news.company.fullName }} ({{ news.company.symbol }})</h3>
 
-                    <p class="font-weight-bold text-right">{{ news.title }} - {{ news.createAt|to_jalali:'%y/%m/%d' }}</p>
+                    <p class="font-weight-bold text-right">{{ news.title }} - {{ news.createAt|to_jalali:'%y/%m/%d' }}
+
+                    <span class="badge badge-secondary  float-left"><small>{{ news.user }}</small></span>
+                    </p>
 
 
 {#                    {{ news.description | safe }}#}
@@ -38,6 +41,7 @@
 {#                    </textarea>#}
 
                     <a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"><span style="font-family: IRANSans"> مرجع  </span></i></a>
+{#                    <p class="mt-2"><span class="badge badge-info  float-left">{{ news.tag }}</span></p>#}
                     <p class="mt-2"><span class="badge badge-info  float-left">{{ news.tag }}</span></p>
 
                 </div>
@@ -47,7 +51,9 @@
                 <div class="col-lg-6 mb-4 mb-lg-0 d-flex align-items-center justify-content-center">
 
                     {% if news.pic %}
-                        <img src="{{ news.pic.url }}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover">
+                        <a href="{{ news.pic.url }}" target="_blank">
+                            <img src="{{ news.pic.url }}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover">
+                        </a>
                     {% else %}
                         <img src="{% static 'bourseapp/images/news.png' %}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover">
                     {% endif %}

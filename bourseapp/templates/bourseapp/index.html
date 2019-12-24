@@ -15,48 +15,49 @@
     <link rel="stylesheet" href="{% static 'bourseapp/styles.css' %}">
     <!-- top section -->
 
-    <!-- auth checking -->
-    {% if user.is_authenticated%}
 
         <!-- watch list -->
-        <div class="container my-1 py-1">
+        {% if user.is_authenticated%}
+            <div class="container my-1 py-1">
 
-            <!-- Section: Block Content -->
-            <section>
+                <!-- Section: Block Content -->
+                <section>
 
-                <h5 class=" font-weight-bold mb-4">نمادهای تحت نظر</h5>
-                <!--Grid row-->
-                <div class="row">
+                    <h5 class=" font-weight-bold mb-4">نمادهای تحت نظر</h5>
+                    <!--Grid row-->
+                    <div class="row">
 
-                    {% for target in targets %}
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <a href="{% url 'bourseapp:company-detail' target.id%}">
+                        {% for target in targets %}
+                            <!--Grid column-->
+                            <div class="col-lg-3 col-md-6 mb-4">
+                                <a href="{% url 'bourseapp:company-detail' target.id%}">
 
-                                <div class="media white z-depth-1 rounded">
-                                    <div class="media-body p-1">
-                                        <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
-                                        <h5 class="font-weight-bold mb-0">{{ target.symbol }}</h5>
+                                    <div class="media white z-depth-1 rounded">
+                                        <div class="media-body p-1">
+                                            <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
+                                            <h5 class="font-weight-bold mb-0">{{ target.symbol }}</h5>
+                                        </div>
+                                        {% if target.pic %}
+                                            <img src="{{ target.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
+                                        {% else %}
+                                            <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
+                                        {% endif %}
                                     </div>
-                                    {% if target.pic %}
-                                        <img src="{{ target.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
-                                    {% else %}
-                                        <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
-                                    {% endif %}
-                                </div>
 
-                            </a>
-                        </div>
-                        <!--Grid column-->
-                    {% endfor %}
-                </div>
-                <!--Grid row-->
+                                </a>
+                            </div>
+                            <!--Grid column-->
+                        {% endfor %}
+                    </div>
+                    <!--Grid row-->
 
-            </section>
-            <!-- Section: Block Content -->
+                </section>
+                <!-- Section: Block Content -->
 
 
-        </div>
+            </div>
+        {% endif %}
+
 
         <!-- last news -->
         <div class="container my-5">
@@ -118,129 +119,130 @@
         </div>
 
         <!-- analysis list -->
-        <div class="row">
+        {% if user.is_authenticated%}
+            <div class="row">
 
-            <!-- technical -->
-            <div class="col-sm mt-1">
-                <!--Section: Content-->
-                <section>
+                <!-- technical -->
+                <div class="col-sm mt-1">
+                    <!--Section: Content-->
+                    <section>
 
-                    <div class="card">
-                        <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
 
-                            <h5 class="text-center font-weight-bold mb-4">آخرین تحلیل های تکنیکال</h5>
+                                <h5 class="text-center font-weight-bold mb-4">آخرین تحلیل های تکنیکال</h5>
 
-                            <hr>
+                                <hr>
 
-                            <!--Grid row-->
-                            <div class="row">
+                                <!--Grid row-->
+                                <div class="row">
 
-                                <!--Grid column-->
-                                <div class="col-12 mb-3 mx-auto">
+                                    <!--Grid column-->
+                                    <div class="col-12 mb-3 mx-auto">
 
-                                    {% for technical in technicals %}
-                                        <div class="media">
-                                            {% if technical.pic %}
-                                                <img class="d-flex mr-3" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: contain">
-                                            {% else %}
-                                                <i class="fa fa-analytics fa-lg p-1 rounded mr-3" style="color: #0d5bdd"></i>
-{#                                                <img class="d-flex mr-3" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: contain">#}
+                                        {% for technical in technicals %}
+                                            <div class="media">
+                                                {% if technical.pic %}
+                                                    <img class="d-flex mr-3" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: contain">
+                                                {% else %}
+                                                    <i class="fa fa-analytics fa-lg p-1 rounded mr-3" style="color: #0d5bdd"></i>
+                                                    {#                                                <img class="d-flex mr-3" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: contain">#}
 
-                                            {% endif %}
-                                            <div class="media-body">
-                                                <h6 class="mt-1 font-weight-bold mr-3">
-                                                    <a href="{% url 'bourseapp:technical-detail' technical.id %}">{{ technical.title }}</a>
-                                                    <span class="badge badge-info  float-left ml-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                    <span class="badge badge-secondary  float-left ml-1"><small>{{ technical.user }}</small></span>
+                                                {% endif %}
+                                                <div class="media-body">
+                                                    <h6 class="mt-1 font-weight-bold mr-3">
+                                                        <a href="{% url 'bourseapp:technical-detail' technical.id %}">{{ technical.title }}</a>
+                                                        <span class="badge badge-info  float-left ml-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                        <span class="badge badge-secondary  float-left ml-1"><small>{{ technical.user }}</small></span>
 
-                                                </h6>
-                                                <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>
+                                                    </h6>
+                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>
 
+                                                </div>
                                             </div>
-                                        </div>
-                                        <hr>
-                                    {% endfor %}
+                                            <hr>
+                                        {% endfor %}
+
+                                    </div>
+                                    <!--Grid column-->
 
                                 </div>
-                                <!--Grid column-->
+                                <!--Grid row-->
+
+                                <hr>
+
+                                <p class="text-center mt-4 mb-1"><a href="{% url 'bourseapp:technical-list' %}">مشاهده تمامی تحلیل ها</a></p>
 
                             </div>
-                            <!--Grid row-->
-
-                            <hr>
-
-                            <p class="text-center mt-4 mb-1"><a href="{% url 'bourseapp:technical-list' %}">مشاهده تمامی تحلیل ها</a></p>
-
                         </div>
-                    </div>
 
-                </section>
-                <!--Section: Content-->
-            </div>
+                    </section>
+                    <!--Section: Content-->
+                </div>
 
-            <!-- fundamental -->
-            <div class="col-sm mt-1">
-                <!--Section: Content-->
-                <section>
+                <!-- fundamental -->
+                <div class="col-sm mt-1">
+                    <!--Section: Content-->
+                    <section>
 
-                    <div class="card">
-                        <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
 
-                            <h5 class="text-center font-weight-bold mb-4">آخرین تحلیل های بنیادی</h5>
+                                <h5 class="text-center font-weight-bold mb-4">آخرین تحلیل های بنیادی</h5>
 
-                            <hr>
+                                <hr>
 
-                            <!--Grid row-->
-                            <div class="row">
+                                <!--Grid row-->
+                                <div class="row">
 
-                                <!--Grid column-->
-                                <div class="col-12 mb-3 mx-auto">
+                                    <!--Grid column-->
+                                    <div class="col-12 mb-3 mx-auto">
 
-                                    {% for fundamental in fundamentals %}
-                                        <div class="media">
-                                            {% if fundamental.pic %}
-                                                <img class="d-flex mr-3" src="{{ fundamental.pic.url }}" alt="{{ fundamental.title }}" style="width: 70px; height: 70px; object-fit: contain">
-                                            {% else %}
-                                                <i class="far fa-book-open fa-lg p-1 rounded mr-3" style="color: #0d5bdd"></i>
-{#                                                <img class="d-flex mr-3" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: contain">#}
+                                        {% for fundamental in fundamentals %}
+                                            <div class="media">
+                                                {% if fundamental.pic %}
+                                                    <img class="d-flex mr-3" src="{{ fundamental.pic.url }}" alt="{{ fundamental.title }}" style="width: 70px; height: 70px; object-fit: contain">
+                                                {% else %}
+                                                    <i class="far fa-book-open fa-lg p-1 rounded mr-3" style="color: #0d5bdd"></i>
+                                                    {#                                                <img class="d-flex mr-3" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: contain">#}
 
-                                            {% endif %}
-                                            <div class="media-body">
-                                                <h6 class="mt-1 font-weight-bold mr-3">
-                                                    <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">{{ fundamental.title }}</a>
-                                                    <span class="badge badge-info  float-left ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                    <span class="badge badge-secondary  float-left ml-1"><small>{{ fundamental.user }}</small></span>
+                                                {% endif %}
+                                                <div class="media-body">
+                                                    <h6 class="mt-1 font-weight-bold mr-3">
+                                                        <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">{{ fundamental.title }}</a>
+                                                        <span class="badge badge-info  float-left ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                        <span class="badge badge-secondary  float-left ml-1"><small>{{ fundamental.user }}</small></span>
 
-                                                </h6>
-                                                <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>
+                                                    </h6>
+                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>
 
+                                                </div>
                                             </div>
-                                        </div>
-                                        <hr>
-                                    {% endfor %}
+                                            <hr>
+                                        {% endfor %}
+
+                                    </div>
+                                    <!--Grid column-->
 
                                 </div>
-                                <!--Grid column-->
+                                <!--Grid row-->
+
+                                <hr>
+
+                                <p class="text-center mt-4 mb-1"><a href="{% url 'bourseapp:fundamental-list' %}">مشاهده تمامی تحلیل ها</a></p>
 
                             </div>
-                            <!--Grid row-->
-
-                            <hr>
-
-                            <p class="text-center mt-4 mb-1"><a href="{% url 'bourseapp:fundamental-list' %}">مشاهده تمامی تحلیل ها</a></p>
-
                         </div>
-                    </div>
 
-                </section>
-                <!--Section: Content-->
+                    </section>
+                    <!--Section: Content-->
+                </div>
+
             </div>
+        {% endif %}
 
-        </div>
-
-    {% else %}
-
-        <div class="container my-5 px-0 z-depth-1">
+        <!-- old login redirect page -->
+        <div class=" d-none container my-5 px-0 z-depth-1">
 
             <!--Section: Content-->
             <section class="p-5 my-md-5 text-center"
@@ -289,8 +291,7 @@
 
         </div>
 
-    {% endif %}
-
+{##}
 <!-- end of body block -->
 {% endblock %}
 
