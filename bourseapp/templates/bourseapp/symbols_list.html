@@ -21,6 +21,7 @@
     </div>
 
     <div class="row mx-0">
+
         <!-- categories -->
         <div class="col-4">
 
@@ -149,6 +150,7 @@
                                 <th class="d-none" scope="col">توضیحات</th>
                                 <th scope="col">tse</th>
                                 <th scope="col">وبسایت</th>
+                                <th scope="col"><i class="fas fa-eye"></i></th>
                                 <th class="d-none" scope="col">تصویر</th>
                             </tr>
                             </thead>
@@ -168,6 +170,11 @@
                                     <td class="d-none">{{ company.description }}</td>
                                     <td class=""><a href="{{ company.tse }}" target="_blank">tse</a></td>
                                     <td class=""><a href="{{ company.site }}" target="_blank"><i class="fa fa-link"></i></a></td>
+                                    <td class="">
+                                        {% if company.isTarget %}
+                                            <i class="fa fa-star" style="color: #ffc400"></i>
+                                        {% endif %}
+                                    </td>
                                     {% if company.pic %}
                                         <td class="d-none" ><a href="{{ company.pic.url }}"><i class="fa fa-image"></i></a></td>
                                     {% else %}

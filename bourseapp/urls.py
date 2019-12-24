@@ -26,7 +26,4 @@ urlpatterns = [
     url(r'^fundamental-list/$', views.fundamental_list, name='fundamental-list'),
     url(r'^(?P<fundamental_id>[0-9]+)/fundamental-detail/$', views.fundamental_detail, name='fundamental-detail'),
 
-    # targets urls
-    url(r'^targets-list/$', views.targets_list, name='targets-list'),
-
 ]

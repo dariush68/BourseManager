@@ -37,7 +37,7 @@ def index(request):
     news = models.News.objects.all()[0:10]
     technicals = models.Technical.objects.all()[0:10]
     fundamentals = models.Fundamental.objects.all()[0:10]
-    targets = models.Targets.objects.all()
+    targets = models.Company.objects.filter(isTarget=True)
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
@@ -183,32 +183,6 @@ def fundamental_list(request):
 
     return render(request, 'bourseapp/fundamental_list.html', {
         'fundamentals': fundamentals,
-        'search': search,
-        'page_size': page_size
-    })
-
-
-# @user_passes_test(lambda u: u.is_superuser)
-@login_required
-def targets_list(request):
-    page = request.GET.get('page', 1)
-    page_size = request.GET.get('page-size', 10)
-    search = request.GET.get('search', '')
-
-    targets = models.Targets.objects.filter(Q(company__symbol__icontains=search)
-                                      | Q(createAt__icontains=search)
-                                      | Q(description__icontains=search)
-                                      )
-    paginator = Paginator(targets, page_size)
-    try:
-        targets = paginator.page(page)
-    except PageNotAnInteger:
-        targets = paginator.page(1)
-    except EmptyPage:
-        targets = paginator.page(paginator.num_pages)
-
-    return render(request, 'bourseapp/targets_list.html', {
-        'targets': targets,
         'search': search,
         'page_size': page_size
     })
