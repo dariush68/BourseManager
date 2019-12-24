@@ -35,12 +35,16 @@ def index(request):
     # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
     news = models.News.objects.all()[0:10]
+    technicals = models.Technical.objects.all()[0:10]
+    fundamentals = models.Fundamental.objects.all()[0:10]
     targets = models.Targets.objects.all()
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
         'news': news,
         'targets': targets,
+        'technicals': technicals,
+        'fundamentals': fundamentals,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
@@ -72,7 +76,8 @@ def category_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+@login_required
+# @user_passes_test(lambda u: u.is_superuser)
 def company_list(request):
     search = request.GET.get('search', '')
     category_id = request.GET.get('category_id', -1)
@@ -102,7 +107,8 @@ def company_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def new_list(request):
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
@@ -130,7 +136,8 @@ def new_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def technical_list(request):
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
@@ -155,7 +162,8 @@ def technical_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def fundamental_list(request):
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
@@ -180,7 +188,8 @@ def fundamental_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def targets_list(request):
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
@@ -235,7 +244,8 @@ def category_detail(request, category_id):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def company_detail(request, company_id):
     company = get_object_or_404(models.Company, pk=company_id)
     news = models.News.objects.filter(company=company.id)
@@ -249,7 +259,8 @@ def company_detail(request, company_id):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def news_detail(request, news_id):
     news = get_object_or_404(models.News, pk=news_id)
     return render(request, 'bourseapp/news_detail.html', {
@@ -257,7 +268,8 @@ def news_detail(request, news_id):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def technical_detail(request, technical_id):
     technical = get_object_or_404(models.Technical, pk=technical_id)
     return render(request, 'bourseapp/technical_detail.html', {
@@ -265,7 +277,8 @@ def technical_detail(request, technical_id):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def fundamental_detail(request, fundamental_id):
     fundamental = get_object_or_404(models.Fundamental, pk=fundamental_id)
     return render(request, 'bourseapp/fundamental_detail.html', {
