@@ -25,11 +25,13 @@
         <div class="col-4">
 
             <!-- new/delete/edit buttons -->
-            <div class="text-center">
-                <a href="{% url 'admin:bourseapp_category_add' %}?user={{ user.id }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
-                <a id="category-edit" href="{% url 'admin:bourseapp_category_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm d-none"><i class="fas fa-edit mr-1"></i> ویرایش</a>
-                <a id="category-delete" href="{% url 'admin:bourseapp_category_delete' 1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-danger btn-sm d-none"><i class="fas fa-trash mr-1"></i> حذف</a>
-            </div>
+            {% if request.user.is_superuser %}
+                <div class="text-center">
+                    <a href="{% url 'admin:bourseapp_category_add' %}?user={{ user.id }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
+                    <a id="category-edit" href="{% url 'admin:bourseapp_category_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm d-none"><i class="fas fa-edit mr-1"></i> ویرایش</a>
+                    <a id="category-delete" href="{% url 'admin:bourseapp_category_delete' 1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-danger btn-sm d-none"><i class="fas fa-trash mr-1"></i> حذف</a>
+                </div>
+            {% endif %}
 
 
             <!-- PAGE SIZE/ search -->
@@ -59,8 +61,10 @@
                                 <th class="d-none" scope="col">تاریخ</th>
                                 <th class="d-none" scope="col">توضیحات</th>
                                 <th class="d-none" scope="col">تصویر</th>
-                                <th class="" scope="col"></th>
-                                <th class="" scope="col"></th>
+                                {% if request.user.is_superuser %}
+                                    <th class="" scope="col"></th>
+                                    <th class="" scope="col"></th>
+                                {% endif %}
                             </tr>
                             </thead>
                             <tbody id="list-category">
@@ -80,12 +84,14 @@
                                         <td class="d-none" ><a href="#"></a></td>
 
                                     {% endif %}
-                                    <td>
-                                        <a href="{% url 'admin:bourseapp_category_change' category.id %}"><i class="fa fa-edit" style="color: #0d5bdd"></i></a>
-                                    </td>
-                                    <td>
-                                        <a href="{% url 'admin:bourseapp_category_delete' category.id %}"><i class="fa fa-trash" style="color: #9f105c"></i></a>
-                                    </td>
+                                    {% if request.user.is_superuser %}
+                                        <td>
+                                            <a href="{% url 'admin:bourseapp_category_change' category.id %}"><i class="fa fa-edit" style="color: #0d5bdd"></i></a>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'admin:bourseapp_category_delete' category.id %}"><i class="fa fa-trash" style="color: #9f105c"></i></a>
+                                        </td>
+                                    {% endif %}
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -101,11 +107,13 @@
         <div class="col-8">
 
             <!-- new/delete/edit buttons -->
-            <div class="text-center">
-                <a href="{% url 'admin:bourseapp_company_add' %}?category={{ request.GET.category_id }}&user={{ user.id }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
-                <a id="company-edit" href="{% url 'admin:bourseapp_company_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm"><i class="fas fa-edit mr-1"></i> ویرایش</a>
-                <a id="company-delete" href="{% url 'admin:bourseapp_company_delete' 1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-danger btn-sm"><i class="fas fa-trash mr-1"></i> حذف</a>
-            </div>
+            {% if request.user.is_superuser %}
+                <div class="text-center">
+                    <a href="{% url 'admin:bourseapp_company_add' %}?category={{ request.GET.category_id }}&user={{ user.id }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
+                    <a id="company-edit" href="{% url 'admin:bourseapp_company_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm"><i class="fas fa-edit mr-1"></i> ویرایش</a>
+                    <a id="company-delete" href="{% url 'admin:bourseapp_company_delete' 1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-danger btn-sm"><i class="fas fa-trash mr-1"></i> حذف</a>
+                </div>
+            {% endif %}
 
             <!-- PAGE SIZE/ search -->
             <div class="container">

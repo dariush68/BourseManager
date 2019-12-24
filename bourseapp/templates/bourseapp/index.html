@@ -2,6 +2,7 @@
 {% extends 'bourseapp/base.html' %}
 {% load humanize %}
 {% load jalali_tags %}
+{% load auth_extras %}
 {% block title %}
     <title>بورس | خانه</title>
 {% endblock %}
@@ -16,6 +17,47 @@
 
     <!-- auth checking -->
     {% if user.is_authenticated%}
+
+        <!-- watch list -->
+        <div class="container my-1 py-1">
+
+            <!-- Section: Block Content -->
+            <section>
+
+                <h5 class=" font-weight-bold mb-4">نمادهای تحت نظر</h5>
+                <!--Grid row-->
+                <div class="row">
+
+                    {% for target in targets %}
+                        <!--Grid column-->
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <a href="{% url 'bourseapp:company-detail' target.company.id%}">
+
+                                <div class="media white z-depth-1 rounded">
+                                    <div class="media-body p-1">
+                                        <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
+                                        <h5 class="font-weight-bold mb-0">{{ target.company.symbol }}</h5>
+                                    </div>
+                                    {% if target.company.pic %}
+                                        <img src="{{ target.company.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
+                                    {% else %}
+                                        <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
+                                    {% endif %}
+                                </div>
+
+                            </a>
+                        </div>
+                        <!--Grid column-->
+                    {% endfor %}
+                </div>
+                <!--Grid row-->
+
+            </section>
+            <!-- Section: Block Content -->
+
+
+        </div>
+
 
         <div class="row">
 
@@ -135,6 +177,7 @@
     {% else %}
 
         <div class="container my-5 px-0 z-depth-1">
+
             <!--Section: Content-->
             <section class="p-5 my-md-5 text-center"
                      style="background-image: url({% static 'bourseapp/images/back.jpg' %}); background-size: cover; background-position: center center;">
@@ -180,10 +223,7 @@
             </section>
             <!--Section: Content-->
 
-
         </div>
-
-
 
     {% endif %}
 
