@@ -35,12 +35,16 @@ def index(request):
     # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
     news = models.News.objects.all()[0:10]
+    technicals = models.Technical.objects.all()[0:10]
+    fundamentals = models.Fundamental.objects.all()[0:10]
     targets = models.Targets.objects.all()
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
         'news': news,
         'targets': targets,
+        'technicals': technicals,
+        'fundamentals': fundamentals,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
