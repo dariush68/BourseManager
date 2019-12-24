@@ -31,15 +31,15 @@
                     {% for target in targets %}
                         <!--Grid column-->
                         <div class="col-lg-3 col-md-6 mb-4">
-                            <a href="{% url 'bourseapp:company-detail' target.company.id%}">
+                            <a href="{% url 'bourseapp:company-detail' target.id%}">
 
                                 <div class="media white z-depth-1 rounded">
                                     <div class="media-body p-1">
                                         <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
-                                        <h5 class="font-weight-bold mb-0">{{ target.company.symbol }}</h5>
+                                        <h5 class="font-weight-bold mb-0">{{ target.symbol }}</h5>
                                     </div>
-                                    {% if target.company.pic %}
-                                        <img src="{{ target.company.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
+                                    {% if target.pic %}
+                                        <img src="{{ target.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
                                     {% else %}
                                         <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
                                     {% endif %}
@@ -89,6 +89,7 @@
                                                 <a href="{% url 'bourseapp:news-detail' new.id %}">{{ new.title }}</a>
                                                 <a href="{{ new.reference }}" target="_blank"><span class="badge badge-default float-left">منبع</span></a>
                                                 <span class="badge badge-info  float-left ml-1">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                <span class="badge badge-secondary  float-left ml-1"><small>{{ new.user }}</small></span>
 
                                             </h6>
                                             <p class="text-muted mr-3" >{{ new.description|truncatechars:100 }}</p>
