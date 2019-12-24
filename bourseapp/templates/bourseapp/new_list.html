@@ -91,7 +91,13 @@
                             <input class="newsId" type="hidden" dataId={{ news.id }}>
                             <th scope="row" >{{ forloop.counter }}</th>
                             <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
-                            <td class="" >{{ news.company.symbol }}</td>
+                            {% if news.category %}
+                                <td class="" >{{ news.category.title }}</td>
+                            {% elif news.company %}
+                                <td class="" >{{ news.company.symbol }}</td>
+                            {% else %}
+                                <td class="" ></td>
+                            {% endif %}
                             <td class=""><a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"></i></a></td>
                             <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
                             <td class="">{{ news.description | truncatechars:60 }}</td>
