@@ -86,10 +86,17 @@
                                         {% endif %}
                                         <div class="media-body">
                                             <h6 class="mt-1 font-weight-bold mr-3">
-                                                <a href="{% url 'bourseapp:news-detail' new.id %}">{{ new.title }}</a>
+                                                <a href="{% url 'bourseapp:news-detail' new.id %}">
+                                                    {{ new.title }}
+                                                    {% if new.createAt|is_past_due:new.createAt %}
+                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                    {% endif %}
+                                                </a>
                                                 <a href="{{ new.reference }}" target="_blank"><span class="badge badge-default float-left">منبع</span></a>
                                                 <span class="badge badge-info  float-left ml-1">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                 <span class="badge badge-secondary  float-left ml-1"><small>{{ new.user }}</small></span>
+
+
 
                                             </h6>
                                             <p class="text-muted mr-3" >{{ new.description|truncatechars:100 }}</p>
@@ -150,7 +157,12 @@
                                                 {% endif %}
                                                 <div class="media-body">
                                                     <h6 class="mt-1 font-weight-bold mr-3">
-                                                        <a href="{% url 'bourseapp:technical-detail' technical.id %}">{{ technical.title }}</a>
+                                                        <a href="{% url 'bourseapp:technical-detail' technical.id %}">
+                                                            {{ technical.title }}
+                                                            {% if technical.createAt|is_past_due:technical.createAt %}
+                                                                <i class="fa fa-star" style="color: #ffc400"></i>
+                                                            {% endif %}
+                                                        </a>
                                                         <span class="badge badge-info  float-left ml-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                         <span class="badge badge-secondary  float-left ml-1"><small>{{ technical.user }}</small></span>
 
@@ -208,7 +220,12 @@
                                                 {% endif %}
                                                 <div class="media-body">
                                                     <h6 class="mt-1 font-weight-bold mr-3">
-                                                        <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">{{ fundamental.title }}</a>
+                                                        <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">
+                                                            {{ fundamental.title }}
+                                                            {% if fundamental.createAt|is_past_due:fundamental.createAt %}
+                                                                <i class="fa fa-star" style="color: #ffc400"></i>
+                                                            {% endif %}
+                                                        </a>
                                                         <span class="badge badge-info  float-left ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                         <span class="badge badge-secondary  float-left ml-1"><small>{{ fundamental.user }}</small></span>
 
