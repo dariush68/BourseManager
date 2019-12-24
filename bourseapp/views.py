@@ -210,9 +210,12 @@ def category_detail(request, category_id):
     except EmptyPage:
         companies = paginator.page(paginator.num_pages)
 
+    news = models.News.objects.filter(category=category_id)
+
     return render(request, 'bourseapp/category_detail.html', {
         'category': category,
         'companies': companies,
+        'news': news,
         'search': search,
         'page_size': page_size
     })
