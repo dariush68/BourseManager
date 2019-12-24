@@ -55,7 +55,8 @@ class Company(models.Model):
 
 class News(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, help_text='کاربر')
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
+    category = models.ForeignKey(Category, null=True, blank=True,  on_delete=models.CASCADE, help_text='در صورت اختصاص خبر برای گروه انتخاب شود')
+    company = models.ForeignKey(Company, null=True, blank=True,  on_delete=models.CASCADE, help_text='در صورت اختصاص خبر برای نماد انتخاب شود')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='گروه بورسی')
     reference = models.CharField(max_length=120, null=True, blank=True, help_text='مرجع')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
