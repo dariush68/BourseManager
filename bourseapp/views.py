@@ -41,6 +41,7 @@ def index(request):
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
+    # return render(request, 'bourseapp/test.html', {
         'news': news,
         'targets': targets,
         'technicals': technicals,
