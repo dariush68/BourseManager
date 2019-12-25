@@ -41,6 +41,7 @@ def index(request):
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
+    # return render(request, 'bourseapp/test.html', {
         'news': news,
         'targets': targets,
         'technicals': technicals,
@@ -237,7 +238,7 @@ def company_detail(request, company_id):
 
 
 # @user_passes_test(lambda u: u.is_superuser)
-@login_required
+# @login_required
 def news_detail(request, news_id):
     news = get_object_or_404(models.News, pk=news_id)
     return render(request, 'bourseapp/news_detail.html', {
