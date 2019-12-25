@@ -16,6 +16,8 @@
     <!-- Material Design Bootstrap table -->
     <link rel="stylesheet" href="{% static 'bourseapp/css/addons/datatables-select.min.css' %}"><!-- MDBootstrap Datatables  -->
 
+    <button onclick="loadSymbols()">load</button>
+
     <div class="alert alert-primary" role="alert">
         گروه ها
     </div>
@@ -69,6 +71,18 @@
                             </tr>
                             </thead>
                             <tbody id="list-category">
+
+                            <tr>
+                                <input class="categoryId" type="hidden" dataId="-2">
+                                <th scope="row" ></th>
+                                <td class="category-symbol" >
+                                    همه گروها
+                                </td>
+                                {% if request.user.is_superuser %}
+                                    <td></td>
+                                    <td></td>
+                                {% endif %}
+                            </tr>
                             {% for category in categories %}
                                 <tr>
                                     <input class="categoryId" type="hidden" dataId={{ category.id }}>
@@ -196,6 +210,9 @@
 
     <!-- base url address -->
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
+    <input type="hidden" id="url-symbol" data-url="{% url 'api-bourseapp:symbols-view' %}" />
+
+    <h1>{% url 'api-bourseapp:symbols-view' %}</h1>
 
     <!-- selected category id -->
 {#    <input type="hidden" id="category-selected-id" selected-id="-1">#}
@@ -250,16 +267,22 @@
             $(this).addClass('table-primary').siblings().removeClass('table-primary');
             var value=$(this).find('input.categoryId').attr("dataId");
 
-            var url_mask_edit = "{% url 'admin:bourseapp_category_change' 12345 %}".replace(/12345/, value.toString());
-            $("#category-edit").attr("href", url_mask_edit);
+            if (value == "-2"){
 
-            var url_mask_delete = "{% url 'admin:bourseapp_category_delete' 12345 %}".replace(/12345/, value.toString());
-            $("#category-delete").attr("href", url_mask_delete)
+            }
+            else{
 
-            let srchterm = $("#search-category").val();
-            let tag_a = document.getElementById("category-search-link");
-            tag_a.href = "?search-category=" + srchterm + "&category_id=" + value;
-            tag_a.click();
+                var url_mask_edit = "{% url 'admin:bourseapp_category_change' 12345 %}".replace(/12345/, value.toString());
+                $("#category-edit").attr("href", url_mask_edit);
+
+                var url_mask_delete = "{% url 'admin:bourseapp_category_delete' 12345 %}".replace(/12345/, value.toString());
+                $("#category-delete").attr("href", url_mask_delete)
+
+                let srchterm = $("#search-category").val();
+                let tag_a = document.getElementById("category-search-link");
+                tag_a.href = "?search-category=" + srchterm + "&category_id=" + value;
+                tag_a.click();
+            }
 
         });
 
@@ -304,6 +327,8 @@
             }
         });
     </script>
+
+    <script src="{% static 'bourseapp/js/symbol_list.js' %}"></script>
 
 
 {% endblock %}

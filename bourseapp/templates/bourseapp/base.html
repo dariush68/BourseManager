@@ -348,6 +348,7 @@
 
     <!-- hidden url params to send to js -->
     <input type="hidden" id="url-home" data-url="{% url 'bourseapp:index' %}" />
+    <input type="hidden" id="url-symbol" data-url="{% url 'api-bourseapp:symbols-view' %}" />
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
 
 
