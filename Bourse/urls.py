@@ -10,6 +10,9 @@ urlpatterns = [
     # website urls
     url(r'^', include('bourseapp.urls')),
 
+    # api urls
+    url(r'^api/bourse/', include(('bourseapp.api.urls', 'api-bourseapp'), namespace='api-bourseapp')),
+
     # Add Django site authentication urls (for login, logout, password management)
     # accounts/ login/ [name='login']
     # accounts/ logout/ [name='logout']
