@@ -91,4 +91,10 @@ class SymbolsAPIView(mixins.CreateModelMixin, generics.ListAPIView):
                 # | Q(pic__icontains=query)
             ).distinct()
 
+        query_category = self.request.GET.get("c")
+        if query_category is not None:
+            qs = qs.filter(
+                Q(category=query_category)
+            ).distinct()
+
         return qs
