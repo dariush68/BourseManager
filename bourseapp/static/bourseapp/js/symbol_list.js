@@ -12,14 +12,19 @@ function loadSymbols(selectedCat = -1) {
     let searchedText = $("#search-company").val();
 
 
-    if(searchedText == "" && selectedCat == "-2"){
+    if(searchedText == "" && selectedCat == "-1"){
         return;
     }
     var query;
     // alert(selectedCat)
-    if(selectedCat == "-2"){
+    if(selectedCat == "-1"){
         query = {
             'q': searchedText,
+        }
+    }
+    else if(searchedText == ""){
+        query = {
+            'c': selectedCat,
         }
     }
     else{
