@@ -52,6 +52,7 @@ class SymbolSerializer(serializers.ModelSerializer):  # forms.ModelForm
             'tse',
             'site',
             'isTarget',
+            'category',
         ]
         read_only_fields = ['id', 'symbol', 'fullName', 'bourseType', 'tse', 'site', 'isTarget']
 
