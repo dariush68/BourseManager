@@ -24,7 +24,8 @@
     <!-- new/delete/edit buttons -->
     {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"level2" %}
         <div class="text-center">
-          <a href="{% url 'admin:bourseapp_news_add' %}?next={{ request.path|urlencode }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
+{#          <a href="{% url 'admin:bourseapp_news_add' %}?user={{ user.id }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>#}
+          <a href="{% url 'bourseapp:news-create' %}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
           <a id="news-edit" href="{% url 'admin:bourseapp_news_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm"><i class="fas fa-edit mr-1"></i> ویرایش</a>
           <a id="news-delete" href="{% url 'admin:bourseapp_news_delete' 1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-danger btn-sm"><i class="fas fa-trash mr-1"></i> حذف</a>
         </div>

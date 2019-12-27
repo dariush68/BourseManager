@@ -268,7 +268,8 @@
                     <hr>
 
                     {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"level2" %}
-                        <p class="text-center mt-4 mb-1"><a href="{% url 'admin:bourseapp_news_add' %}?next={{ request.path|urlencode }}&category={{ category.id }}&user={{ user.id }}">افزودن خبر</a></p>
+{#                        <p class="text-center mt-4 mb-1"><a href="{% url 'admin:bourseapp_news_add' %}?next={{ request.path|urlencode }}&category={{ category.id }}&user={{ user.id }}">افزودن خبر</a></p>#}
+                        <p class="text-center mt-4 mb-1"><a href="{% url 'bourseapp:news-create' %}?next={{ request.path|urlencode }}&category={{ category.id }}">افزودن خبر</a></p>
                     {% endif %}
                 </div>
             </div>
