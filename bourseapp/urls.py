@@ -16,7 +16,9 @@ urlpatterns = [
 
     # new urls
     url(r'^news-list/$', views.new_list, name='news-list'),
+    url(r'^news-create/$', views.news_create, name='news-create'),
     url(r'^(?P<news_id>[0-9]+)/news-detail/$', views.news_detail, name='news-detail'),
+    # path('create', views.ContactCreate.as_view(), name='contact_create'),
 
     # technical urls
     url(r'^technical-list/$', views.technical_list, name='technical-list'),

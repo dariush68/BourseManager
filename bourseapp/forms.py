@@ -1,7 +1,10 @@
 from django import forms
+from jalali_date.fields import JalaliDateField, SplitJalaliDateTimeField
+from jalali_date.widgets import AdminJalaliDateWidget
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import password_validation
+from bourseapp.models import *
 
 
 class SignUpForm(UserCreationForm):
@@ -26,3 +29,23 @@ class SignUpForm(UserCreationForm):
         labels = {
             'username': 'نام کاربری',
         }
+
+
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model = News
+        fields = '__all__'
+        exclude = ["user", "category", "company"]
+        labels = {
+            'title': 'عنوان',
+            'tag': 'تگ',
+            'description': 'توضیحات',
+            'reference': 'آدر مرجع',
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(NewsForm, self).__init__(*args, **kwargs)
+        self.fields['createAt'] = JalaliDateField(label='تاریخ',  # date format is  "yyyy-mm-dd"
+                                                  widget=AdminJalaliDateWidget  # optional, to use default datepicker
+                                                  )
+

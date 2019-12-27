@@ -27,7 +27,7 @@ from jalali_date import datetime2jalali, date2jalali
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
-from bourseapp.forms import SignUpForm
+from bourseapp.forms import SignUpForm, NewsForm
 
 
 # first page
@@ -133,6 +133,32 @@ def new_list(request):
         'newss': news,
         'search': search,
         'page_size': page_size
+    })
+
+
+def news_create(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            candidate = form.save(commit=False)
+            candidate.user = User.objects.get(id=request.user.id)  # use your own profile here
+            cat = str(request.POST.get('category'))
+            comp = str(request.POST.get('company'))
+            if (cat != 'None'):
+                candidate.category = models.Category.objects.get(id=request.POST.get('category'))  # use your own profile here
+            if (comp != 'None'):
+                candidate.company = models.Company.objects.get(id=request.POST.get('company'))  # use your own profile here
+
+            candidate.save()
+            return render(request, 'bourseapp/new_list.html')
+    else:
+        form = NewsForm()
+    category = request.GET.get('category')
+    company = request.GET.get('company')
+    return render(request, 'bourseapp/news/news-create.html', {
+        'form': form,
+        'category': category,
+        'company': company,
     })
 
 
