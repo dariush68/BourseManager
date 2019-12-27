@@ -26,4 +26,8 @@ urlpatterns = [
     url(r'^fundamental-list/$', views.fundamental_list, name='fundamental-list'),
     url(r'^(?P<fundamental_id>[0-9]+)/fundamental-detail/$', views.fundamental_detail, name='fundamental-detail'),
 
+    # tutorial urls
+    url(r'^tutorial-list/$', views.tutorial_list, name='tutorial-list'),
+    url(r'^(?P<tutorial_id>[0-9]+)/tutorial-detail/$', views.tutorial_detail, name='tutorial-detail'),
+
 ]
