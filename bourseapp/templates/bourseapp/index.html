@@ -97,19 +97,20 @@
                                     {% for new in news %}
 
                                         <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
-                                            {{ new.title }}
-                                            (
-                                            {% if new.company %}
-                                                {{ new.company.symbol }}
-                                            {% elif new.category %}
-                                                {{ new.category.title }}
-                                            {% endif %}
-                                            )
-                                            {% if new.createAt|is_past_due:new.createAt %}
-                                                <i class="fa fa-star" style="color: #ffc400"></i>
-                                            {% endif %}
+                                            <p class="small"> {{ new.title }}
+                                                (
+                                                {% if new.company %}
+                                                    {{ new.company.symbol }}
+                                                {% elif new.category %}
+                                                    {{ new.category.title }}
+                                                {% endif %}
+                                                )
+                                                {% if new.createAt|is_past_due:new.createAt %}
+                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                {% endif %}
 
-                                            <span class="small badge badge-success badge-pill text-left">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                            </p>
                                         </a>
                                     {% endfor %}
                                     <a href="{% url 'bourseapp:news-list' %}" class="list-group-item list-group-item-action waves-effect text-center">
