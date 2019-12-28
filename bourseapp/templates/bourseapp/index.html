@@ -174,11 +174,6 @@
                                                                 <div class="media-body">
                                                                     <h6 class="mt-1 font-weight-bold mr-3">
                                                                         <a href="{% url 'bourseapp:technical-detail' technical.id %}">
-                                                                            {% if technical.company %}
-                                                                                {{ technical.company.symbol }} -
-                                                                            {% elif technical.category %}
-                                                                                {{ technical.category.title }} -
-                                                                            {% endif %}
 
                                                                             {{ technical.title }}
                                                                             {% if technical.createAt|is_past_due:technical.createAt %}
@@ -189,11 +184,18 @@
                                                                                 <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                             {% endif %}
                                                                         </a>
-                                                                        <span class="badge badge-info  float-left ml-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                                        <span class="badge badge-secondary  float-left ml-1"><small>{{ technical.user }}</small></span>
 
                                                                     </h6>
-                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>
+                                                                    <span class="badge badge-default mr-1">
+                                                                        {% if technical.company %}
+                                                                            {{ technical.company.symbol }}
+                                                                        {% elif technical.category %}
+                                                                            {{ technical.category.title }}
+                                                                        {% endif %}
+                                                                    </span>
+                                                                    <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                    <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                    {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
 
                                                                 </div>
                                                             </div>
@@ -262,11 +264,18 @@
                                                                                 <a class="small" href="{% url 'admin:bourseapp_fundamental_change' fundamental.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                             {% endif %}
                                                                         </a>
-                                                                        <span class="badge badge-info  float-left ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                                        <span class="badge badge-secondary  float-left ml-1"><small>{{ fundamental.user }}</small></span>
 
                                                                     </h6>
-                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>
+                                                                    <span class="badge badge-default mr-1">
+                                                                        {% if fundamental.company %}
+                                                                            {{ fundamental.company.symbol }}
+                                                                        {% elif fundamental.category %}
+                                                                            {{ fundamental.category.title }}
+                                                                        {% endif %}
+                                                                    </span>
+                                                                    <span class="badge badge-info ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                    <span class="badge badge-secondary ml-1"><small>{{ fundamental.user }}</small></span>
+{#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>#}
 
                                                                 </div>
                                                             </div>
