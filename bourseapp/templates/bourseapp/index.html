@@ -61,13 +61,20 @@
                                                 <div class="media white z-depth-0 border rounded">
                                                     <div class="media-body p-1">
                                                         <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
-                                                        <h5 class="font-weight-bold mb-0">{{ target.symbol }}</h5>
+                                                        <h5 class="font-weight-bold mb-0">
+                                                            {{ target.symbol }}
+                                                            {% if user.is_authenticated%}
+                                                                <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                            {% endif %}
+                                                        </h5>
+
                                                     </div>
                                                     {% if target.pic %}
                                                         <img src="{{ target.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
                                                     {% else %}
                                                         <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
                                                     {% endif %}
+
                                                 </div>
 
                                             </a>
@@ -92,24 +99,27 @@
                             <div class="card-body">
 
                                 <!-- List group links -->
-                                <div class="list-group list-group-flush">
+                                <div class="list-group list-group-flush" style="margin: -20px">
 
                                     {% for new in news %}
 
                                         <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
-                                            {{ new.title }}
-                                            (
-                                            {% if new.company %}
-                                                {{ new.company.symbol }}
-                                            {% elif new.category %}
-                                                {{ new.category.title }}
-                                            {% endif %}
-                                            )
-                                            {% if new.createAt|is_past_due:new.createAt %}
-                                                <i class="fa fa-star" style="color: #ffc400"></i>
-                                            {% endif %}
+                                            <p class="small">
 
-                                            <span class="small badge badge-success badge-pill text-left">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+
+                                                {{ new.title }}
+                                                (
+                                                {% if new.company %}
+                                                    {{ new.company.symbol }}
+                                                {% elif new.category %}
+                                                    {{ new.category.title }}
+                                                {% endif %}
+                                                )
+                                                {% if new.createAt|is_past_due:new.createAt %}
+                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                {% endif %}
+                                            </p>
                                         </a>
                                     {% endfor %}
                                     <a href="{% url 'bourseapp:news-list' %}" class="list-group-item list-group-item-action waves-effect text-center">
@@ -156,10 +166,9 @@
                                                         {% for technical in technicals %}
                                                             <div class="media">
                                                                 {% if technical.pic %}
-                                                                    <img class="d-flex mr-3" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: contain">
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
                                                                 {% else %}
-                                                                    <i class="fa fa-analytics fa-lg p-1 rounded mr-3" style="color: #0d5bdd"></i>
-                                                                    {#                                                <img class="d-flex mr-3" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: contain">#}
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
 
                                                                 {% endif %}
                                                                 <div class="media-body">
@@ -174,6 +183,10 @@
                                                                             {{ technical.title }}
                                                                             {% if technical.createAt|is_past_due:technical.createAt %}
                                                                                 <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                            {% endif %}
+
+                                                                            {% if user.is_authenticated%}
+                                                                                <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                             {% endif %}
                                                                         </a>
                                                                         <span class="badge badge-info  float-left ml-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
@@ -225,10 +238,10 @@
                                                         {% for fundamental in fundamentals %}
                                                             <div class="media">
                                                                 {% if fundamental.pic %}
-                                                                    <img class="d-flex mr-3" src="{{ fundamental.pic.url }}" alt="{{ fundamental.title }}" style="width: 70px; height: 70px; object-fit: contain">
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{{ fundamental.pic.url }}" alt="{{ fundamental.title }}" style="width: 70px; height: 70px; object-fit: cover">
+
                                                                 {% else %}
-                                                                    <i class="far fa-book-open fa-lg p-1 rounded mr-3" style="color: #0d5bdd"></i>
-                                                                    {#                                                <img class="d-flex mr-3" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: contain">#}
+                                                                    <img class="d-flex mr-3  img-thumbnail" src="{% static 'bourseapp/images/fundamental-analysis.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
 
                                                                 {% endif %}
                                                                 <div class="media-body">
@@ -243,6 +256,10 @@
                                                                             {{ fundamental.title }}
                                                                             {% if fundamental.createAt|is_past_due:fundamental.createAt %}
                                                                                 <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                            {% endif %}
+
+                                                                            {% if user.is_authenticated%}
+                                                                                <a class="small" href="{% url 'admin:bourseapp_fundamental_change' fundamental.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                             {% endif %}
                                                                         </a>
                                                                         <span class="badge badge-info  float-left ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
