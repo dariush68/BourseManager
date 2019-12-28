@@ -17,50 +17,99 @@
     <!-- Material Design Bootstrap table -->
     <link rel="stylesheet" href="{% static 'bourseapp/css/addons/datatables-select.min.css' %}"><!-- MDBootstrap Datatables  -->
 
-    <!-- company info -->
-    <div class="container my-2 py-3 z-depth-1">
+    <!--header symbol info-->
+    <div class="container my-5">
 
         <!--Section: Content-->
-        <section class="px-md-5 mx-md-5 dark-grey-text text-center text-lg-left">
+        <section class="dark-grey-text text-center">
 
-            <!--Grid row-->
+            <h6 class="font-weight-normal text-uppercase font-small grey-text mb-4">{{ company.symbol }}</h6>
+            <h3 class="font-weight-bold black-text mb-4 pb-2">{{ company.fullName }}</h3>
+            <hr class="w-header">
+            <p class="lead text-muted mx-auto mt-4 pt-2 mb-5">{{ company.description }} ({{ company.bourseType }})</p>
+
+            <!--container-->
             <div class="row">
 
-                <!--Grid column-->
-                <div class="col-lg-6 mb-4 mb-lg-0 ">
+                <!--logo-->
+                <div class="col-md-3 mb-4">
 
-                    <h3 class="font-weight-bold text-right">{{ company.fullName }} ({{ company.symbol }})</h3>
+                    <!-- Card -->
+                    <a href="{{ company.pic.url }}" class="card hoverable" target="_blank">
 
-                    <p class="font-weight-bold text-right">{{ company.bourseType }}</p>
+                        <!-- Card content -->
+                        <div class="card-body my-4">
+                            <img src="{{ company.pic.url }}" alt="{{ company.symbol }}"style="height: 70px; object-fit: contain">
+                        </div>
 
-                    <p class="text-muted text-right">{{ company.description }}</p>
-
-                    <a href="{{ company.tse }}" target="_blank"><i class="fa fa-link"> TSE</i></a>
-                    <br>
-                    <a href="{{ company.site }}" target="_blank"><span class="badge badge-default float-left">وبسایت</span></a>
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-6 mb-4 mb-lg-0 d-flex align-items-center justify-content-center">
-
-                    {% if company.pic %}
-                        <img src="{{ company.pic.url }}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: contain">
-                    {% else %}
-                        <img src="{% static 'bourseapp/images/placeholder-company.png' %}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: contain">
-                    {% endif %}
+                    </a>
+                    <!-- Card -->
 
                 </div>
-                <!--Grid column-->
+
+                <!--tse-->
+                <div class="col-md-3 mb-4">
+
+                    <!-- Card -->
+                    <a href="{{ company.tse }}" class="card hoverable" target="_blank">
+
+                        <!-- Card content -->
+                        <div class="card-body my-4">
+
+                            <p><i class="fas fa-link fa-2x text-muted"></i></p>
+                            <h5 class="black-text mb-0">TSE</h5>
+
+                        </div>
+
+                    </a>
+                    <!-- Card -->
+
+                </div>
+
+                <!--web site-->
+                <div class="col-md-3 mb-4">
+
+                    <!-- Card -->
+                    <a href="{{ company.site }}" class="card hoverable" target="_blank">
+
+                        <!-- Card content -->
+                        <div class="card-body my-4">
+
+                            <p><i class="fas fa-external-link-alt fa-2x text-muted"></i></p>
+                            <h5 class="black-text mb-0">سایت</h5>
+
+                        </div>
+
+                    </a>
+                    <!-- Card -->
+
+                </div>
+
+                <!--Edit-->
+                <div class="col-md-3 mb-4">
+
+                    <!-- Card -->
+                    <a href="{% url 'admin:bourseapp_company_change' company.id %}" class="card hoverable" target="_blank">
+
+                        <!-- Card content -->
+                        <div class="card-body my-4">
+
+                            <p><i class="fas fa-edit fa-2x text-muted"></i></p>
+                            <h5 class="black-text mb-0">ویرایش</h5>
+
+                        </div>
+
+                    </a>
+                    <!-- Card -->
+
+                </div>
 
             </div>
-            <!--Grid row-->
-
 
         </section>
-        <!--Section: Content-->
 
     </div>
+
 
     <!-- news -->
     <div class="container my-5">
