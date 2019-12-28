@@ -249,11 +249,6 @@
                                                                 <div class="media-body">
                                                                     <h6 class="mt-1 font-weight-bold mr-3">
                                                                         <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">
-                                                                            {% if fundamental.company %}
-                                                                                {{ fundamental.company.symbol }} -
-                                                                            {% elif fundamental.category %}
-                                                                                {{ fundamental.category.title }} -
-                                                                            {% endif %}
 
                                                                             {{ fundamental.title }}
                                                                             {% if fundamental.createAt|is_past_due:fundamental.createAt %}
