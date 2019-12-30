@@ -1,3 +1,4 @@
+from Tools.scripts.objgraph import flat
 from django.db.models import Q
 # from drf_multiple_model.views import ObjectMultipleModelAPIView
 from django.contrib.auth.models import User
@@ -28,23 +29,33 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
 from bourseapp.forms import SignUpForm, NewsForm
+from django.db.models import Count
 
 
 # first page
 def index(request):
     # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
-    news = models.News.objects.all()[0:10]
-    technicals = models.Technical.objects.all()[0:10]
-    fundamentals = models.Fundamental.objects.all()[0:10]
+    news = models.News.objects.all()[0:20]
+    technicals = models.Technical.objects.all()#[0:10]
+    fundamentals = models.Fundamental.objects.all()[0:20]
     targets = models.Company.objects.filter(isTarget=True)
+
+    technical_proseced_list = []
+    technical_target_list = []
+    for itm in technicals:
+        if itm.company.id in technical_proseced_list:
+            pass
+        else:
+            technical_proseced_list.append(itm.company.id)
+            technical_target_list.append(itm)
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
         # return render(request, 'bourseapp/test.html', {
         'news': news,
         'targets': targets,
-        'technicals': technicals,
+        'technicals': technical_target_list[0:20],
         'fundamentals': fundamentals,
     })
 

@@ -24,5 +24,7 @@
 stderr.log
 /bourseapp/__init__.py
 /Bourse/__init__.py
+/Bourse/asgi.py
+/Bourse/wsgi.py
 /Bourse/settings.py
 /bourseapp/api/__init__.py
