@@ -95,25 +95,25 @@ class FundamentalAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
         return redirect('bourseapp:fundamental-list')
 
 
-@admin.register(models.Targets)
-class TargetslAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+@admin.register(models.Tutorial)
+class TutorialAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     formfield_overrides = {
     }
 
     # override add function
     def response_add(self, request, obj, post_url_continue=None):
-        return redirect('bourseapp:targets-list')
+        return redirect('bourseapp:tutorial-list')
 
     # override edit function
     def response_change(self, request, obj):
-        return redirect('bourseapp:targets-list')
+        return redirect('bourseapp:tutorial-list')
 
     # override delete function
     def response_delete(self, request, obj_display, obj_id):
-        return redirect('bourseapp:targets-list')
+        return redirect('bourseapp:tutorial-list')
+
 
 
 # admin.site.register(models.Category)
 # admin.site.register(models.Fundamental)
-# admin.site.register(models.Targets)
 # admin.site.register(models.Technical)

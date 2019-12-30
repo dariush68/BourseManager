@@ -2,6 +2,7 @@
 {% extends 'bourseapp/base.html' %}
 {% load humanize %}
 {% load jalali_tags %}
+{% load auth_extras %}
 {% block title %}
     <title>بورس | خانه</title>
 {% endblock %}
@@ -14,178 +15,403 @@
     <link rel="stylesheet" href="{% static 'bourseapp/styles.css' %}">
     <!-- top section -->
 
-    <!-- auth checking -->
-    {% if user.is_authenticated%}
 
-        <div class="row">
+    <div class="container-for-admin">
 
-            <!-- news -->
-            <div class="col-sm mt-1">
-                <!--Section: Content-->
-                <section>
+        <!--Main layout-->
+        <main class="pt-0 mx-lg-0">
+            <div class="container-fluid mt-0">
 
-                    <div class="card">
-                        <div class="card-body">
+                <!-- Heading -->
+                <div class="d-none card mb-4 wow fadeIn">
 
-                            <h5 class="text-center font-weight-bold mb-4">آخرین خبرها</h5>
+                    <!--Card content-->
+                    <div class="card-body d-sm-flex justify-content-between">
 
-                            <hr>
-
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-12 mb-3 mx-auto">
-
-                                    {% for new in news %}
-                                        <div class="media">
-                                            {% if new.pic %}
-                                                <img class="d-flex mr-3" src="{{ new.pic.url }}" alt="{{ new.title }}" style="width: 70px; height: 70px">
-                                            {% else %}
-                                                <img class="d-flex mr-3" src="{% static 'bourseapp/images/news.png' %}" alt="News" style="width: 70px; height: 70px">
-                                            {% endif %}
-                                            <div class="media-body">
-                                                <h6 class="mt-1 font-weight-bold mr-3">
-                                                    <a href="{% url 'bourseapp:news-detail' new.id %}">{{ new.title }}</a>
-                                                    <a href="{{ new.reference }}" target="_blank"><span class="badge badge-default float-left">منبع</span></a>
-                                                    <span class="badge badge-info  float-left ml-1">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-
-                                                </h6>
-                                                <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ new.description }}</p>
-
-                                            </div>
-                                        </div>
-                                        <hr>
-                                    {% endfor %}
-
-                                </div>
-                                <!--Grid column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                            <hr>
-
-                            <p class="text-center mt-4 mb-1"><a href="#!">مشاهده تمامی خبرها</a></p>
-
-                        </div>
+                        header
                     </div>
 
-                </section>
-                <!--Section: Content-->
-            </div>
+                </div>
+                <!-- Heading -->
 
-            <!-- targets -->
-            <div class="col-sm mt-1">
-                <!--Section: Content-->
-                <section>
+                <!-- body -->
+                <div class="row wow fadeIn">
 
-                    <div class="card">
-                        <div class="card-body">
+                    <!--right section-->
+                    <div class="col-md-3 mb-4">
 
-                            <h5 class="text-center font-weight-bold mb-4">نمادهای تحت نظر</h5>
+                        <!-- watch list -->
+                        {% if user.is_authenticated%}
+                            <!-- targets -->
+                            <div class="card mb-4">
 
-                            <hr>
-
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-12 mb-3 mx-auto">
-
-                                    {% for target in targets %}
-                                        <div class="media">
-                                            {% if target.company.pic %}
-                                                <img class="d-flex mr-3" src="{{ target.company.pic.url }}" alt="image" style="width: 70px; height: 70px">
-                                            {% else %}
-                                                <img class="d-flex mr-3" src="{% static 'bourseapp/images/placeholder-company.png' %}" alt="News" style="width: 70px; height: 70px">
-                                            {% endif %}
-                                            <div class="media-body">
-                                                <h6 class="mt-1 font-weight-bold mr-3">
-                                                    <a href="{% url 'bourseapp:company-detail' target.company.id %}">{{ target.company.symbol }}</a>
-                                                    <a href="{{ target.company.site }}" target="_blank"><span class="badge badge-default float-left">وبسایت</span></a>
-                                                    <span class="badge badge-info  float-left ml-1">{{ target.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                </h6>
-                                                <p class="text-muted mr-3">{{ target.description }}</p>
-
-                                            </div>
-                                        </div>
-                                        <hr>
-                                    {% endfor %}
-
+                                <!-- Card header -->
+                                <div class="card-header text-center">
+                                    نمادهای تحت نظر
                                 </div>
-                                <!--Grid column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                            <hr>
-
-                            <p class="text-center mt-4 mb-1"><a href="#!">مشاهده تمامی خبرها</a></p>
-
-                        </div>
-                    </div>
-
-                </section>
-                <!--Section: Content-->
-            </div>
-
-        </div>
-
-    {% else %}
-
-        <div class="container my-5 px-0 z-depth-1">
-            <!--Section: Content-->
-            <section class="p-5 my-md-5 text-center"
-                     style="background-image: url({% static 'bourseapp/images/back.jpg' %}); background-size: cover; background-position: center center;">
-
-                <form class="my-5 mx-md-5">
-
-                    <div class="row">
-                        <div class="col-md-6 mx-auto">
-                            <!-- Material form login -->
-                            <div class="card" style="opacity: 0.9">
 
                                 <!--Card content-->
                                 <div class="card-body">
 
-                                    <!-- Form -->
-                                    <form class="text-center" style="color: #757575;" action="#!">
+                                    {% for target in targets %}
+                                        <!--Grid column-->
+                                        <div class=" mb-1">
+                                            <a href="{% url 'bourseapp:company-detail' target.id%}">
 
-                                        <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Log In</h3>
-                                        <br>
-                                        <br>
-                                        <h2>سامانه مدیریت نمادهای بورسی</h2>
-                                        <br>
-                                        <br>
+                                                <div class="media white z-depth-0 border rounded">
+                                                    <div class="media-body p-1">
+                                                        <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
+                                                        <h5 class="font-weight-bold mb-0">
+                                                            {{ target.symbol }}
+                                                            {% if user.is_authenticated%}
+                                                                <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                            {% endif %}
+                                                        </h5>
 
-                                        <!-- Sign in button -->
-                                        <a  href="{% url 'login'%}?next={{request.path}}" class="btn btn-rounded btn-lg btn-info mx-4 w-75"><i class="fas fa-user-lock"></i></a>
+                                                    </div>
+                                                    {% if target.pic %}
+                                                        <img src="{{ target.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
+                                                    {% else %}
+                                                        <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
+                                                    {% endif %}
 
-                                        <!-- Sign up button -->
-                                        <a  href="{% url 'signup'%}" class="btn btn-rounded btn-lg btn-info mx-4 w-75">ثبت نام</a>
+                                                </div>
 
-                                    </form>
-                                    <!-- Form -->
+                                            </a>
+                                        </div>
+                                        <!--Grid column-->
+                                    {% endfor %}
 
                                 </div>
 
                             </div>
-                            <!-- Material form login -->
+                        {% endif %}
+
+                        <!-- news -->
+                        <div class="card mb-4">
+
+                            <!-- Card header -->
+                            <div class="card-header text-center">
+                                اخبار
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!-- List group links -->
+                                <div class="list-group list-group-flush" style="margin: -20px">
+
+                                    {% for new in news %}
+
+                                        <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
+                                            <p class="small">
+
+                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+
+                                                {{ new.title }}
+                                                (
+                                                {% if new.company %}
+                                                    {{ new.company.symbol }}
+                                                {% elif new.category %}
+                                                    {{ new.category.title }}
+                                                {% endif %}
+                                                )
+                                                {% if new.createAt|is_past_due:new.createAt %}
+                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                {% endif %}
+                                            </p>
+                                        </a>
+                                    {% endfor %}
+                                    <a href="{% url 'bourseapp:news-list' %}" class="list-group-item list-group-item-action waves-effect text-center">
+                                        تمامی خبرها
+                                    </a>
+
+                                </div>
+                                <!-- List group links -->
+
+                            </div>
+
                         </div>
+
+
                     </div>
 
-                </form>
 
-            </section>
-            <!--Section: Content-->
+                    <!-- left section -->
+                    <div class="col-md-9 mb-4">
 
+
+                        <!-- analysis list -->
+                        <div class="row">
+                            {% if user.is_authenticated%}
+
+                                <!-- technical -->
+                                <div class="col-sm mt-1">
+                                    <!--Section: Content-->
+                                    <section>
+
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <h5 class="text-center font-weight-bold mb-4">آخرین تحلیل های تکنیکال</h5>
+
+                                                <hr>
+
+                                                <!--Grid row-->
+                                                <div class="row">
+
+                                                    <!--Grid column-->
+                                                    <div class="col-12 mb-3 mx-auto">
+
+                                                        {% for technical in technicals %}
+                                                            <div class="media">
+                                                                {% if technical.pic %}
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                                {% else %}
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                {% endif %}
+                                                                <div class="media-body">
+                                                                    <h6 class="mt-1 font-weight-bold mr-3">
+                                                                        <a href="{% url 'bourseapp:technical-detail' technical.id %}">
+
+                                                                            {{ technical.title }}
+                                                                            {% if technical.createAt|is_past_due:technical.createAt %}
+                                                                                <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                            {% endif %}
+
+                                                                            {% if user.is_authenticated%}
+                                                                                <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                            {% endif %}
+                                                                        </a>
+
+                                                                    </h6>
+                                                                    <span class="badge badge-default mr-1">
+                                                                        {% if technical.company %}
+                                                                            {{ technical.company.symbol }}
+                                                                        {% elif technical.category %}
+                                                                            {{ technical.category.title }}
+                                                                        {% endif %}
+                                                                    </span>
+                                                                    <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                    <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                    {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                        {% endfor %}
+
+                                                    </div>
+                                                    <!--Grid column-->
+
+                                                </div>
+                                                <!--Grid row-->
+
+                                                <hr>
+
+                                                <p class="text-center mt-4 mb-1"><a href="{% url 'bourseapp:technical-list' %}">مشاهده تمامی تحلیل ها</a></p>
+
+                                            </div>
+                                        </div>
+
+                                    </section>
+                                    <!--Section: Content-->
+                                </div>
+
+                                <!-- fundamental -->
+                                <div class="col-sm mt-1">
+                                    <!--Section: Content-->
+                                    <section>
+
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <h5 class="text-center font-weight-bold mb-4">آخرین تحلیل های بنیادی</h5>
+
+                                                <hr>
+
+                                                <!--Grid row-->
+                                                <div class="row">
+
+                                                    <!--Grid column-->
+                                                    <div class="col-12 mb-3 mx-auto">
+
+                                                        {% for fundamental in fundamentals %}
+                                                            <div class="media">
+                                                                {% if fundamental.pic %}
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{{ fundamental.pic.url }}" alt="{{ fundamental.title }}" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                {% else %}
+                                                                    <img class="d-flex mr-3  img-thumbnail" src="{% static 'bourseapp/images/fundamental-analysis.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                {% endif %}
+                                                                <div class="media-body">
+                                                                    <h6 class="mt-1 font-weight-bold mr-3">
+                                                                        <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">
+
+                                                                            {{ fundamental.title }}
+                                                                            {% if fundamental.createAt|is_past_due:fundamental.createAt %}
+                                                                                <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                            {% endif %}
+
+                                                                            {% if user.is_authenticated%}
+                                                                                <a class="small" href="{% url 'admin:bourseapp_fundamental_change' fundamental.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                            {% endif %}
+                                                                        </a>
+
+                                                                    </h6>
+                                                                    <span class="badge badge-default mr-1">
+                                                                        {% if fundamental.company %}
+                                                                            {{ fundamental.company.symbol }}
+                                                                        {% elif fundamental.category %}
+                                                                            {{ fundamental.category.title }}
+                                                                        {% endif %}
+                                                                    </span>
+                                                                    <span class="badge badge-info ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                    <span class="badge badge-secondary ml-1"><small>{{ fundamental.user }}</small></span>
+{#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>#}
+
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                        {% endfor %}
+
+                                                    </div>
+                                                    <!--Grid column-->
+
+                                                </div>
+                                                <!--Grid row-->
+
+                                                <hr>
+
+                                                <p class="text-center mt-4 mb-1"><a href="{% url 'bourseapp:fundamental-list' %}">مشاهده تمامی تحلیل ها</a></p>
+
+                                            </div>
+                                        </div>
+
+                                    </section>
+                                    <!--Section: Content-->
+                                </div>
+
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </main>
+        <!--Main layout-->
+
+    </div>
+
+
+
+
+    <div class="row d-none">
+        <!-- left sidebar check -->
+
+        <!-- main content -->
+        <div class="col-md-8">
+
+            <article class="post-1652 page type-page status-publish hentry" id="post-1652">
+
+                <header class="entry-header post-title">
+
+                    <h1 class="entry-title h1 display-4-md display-3-lg mt-2">Sidebar Block</h1>
+                </header>
+                <!-- .entry-header -->
+
+                <div class="entry-content post-content post-page">
+
+                    <p>This template comes with a big variety of news blocks, sidebar block and big grid, our designers focus on the purpose of each block, so each block has its unique User Interface design.</p>
+
+                    <p>Whatever your site category you will find your suitable news blocks. This template also supported on Dark skin mode, that means each block inside the section will be in dark skin style.</p>
+
+                    <br>
+
+                    <h3>Sidebar News Block 1</h3>
+
+                    <hr class="wp-block-separator">
+
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-1-min.png" alt="news sidebar block 1" class="wp-image-1702" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-1-min.png 398w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-1-min-205x300.png 205w" sizes="(max-width: 398px) 100vw, 398px">
+                            <figcaption>news sidebar block 1</figcaption>
+                        </figure>
+                    </div>
+
+                    <br>
+
+                    <h3>Sidebar  News Block 2</h3>
+
+                    <hr class="wp-block-separator">
+
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-2-min.png" alt="news sidebar block 2" class="wp-image-1703" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-2-min.png 391w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-2-min-228x300.png 228w" sizes="(max-width: 391px) 100vw, 391px">
+                            <figcaption>news sidebar block 2</figcaption>
+                        </figure>
+                    </div>
+
+                    <br>
+
+                    <h3>Sidebar News Block 3</h3>
+
+                    <hr class="wp-block-separator">
+
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-3-min.png" alt="news sidebar block 3" class="wp-image-1704" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-3-min.png 386w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-3-min-227x300.png 227w" sizes="(max-width: 386px) 100vw, 386px">
+                            <figcaption>news sidebar block 3</figcaption>
+                        </figure>
+                    </div>
+
+                    <br>
+
+                    <h3>Sidebar News Block 4</h3>
+
+                    <hr class="wp-block-separator">
+
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-4.png" alt="news sidebar block 4" class="wp-image-1709" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-4.png 398w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-4-246x300.png 246w" sizes="(max-width: 398px) 100vw, 398px">
+                            <figcaption>news sidebar block 4</figcaption>
+                        </figure>
+                    </div>
+
+                    <br>
+
+                    <h3>Sidebar News Block 5</h3>
+
+                    <hr class="wp-block-separator">
+
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-5.png" alt="news sidebar block 5" class="wp-image-1705" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-5.png 394w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-5-181x300.png 181w" sizes="(max-width: 394px) 100vw, 394px">
+                            <figcaption>news sidebar block 5</figcaption>
+                        </figure>
+                    </div>
+
+                </div>
+                <!-- .entry-content -->
+
+                <footer class="entry-footer">
+
+                </footer>
+                <!-- .entry-footer -->
+
+            </article>
+            <!-- #post-## -->
 
         </div>
 
+        <!-- right sidebar check -->
+
+        <aside class="col-md-4 bg-info" id="right-sidebar">
 
 
-    {% endif %}
+        </aside>
+    </div>
+
 
 <!-- end of body block -->
 {% endblock %}
@@ -196,19 +422,6 @@
     {% load staticfiles %}
 
 
-
-    <!-- product tiles -->
-    <div class="row mt-3 mx-auto">
-
-        <div class="col-12 col-md-10 p-0 pr-2">
-            <div class="">
-
-                <a href="#" id="go-to-top">
-                    <i class="fa fa-chevron-up" style="margin-top: 12px"></i>
-                </a>
-            </div>
-        </div>
-    </div>
 
     <input type="hidden" id="url-home" data-url="{% url 'bourseapp:index' %}" />
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />

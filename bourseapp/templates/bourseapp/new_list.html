@@ -1,6 +1,7 @@
 <!-- use base html template -->
 {% extends 'bourseapp/base.html' %}
 {% load jalali_tags %}
+{% load auth_extras %}
 {% block title %}
     <title>اخبار</title>
 {% endblock %}
@@ -21,11 +22,14 @@
     </div>
 
     <!-- new/delete/edit buttons -->
-    <div class="text-center">
-      <a href="{% url 'admin:bourseapp_news_add' %}?next={{ request.path|urlencode }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
-      <a id="news-edit" href="{% url 'admin:bourseapp_news_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm"><i class="fas fa-edit mr-1"></i> ویرایش</a>
-      <a id="news-delete" href="{% url 'admin:bourseapp_news_delete' 1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-danger btn-sm"><i class="fas fa-trash mr-1"></i> حذف</a>
-    </div>
+    {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"level2" %}
+        <div class="text-center">
+{#          <a href="{% url 'admin:bourseapp_news_add' %}?user={{ user.id }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>#}
+          <a href="{% url 'bourseapp:news-create' %}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
+          <a id="news-edit" href="{% url 'admin:bourseapp_news_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm"><i class="fas fa-edit mr-1"></i> ویرایش</a>
+          <a id="news-delete" href="{% url 'admin:bourseapp_news_delete' 1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-danger btn-sm"><i class="fas fa-trash mr-1"></i> حذف</a>
+        </div>
+    {% endif %}
 
     <!-- PAGE SIZE/ search -->
     <div class="container">
@@ -88,7 +92,13 @@
                             <input class="newsId" type="hidden" dataId={{ news.id }}>
                             <th scope="row" >{{ forloop.counter }}</th>
                             <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
-                            <td class="" >{{ news.company.symbol }}</td>
+                            {% if news.category %}
+                                <td class="" >{{ news.category.title }}</td>
+                            {% elif news.company %}
+                                <td class="" >{{ news.company.symbol }}</td>
+                            {% else %}
+                                <td class="" ></td>
+                            {% endif %}
                             <td class=""><a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"></i></a></td>
                             <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
                             <td class="">{{ news.description | truncatechars:60 }}</td>

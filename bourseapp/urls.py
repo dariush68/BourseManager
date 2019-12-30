@@ -16,7 +16,9 @@ urlpatterns = [
 
     # new urls
     url(r'^news-list/$', views.new_list, name='news-list'),
+    url(r'^news-create/$', views.news_create, name='news-create'),
     url(r'^(?P<news_id>[0-9]+)/news-detail/$', views.news_detail, name='news-detail'),
+    # path('create', views.ContactCreate.as_view(), name='contact_create'),
 
     # technical urls
     url(r'^technical-list/$', views.technical_list, name='technical-list'),
@@ -26,7 +28,8 @@ urlpatterns = [
     url(r'^fundamental-list/$', views.fundamental_list, name='fundamental-list'),
     url(r'^(?P<fundamental_id>[0-9]+)/fundamental-detail/$', views.fundamental_detail, name='fundamental-detail'),
 
-    # targets urls
-    url(r'^targets-list/$', views.targets_list, name='targets-list'),
+    # tutorial urls
+    url(r'^tutorial-list/$', views.tutorial_list, name='tutorial-list'),
+    url(r'^(?P<tutorial_id>[0-9]+)/tutorial-detail/$', views.tutorial_detail, name='tutorial-detail'),
 
 ]

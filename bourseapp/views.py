@@ -27,7 +27,7 @@ from jalali_date import datetime2jalali, date2jalali
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
-from bourseapp.forms import SignUpForm
+from bourseapp.forms import SignUpForm, NewsForm
 
 
 # first page
@@ -35,12 +35,17 @@ def index(request):
     # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
     news = models.News.objects.all()[0:10]
-    targets = models.Targets.objects.all()
+    technicals = models.Technical.objects.all()[0:10]
+    fundamentals = models.Fundamental.objects.all()[0:10]
+    targets = models.Company.objects.filter(isTarget=True)
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
+        # return render(request, 'bourseapp/test.html', {
         'news': news,
         'targets': targets,
+        'technicals': technicals,
+        'fundamentals': fundamentals,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
@@ -72,19 +77,19 @@ def category_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+@login_required
+# @user_passes_test(lambda u: u.is_superuser)
 def company_list(request):
     search = request.GET.get('search', '')
     category_id = request.GET.get('category_id', -1)
 
     companies = models.Company.objects.filter((Q(symbol__icontains=search)
-                                              | Q(fullName__icontains=search)
-                                              | Q(bourseType__icontains=search)
-                                              | Q(createAt__icontains=search)
-                                              | Q(description__icontains=search))
+                                               | Q(fullName__icontains=search)
+                                               | Q(bourseType__icontains=search)
+                                               | Q(createAt__icontains=search)
+                                               | Q(description__icontains=search))
                                               & Q(category=category_id)
                                               )
-
 
     search_category = request.GET.get('search-category', '')
 
@@ -102,7 +107,8 @@ def company_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def new_list(request):
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
@@ -130,16 +136,43 @@ def new_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+def news_create(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            candidate = form.save(commit=False)
+            candidate.user = User.objects.get(id=request.user.id)  # use your own profile here
+            cat = str(request.POST.get('category'))
+            comp = str(request.POST.get('company'))
+            if (cat != 'None'):
+                candidate.category = models.Category.objects.get(id=request.POST.get('category'))  # use your own profile here
+            if (comp != 'None'):
+                candidate.company = models.Company.objects.get(id=request.POST.get('company'))  # use your own profile here
+
+            candidate.save()
+            return render(request, 'bourseapp/new_list.html')
+    else:
+        form = NewsForm()
+    category = request.GET.get('category')
+    company = request.GET.get('company')
+    return render(request, 'bourseapp/news/news-create.html', {
+        'form': form,
+        'category': category,
+        'company': company,
+    })
+
+
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def technical_list(request):
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
     search = request.GET.get('search', '')
 
     technical = models.Technical.objects.filter(Q(company__symbol__icontains=search)
-                                      | Q(createAt__icontains=search)
-                                      | Q(description__icontains=search)
-                                      )
+                                                | Q(createAt__icontains=search)
+                                                | Q(description__icontains=search)
+                                                )
     paginator = Paginator(technical, page_size)
     try:
         technical = paginator.page(page)
@@ -155,16 +188,17 @@ def technical_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def fundamental_list(request):
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
     search = request.GET.get('search', '')
 
     fundamentals = models.Fundamental.objects.filter(Q(company__symbol__icontains=search)
-                                      | Q(createAt__icontains=search)
-                                      | Q(description__icontains=search)
-                                      )
+                                                     | Q(createAt__icontains=search)
+                                                     | Q(description__icontains=search)
+                                                     )
     paginator = Paginator(fundamentals, page_size)
     try:
         fundamentals = paginator.page(page)
@@ -180,26 +214,27 @@ def fundamental_list(request):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def targets_list(request):
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
+def tutorial_list(request):
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
     search = request.GET.get('search', '')
 
-    targets = models.Targets.objects.filter(Q(company__symbol__icontains=search)
-                                      | Q(createAt__icontains=search)
-                                      | Q(description__icontains=search)
-                                      )
-    paginator = Paginator(targets, page_size)
+    tutorial = models.Tutorial.objects.filter(Q(title__icontains=search)
+                                                  | Q(createAt__icontains=search)
+                                                  | Q(description__icontains=search)
+                                                  )
+    paginator = Paginator(tutorial, page_size)
     try:
-        targets = paginator.page(page)
+        tutorial = paginator.page(page)
     except PageNotAnInteger:
-        targets = paginator.page(1)
+        tutorial = paginator.page(1)
     except EmptyPage:
-        targets = paginator.page(paginator.num_pages)
+        tutorial = paginator.page(paginator.num_pages)
 
-    return render(request, 'bourseapp/targets_list.html', {
-        'targets': targets,
+    return render(request, 'bourseapp/tutorial_list.html', {
+        'tutorials': tutorial,
         'search': search,
         'page_size': page_size
     })
@@ -212,10 +247,10 @@ def category_detail(request, category_id):
     search = request.GET.get('search', '')
 
     companies = models.Company.objects.filter((Q(symbol__icontains=search)
-                                              | Q(fullName__icontains=search)
-                                              | Q(bourseType__icontains=search)
-                                              | Q(createAt__icontains=search)
-                                              | Q(description__icontains=search))
+                                               | Q(fullName__icontains=search)
+                                               | Q(bourseType__icontains=search)
+                                               | Q(createAt__icontains=search)
+                                               | Q(description__icontains=search))
                                               & Q(category=category_id)
                                               )
     category = models.Category.objects.get(id=category_id)
@@ -227,15 +262,19 @@ def category_detail(request, category_id):
     except EmptyPage:
         companies = paginator.page(paginator.num_pages)
 
+    news = models.News.objects.filter(category=category_id)
+
     return render(request, 'bourseapp/category_detail.html', {
         'category': category,
         'companies': companies,
+        'news': news,
         'search': search,
         'page_size': page_size
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def company_detail(request, company_id):
     company = get_object_or_404(models.Company, pk=company_id)
     news = models.News.objects.filter(company=company.id)
@@ -249,7 +288,8 @@ def company_detail(request, company_id):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+# @login_required
 def news_detail(request, news_id):
     news = get_object_or_404(models.News, pk=news_id)
     return render(request, 'bourseapp/news_detail.html', {
@@ -257,7 +297,8 @@ def news_detail(request, news_id):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def technical_detail(request, technical_id):
     technical = get_object_or_404(models.Technical, pk=technical_id)
     return render(request, 'bourseapp/technical_detail.html', {
@@ -265,11 +306,21 @@ def technical_detail(request, technical_id):
     })
 
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def fundamental_detail(request, fundamental_id):
     fundamental = get_object_or_404(models.Fundamental, pk=fundamental_id)
     return render(request, 'bourseapp/fundamental_detail.html', {
         'fundamental': fundamental,
+    })
+
+
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
+def tutorial_detail(request, tutorial_id):
+    tutorial = get_object_or_404(models.Tutorial, pk=tutorial_id)
+    return render(request, 'bourseapp/tutorial_detail.html', {
+        'tutorial': tutorial,
     })
 
 
