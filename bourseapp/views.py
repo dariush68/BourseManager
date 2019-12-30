@@ -1,4 +1,3 @@
-from Tools.scripts.objgraph import flat
 from django.db.models import Q
 # from drf_multiple_model.views import ObjectMultipleModelAPIView
 from django.contrib.auth.models import User
