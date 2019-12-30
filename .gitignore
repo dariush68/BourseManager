@@ -30,3 +30,5 @@ manage.py
 /Bourse/wsgi.py
 /Bourse/settings.py
 /bourseapp/api/__init__.py
+/manage.py
+*.py
