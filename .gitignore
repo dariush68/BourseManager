@@ -7,6 +7,7 @@
 /__pycache__/
 /media/
 /tmp/
+/Bourse/
 
 
 # ignore a file type
@@ -22,6 +23,7 @@
 # ignore a single file
 # mycode.class
 stderr.log
+manage.py
 /bourseapp/__init__.py
 /Bourse/__init__.py
 /Bourse/asgi.py
