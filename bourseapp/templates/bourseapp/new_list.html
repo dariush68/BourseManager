@@ -77,6 +77,7 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col"></th>
                         <th scope="col">عنوان</th>
                         <th scope="col">نماد</th>
                         <th scope="col">مرجع</th>
@@ -88,28 +89,58 @@
                     </thead>
                     <tbody>
                     {% for news in newss %}
-                        <tr>
-                            <input class="newsId" type="hidden" dataId={{ news.id }}>
-                            <th scope="row" >{{ forloop.counter }}</th>
-                            <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
-                            {% if news.category %}
-                                <td class="" >{{ news.category.title }}</td>
-                            {% elif news.company %}
-                                <td class="" >{{ news.company.symbol }}</td>
-                            {% else %}
-                                <td class="" ></td>
-                            {% endif %}
-                            <td class=""><a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"></i></a></td>
-                            <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
-                            <td class="">{{ news.description | truncatechars:60 }}</td>
-                            <td class="">{{ news.tag }}</td>
-                            {% if news.pic %}
-                                <td ><a href="{{ news.pic.url }}"><i class="fa fa-image"></i></a></td>
-                            {% else %}
-                                <td ><a href="#"></a></td>
 
+                        {% if news.isSuperUserPermition %}
+                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                <tr>
+                                    <input class="newsId" type="hidden" dataId={{ news.id }}>
+                                    <th scope="row" >{{ forloop.counter }}</th>
+                                    <td class="" ><span class="badge yellow mr-1"><small style="color: black">VIP</small></span></td>
+                                    <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
+                                    {% if news.category %}
+                                        <td class="" >{{ news.category.title }}</td>
+                                    {% elif news.company %}
+                                        <td class="" >{{ news.company.symbol }}</td>
+                                    {% else %}
+                                        <td class="" ></td>
+                                    {% endif %}
+                                    <td class=""><a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"></i></a></td>
+                                    <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
+                                    <td class="">{{ news.description | truncatechars:60 }}</td>
+                                    <td class="">{{ news.tag }}</td>
+                                    {% if news.pic %}
+                                        <td ><a href="{{ news.pic.url }}"><i class="fa fa-image"></i></a></td>
+                                    {% else %}
+                                        <td ><a href="#"></a></td>
+
+                                    {% endif %}
+                                </tr>
                             {% endif %}
-                        </tr>
+                        {% else %}
+                            <tr>
+                                <input class="newsId" type="hidden" dataId={{ news.id }}>
+                                <th scope="row" >{{ forloop.counter }}</th>
+                                <td scope="row" ></td>
+                                <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
+                                {% if news.category %}
+                                    <td class="" >{{ news.category.title }}</td>
+                                {% elif news.company %}
+                                    <td class="" >{{ news.company.symbol }}</td>
+                                {% else %}
+                                    <td class="" ></td>
+                                {% endif %}
+                                <td class=""><a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"></i></a></td>
+                                <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
+                                <td class="">{{ news.description | truncatechars:60 }}</td>
+                                <td class="">{{ news.tag }}</td>
+                                {% if news.pic %}
+                                    <td ><a href="{{ news.pic.url }}"><i class="fa fa-image"></i></a></td>
+                                {% else %}
+                                    <td ><a href="#"></a></td>
+
+                                {% endif %}
+                            </tr>
+                        {% endif %}
                     {% endfor %}
                     </tbody>
                 </table>

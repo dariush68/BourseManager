@@ -87,33 +87,68 @@
                     </thead>
                     <tbody>
                     {% for tutorial in tutorials %}
-                        <tr>
-                            <input class="tutorialId" type="hidden" dataId={{ tutorial.id }}>
-                            <th scope="row" >{{ forloop.counter }}</th>
-                            <td class=""><a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}" target="_blank"><span>{{ tutorial.title }}</span></a></td>
-                            <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
-                            <td class="">{{ tutorial.description | safe | truncatechars:60 }}</td>
-                            <td class="">{{ tutorial.category }}</td>
-                            {% if tutorial.file %}
-                                <td ><a href="{{ tutorial.file.url }}"><i class="fa fa-file"></i></a></td>
-                            {% else %}
-                                <td ><a href="#"></a></td>
 
+                        {% if tutorial.isSuperUserPermition %}
+                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                <tr>
+                                    <input class="tutorialId" type="hidden" dataId={{ tutorial.id }}>
+                                    <th scope="row" >{{ forloop.counter }} <span class="badge yellow mr-1"><small style="color: black">VIP</small></span></th>
+                                    <td class=""><a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}" target="_blank"><span>{{ tutorial.title }}</span></a></td>
+                                    <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
+                                    <td class="">{{ tutorial.description | safe | truncatechars:60 }}</td>
+                                    <td class="">{{ tutorial.category }}</td>
+                                    {% if tutorial.file %}
+                                        <td ><a href="{{ tutorial.file.url }}"><i class="fa fa-file"></i></a></td>
+                                    {% else %}
+                                        <td ><a href="#"></a></td>
+
+                                    {% endif %}
+                                    {% if tutorial.externalLink %}
+                                        <td ><a href="{{ tutorial.externalLink }}" target="_blank"><i class="fa fa-external-link-square-alt"></i></a></td>
+                                    {% else %}
+                                        <td ><a href="#"></a></td>
+
+                                    {% endif %}
+
+                                    {% if tutorial.aparatEmbedCode %}
+                                        <td ><i class="fa fa-check"></i></td>
+                                    {% else %}
+                                        <td ><a href="#"></a></td>
+
+                                    {% endif %}
+                                </tr>
                             {% endif %}
-                            {% if tutorial.externalLink %}
-                                <td ><a href="{{ tutorial.externalLink }}" target="_blank"><i class="fa fa-external-link-square-alt"></i></a></td>
-                            {% else %}
-                                <td ><a href="#"></a></td>
+                        {% else %}
+                            <tr>
+                                <input class="tutorialId" type="hidden" dataId={{ tutorial.id }}>
+                                <th scope="row" >{{ forloop.counter }}</th>
+                                <td class=""><a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}" target="_blank"><span>{{ tutorial.title }}</span></a></td>
+                                <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
+                                <td class="">{{ tutorial.description | safe | truncatechars:60 }}</td>
+                                <td class="">{{ tutorial.category }}</td>
+                                {% if tutorial.file %}
+                                    <td ><a href="{{ tutorial.file.url }}"><i class="fa fa-file"></i></a></td>
+                                {% else %}
+                                    <td ><a href="#"></a></td>
 
-                            {% endif %}
+                                {% endif %}
+                                {% if tutorial.externalLink %}
+                                    <td ><a href="{{ tutorial.externalLink }}" target="_blank"><i class="fa fa-external-link-square-alt"></i></a></td>
+                                {% else %}
+                                    <td ><a href="#"></a></td>
 
-                            {% if tutorial.aparatEmbedCode %}
-                                <td ><i class="fa fa-check"></i></td>
-                            {% else %}
-                                <td ><a href="#"></a></td>
+                                {% endif %}
 
-                            {% endif %}
-                        </tr>
+                                {% if tutorial.aparatEmbedCode %}
+                                    <td ><i class="fa fa-check"></i></td>
+                                {% else %}
+                                    <td ><a href="#"></a></td>
+
+                                {% endif %}
+                            </tr>
+                        {% endif %}
+
+
                     {% endfor %}
                     </tbody>
                 </table>

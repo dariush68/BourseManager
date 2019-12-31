@@ -40,21 +40,30 @@ def index(request):
     fundamentals = models.Fundamental.objects.all()[0:20]
     targets = models.Company.objects.filter(isTarget=True)
 
+    # filter latest technical for display in home
     technical_proseced_list = []
     technical_target_list = []
+    technical_vip_target_list = []
+
     for itm in technicals:
-        if itm.company.id in technical_proseced_list:
-            pass
+        if itm.isSuperUserPermition:
+            technical_vip_target_list.append(itm)
         else:
-            technical_proseced_list.append(itm.company.id)
-            technical_target_list.append(itm)
+            if itm.company.id in technical_proseced_list:
+                pass
+            else:
+                technical_proseced_list.append(itm.company.id)
+                technical_target_list.append(itm)
+
+    for itm in technical_target_list:
+        technical_vip_target_list.append(itm)
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
         # return render(request, 'bourseapp/test.html', {
         'news': news,
         'targets': targets,
-        'technicals': technical_target_list[0:20],
+        'technicals': technical_vip_target_list[0:20],
         'fundamentals': fundamentals,
     })
 
