@@ -40,12 +40,21 @@ class NewsForm(forms.ModelForm):
             'title': 'عنوان',
             'tag': 'تگ',
             'description': 'توضیحات',
-            'reference': 'آدر مرجع',
+            'reference': 'آدرس مرجع',
+            'isSuperUserPermition': 'دسترسی سطح بالا'
         }
 
     def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
         super(NewsForm, self).__init__(*args, **kwargs)
         self.fields['createAt'] = JalaliDateField(label='تاریخ',  # date format is  "yyyy-mm-dd"
                                                   widget=AdminJalaliDateWidget  # optional, to use default datepicker
                                                   )
+
+        if self.user.is_superuser:
+            pass
+        else:
+            self.fields['isSuperUserPermition'].widget.attrs['disabled'] = True
+            self.fields['isSuperUserPermition'].label = ""
+
 

@@ -44,6 +44,7 @@ class Company(models.Model):
     tse = models.URLField(null=True, blank=True, help_text='لینک tse')
     site = models.URLField(null=True, blank=True, help_text='وبسایت')
     isTarget = models.BooleanField(default=False, help_text='تحت نظر')
+    isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
@@ -70,10 +71,13 @@ class News(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
                             help_text='تصویر')
     tag = models.CharField(max_length=120, null=True, blank=True, help_text='تگ ها')
+    isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
+    isApproved = models.BooleanField(default=False, help_text='تایید خبر')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
+
     class Meta:
-        ordering = ["-createAt"]
+        ordering = ["-isSuperUserPermition", "-createAt"]
 
     def __str__(self):
         return self.title
@@ -91,10 +95,11 @@ class Technical(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
                             help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
+    isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
     class Meta:
-        ordering = ["-createAt"]
+        ordering = ["-isSuperUserPermition", "-createAt"]
 
     def __str__(self):
         return self.company.symbol
@@ -112,10 +117,11 @@ class Fundamental(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
                             help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
+    isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
     class Meta:
-        ordering = ["-createAt"]
+        ordering = ["-isSuperUserPermition", "-createAt"]
 
     def __str__(self):
         return self.company.symbol
@@ -143,6 +149,7 @@ class Tutorial(models.Model):
                                 default='تحلیل بازار')
     externalLink = models.URLField(null=True, blank=True, help_text='لینک آموزش')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
+    isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
     class Meta:

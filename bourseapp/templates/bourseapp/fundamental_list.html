@@ -86,20 +86,44 @@
                     </thead>
                     <tbody>
                     {% for fundamental in fundamentals %}
-                        <tr>
-                            <input class="fundamentalId" type="hidden" dataId={{ fundamental.id }}>
-                            <th scope="row" >{{ forloop.counter }}</th>
-                            <td class="" >{{ fundamental.company.symbol }}</td>
-                            <td class="" ><a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">{{ fundamental.title }}</a></td>
-                            <td class="" style="font-family: 'IRANSansNum';">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</td>
-                            <td class="">{{ fundamental.description | truncatechars:60 }}</td>
-                            {% if fundamental.pic %}
-                                <td ><a href="{{ fundamental.pic.url }}" target="_blank"><i class="fa fa-image"></i></a></td>
-                            {% else %}
-                                <td ><a href="#"></a></td>
 
+                        {% if fundamental.isSuperUserPermition %}
+                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                <tr>
+                                    <input class="fundamentalId" type="hidden" dataId={{ fundamental.id }}>
+                                    <th scope="row" >{{ forloop.counter }} <span class="badge yellow mr-1"><small style="color: black">VIP</small></span></th>
+                                    <td class="" >{{ fundamental.company.symbol }}</td>
+                                    <td class="" ><a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">{{ fundamental.title }}</a></td>
+                                    <td class="" style="font-family: 'IRANSansNum';">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</td>
+                                    <td class="">{{ fundamental.description | truncatechars:60 }}</td>
+                                    {% if fundamental.pic %}
+                                        <td ><a href="{{ fundamental.pic.url }}" target="_blank"><i class="fa fa-image"></i></a></td>
+                                    {% else %}
+                                        <td ><a href="#"></a></td>
+
+                                    {% endif %}
+                                </tr>
                             {% endif %}
-                        </tr>
+                        {% else %}
+                            <tr>
+                                <input class="fundamentalId" type="hidden" dataId={{ fundamental.id }}>
+                                <th scope="row" >{{ forloop.counter }}</th>
+                                <td class="" >{{ fundamental.company.symbol }}</td>
+                                <td class="" ><a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">{{ fundamental.title }}</a></td>
+                                <td class="" style="font-family: 'IRANSansNum';">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</td>
+                                <td class="">{{ fundamental.description | truncatechars:60 }}</td>
+                                {% if fundamental.pic %}
+                                    <td ><a href="{{ fundamental.pic.url }}" target="_blank"><i class="fa fa-image"></i></a></td>
+                                {% else %}
+                                    <td ><a href="#"></a></td>
+
+                                {% endif %}
+                            </tr>
+                        {% endif %}
+
+
+
+
                     {% endfor %}
                     </tbody>
                 </table>

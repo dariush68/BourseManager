@@ -6,6 +6,13 @@
 {% block title %}
     <title>بورس | خانه</title>
 {% endblock %}
+
+{% block javascript %}
+    <script>
+
+    </script>
+{% endblock %}
+
 <!-- begin of body block -->
 {% block body %}
     <!-- load static file in django -->
@@ -54,32 +61,68 @@
                                 <div class="card-body">
 
                                     {% for target in targets %}
-                                        <!--Grid column-->
-                                        <div class=" mb-1">
-                                            <a href="{% url 'bourseapp:company-detail' target.id%}">
 
-                                                <div class="media white z-depth-0 border rounded">
-                                                    <div class="media-body p-1">
-                                                        <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
-                                                        <h5 class="font-weight-bold mb-0">
-                                                            {{ target.symbol }}
-                                                            {% if user.is_authenticated%}
-                                                                <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                        {% if target.isSuperUserPermition %}
+                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+
+                                                <!--target tiles-->
+                                                <div class=" mb-1">
+                                                    <a href="{% url 'bourseapp:company-detail' target.id%}">
+
+                                                        <div class="media white z-depth-0 border rounded">
+                                                            <div class="media-body p-1">
+                                                                <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
+                                                                <h5 class="font-weight-bold mb-0">
+                                                                    {{ target.symbol }}
+                                                                    {% if user.is_superuser%}
+                                                                        <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                    {% endif %}
+                                                                    <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                                </h5>
+
+                                                            </div>
+                                                            {% if target.pic %}
+                                                                <img src="{{ target.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
+                                                            {% else %}
+                                                                <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
                                                             {% endif %}
-                                                        </h5>
 
-                                                    </div>
-                                                    {% if target.pic %}
-                                                        <img src="{{ target.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
-                                                    {% else %}
-                                                        <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
-                                                    {% endif %}
+                                                        </div>
 
+                                                    </a>
                                                 </div>
 
-                                            </a>
-                                        </div>
-                                        <!--Grid column-->
+                                            {% endif %}
+                                        {% else %}
+
+                                            <!--target tiles-->
+                                            <div class=" mb-1">
+                                                <a href="{% url 'bourseapp:company-detail' target.id%}">
+
+                                                    <div class="media white z-depth-0 border rounded">
+                                                        <div class="media-body p-1">
+                                                            <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
+                                                            <h5 class="font-weight-bold mb-0">
+                                                                {{ target.symbol }}
+                                                                {% if user.is_superuser%}
+                                                                    <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                {% endif %}
+                                                            </h5>
+
+                                                        </div>
+                                                        {% if target.pic %}
+                                                            <img src="{{ target.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
+                                                        {% else %}
+                                                            <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
+                                                        {% endif %}
+
+                                                    </div>
+
+                                                </a>
+                                            </div>
+
+                                        {% endif %}
+
                                     {% endfor %}
 
                                 </div>
@@ -103,24 +146,81 @@
 
                                     {% for new in news %}
 
-                                        <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
-                                            <p class="small">
+                                        {% if new.isSuperUserPermition %}
+                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
+                                                <p class="small">
 
-                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                    <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
 
-                                                {{ new.title }}
-                                                (
-                                                {% if new.company %}
-                                                    {{ new.company.symbol }}
-                                                {% elif new.category %}
-                                                    {{ new.category.title }}
+                                                    {{ new.title }}
+                                                    (
+                                                    {% if new.company %}
+                                                        {{ new.company.symbol }}
+                                                    {% elif new.category %}
+                                                        {{ new.category.title }}
+                                                    {% endif %}
+                                                    )
+                                                    {% if new.createAt|is_past_due:new.createAt %}
+                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                    {% endif %}
+                                                    <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                    {% if new.isApproved == False %}
+                                                        <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
+                                                    {% endif %}
+                                                </p>
+                                            </a>
+
+                                            {% endif %}
+                                        {% else %}
+
+                                            {% if new.isApproved == False %}
+                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                    <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
+                                                        <p class="small">
+
+                                                            <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+
+                                                            {{ new.title }}
+                                                            (
+                                                            {% if new.company %}
+                                                                {{ new.company.symbol }}
+                                                            {% elif new.category %}
+                                                                {{ new.category.title }}
+                                                            {% endif %}
+                                                            )
+                                                            {% if new.createAt|is_past_due:new.createAt %}
+                                                                <i class="fa fa-star" style="color: #ffc400"></i>
+                                                            {% endif %}
+                                                            <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
+                                                        </p>
+                                                    </a>
+
+
                                                 {% endif %}
-                                                )
-                                                {% if new.createAt|is_past_due:new.createAt %}
-                                                    <i class="fa fa-star" style="color: #ffc400"></i>
-                                                {% endif %}
-                                            </p>
-                                        </a>
+                                            {% else %}
+                                                <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
+                                                <p class="small">
+
+                                                    <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+
+                                                    {{ new.title }}
+                                                    (
+                                                    {% if new.company %}
+                                                        {{ new.company.symbol }}
+                                                    {% elif new.category %}
+                                                        {{ new.category.title }}
+                                                    {% endif %}
+                                                    )
+                                                    {% if new.createAt|is_past_due:new.createAt %}
+                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                    {% endif %}
+                                                </p>
+                                            </a>
+                                            {% endif %}
+
+                                        {% endif %}
+
                                     {% endfor %}
                                     <a href="{% url 'bourseapp:news-list' %}" class="list-group-item list-group-item-action waves-effect text-center">
                                         تمامی خبرها
@@ -164,42 +264,89 @@
                                                     <div class="col-12 mb-3 mx-auto">
 
                                                         {% for technical in technicals %}
-                                                            <div class="media">
-                                                                {% if technical.pic %}
-                                                                    <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
-                                                                {% else %}
-                                                                    <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+                                                            {% if technical.isSuperUserPermition %}
+                                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
+
+                                                                    <div class="media">
+                                                                        {% if technical.pic %}
+                                                                            <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                                        {% else %}
+                                                                            <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                        {% endif %}
+                                                                        <div class="media-body">
+                                                                            <h6 class="mt-1 font-weight-bold mr-3">
+                                                                                <a href="{% url 'bourseapp:technical-detail' technical.id %}">
+
+                                                                                    {{ technical.title }}
+                                                                                    {% if technical.createAt|is_past_due:technical.createAt %}
+                                                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                                    {% endif %}
+
+                                                                                    {% if user.is_authenticated%}
+                                                                                        <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                                    {% endif %}
+                                                                                </a>
+
+                                                                            </h6>
+                                                                            <span class="badge badge-default mr-1">
+                                                                                        {% if technical.company %}
+                                                                                            {{ technical.company.symbol }}
+                                                                                        {% elif technical.category %}
+                                                                                            {{ technical.category.title }}
+                                                                                        {% endif %}
+                                                                                    </span>
+                                                                            <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                            <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                            <span class="badge yellow mr-1"><small style="color: black">VIP</small></span>
+                                                                            {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
 
                                                                 {% endif %}
-                                                                <div class="media-body">
-                                                                    <h6 class="mt-1 font-weight-bold mr-3">
-                                                                        <a href="{% url 'bourseapp:technical-detail' technical.id %}">
 
-                                                                            {{ technical.title }}
-                                                                            {% if technical.createAt|is_past_due:technical.createAt %}
-                                                                                <i class="fa fa-star" style="color: #ffc400"></i>
-                                                                            {% endif %}
+                                                            {% else %}
 
-                                                                            {% if user.is_authenticated%}
-                                                                                <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
-                                                                            {% endif %}
-                                                                        </a>
+                                                                <div class="media">
+                                                                    {% if technical.pic %}
+                                                                        <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                                    {% else %}
+                                                                        <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
 
-                                                                    </h6>
-                                                                    <span class="badge badge-default mr-1">
-                                                                        {% if technical.company %}
-                                                                            {{ technical.company.symbol }}
-                                                                        {% elif technical.category %}
-                                                                            {{ technical.category.title }}
-                                                                        {% endif %}
-                                                                    </span>
-                                                                    <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                                    <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
-                                                                    {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+                                                                    {% endif %}
+                                                                    <div class="media-body">
+                                                                        <h6 class="mt-1 font-weight-bold mr-3">
+                                                                            <a href="{% url 'bourseapp:technical-detail' technical.id %}">
 
+                                                                                {{ technical.title }}
+                                                                                {% if technical.createAt|is_past_due:technical.createAt %}
+                                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                                {% endif %}
+
+                                                                                {% if user.is_authenticated%}
+                                                                                    <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                                {% endif %}
+                                                                            </a>
+
+                                                                        </h6>
+                                                                        <span class="badge badge-default mr-1">
+                                                                                        {% if technical.company %}
+                                                                                            {{ technical.company.symbol }}
+                                                                                        {% elif technical.category %}
+                                                                                            {{ technical.category.title }}
+                                                                                        {% endif %}
+                                                                                    </span>
+                                                                        <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                        <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                        {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <hr>
+                                                                <hr>
+                                                            {% endif %}
+
                                                         {% endfor %}
 
                                                     </div>
@@ -238,43 +385,90 @@
                                                     <div class="col-12 mb-3 mx-auto">
 
                                                         {% for fundamental in fundamentals %}
-                                                            <div class="media">
-                                                                {% if fundamental.pic %}
-                                                                    <img class="d-flex mr-3 img-thumbnail" src="{{ fundamental.pic.url }}" alt="{{ fundamental.title }}" style="width: 70px; height: 70px; object-fit: cover">
 
-                                                                {% else %}
-                                                                    <img class="d-flex mr-3  img-thumbnail" src="{% static 'bourseapp/images/fundamental-analysis.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+                                                            {% if fundamental.isSuperUserPermition %}
+                                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
 
-                                                                {% endif %}
-                                                                <div class="media-body">
-                                                                    <h6 class="mt-1 font-weight-bold mr-3">
-                                                                        <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">
+                                                                    <div class="media">
+                                                                        {% if fundamental.pic %}
+                                                                            <img class="d-flex mr-3 img-thumbnail" src="{{ fundamental.pic.url }}" alt="{{ fundamental.title }}" style="width: 70px; height: 70px; object-fit: cover">
 
-                                                                            {{ fundamental.title }}
-                                                                            {% if fundamental.createAt|is_past_due:fundamental.createAt %}
-                                                                                <i class="fa fa-star" style="color: #ffc400"></i>
-                                                                            {% endif %}
+                                                                        {% else %}
+                                                                            <img class="d-flex mr-3  img-thumbnail" src="{% static 'bourseapp/images/fundamental-analysis.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
 
-                                                                            {% if user.is_authenticated%}
-                                                                                <a class="small" href="{% url 'admin:bourseapp_fundamental_change' fundamental.id %}" target="_blank"><i class="fa fa-edit"></i></a>
-                                                                            {% endif %}
-                                                                        </a>
+                                                                        {% endif %}
+                                                                        <div class="media-body">
+                                                                            <h6 class="mt-1 font-weight-bold mr-3">
+                                                                                <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">
 
-                                                                    </h6>
-                                                                    <span class="badge badge-default mr-1">
+                                                                                    {{ fundamental.title }}
+                                                                                    {% if fundamental.createAt|is_past_due:fundamental.createAt %}
+                                                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                                    {% endif %}
+
+                                                                                    {% if user.is_authenticated%}
+                                                                                        <a class="small" href="{% url 'admin:bourseapp_fundamental_change' fundamental.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                                    {% endif %}
+                                                                                </a>
+
+                                                                            </h6>
+                                                                            <span class="badge badge-default mr-1">
                                                                         {% if fundamental.company %}
                                                                             {{ fundamental.company.symbol }}
                                                                         {% elif fundamental.category %}
                                                                             {{ fundamental.category.title }}
                                                                         {% endif %}
                                                                     </span>
-                                                                    <span class="badge badge-info ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                                    <span class="badge badge-secondary ml-1"><small>{{ fundamental.user }}</small></span>
-{#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>#}
+                                                                            <span class="badge badge-info ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                            <span class="badge badge-secondary ml-1"><small>{{ fundamental.user }}</small></span>
+                                                                            <span class="badge yellow mr-1"><small style="color: black">VIP</small></span>
+                                                                            {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>#}
 
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                {% endif %}
+                                                            {% else %}
+
+                                                                <div class="media">
+                                                                    {% if fundamental.pic %}
+                                                                        <img class="d-flex mr-3 img-thumbnail" src="{{ fundamental.pic.url }}" alt="{{ fundamental.title }}" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                    {% else %}
+                                                                        <img class="d-flex mr-3  img-thumbnail" src="{% static 'bourseapp/images/fundamental-analysis.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                    {% endif %}
+                                                                    <div class="media-body">
+                                                                        <h6 class="mt-1 font-weight-bold mr-3">
+                                                                            <a href="{% url 'bourseapp:fundamental-detail' fundamental.id %}">
+
+                                                                                {{ fundamental.title }}
+                                                                                {% if fundamental.createAt|is_past_due:fundamental.createAt %}
+                                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                                {% endif %}
+
+                                                                                {% if user.is_authenticated%}
+                                                                                    <a class="small" href="{% url 'admin:bourseapp_fundamental_change' fundamental.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                                {% endif %}
+                                                                            </a>
+
+                                                                        </h6>
+                                                                        <span class="badge badge-default mr-1">
+                                                                        {% if fundamental.company %}
+                                                                            {{ fundamental.company.symbol }}
+                                                                        {% elif fundamental.category %}
+                                                                            {{ fundamental.category.title }}
+                                                                        {% endif %}
+                                                                    </span>
+                                                                        <span class="badge badge-info ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                        <span class="badge badge-secondary ml-1"><small>{{ fundamental.user }}</small></span>
+                                                                        {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>#}
+
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <hr>
+                                                                <hr>
+                                                            {% endif %}
+
                                                         {% endfor %}
 
                                                     </div>
@@ -426,12 +620,23 @@
     <input type="hidden" id="url-home" data-url="{% url 'bourseapp:index' %}" />
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
 
+{##}
+{#    <script src="{% static 'bourseapp/js/jquery-3.4.1.min.js' %}"></script>#}
+{#    <script src="{% static 'bourseapp/js/wow.min.js' %}"></script>#}
+{#    <script src="{% static 'bourseapp/js/smooth-scroll.js' %}"></script>#}
+{#    <script src="{% static 'bourseapp/js/base-scripts.js' %}"></script>#}
+{#    <script src="{% static 'bourseapp/js/scripts.js' %}"></script>#}
 
-    <script src="{% static 'bourseapp/js/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'bourseapp/js/wow.min.js' %}"></script>
-    <script src="{% static 'bourseapp/js/smooth-scroll.js' %}"></script>
-    <script src="{% static 'bourseapp/js/base-scripts.js' %}"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>
     <script src="{% static 'bourseapp/js/scripts.js' %}"></script>
+
     <script>
         $(".breadcrumb").addClass('d-none')
     </script>
