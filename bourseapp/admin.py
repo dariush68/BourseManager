@@ -46,6 +46,16 @@ class NewsAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     formfield_overrides = {
     }
 
+    def get_fields(self, request, obj=None):
+        fields = super(NewsAdmin, self).get_fields(request, obj)
+        if request.user.is_superuser:
+            pass
+        else:
+            # fields += ('isSuperUserPermition',)
+            fields = tuple(x for x in fields if x != 'isSuperUserPermition')
+
+        return fields
+
     # override add function
     def response_add(self, request, obj, post_url_continue=None):
         return redirect('bourseapp:news-list')

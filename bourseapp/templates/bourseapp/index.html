@@ -6,6 +6,13 @@
 {% block title %}
     <title>بورس | خانه</title>
 {% endblock %}
+
+{% block javascript %}
+    <script>
+
+    </script>
+{% endblock %}
+
 <!-- begin of body block -->
 {% block body %}
     <!-- load static file in django -->
@@ -103,24 +110,50 @@
 
                                     {% for new in news %}
 
-                                        <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
-                                            <p class="small">
+                                        {% if new.isSuperUserPermition %}
+                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
+                                                <p class="small">
 
-                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                    <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
 
-                                                {{ new.title }}
-                                                (
-                                                {% if new.company %}
-                                                    {{ new.company.symbol }}
-                                                {% elif new.category %}
-                                                    {{ new.category.title }}
-                                                {% endif %}
-                                                )
-                                                {% if new.createAt|is_past_due:new.createAt %}
-                                                    <i class="fa fa-star" style="color: #ffc400"></i>
-                                                {% endif %}
-                                            </p>
-                                        </a>
+                                                    {{ new.title }}
+                                                    (
+                                                    {% if new.company %}
+                                                        {{ new.company.symbol }}
+                                                    {% elif new.category %}
+                                                        {{ new.category.title }}
+                                                    {% endif %}
+                                                    )
+                                                    {% if new.createAt|is_past_due:new.createAt %}
+                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                    {% endif %}
+                                                    <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                </p>
+                                            </a>
+
+                                            {% endif %}
+                                        {% else %}
+                                            <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
+                                                <p class="small">
+
+                                                    <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+
+                                                    {{ new.title }}
+                                                    (
+                                                    {% if new.company %}
+                                                        {{ new.company.symbol }}
+                                                    {% elif new.category %}
+                                                        {{ new.category.title }}
+                                                    {% endif %}
+                                                    )
+                                                    {% if new.createAt|is_past_due:new.createAt %}
+                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                    {% endif %}
+                                                </p>
+                                            </a>
+                                        {% endif %}
+
                                     {% endfor %}
                                     <a href="{% url 'bourseapp:news-list' %}" class="list-group-item list-group-item-action waves-effect text-center">
                                         تمامی خبرها
@@ -426,12 +459,23 @@
     <input type="hidden" id="url-home" data-url="{% url 'bourseapp:index' %}" />
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
 
+{##}
+{#    <script src="{% static 'bourseapp/js/jquery-3.4.1.min.js' %}"></script>#}
+{#    <script src="{% static 'bourseapp/js/wow.min.js' %}"></script>#}
+{#    <script src="{% static 'bourseapp/js/smooth-scroll.js' %}"></script>#}
+{#    <script src="{% static 'bourseapp/js/base-scripts.js' %}"></script>#}
+{#    <script src="{% static 'bourseapp/js/scripts.js' %}"></script>#}
 
-    <script src="{% static 'bourseapp/js/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'bourseapp/js/wow.min.js' %}"></script>
-    <script src="{% static 'bourseapp/js/smooth-scroll.js' %}"></script>
-    <script src="{% static 'bourseapp/js/base-scripts.js' %}"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>
     <script src="{% static 'bourseapp/js/scripts.js' %}"></script>
+
     <script>
         $(".breadcrumb").addClass('d-none')
     </script>

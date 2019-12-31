@@ -71,6 +71,8 @@ class News(models.Model):
                             help_text='تصویر')
     tag = models.CharField(max_length=120, null=True, blank=True, help_text='تگ ها')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
+    isSuperUserPermition = models.BooleanField(default=False)
+
 
     class Meta:
         ordering = ["-createAt"]

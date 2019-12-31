@@ -146,9 +146,10 @@ def new_list(request):
     })
 
 
+@login_required
 def news_create(request):
     if request.method == 'POST':
-        form = NewsForm(request.POST)
+        form = NewsForm(request.POST, user=request.user)
         if form.is_valid():
             candidate = form.save(commit=False)
             candidate.user = User.objects.get(id=request.user.id)  # use your own profile here
@@ -162,7 +163,7 @@ def news_create(request):
             candidate.save()
             return render(request, 'bourseapp/new_list.html')
     else:
-        form = NewsForm()
+        form = NewsForm(user=request.user)
     category = request.GET.get('category')
     company = request.GET.get('company')
     return render(request, 'bourseapp/news/news-create.html', {
