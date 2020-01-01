@@ -52,7 +52,7 @@ def index(request):
         else:
             if itm.company.id in technical_proseced_list:
                 pass
-            else:
+            elif itm.company.isTarget:
                 technical_proseced_list.append(itm.company.id)
                 technical_target_list.append(itm)
 
