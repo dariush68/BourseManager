@@ -63,7 +63,7 @@
                                     {% for target in targets %}
 
                                         {% if target.isSuperUserPermition %}
-                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                            {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
 
                                                 <!--target tiles-->
                                                 <div class=" mb-1">
@@ -147,7 +147,7 @@
                                     {% for new in news %}
 
                                         {% if new.isSuperUserPermition %}
-                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                            {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
                                                 <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
                                                 <p class="small">
 
@@ -263,9 +263,10 @@
                                                     <!--Grid column-->
                                                     <div class="col-12 mb-3 mx-auto">
 
+                                                                <p>{{ request.user|has_group:"level1" }}</p>
                                                         {% for technical in technicals %}
                                                             {% if technical.isSuperUserPermition %}
-                                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                                {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
 
                                                                     <div class="media">
                                                                         {% if technical.pic %}
@@ -387,7 +388,7 @@
                                                         {% for fundamental in fundamentals %}
 
                                                             {% if fundamental.isSuperUserPermition %}
-                                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                                {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
 
                                                                     <div class="media">
                                                                         {% if fundamental.pic %}

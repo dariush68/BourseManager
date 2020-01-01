@@ -2,6 +2,7 @@
 {#https://mdbootstrap.com/docs/jquery/components/demo/#}
 <html lang="en">
 
+{% load auth_extras %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -148,6 +149,11 @@
                                 <a href="#" class="dropdown-item d-md-block text-right  pr-3" style="color: black; cursor: pointer; font-size: 14px">
                                     <i class="fa fa-lock-open align-middle ml-2" style="width: 18px;"></i>
                                     (دسترسی مدیریت)
+                                </a>
+                            {% elif request.user|has_group:"vip" or request.user|has_group:"level1" %}
+                                <a href="#" class="dropdown-item d-md-block text-right  pr-3" style="color: black; cursor: pointer; font-size: 14px">
+                                    <i class="fa fa-lock-open align-middle ml-2" style="width: 18px;"></i>
+                                    <span class="small badge-pill mr-0 yellow ">VIP</span>
                                 </a>
                             {% else %}
                                 <a href="#" class="dropdown-item d-md-block text-right  pr-3" style="color: black; cursor: pointer; font-size: 14px">(دسترسی کاربر)</a>
