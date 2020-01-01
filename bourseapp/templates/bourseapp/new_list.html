@@ -94,7 +94,9 @@
                             {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
                                 <tr>
                                     <input class="newsId" type="hidden" dataId={{ news.id }}>
-                                    <th scope="row" >{{ forloop.counter }}</th>
+                                    <th scope="row" >
+                                        {{ forloop.counter }}
+                                    </th>
                                     <td class="" ><span class="badge yellow mr-1"><small style="color: black">VIP</small></span></td>
                                     <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
                                     {% if news.category %}
@@ -119,9 +121,14 @@
                         {% else %}
                             <tr>
                                 <input class="newsId" type="hidden" dataId={{ news.id }}>
-                                <th scope="row" >{{ forloop.counter }}</th>
+                                <th scope="row" >  {{ forloop.counter }} </th>
                                 <td scope="row" ></td>
-                                <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
+                                <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>
+                                    {{ news.title }}
+                                    {% if news.isApproved == False %}
+                                        <span class="small badge-pill mr-0 red" style="color: white; font-size: 8px">تایید نشده</span>
+                                    {% endif %}
+                                </span></a></td>
                                 {% if news.category %}
                                     <td class="" >{{ news.category.title }}</td>
                                 {% elif news.company %}

@@ -29,9 +29,14 @@
 
                     <h3 class="font-weight-bold text-right">{{ technical.company.fullName }} ({{ technical.company.symbol }})</h3>
 
-                    <p class="font-weight-bold text-right">{{ technical.title }} - {{ technical.createAt|to_jalali:'%y/%m/%d' }}</p>
+                    <p class="font-weight-bold text-right">{{ technical.title }} - {{ technical.createAt|to_jalali:'%y/%m/%d' }}
+                    {% if user.is_authenticated%}
+                        <a class=" text-right" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                    {% endif %}
+                    </p>
 
-{#                    <textarea class="form-control border-0 disabled text-muted" rows="5">#}
+
+                    {#                    <textarea class="form-control border-0 disabled text-muted" rows="5">#}
 {#                        {{ news.description }}#}
 {#                    </textarea>#}
 
@@ -42,7 +47,7 @@
                 <div class="col-lg-6 mb-4 mb-lg-0 d-flex align-items-center justify-content-center">
 
                     {% if technical.pic %}
-                        <img src="{{ technical.pic.url }}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover">
+                        <a href="{{ technical.pic.url }}" target="_blank"><img src="{{ technical.pic.url }}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover"></a>
                     {% else %}
                         <img src="{% static 'bourseapp/images/technical.jpg' %}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover">
                     {% endif %}
