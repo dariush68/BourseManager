@@ -4,11 +4,17 @@
 {% block title %}
     <title>خبر {{ news.title }}</title>
 {% endblock %}
-<!-- begin of body block -->
-{% block body %}
 
     <!-- load static file in django -->
     {% load staticfiles %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'bourseapp/js/news_detail.js' %}"></script>
+{% endblock %}
+
+<!-- begin of body block -->
+{% block body %}
+
 
 
     <!-- Material Design Bootstrap table -->
@@ -32,6 +38,13 @@
                     <p class="font-weight-bold text-right">{{ news.title }} - {{ news.createAt|to_jalali:'%y/%m/%d' }}
 
                     <span class="badge badge-secondary  float-left"><small>{{ news.user }}</small></span>
+
+                    <a href="{% url 'admin:bourseapp_news_change'  news.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+
+                        {% if news.isApproved == False %}
+{#                            <a href="{% url 'bourseapp:news-approve'  news.id %}" target="_blank"><span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span></a>#}
+                            <a id="news-approve-status" data-toggle="modal" data-target="#modalNewsApprove"><span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span></a>
+                        {% endif %}
                     </p>
 
 
@@ -75,18 +88,29 @@
 
     <!-- base url address -->
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
+    <input type="hidden" id="url-news-approve" data-url="{% url 'bourseapp:news-approve' news.id%}" />
 
-    <!-- selected category id -->
-{#    <input type="hidden" id="category-selected-id" selected-id="-1">#}
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables.min.js' %}"></script><!-- MDBootstrap Datatables  -->
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables-select.min.js' %}"></script><!-- MDBootstrap Datatables  -->
 
+    <!-- Modal for approve news -->
+    <div class="modal fade" id="modalNewsApprove" tabindex="-1" role="dialog" aria-labelledby="modalNewsApproveLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-right" id="modalNewsApproveLabel">تایید خبر</h5>
+                </div>
+                <div class="modal-body">
+                    آیا از حذف خبر
+                    <strong style="font-weight: bold">"{{ news.title }}"</strong>
+                      مطمئنید؟
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">لغو</button>
+                    <button onclick="newsApproveByAdmin()" type="button" class="btn btn-primary">تایید</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

@@ -27,130 +27,35 @@ $(window).on('scroll load' , function () {
     }
 });
 
-function showProducts(categoryId){
-    $("#main-page-product-loading").addClass('loading');
-    // if(itemCount !== -1 && (currentPage - 1) * itemPerPage > itemCount){
-    //     console.log("ended");
-    //     alert("ended");
-    //     $("#all-products-show-more").attr('disabled', 'true');
-    //     return
-    // }
-    loading.addClass('loading');
+$("#class-news-approve-status").on("click",function(){
+    console.log("kjhkjhkjh")
+  var newsId =  $(this).attr("data-id");
+  var newsTitle =  $(this).attr("data-title");
+  console.log(newsId)
+  //post code
+});
+
+function newsApproveByAdminInIndex(newsId) {
+
+
+    let url_newsApprove = $("#url-news-approve-id").attr("data-url").replace(/12345/, newsId.toString());
+
+     // alert(url_newsApprove);
+     // return
+    $("#modalNewsApproveIndex").modal("hide");
+
     $.ajax({
-        url: (nextPage === null && currentPage === 1) ? url_company_product : nextPage,
-        type: "GET",
-        data: {
-            'title': "",
-            'category': categoryId,
-            'page_size': itemPerPage,
-        },
-        dataType: 'json',
+        url: url_newsApprove,
+        type: 'GET',
+        // dataType: 'json',
+        // data: query,
         success: function (data) {
-            // console.log(JSON.stringify(data));
-            let companyName = [];
-            let productTitle = [];
-            let companyLocation = [];
-            let companyTag = [];
-            let productImages = [];
-            let productView = $(`#home-${categoryId}-products`);
-            let result = data["results"];
-            nextPage = data["next"];
-            itemCount = data["count"];
-            currentPage = currentPage + 1;
-            result.map(item => {
-                companyName.push(item["company"].title);
-                companyLocation.push(item["company"].city);
-                companyTag.push(item.category.title);
-                productImages.push(item.pictures);
-                if(item["subSubMaterial"] !== null){
-                    productTitle.push(item["subSubMaterial"].title)
-                }
-                else if(item["subMaterial"] !== null){
-                    productTitle.push(item["subMaterial"].title)
-                }
-                else if(item["material"] !== null){
-                    productTitle.push(item["material"].title)
-                }
-                else if(item["materialCategory"] !== null){
-                    productTitle.push(item["materialCategory"].title)
-                }
-                else if(item["baseCategory"] !== null){
-                    productTitle.push(item["baseCategory"].title)
-                }
-                else if(item.category !== null){
-                    productTitle.push(item.category.title)
-                }
-                else {
-                    productTitle.push("-")
-                }
-
-
-            });
-            for(let i = 0; i < productTitle.length; i++){
-                let img = JSON.parse(productImages[i]);
-                let productPicUrl = "";
-
-                if(img.length > 0){
-                    productPicUrl = url_base + "media/" + img[0].pic;
-                }
-                else if(companyTag[i] === "ابنیه"){
-                    productPicUrl = "/static/kootwall/images/MaterialProductIcon.png";
-                }
-                else if(companyTag[i] === "مکانیک"){
-                    productPicUrl = "/static/kootwall/images/MechanicProductIcon.png";
-                }
-                else if(companyTag[i] === "برق"){
-                    productPicUrl = "/static/kootwall/images/ElectricProductIcon.png";
-                }
-                productView.append(
-                    `<div class="col-width" style="direction: ltr ; padding: 5px">` +
-                        `<div class="card mb-2" style="width: 100%">` +
-                            `<div class="media" style="margin: 5px; background-color: #f7f7f7">` +
-                                `<a href="${url_home}" onclick="this.href += ${result[i]["id"]} + '/product/'">` +
-                                    `<img src=${productPicUrl} style="width: 120px ; height: 105px" class="align-self-end"  alt="Responsive">` +
-                                `</a>` +
-                                `<div class="media-body">` +
-                                    `<span class="pr-1  d-block" style="color: #307e88 ; font-size: 14px ; padding-top: 5px" id="product-title">` +
-                                        ` ${productTitle[i]} ` +
-                                    `</span>` +
-                                     `<b class="pr-1 mt-2 d-block" style="color: #336799 ; font-size: 14px ; padding-top: 5px" id="product-title">` +
-                                        ` ${companyLocation[i]} ` +
-                                        `<i class="fa fa-map-marker-alt align-middle ml-1"> </i>` +
-                                    `</b>` +
-                                `</div>` +
-                            `</div>` +
-                            `<div class="card-footer"  style="font-size: 12px; padding: 6px;color: #307e88;direction: rtl ">` +
-                                `<a href="${url_home}" onclick="this.href += ${result[i]["company"]["id"]} + '/company/'" id="company-name">` +
-                                    ` ${companyName[i]} ` +
-                                `</a>` +
-                            `</div>` +
-                        `</div>` +
-                    `</div>`
-                );
+            // alert(data)
+            if(data.indexOf("news approved") > -1){
+                $("#class-news-approve-status1-"+ newsId).addClass("d-none");
+                $("#class-news-approve-status2-"+ newsId).addClass("d-none");
             }
-            $("#main-page-product-loading").removeClass('loading');
-        },
+        }
     })
+
 }
-
-// $('#search-button').click(function (event) {
-//     event.preventDefault();
-//     nextPage = null;
-//     currentPage = 1;
-//     itemCount = -1;
-//     $("#product-view").empty();
-//     showMore();
-// });
-
-
-
-// $("#show-more-all-products").click(function () {
-//     showProducts()
-// });
-
-// $(window).scroll(function(){
-//     if (Math.floor($(window).scrollTop()) >= $(document).height() - $(window).height() - 5 && Math.floor($(window).scrollTop()) <= $(document).height() - $(window).height() + 5){
-//         showMore()
-//     }
-// });
-

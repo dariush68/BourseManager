@@ -7,16 +7,15 @@
     <title>بورس | خانه</title>
 {% endblock %}
 
-{% block javascript %}
-    <script>
+<!-- load static file in django -->
+{% load staticfiles %}
 
-    </script>
+{% block javascript %}
+    <script src="{% static 'bourseapp/js/scripts.js' %}"></script>
 {% endblock %}
 
 <!-- begin of body block -->
 {% block body %}
-    <!-- load static file in django -->
-    {% load staticfiles %}
 
 
     <link rel="stylesheet" href="{% static 'bourseapp/styles.css' %}">
@@ -148,53 +147,73 @@
 
                                         {% if new.isSuperUserPermition %}
                                             {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
-                                                <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
-                                                <p class="small">
+                                                <div class="list-group-item list-group-item-action waves-effect">
+                                                    <div class="row">
+                                                        <a href="{% url 'bourseapp:news-detail' new.id %}" >
+                                                            <p class="small">
 
-                                                    <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
 
-                                                    {{ new.title }}
-                                                    (
-                                                    {% if new.company %}
-                                                        {{ new.company.symbol }}
-                                                    {% elif new.category %}
-                                                        {{ new.category.title }}
-                                                    {% endif %}
-                                                    )
-                                                    {% if new.createAt|is_past_due:new.createAt %}
-                                                        <i class="fa fa-star" style="color: #ffc400"></i>
-                                                    {% endif %}
-                                                    <span class="small badge-pill mr-0 yellow ">VIP</span>
-                                                    {% if new.isApproved == False %}
-                                                        <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
-                                                    {% endif %}
-                                                </p>
-                                            </a>
+                                                                {{ new.title }}
+                                                                (
+                                                                {% if new.company %}
+                                                                    {{ new.company.symbol }}
+                                                                {% elif new.category %}
+                                                                    {{ new.category.title }}
+                                                                {% endif %}
+                                                                )
+                                                                {% if new.createAt|is_past_due:new.createAt %}
+                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                {% endif %}
+                                                                <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                            </p>
+                                                        </a>
+                                                        {% if new.isApproved == False %}
+                                                            <a id="class-news-approve-status1-{{ new.id }}"
+                                                               onclick="document.getElementById('index-selected-news-id').value='{{ new.id }}';
+                                                               document.getElementById('index-selected-news-title').value='{{ new.title }}';
+                                                               document.getElementById('modal-news-title').innerHTML='{{ new.title }}'"
+                                                               data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
+                                                                <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
+                                                            </a>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
 
                                             {% endif %}
                                         {% else %}
 
                                             {% if new.isApproved == False %}
                                                 {% if request.user.is_superuser or request.user|has_group:"level1" %}
-                                                    <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
-                                                        <p class="small">
+                                                    <div class="list-group-item list-group-item-action waves-effect">
+                                                    <div class="row">
+                                                        <a href="{% url 'bourseapp:news-detail' new.id %}" >
+                                                            <p class="small">
 
-                                                            <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
 
-                                                            {{ new.title }}
-                                                            (
-                                                            {% if new.company %}
-                                                                {{ new.company.symbol }}
-                                                            {% elif new.category %}
-                                                                {{ new.category.title }}
-                                                            {% endif %}
-                                                            )
-                                                            {% if new.createAt|is_past_due:new.createAt %}
-                                                                <i class="fa fa-star" style="color: #ffc400"></i>
-                                                            {% endif %}
+                                                                {{ new.title }}
+                                                                (
+                                                                {% if new.company %}
+                                                                    {{ new.company.symbol }}
+                                                                {% elif new.category %}
+                                                                    {{ new.category.title }}
+                                                                {% endif %}
+                                                                )
+                                                                {% if new.createAt|is_past_due:new.createAt %}
+                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                {% endif %}
+                                                            </p>
+                                                        </a>
+                                                        <a id="class-news-approve-status2-{{ new.id }}"
+                                                           onclick="document.getElementById('index-selected-news-id').value='{{ new.id }}';
+                                                           document.getElementById('index-selected-news-title').value='{{ new.title }}';
+                                                           document.getElementById('modal-news-title').innerHTML='{{ new.title }}'"
+                                                           data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
                                                             <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
-                                                        </p>
-                                                    </a>
+                                                        </a>
+                                                    </div>
+                                                    </div>
 
 
                                                 {% endif %}
@@ -263,7 +282,6 @@
                                                     <!--Grid column-->
                                                     <div class="col-12 mb-3 mx-auto">
 
-                                                                <p>{{ request.user|has_group:"level1" }}</p>
                                                         {% for technical in technicals %}
                                                             {% if technical.isSuperUserPermition %}
                                                                 {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
@@ -505,108 +523,26 @@
 
 
 
-
-    <div class="row d-none">
-        <!-- left sidebar check -->
-
-        <!-- main content -->
-        <div class="col-md-8">
-
-            <article class="post-1652 page type-page status-publish hentry" id="post-1652">
-
-                <header class="entry-header post-title">
-
-                    <h1 class="entry-title h1 display-4-md display-3-lg mt-2">Sidebar Block</h1>
-                </header>
-                <!-- .entry-header -->
-
-                <div class="entry-content post-content post-page">
-
-                    <p>This template comes with a big variety of news blocks, sidebar block and big grid, our designers focus on the purpose of each block, so each block has its unique User Interface design.</p>
-
-                    <p>Whatever your site category you will find your suitable news blocks. This template also supported on Dark skin mode, that means each block inside the section will be in dark skin style.</p>
-
-                    <br>
-
-                    <h3>Sidebar News Block 1</h3>
-
-                    <hr class="wp-block-separator">
-
-                    <div class="wp-block-image">
-                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-1-min.png" alt="news sidebar block 1" class="wp-image-1702" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-1-min.png 398w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-1-min-205x300.png 205w" sizes="(max-width: 398px) 100vw, 398px">
-                            <figcaption>news sidebar block 1</figcaption>
-                        </figure>
-                    </div>
-
-                    <br>
-
-                    <h3>Sidebar  News Block 2</h3>
-
-                    <hr class="wp-block-separator">
-
-                    <div class="wp-block-image">
-                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-2-min.png" alt="news sidebar block 2" class="wp-image-1703" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-2-min.png 391w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-2-min-228x300.png 228w" sizes="(max-width: 391px) 100vw, 391px">
-                            <figcaption>news sidebar block 2</figcaption>
-                        </figure>
-                    </div>
-
-                    <br>
-
-                    <h3>Sidebar News Block 3</h3>
-
-                    <hr class="wp-block-separator">
-
-                    <div class="wp-block-image">
-                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-3-min.png" alt="news sidebar block 3" class="wp-image-1704" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-3-min.png 386w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-3-min-227x300.png 227w" sizes="(max-width: 386px) 100vw, 386px">
-                            <figcaption>news sidebar block 3</figcaption>
-                        </figure>
-                    </div>
-
-                    <br>
-
-                    <h3>Sidebar News Block 4</h3>
-
-                    <hr class="wp-block-separator">
-
-                    <div class="wp-block-image">
-                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-4.png" alt="news sidebar block 4" class="wp-image-1709" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-4.png 398w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-4-246x300.png 246w" sizes="(max-width: 398px) 100vw, 398px">
-                            <figcaption>news sidebar block 4</figcaption>
-                        </figure>
-                    </div>
-
-                    <br>
-
-                    <h3>Sidebar News Block 5</h3>
-
-                    <hr class="wp-block-separator">
-
-                    <div class="wp-block-image">
-                        <figure class="aligncenter"><img src="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-5.png" alt="news sidebar block 5" class="wp-image-1705" srcset="https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-5.png 394w, https://demo.bootstrap.news/blog/wp-content/uploads/2019/06/news-sidebar-5-181x300.png 181w" sizes="(max-width: 394px) 100vw, 394px">
-                            <figcaption>news sidebar block 5</figcaption>
-                        </figure>
-                    </div>
-
+    <!-- Modal for approve news -->
+    <div class="modal fade" id="modalNewsApproveIndex" tabindex="-1" role="dialog" aria-labelledby="modalNewsApproveLabel2"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-right" id="modalNewsApproveLabel2">تایید خبر</h5>
                 </div>
-                <!-- .entry-content -->
-
-                <footer class="entry-footer">
-
-                </footer>
-                <!-- .entry-footer -->
-
-            </article>
-            <!-- #post-## -->
-
+                <div class="modal-body">
+                    آیا از حذف خبر
+                    <strong id="modal-news-title" style="font-weight: bold"> </strong>
+                      مطمئنید؟
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">لغو</button>
+                    <button onclick="newsApproveByAdminInIndex(document.getElementById('index-selected-news-id').value)" type="button" class="btn btn-primary">تایید</button>
+                </div>
+            </div>
         </div>
-
-        <!-- right sidebar check -->
-
-        <aside class="col-md-4 bg-info" id="right-sidebar">
-
-
-        </aside>
     </div>
-
 
 <!-- end of body block -->
 {% endblock %}
@@ -620,6 +556,9 @@
 
     <input type="hidden" id="url-home" data-url="{% url 'bourseapp:index' %}" />
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
+    <input type="hidden" id="url-news-approve-id" data-url="{% url 'bourseapp:news-approve' 12345%}" />
+    <input type="hidden" id="index-selected-news-id">
+    <input type="hidden" id="index-selected-news-title">
 
 {##}
 {#    <script src="{% static 'bourseapp/js/jquery-3.4.1.min.js' %}"></script>#}
@@ -629,28 +568,14 @@
 {#    <script src="{% static 'bourseapp/js/scripts.js' %}"></script>#}
 
     <!-- jQuery -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>
+{#    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>#}
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/popper.min.js' %}"></script>
+{#    <script type="text/javascript" src="{% static 'bourseapp/js/popper.min.js' %}"></script>#}
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/bootstrap.min.js' %}"></script>
+{#    <script type="text/javascript" src="{% static 'bourseapp/js/bootstrap.min.js' %}"></script>#}
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>
-    <script src="{% static 'bourseapp/js/scripts.js' %}"></script>
+{#    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>#}
 
-    <script>
-        $(".breadcrumb").addClass('d-none')
-    </script>
-
-    {% for category in categories %}
-        <script type="text/javascript">
-            showProducts({{ category.id }})
-        </script>
-    {% endfor %}
-
-    <script>
-        $("#filtering-cities").addClass('d-none')
-    </script>
 <!-- end of section block -->
 {% endblock %}
 
