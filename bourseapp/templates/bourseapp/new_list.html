@@ -91,7 +91,7 @@
                     {% for news in newss %}
 
                         {% if news.isSuperUserPermition %}
-                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                            {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
                                 <tr>
                                     <input class="newsId" type="hidden" dataId={{ news.id }}>
                                     <th scope="row" >{{ forloop.counter }}</th>

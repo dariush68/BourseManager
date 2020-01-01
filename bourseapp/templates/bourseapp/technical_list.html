@@ -88,7 +88,7 @@
                     {% for tech in technical %}
 
                         {% if tech.isSuperUserPermition %}
-                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                            {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
 
                                 <tr>
                                     <input class="technicalId" type="hidden" dataId={{ tech.id }}>

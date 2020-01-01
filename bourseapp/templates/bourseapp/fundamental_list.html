@@ -88,7 +88,7 @@
                     {% for fundamental in fundamentals %}
 
                         {% if fundamental.isSuperUserPermition %}
-                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                            {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
                                 <tr>
                                     <input class="fundamentalId" type="hidden" dataId={{ fundamental.id }}>
                                     <th scope="row" >{{ forloop.counter }} <span class="badge yellow mr-1"><small style="color: black">VIP</small></span></th>
