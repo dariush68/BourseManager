@@ -29,6 +29,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from bourseapp.forms import SignUpForm, NewsForm
 from django.db.models import Count
+from django.http import HttpResponse
 
 
 # first page
@@ -315,6 +316,14 @@ def news_detail(request, news_id):
     return render(request, 'bourseapp/news_detail.html', {
         'news': news,
     })
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def news_approve(request, news_id):
+    news = get_object_or_404(models.News, pk=news_id)
+    news.isApproved = True
+    news.save()
+    return HttpResponse("news approved")
 
 
 # @user_passes_test(lambda u: u.is_superuser)
