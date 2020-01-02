@@ -319,6 +319,7 @@ def news_detail(request, news_id):
     news = get_object_or_404(models.News, pk=news_id)
     return render(request, 'bourseapp/news_detail.html', {
         'news': news,
+        'url': request.path,
     })
 
 
@@ -336,6 +337,7 @@ def technical_detail(request, technical_id):
     technical = get_object_or_404(models.Technical, pk=technical_id)
     return render(request, 'bourseapp/technical_detail.html', {
         'technical': technical,
+        'url': request.path,
     })
 
 
@@ -345,6 +347,7 @@ def fundamental_detail(request, fundamental_id):
     fundamental = get_object_or_404(models.Fundamental, pk=fundamental_id)
     return render(request, 'bourseapp/fundamental_detail.html', {
         'fundamental': fundamental,
+        'url': request.path,
     })
 
 
@@ -354,6 +357,7 @@ def tutorial_detail(request, tutorial_id):
     tutorial = get_object_or_404(models.Tutorial, pk=tutorial_id)
     return render(request, 'bourseapp/tutorial_detail.html', {
         'tutorial': tutorial,
+        'url': request.path,
     })
 
 

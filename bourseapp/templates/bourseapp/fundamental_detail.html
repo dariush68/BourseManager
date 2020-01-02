@@ -1,6 +1,7 @@
 <!-- use base html template -->
 {% extends 'bourseapp/base.html' %}
 {% load jalali_tags %}
+{% load social_share %}
 {% block title %}
     <title>تحلیل بنیادی {{ fundamental.company.symbol }}</title>
 {% endblock %}
@@ -34,6 +35,13 @@
                             <a class="small" href="{% url 'admin:bourseapp_fundamental_change' fundamental.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                         {% endif %}
                     </p>
+                    <div class="row mr-1">
+                        {% post_to_telegram fundamental.title url '<i data-toggle="tooltip" title="اشتراک در تلگرام" class="fab fa-telegram fa-lg "></i>' %}
+                        {% post_to_twitter  fundamental.title url '<i data-toggle="tooltip" title="اشتراک در توییتر" class="fab fa-twitter fa-lg mr-2"></i>' %}
+                        <a data-toggle="tooltip" title="فعال در موبایل ها" href="whatsapp://send?text={{url}}-{{ fundamental.title }}" data-action="share/whatsapp/share">
+                            <i class="fab fa-whatsapp fa-lg mr-2"></i>
+                        </a>
+                    </div>
 
                     {#                    <textarea class="form-control border-0 disabled text-muted" rows="5">#}
 {#                        {{ news.description }}#}
@@ -78,14 +86,13 @@
     <!-- selected category id -->
 {#    <input type="hidden" id="category-selected-id" selected-id="-1">#}
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables.min.js' %}"></script><!-- MDBootstrap Datatables  -->
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables-select.min.js' %}"></script><!-- MDBootstrap Datatables  -->
 
-
+{% endblock %}
+{% block javascript %}
+    <script>
+        // Tooltips Initialization
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 {% endblock %}

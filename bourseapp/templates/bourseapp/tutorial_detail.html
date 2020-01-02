@@ -1,6 +1,7 @@
 <!-- use base html template -->
 {% extends 'bourseapp/base.html' %}
 {% load jalali_tags %}
+{% load social_share %}
 {% block title %}
     <title> {{ tutorial.title }}</title>
 {% endblock %}
@@ -41,6 +42,13 @@
 
                     <span class="badge badge-primary  float-left">{{ tutorial.user }}</span>
                     <span class="badge badge-primary  float-left ml-1">{{ tutorial.createAt|to_jalali:'%y/%m/%d' }}</span>
+                    <div class="row mr-1">
+                        {% post_to_telegram tutorial.title url '<i class="fab fa-telegram fa-lg "></i>' %}
+                        {% post_to_twitter  tutorial.title url '<i class="fab fa-twitter fa-lg mr-2"></i>' %}
+                        <a data-toggle="tooltip" title="فعال در موبایل ها" href="whatsapp://send?text={{url}}-{{ tutorial.title }}" data-action="share/whatsapp/share">
+                            <i class="fab fa-whatsapp fa-lg mr-2"></i>
+                        </a>
+                    </div>
 
                     <p class="text-muted mb-4">{{ tutorial.description | safe }}</p>
 
