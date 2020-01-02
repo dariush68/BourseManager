@@ -33,7 +33,8 @@
 
     {% endblock %}
 
-    <link rel="icon" href="#" />
+    <link rel="icon" type="image/x-icon" href="{% static 'bourseapp/images/logo.png' %}" />
+{#    <link rel="icon" href="#" />#}
 
 </head>
 
@@ -123,7 +124,7 @@
         <header class="cyan darken-3">
             <div class="container-fluid d-flex align-items-center d-none" style="height: 50px;">
                 <a href="{% url 'bourseapp:index' %}" class="mr-4">
-                    <img class="imageSize img-responsive" src="#" style="padding-left: 10px; width: 110px" alt="">
+                    <img class="imageSize img-responsive" src="{% static 'bourseapp/images/logo.png' %}" style="padding-left: 10px; width: 40px; object-fit: contain" alt="">
                     <span class="civilprime py-1 align-middle" style="font-size: 15px; color: white">مدیریت نمادهای بورسی</span>
                 </a>
 
@@ -330,19 +331,15 @@
                         <div class="mb-5 flex-center">
 
                             <!-- Wathsapp -->
-                            <a class="fb-ic">
+                            <a class="fb-ic" href="https://chat.whatsapp.com/DWgYaDNmT8yCynOzEAT8Zy" target="_blank">
                                 <i class="fab fa-whatsapp fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
                             </a>
-                            <!-- Twitter -->
-                            <a class="tw-ic">
-                                <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                            </a>
                             <!-- Telegram -->
-                            <a class="gplus-ic">
+                            <a class="gplus-ic" href="https://t.me/mediabourse" target="_blank">
                                 <i class="fab fa-telegram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
                             </a>
                             <!--Instagram-->
-                            <a class="ins-ic">
+                            <a class="ins-ic" href="https://instagram.com/mediabourse.ir?igshid=16uz5utkbsvpq" target="_blank">
                                 <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
                             </a>
                         </div>
