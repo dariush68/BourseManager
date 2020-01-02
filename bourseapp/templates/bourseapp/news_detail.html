@@ -50,7 +50,7 @@
                     <div class="row mr-1">
                         {% post_to_telegram news.title url '<i class="fab fa-telegram fa-lg "></i>' %}
                         {% post_to_twitter  news.title url '<i class="fab fa-twitter fa-lg mr-2"></i>' %}
-                        <a data-toggle="tooltip" title="فعال در موبایل ها" href="whatsapp://send?text=http://{{ request.get_host }}{{url}}  {{ news.title }}-{{ news.description }}" data-action="share/whatsapp/share">
+                        <a data-toggle="tooltip" title="فعال در موبایل ها" href="whatsapp://send?text=http://{{ request.get_host }}{{url}}  {{ news.title }}-{{ news.description|safe }}" data-action="share/whatsapp/share">
                             <i class="fab fa-whatsapp fa-lg mr-2"></i>
                         </a>
                     </div>
