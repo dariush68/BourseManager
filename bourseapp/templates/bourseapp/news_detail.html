@@ -1,6 +1,7 @@
 <!-- use base html template -->
 {% extends 'bourseapp/base.html' %}
 {% load jalali_tags %}
+{% load social_share %}
 {% block title %}
     <title>خبر {{ news.title }}</title>
 {% endblock %}
@@ -14,7 +15,6 @@
 
 <!-- begin of body block -->
 {% block body %}
-
 
 
     <!-- Material Design Bootstrap table -->
@@ -46,6 +46,14 @@
                             <a id="news-approve-status" data-toggle="modal" data-target="#modalNewsApprove"><span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span></a>
                         {% endif %}
                     </p>
+
+                    <div class="row mr-1">
+                        {% post_to_telegram news.title url '<i class="fab fa-telegram fa-lg "></i>' %}
+                        {% post_to_twitter  news.title url '<i class="fab fa-twitter fa-lg mr-2"></i>' %}
+                        <a data-toggle="tooltip" title="فعال در موبایل ها" href="whatsapp://send?text={{url}}-{{ news.title }}" data-action="share/whatsapp/share">
+                            <i class="fab fa-whatsapp fa-lg mr-2"></i>
+                        </a>
+                    </div>
 
 
 {#                    {{ news.description | safe }}#}
