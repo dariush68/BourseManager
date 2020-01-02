@@ -162,7 +162,7 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination pagination-circle pg-blue">
                     <li class="page-item"><a class="page-link"  href="?page=1&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-news').value">First</a></li>
-                    {% if companies.has_previous %}
+                    {% if newss.has_previous %}
                         <li class="page-item">
                             <a class="page-link" aria-label="Previous" href="?page={{ newss.previous_page_number }}&page-size={{ page_size }}" onclick="this.href += '&search=' + document.getElementById('search-news').value">
                                 <span aria-hidden="true">&laquo;</span>

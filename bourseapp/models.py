@@ -161,3 +161,21 @@ class Tutorial(models.Model):
     @property
     def owner(self):
         return self.user
+
+
+class Message(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+    isShow = models.BooleanField(default=False, help_text='نمایش برای کاربران')
+    title = models.TextField(max_length=3000, null=True, blank=True, help_text='پیام')
+
+    class Meta:
+        ordering = ["-createAt"]
+
+    def __str__(self):
+        return self.title
+
+    @property
+    def owner(self):
+        return self.user
