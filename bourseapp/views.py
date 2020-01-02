@@ -37,9 +37,10 @@ def index(request):
     # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
     news = models.News.objects.all()[0:20]
-    technicals = models.Technical.objects.all()#[0:10]
+    technicals = models.Technical.objects.all()  # [0:10]
     fundamentals = models.Fundamental.objects.all()[0:20]
     targets = models.Company.objects.filter(isTarget=True)
+    messages = models.Message.objects.filter(isShow=True)
 
     # filter latest technical for display in home
     technical_proseced_list = []
@@ -66,6 +67,7 @@ def index(request):
         'targets': targets,
         'technicals': technical_vip_target_list[0:20],
         'fundamentals': fundamentals,
+        'messages': messages,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
@@ -166,9 +168,11 @@ def news_create(request):
             cat = str(request.POST.get('category'))
             comp = str(request.POST.get('company'))
             if (cat != 'None'):
-                candidate.category = models.Category.objects.get(id=request.POST.get('category'))  # use your own profile here
+                candidate.category = models.Category.objects.get(
+                    id=request.POST.get('category'))  # use your own profile here
             if (comp != 'None'):
-                candidate.company = models.Company.objects.get(id=request.POST.get('company'))  # use your own profile here
+                candidate.company = models.Company.objects.get(
+                    id=request.POST.get('company'))  # use your own profile here
 
             candidate.save()
             return render(request, 'bourseapp/new_list.html')
@@ -243,9 +247,9 @@ def tutorial_list(request):
     search = request.GET.get('search', '')
 
     tutorial = models.Tutorial.objects.filter(Q(title__icontains=search)
-                                                  | Q(createAt__icontains=search)
-                                                  | Q(description__icontains=search)
-                                                  )
+                                              | Q(createAt__icontains=search)
+                                              | Q(description__icontains=search)
+                                              )
     paginator = Paginator(tutorial, page_size)
     try:
         tutorial = paginator.page(page)
@@ -366,3 +370,29 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+# @login_required
+def message_list(request):
+    page = request.GET.get('page', 1)
+    page_size = request.GET.get('page-size', 10)
+    search = request.GET.get('search', '')
+
+    messages = models.Message.objects.filter(Q(title__icontains=search)
+                                             | Q(createAt__icontains=search)
+                                             | Q(isShow__icontains=search)
+                                             )
+    paginator = Paginator(messages, page_size)
+    try:
+        messages = paginator.page(page)
+    except PageNotAnInteger:
+        messages = paginator.page(1)
+    except EmptyPage:
+        messages = paginator.page(paginator.num_pages)
+
+    return render(request, 'bourseapp/message_list.html', {
+        'messages': messages,
+        'search': search,
+        'page_size': page_size
+    })

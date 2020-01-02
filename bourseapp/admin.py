@@ -159,3 +159,19 @@ class TutorialAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     def response_delete(self, request, obj_display, obj_id):
         return redirect('bourseapp:tutorial-list')
 
+
+@admin.register(models.Message)
+class MessageAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+
+    # override add function
+    def response_add(self, request, obj, post_url_continue=None):
+        return redirect('bourseapp:message-list')
+
+    # override edit function
+    def response_change(self, request, obj):
+        return redirect('bourseapp:message-list')
+
+    # override delete function
+    def response_delete(self, request, obj_display, obj_id):
+        return redirect('bourseapp:message-list')
+

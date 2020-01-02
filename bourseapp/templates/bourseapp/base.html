@@ -238,6 +238,17 @@
                             </span>
                         </a>
                     </li>
+                    {% if user.is_superuser %}
+                        <li>
+                            <a href="{% url 'bourseapp:message-list' %}">
+                            <span id="companies" style="font-size: 16px; cursor: pointer; color: black">
+                                <i id="companies-icon" class="fa fa-paperclip align-middle mr-1" style="font-size: 12px; color: gray"></i>
+                                پیام های مدیر
+                            </span>
+                            </a>
+                        </li>
+                    {% endif %}
+
 
                 </ul>
             </div>

@@ -33,4 +33,7 @@ urlpatterns = [
     url(r'^tutorial-list/$', views.tutorial_list, name='tutorial-list'),
     url(r'^(?P<tutorial_id>[0-9]+)/tutorial-detail/$', views.tutorial_detail, name='tutorial-detail'),
 
+    # message urls
+    url(r'^message-list/$', views.message_list, name='message-list'),
+
 ]
