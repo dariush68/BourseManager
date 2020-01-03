@@ -13,6 +13,7 @@ urlpatterns = [
     # company urls
     url(r'^company-list/$', views.company_list, name='company-list'),
     url(r'^(?P<company_id>[0-9]+)/company-detail/$', views.company_detail, name='company-detail'),
+    url(r'^(?P<company_id>[0-9]+)/company-technical-view/$', views.company_technical_view, name='company-technical-view'),
 
     # new urls
     url(r'^news-list/$', views.new_list, name='news-list'),

@@ -33,14 +33,21 @@ from django.http import HttpResponse
 
 
 # first page
+from bourseapp.models import Technical
+
+
 def index(request):
     # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
     news = models.News.objects.all()[0:20]
-    technicals = models.Technical.objects.all()  # [0:10]
+    technicals = models.Technical.objects.all() .exclude(user__username='d_abedi') # [0:10]
+
     fundamentals = models.Fundamental.objects.all()[0:20]
     targets = models.Company.objects.filter(isTarget=True)
     messages = models.Message.objects.filter(isShow=True)
+
+    itms = models.Technical.objects.filter(user__username='d_abedi').values_list('company__id')
+    target_watch = models.Company.objects.filter(id__in=itms)
 
     # filter latest technical for display in home
     technical_proseced_list = []
@@ -68,6 +75,7 @@ def index(request):
         'technicals': technical_vip_target_list[0:20],
         'fundamentals': fundamentals,
         'messages': messages,
+        'targets_watch': target_watch,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
@@ -303,13 +311,25 @@ def category_detail(request, category_id):
 def company_detail(request, company_id):
     company = get_object_or_404(models.Company, pk=company_id)
     news = models.News.objects.filter(company=company.id)
-    technicals = models.Technical.objects.filter(company=company.id)
+    technicals = models.Technical.objects.filter(company=company.id).exclude(user__username='d_abedi')
     fundamental = models.Fundamental.objects.filter(company=company.id)
+    technicals_watch = models.Technical.objects.filter(company=company.id).filter(user__username='d_abedi')
     return render(request, 'bourseapp/compay_detail.html', {
         'company': company,
         'news': news,
         'technicals': technicals,
         'fundamentals': fundamental,
+        'technicals_watch': technicals_watch,
+    })
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def company_technical_view(request, company_id):
+    company = get_object_or_404(models.Company, pk=company_id)
+    technicals_watch = models.Technical.objects.filter(company=company.id).filter(user__username='d_abedi')
+    return render(request, 'bourseapp/company_technical_view.html', {
+        'company': company,
+        'technicals_watch': technicals_watch,
     })
 
 
