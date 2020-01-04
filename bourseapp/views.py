@@ -54,6 +54,7 @@ def index(request):
     technical_target_list = []
     technical_vip_target_list = []
 
+    # remove repeated same symbol from list
     for itm in technicals:
         if itm.isSuperUserPermition:
             technical_vip_target_list.append(itm)
@@ -64,15 +65,25 @@ def index(request):
                 technical_proseced_list.append(itm.company.id)
                 technical_target_list.append(itm)
 
+    # remove repeated same vip symbol from list
+    technical_vip_target_list2 = []
+    technical_vip_target_list_id = []
+    for itm in technical_vip_target_list:
+        if itm.company.id in technical_vip_target_list_id:
+            pass
+        else:
+            technical_vip_target_list2.append(itm)
+            technical_vip_target_list_id.append(itm.company.id)
+
     for itm in technical_target_list:
-        technical_vip_target_list.append(itm)
+        technical_vip_target_list2.append(itm)
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
         # return render(request, 'bourseapp/test.html', {
         'news': news,
         'targets': targets,
-        'technicals': technical_vip_target_list[0:20],
+        'technicals': technical_vip_target_list2[0:20],
         'fundamentals': fundamentals,
         'messages': messages,
         'targets_watch': target_watch,
