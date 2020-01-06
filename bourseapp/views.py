@@ -45,6 +45,7 @@ def index(request):
     fundamentals = models.Fundamental.objects.all()[0:20]
     targets = models.Company.objects.filter(isTarget=True)
     messages = models.Message.objects.filter(isShow=True)
+    tutorials = models.Tutorial.objects.all()[0:12]
 
     itms = models.Technical.objects.filter(user__username='d_abedi').values_list('company__id')
     target_watch = models.Company.objects.filter(id__in=itms)
@@ -87,6 +88,7 @@ def index(request):
         'fundamentals': fundamentals,
         'messages': messages,
         'targets_watch': target_watch,
+        'tutorials': tutorials,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
