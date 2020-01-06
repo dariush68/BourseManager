@@ -13,7 +13,8 @@ def has_group(user, group_name):
 
 @register.filter(name='has_abedi')
 def has_abedi(user):
-    return user.username == "d_abedi" and user.is_superuser
+    # return user.username == "d_abedi" and user.is_superuser
+    return user.is_superuser
 
 
 @register.filter(name='is_past_due')
