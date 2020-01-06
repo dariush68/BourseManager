@@ -620,157 +620,162 @@
                         <!--Tutorial-->
                         <div class="card mt-3">
                             <div class="card-header" role="tab" id="headingUnfiled">
-                                <h4 class="text-center">آموزش ها</h4>
+                                <h5 class="text-center font-weight-bold mb-1">آموزش ها</h5>
                             </div>
-                        </div>
-                        <!--body-->
-                        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" dir="ltr">
+                            <!--Card content-->
+                            <div class="card-body d-sm-flex justify-content-between mx-0">
 
-                            <!--Controls-->
-                            <div class="controls-top">
-                                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-                                        class="fas fa-chevron-right"></i></a>
-                            </div>
-                            <!--/.Controls-->
+                                <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" dir="ltr">
 
-                            <!--Indicators-->
-                            <ol class="carousel-indicators">
-                                <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                                <li data-target="#multi-item-example" data-slide-to="1"></li>
-                                {% if tutorials.count > 12 %}
-                                    <li data-target="#multi-item-example" data-slide-to="2"></li>
-                                {% endif %}
-                            </ol>
-                            <!--/.Indicators-->
+                                    <!--Controls-->
+                                    <div class="controls-top">
+                                        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                                        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                                                class="fas fa-chevron-right"></i></a>
+                                    </div>
+                                    <!--/.Controls-->
 
-                            <!--Slides-->
-                            <div class="carousel-inner" role="listbox">
-
-                                <!--First slide-->
-                                <div class="carousel-item active">
-
-                                    {% for tutorial in tutorials %}
-                                        {% if forloop.counter < 7 %}
-
-                                            <figure class="col-md-4 d-md-inline-block">
-                                                <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
-                                                   data-size="1600x1067">
-                                                    <div class="view ">
-                                                        {% if tutorial.category == 'تحلیل بازار' %}
-                                                            <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                        {% elif tutorial.category == 'تحلیل بنیادی'%}
-                                                            <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                        {% else %}
-                                                            <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                        {% endif %}
-
-                                                        <div class="mask flex-center rgba-black-strong">
-                                                        </div>
-                                                    </div>
-
-                                                    <!--Caption-->
-                                                    <div class="carousel-caption">
-                                                        <div class="animated fadeInDown">
-                                                            <i class="fa fa-video mb-1" style="font-size: 24px"></i>
-                                                            <h6 class="h6-responsive">{{ tutorial.title }} </h6>
-                                                            <p>({{ tutorial.category }})</p>
-                                                        </div>
-                                                    </div>
-                                                    <!--Caption-->
-                                                </a>
-                                            </figure>
-
+                                    <!--Indicators-->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                                        <li data-target="#multi-item-example" data-slide-to="1"></li>
+                                        {% if tutorials.count > 12 %}
+                                            <li data-target="#multi-item-example" data-slide-to="2"></li>
                                         {% endif %}
-                                    {% endfor %}
+                                    </ol>
+                                    <!--/.Indicators-->
 
-                                </div>
-                                <!--/.First slide-->
+                                    <!--Slides-->
+                                    <div class="carousel-inner" role="listbox">
 
-                                <!--Second slide-->
-                                <div class="carousel-item">
+                                        <!--First slide-->
+                                        <div class="carousel-item active">
 
-                                    {% for tutorial in tutorials %}
-                                        {% if forloop.counter > 6 and forloop.counter < 13 %}
+                                            {% for tutorial in tutorials %}
+                                                {% if forloop.counter < 7 %}
 
-                                            <figure class="col-md-4 d-md-inline-block">
-                                                <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
-                                                   data-size="1600x1067">
-                                                    <div class="view ">
-                                                        {% if tutorial.category == 'تحلیل بازار' %}
-                                                            <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                        {% elif tutorial.category == 'تحلیل بنیادی'%}
-                                                            <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                        {% else %}
-                                                            <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                        {% endif %}
-                                                        <div class="mask flex-center rgba-black-strong">
-                                                        </div>
-                                                    </div>
+                                                    <figure class="col-md-4 d-md-inline-block">
+                                                        <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
+                                                           data-size="1600x1067">
+                                                            <div class="view ">
+                                                                {% if tutorial.category == 'تحلیل بازار' %}
+                                                                    <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
+                                                                {% elif tutorial.category == 'تحلیل بنیادی'%}
+                                                                    <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
+                                                                {% else %}
+                                                                    <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
+                                                                {% endif %}
 
-                                                    <!--Caption-->
-                                                    <div class="carousel-caption">
-                                                        <div class="animated fadeInDown">
-                                                            <i class="fa fa-video mb-1" style="font-size: 24px"></i>
-                                                            <h6 class="h6-responsive">{{ tutorial.title }} </h6>
-                                                            <p>({{ tutorial.category }})</p>
-                                                        </div>
-                                                    </div>
-                                                    <!--Caption-->
-                                                </a>
-                                            </figure>
+                                                                <div class="mask flex-center rgba-black-strong">
+                                                                </div>
+                                                            </div>
 
+                                                            <!--Caption-->
+                                                            <div class="carousel-caption">
+                                                                <div class="animated fadeInDown">
+                                                                    <i class="fa fa-video mb-1" style="font-size: 24px"></i>
+                                                                    <h6 class="h6-responsive smaller">{{ tutorial.title|truncatechars:50 }} </h6>
+                                                                    <p>({{ tutorial.category }})</p>
+                                                                </div>
+                                                            </div>
+                                                            <!--Caption-->
+                                                        </a>
+                                                    </figure>
+
+                                                {% endif %}
+                                            {% endfor %}
+
+                                        </div>
+                                        <!--/.First slide-->
+
+                                        <!--Second slide-->
+                                        <div class="carousel-item">
+
+                                            {% for tutorial in tutorials %}
+                                                {% if forloop.counter > 6 and forloop.counter < 13 %}
+
+                                                    <figure class="col-md-4 d-md-inline-block">
+                                                        <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
+                                                           data-size="1600x1067">
+                                                            <div class="view ">
+                                                                {% if tutorial.category == 'تحلیل بازار' %}
+                                                                    <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
+                                                                {% elif tutorial.category == 'تحلیل بنیادی'%}
+                                                                    <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
+                                                                {% else %}
+                                                                    <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
+                                                                {% endif %}
+                                                                <div class="mask flex-center rgba-black-strong">
+                                                                </div>
+                                                            </div>
+
+                                                            <!--Caption-->
+                                                            <div class="carousel-caption">
+                                                                <div class="animated fadeInDown">
+                                                                    <i class="fa fa-video mb-1" style="font-size: 24px"></i>
+                                                                    <h6 class="h6-responsive">{{ tutorial.title|truncatechars:50 }} </h6>
+                                                                    <p>({{ tutorial.category }})</p>
+                                                                </div>
+                                                            </div>
+                                                            <!--Caption-->
+                                                        </a>
+                                                    </figure>
+
+                                                {% endif %}
+                                            {% endfor %}
+
+                                        </div>
+                                        <!--/.Second slide-->
+
+                                        <!--Third slide-->
+                                        {% if tutorials.count > 12 %}
+                                            <div class="carousel-item">
+
+                                                {% for tutorial in tutorials %}
+                                                    {% if forloop.counter > 18 %}
+
+                                                        <figure class="col-md-4 d-md-inline-block">
+                                                            <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
+                                                               data-size="1600x1067">
+                                                                <div class="view ">
+                                                                    {% if tutorial.category == 'تحلیل بازار' %}
+                                                                        <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
+                                                                    {% elif tutorial.category == 'تحلیل بنیادی'%}
+                                                                        <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
+                                                                    {% else %}
+                                                                        <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
+                                                                    {% endif %}
+                                                                    <div class="mask flex-center rgba-black-strong">
+                                                                    </div>
+                                                                </div>
+
+                                                                <!--Caption-->
+                                                                <div class="carousel-caption">
+                                                                    <div class="animated fadeInDown">
+                                                                        <i class="fa fa-video mb-1" style="font-size: 24px"></i>
+                                                                        <h6 class="h6-responsive">{{ tutorial.title|truncatechars:50 }} </h6>
+                                                                        <p>({{ tutorial.category }})</p>
+                                                                    </div>
+                                                                </div>
+                                                                <!--Caption-->
+                                                            </a>
+                                                        </figure>
+
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                            </div>
                                         {% endif %}
-                                    {% endfor %}
+                                        <!--/.Third slide-->
 
-                                </div>
-                                <!--/.Second slide-->
-
-                                <!--Third slide-->
-                                {% if tutorials.count > 12 %}
-                                    <div class="carousel-item">
-
-                                        {% for tutorial in tutorials %}
-                                            {% if forloop.counter > 18 %}
-
-                                                <figure class="col-md-4 d-md-inline-block">
-                                                    <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
-                                                       data-size="1600x1067">
-                                                        <div class="view ">
-                                                            {% if tutorial.category == 'تحلیل بازار' %}
-                                                                <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                            {% elif tutorial.category == 'تحلیل بنیادی'%}
-                                                                <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                            {% else %}
-                                                                <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                            {% endif %}
-                                                            <div class="mask flex-center rgba-black-strong">
-                                                            </div>
-                                                        </div>
-
-                                                        <!--Caption-->
-                                                        <div class="carousel-caption">
-                                                            <div class="animated fadeInDown">
-                                                                <i class="fa fa-video mb-1" style="font-size: 24px"></i>
-                                                                <h6 class="h6-responsive">{{ tutorial.title }} </h6>
-                                                                <p>({{ tutorial.category }})</p>
-                                                            </div>
-                                                        </div>
-                                                        <!--Caption-->
-                                                    </a>
-                                                </figure>
-
-                                            {% endif %}
-                                        {% endfor %}
 
                                     </div>
-                                {% endif %}
-                                <!--/.Third slide-->
 
+                                </div>
 
                             </div>
-
                         </div>
+
 
                     </div>
 
