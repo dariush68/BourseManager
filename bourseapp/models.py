@@ -95,6 +95,7 @@ class Technical(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
                             help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
+    aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
