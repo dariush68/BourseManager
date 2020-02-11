@@ -68,10 +68,22 @@
 
             <hr>
 
-            <p class="text-muted text-right text-justify">{{ technical.description | safe }}</p>
-        
+            <p class="text-muted text-right text-justify mt-5 mb-5">{{ technical.description | safe }}</p>
+
+            <div class="mt-5" style="text-align: center">
+                <div class="w-75" style="display: inline-block">
+                    {% if technical.aparatEmbedCode %}
+                        {{ technical.aparatEmbedCode|safe }}
+                    {% endif %}
+                </div>
+
+            </div>
+
+
         </section>
         <!--Section: Content-->
+
+
 
     </div>
 
