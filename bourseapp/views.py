@@ -34,6 +34,7 @@ from django.http import HttpResponse
 
 # first page
 from bourseapp.models import Technical
+tutorialCategory = models.TutorialCategory.objects.all()
 
 
 def index(request):
@@ -89,6 +90,7 @@ def index(request):
         'messages': messages,
         'targets_watch': target_watch,
         'tutorials': tutorials,
+        'tutorialCategory': tutorialCategory,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
@@ -116,7 +118,8 @@ def category_list(request):
     return render(request, 'bourseapp/category_list.html', {
         'categories': categories,
         'search': search,
-        'page_size': page_size
+        'page_size': page_size,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -147,6 +150,7 @@ def company_list(request):
         'companies': companies,
         'search': search,
         'search_category': search_category,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -175,7 +179,8 @@ def new_list(request):
     return render(request, 'bourseapp/new_list.html', {
         'newss': news,
         'search': search,
-        'page_size': page_size
+        'page_size': page_size,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -205,6 +210,7 @@ def news_create(request):
         'form': form,
         'category': category,
         'company': company,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -230,7 +236,8 @@ def technical_list(request):
     return render(request, 'bourseapp/technical_list.html', {
         'technical': technical,
         'search': search,
-        'page_size': page_size
+        'page_size': page_size,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -256,7 +263,8 @@ def fundamental_list(request):
     return render(request, 'bourseapp/fundamental_list.html', {
         'fundamentals': fundamentals,
         'search': search,
-        'page_size': page_size
+        'page_size': page_size,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -279,10 +287,11 @@ def tutorial_list(request):
     except EmptyPage:
         tutorial = paginator.page(paginator.num_pages)
 
-    return render(request, 'bourseapp/tutorial_list.html', {
+    return render(request, 'bourseapp/tutorials/tutorial_list.html', {
         'tutorials': tutorial,
         'search': search,
-        'page_size': page_size
+        'page_size': page_size,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -315,7 +324,8 @@ def category_detail(request, category_id):
         'companies': companies,
         'news': news,
         'search': search,
-        'page_size': page_size
+        'page_size': page_size,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -333,6 +343,7 @@ def company_detail(request, company_id):
         'technicals': technicals,
         'fundamentals': fundamental,
         'technicals_watch': technicals_watch,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -343,6 +354,7 @@ def company_technical_view(request, company_id):
     return render(request, 'bourseapp/company_technical_view.html', {
         'company': company,
         'technicals_watch': technicals_watch,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -353,6 +365,7 @@ def news_detail(request, news_id):
     return render(request, 'bourseapp/news_detail.html', {
         'news': news,
         'url': request.path,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -371,6 +384,7 @@ def technical_detail(request, technical_id):
     return render(request, 'bourseapp/technical_detail.html', {
         'technical': technical,
         'url': request.path,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -381,6 +395,7 @@ def fundamental_detail(request, fundamental_id):
     return render(request, 'bourseapp/fundamental_detail.html', {
         'fundamental': fundamental,
         'url': request.path,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -388,9 +403,10 @@ def fundamental_detail(request, fundamental_id):
 @login_required
 def tutorial_detail(request, tutorial_id):
     tutorial = get_object_or_404(models.Tutorial, pk=tutorial_id)
-    return render(request, 'bourseapp/tutorial_detail.html', {
+    return render(request, 'bourseapp/tutorials/tutorial_detail.html', {
         'tutorial': tutorial,
         'url': request.path,
+        'tutorialCategory': tutorialCategory,
     })
 
 
@@ -431,5 +447,27 @@ def message_list(request):
     return render(request, 'bourseapp/message_list.html', {
         'messages': messages,
         'search': search,
-        'page_size': page_size
+        'page_size': page_size,
+        'tutorialCategory': tutorialCategory,
+    })
+
+
+def tutorial_category(request, tutorialCategory_id):
+    tutorialCat = get_object_or_404(models.TutorialCategory, pk=tutorialCategory_id)
+    tutorialSubCat = models.TutorialSubCategory.objects.filter(category=tutorialCategory_id)
+    return render(request, 'bourseapp/tutorials/tutorialCategory.html', {
+        'tutorialCat': tutorialCat,
+        'tutorialSubCat': tutorialSubCat,
+        # 'url': request.path,
+        'tutorialCategory': tutorialCategory,
+    })
+
+
+def tutorial_subCategory(request, tutorialSubCategory_id):
+    tutorialSubCat = get_object_or_404(models.TutorialSubCategory, pk=tutorialSubCategory_id)
+    tutorials = models.Tutorial.objects.filter(subCategory=tutorialSubCategory_id)
+    return render(request, 'bourseapp/tutorials/tutorial_subCat_list.html', {
+        'tutorials': tutorials,
+        'tutorialSubCat': tutorialSubCat,
+        'tutorialCategory': tutorialCategory,
     })

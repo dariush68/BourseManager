@@ -33,6 +33,8 @@ urlpatterns = [
     # tutorial urls
     url(r'^tutorial-list/$', views.tutorial_list, name='tutorial-list'),
     url(r'^(?P<tutorial_id>[0-9]+)/tutorial-detail/$', views.tutorial_detail, name='tutorial-detail'),
+    url(r'^(?P<tutorialCategory_id>[0-9]+)/tutorial-category/$', views.tutorial_category, name='tutorial-category'),
+    url(r'^(?P<tutorialSubCategory_id>[0-9]+)/tutorial-subCategory/$', views.tutorial_subCategory, name='tutorial-subCategory'),
 
     # message urls
     url(r'^message-list/$', views.message_list, name='message-list'),

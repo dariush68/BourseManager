@@ -175,3 +175,15 @@ class MessageAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     def response_delete(self, request, obj_display, obj_id):
         return redirect('bourseapp:message-list')
 
+
+@admin.register(models.TutorialCategory)
+class TutorialCategoryAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    formfield_overrides = {
+    }
+
+
+@admin.register(models.TutorialSubCategory)
+class TutorialSubCategoryAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    formfield_overrides = {
+    }
+
