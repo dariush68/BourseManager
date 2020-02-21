@@ -174,12 +174,29 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'bourseapp:tutorial-list' %}">
-                            <span id="companies" style="font-size: 16px; cursor: pointer; color: black">
+{#                        <a href="{% url 'bourseapp:tutorial-list' %}">#}
+{#                            <span id="companies" style="font-size: 16px; cursor: pointer; color: black">#}
+{#                                <i id="companies-icon" class="fa fa-books align-middle mr-1" style="font-size: 12px; color: gray"></i>#}
+{#                                آموزش#}
+{#                            </span>#}
+{#                        </a>#}
+
+                        <div class="dropdown">
+                            <span id="companies" style="font-size: 16px; cursor: pointer; color: black" class=" dropdown-toggle" type="button" id="dropdownMenuMenu" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                 <i id="companies-icon" class="fa fa-books align-middle mr-1" style="font-size: 12px; color: gray"></i>
                                 آموزش
                             </span>
-                        </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuMenu">
+                                {% for itm in tutorialCategory %}
+
+                                    <a href="{% url 'bourseapp:tutorial-category' itm.id %}" class="dropdown-item" type="button">{{ itm.title }}</a>
+
+                                {% endfor %}
+                            </div>
+                        </div>
+
                     </li>
                     {% if user.is_superuser %}
                         <li>
