@@ -614,6 +614,127 @@
                                     <!--Section: Content-->
                                 </div>
 
+                                <!-- bazar -->
+                                <div class="col-sm mt-1">
+                                    <!--Section: Content-->
+                                    <section>
+
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <h5 class="text-center font-weight-bold mb-4">آخرین تحلیل های بازار</h5>
+
+                                                <hr>
+
+                                                <!--Grid row-->
+                                                <div class="row">
+
+                                                    <!--Grid column-->
+                                                    <div class="col-12 mb-3 mx-auto">
+
+                                                        {% for bazaar in bazaars %}
+                                                            {% if bazaar.isSuperUserPermition %}
+                                                                {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
+
+                                                                    <div class="media">
+                                                                        {% if bazaar.pic %}
+                                                                            <img class="d-flex mr-3 img-thumbnail" src="{{ bazaar.pic.url }}" alt="{{ bazaar.title }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                                        {% else %}
+                                                                            <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                        {% endif %}
+                                                                        <div class="media-body">
+                                                                            <h6 class="mt-1 font-weight-bold mr-3">
+                                                                                <a href="{% url 'bourseapp:bazaar-detail' bazaar.id %}">
+
+                                                                                    {{ bazaar.title }}
+                                                                                    {% if bazaar.createAt|is_past_due:bazaar.createAt %}
+                                                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                                    {% endif %}
+
+                                                                                    {% if user.is_authenticated%}
+                                                                                        <a class="small" href="{% url 'admin:bourseapp_bazaar_change' bazaar.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                                    {% endif %}
+                                                                                </a>
+
+                                                                            </h6>
+                                                                            <span class="badge badge-default mr-1">
+                                                                                        {% if bazaar.company %}
+                                                                                            {{ bazaar.company.symbol }}
+                                                                                        {% elif bazaar.category %}
+                                                                                            {{ bazaar.category.title }}
+                                                                                        {% endif %}
+                                                                                    </span>
+                                                                            <span class="badge badge-info mr-1">{{ bazaar.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                            <span class="badge badge-secondary mr-1"><small>{{ bazaar.user }}</small></span>
+                                                                            <span class="badge yellow mr-1"><small style="color: black">VIP</small></span>
+                                                                            {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+
+                                                                {% endif %}
+
+                                                            {% else %}
+
+                                                                <div class="media">
+                                                                    {% if bazaar.pic %}
+                                                                        <img class="d-flex mr-3 img-thumbnail" src="{{ bazaar.pic.url }}" alt="{{ bazaar.title }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                                    {% else %}
+                                                                        <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                    {% endif %}
+                                                                    <div class="media-body">
+                                                                        <h6 class="mt-1 font-weight-bold mr-3">
+                                                                            <a href="{% url 'bourseapp:bazaar-detail' bazaar.id %}">
+
+                                                                                {{ bazaar.title }}
+                                                                                {% if bazaar.createAt|is_past_due:bazaar.createAt %}
+                                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                                {% endif %}
+
+                                                                                {% if user.is_authenticated%}
+                                                                                    <a class="small" href="{% url 'admin:bourseapp_bazaar_change' bazaar.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                                {% endif %}
+                                                                            </a>
+
+                                                                        </h6>
+                                                                        <span class="badge badge-default mr-1">
+                                                                                        {% if bazaar.company %}
+                                                                                            {{ bazaar.company.symbol }}
+                                                                                        {% elif bazaar.category %}
+                                                                                            {{ bazaar.category.title }}
+                                                                                        {% endif %}
+                                                                                    </span>
+                                                                        <span class="badge badge-info mr-1">{{ bazaar.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                        <span class="badge badge-secondary mr-1"><small>{{ bazaar.user }}</small></span>
+                                                                        {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+
+                                                                    </div>
+                                                                </div>
+                                                                <hr>
+                                                            {% endif %}
+
+                                                        {% endfor %}
+
+                                                    </div>
+                                                    <!--Grid column-->
+
+                                                </div>
+                                                <!--Grid row-->
+
+                                                <hr>
+
+                                                <p class="text-center mt-4 mb-1"><a href="{% url 'bourseapp:bazaar-list' %}">مشاهده تمامی تحلیل ها</a></p>
+
+                                            </div>
+                                        </div>
+
+                                    </section>
+                                    <!--Section: Content-->
+                                </div>
+
                             {% endif %}
                         </div>
 
@@ -658,9 +779,9 @@
                                                         <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
                                                            data-size="1600x1067">
                                                             <div class="view ">
-                                                                {% if tutorial.category == 'تحلیل بازار' %}
+                                                                {% if tutorial.subCategory.category == 'تحلیل بازار' %}
                                                                     <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                                {% elif tutorial.category == 'تحلیل بنیادی'%}
+                                                                {% elif tutorial.subCategory.category == 'تحلیل بنیادی'%}
                                                                     <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
                                                                 {% else %}
                                                                     <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
@@ -675,7 +796,7 @@
                                                                 <div class="animated fadeInDown">
                                                                     <i class="fa fa-video mb-1" style="font-size: 24px"></i>
                                                                     <h6 class="h6-responsive smaller">{{ tutorial.title|truncatechars:50 }} </h6>
-                                                                    <p>({{ tutorial.category }})</p>
+                                                                    <p>({{ tutorial.subCategory.category }})</p>
                                                                 </div>
                                                             </div>
                                                             <!--Caption-->
@@ -698,9 +819,9 @@
                                                         <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
                                                            data-size="1600x1067">
                                                             <div class="view ">
-                                                                {% if tutorial.category == 'تحلیل بازار' %}
+                                                                {% if tutorial.subCategory.category == 'تحلیل بازار' %}
                                                                     <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                                {% elif tutorial.category == 'تحلیل بنیادی'%}
+                                                                {% elif tutorial.subCategory.category == 'تحلیل بنیادی'%}
                                                                     <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
                                                                 {% else %}
                                                                     <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
@@ -714,7 +835,7 @@
                                                                 <div class="animated fadeInDown">
                                                                     <i class="fa fa-video mb-1" style="font-size: 24px"></i>
                                                                     <h6 class="h6-responsive">{{ tutorial.title|truncatechars:50 }} </h6>
-                                                                    <p>({{ tutorial.category }})</p>
+                                                                    <p>({{ tutorial.subCategory.category }})</p>
                                                                 </div>
                                                             </div>
                                                             <!--Caption-->
@@ -738,9 +859,9 @@
                                                             <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
                                                                data-size="1600x1067">
                                                                 <div class="view ">
-                                                                    {% if tutorial.category == 'تحلیل بازار' %}
+                                                                    {% if tutorial.subCategory.category == 'تحلیل بازار' %}
                                                                         <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                                    {% elif tutorial.category == 'تحلیل بنیادی'%}
+                                                                    {% elif tutorial.subCategory.category == 'تحلیل بنیادی'%}
                                                                         <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
                                                                     {% else %}
                                                                         <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
@@ -754,7 +875,7 @@
                                                                     <div class="animated fadeInDown">
                                                                         <i class="fa fa-video mb-1" style="font-size: 24px"></i>
                                                                         <h6 class="h6-responsive">{{ tutorial.title|truncatechars:50 }} </h6>
-                                                                        <p>({{ tutorial.category }})</p>
+                                                                        <p>({{ tutorial.subCategory.category }})</p>
                                                                     </div>
                                                                 </div>
                                                                 <!--Caption-->

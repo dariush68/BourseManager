@@ -44,6 +44,7 @@ def index(request):
     technicals = models.Technical.objects.all() .exclude(user__username='d_abedi') # [0:10]
 
     fundamentals = models.Fundamental.objects.all()[0:20]
+    bazaar = models.Bazaar.objects.all()[0:10]
     targets = models.Company.objects.filter(isTarget=True)
     messages = models.Message.objects.filter(isShow=True)
     tutorials = models.Tutorial.objects.all()[0:12]
@@ -85,6 +86,7 @@ def index(request):
         # return render(request, 'bourseapp/test.html', {
         'news': news,
         'targets': targets,
+        'bazaars': bazaar,
         'technicals': technical_vip_target_list2[0:20],
         'fundamentals': fundamentals,
         'messages': messages,
@@ -243,6 +245,33 @@ def technical_list(request):
 
 # @user_passes_test(lambda u: u.is_superuser)
 @login_required
+def bazaar_list(request):
+    page = request.GET.get('page', 1)
+    page_size = request.GET.get('page-size', 10)
+    search = request.GET.get('search', '')
+
+    bazaar = models.Bazaar.objects.filter(Q(company__symbol__icontains=search)
+                                                | Q(createAt__icontains=search)
+                                                | Q(description__icontains=search)
+                                                )
+    paginator = Paginator(bazaar, page_size)
+    try:
+        bazaar = paginator.page(page)
+    except PageNotAnInteger:
+        bazaar = paginator.page(1)
+    except EmptyPage:
+        bazaar = paginator.page(paginator.num_pages)
+
+    return render(request, 'bourseapp/bazaar_list.html', {
+        'bazaar': bazaar,
+        'search': search,
+        'page_size': page_size,
+        'tutorialCategory': tutorialCategory,
+    })
+
+
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
 def fundamental_list(request):
     page = request.GET.get('page', 1)
     page_size = request.GET.get('page-size', 10)
@@ -383,6 +412,17 @@ def technical_detail(request, technical_id):
     technical = get_object_or_404(models.Technical, pk=technical_id)
     return render(request, 'bourseapp/technical_detail.html', {
         'technical': technical,
+        'url': request.path,
+        'tutorialCategory': tutorialCategory,
+    })
+
+
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
+def bazaar_detail(request, bazaar_id):
+    bazaar = get_object_or_404(models.Bazaar, pk=bazaar_id)
+    return render(request, 'bourseapp/bazaar_detail.html', {
+        'bazaar': bazaar,
         'url': request.path,
         'tutorialCategory': tutorialCategory,
     })
