@@ -658,9 +658,9 @@
                                                         <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
                                                            data-size="1600x1067">
                                                             <div class="view ">
-                                                                {% if tutorial.category == 'تحلیل بازار' %}
+                                                                {% if tutorial.subCategory.category == 'تحلیل بازار' %}
                                                                     <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                                {% elif tutorial.category == 'تحلیل بنیادی'%}
+                                                                {% elif tutorial.subCategory.category == 'تحلیل بنیادی'%}
                                                                     <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
                                                                 {% else %}
                                                                     <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
@@ -675,7 +675,7 @@
                                                                 <div class="animated fadeInDown">
                                                                     <i class="fa fa-video mb-1" style="font-size: 24px"></i>
                                                                     <h6 class="h6-responsive smaller">{{ tutorial.title|truncatechars:50 }} </h6>
-                                                                    <p>({{ tutorial.category }})</p>
+                                                                    <p>({{ tutorial.subCategory.category }})</p>
                                                                 </div>
                                                             </div>
                                                             <!--Caption-->
@@ -698,9 +698,9 @@
                                                         <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
                                                            data-size="1600x1067">
                                                             <div class="view ">
-                                                                {% if tutorial.category == 'تحلیل بازار' %}
+                                                                {% if tutorial.subCategory.category == 'تحلیل بازار' %}
                                                                     <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                                {% elif tutorial.category == 'تحلیل بنیادی'%}
+                                                                {% elif tutorial.subCategory.category == 'تحلیل بنیادی'%}
                                                                     <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
                                                                 {% else %}
                                                                     <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
@@ -714,7 +714,7 @@
                                                                 <div class="animated fadeInDown">
                                                                     <i class="fa fa-video mb-1" style="font-size: 24px"></i>
                                                                     <h6 class="h6-responsive">{{ tutorial.title|truncatechars:50 }} </h6>
-                                                                    <p>({{ tutorial.category }})</p>
+                                                                    <p>({{ tutorial.subCategory.category }})</p>
                                                                 </div>
                                                             </div>
                                                             <!--Caption-->
@@ -738,9 +738,9 @@
                                                             <a href="{% url 'bourseapp:tutorial-detail' tutorial.id %}"
                                                                data-size="1600x1067">
                                                                 <div class="view ">
-                                                                    {% if tutorial.category == 'تحلیل بازار' %}
+                                                                    {% if tutorial.subCategory.category == 'تحلیل بازار' %}
                                                                         <img src="{% static 'bourseapp/images/tutorial_bazar.jpg' %}" class="img-fluid" alt="{{ tutorial.title }}">
-                                                                    {% elif tutorial.category == 'تحلیل بنیادی'%}
+                                                                    {% elif tutorial.subCategory.category == 'تحلیل بنیادی'%}
                                                                         <img src="{% static 'bourseapp/images/tutorial_fundamental.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
                                                                     {% else %}
                                                                         <img src="{% static 'bourseapp/images/tutorial_technical.png' %}" class="img-fluid" alt="{{ tutorial.title }}">
@@ -754,7 +754,7 @@
                                                                     <div class="animated fadeInDown">
                                                                         <i class="fa fa-video mb-1" style="font-size: 24px"></i>
                                                                         <h6 class="h6-responsive">{{ tutorial.title|truncatechars:50 }} </h6>
-                                                                        <p>({{ tutorial.category }})</p>
+                                                                        <p>({{ tutorial.subCategory.category }})</p>
                                                                     </div>
                                                                 </div>
                                                                 <!--Caption-->

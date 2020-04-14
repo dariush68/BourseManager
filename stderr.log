@@ -1344,3 +1344,2726 @@ Not Found: /robots.txt
 Not Found: /favicon.ico
 Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
 Bad Request: /
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.OperationalError: (1054, "Unknown column 'bourseapp_tutorial.category' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 91, in index
+    'targets_watch': target_watch,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'bourseapp_tutorial.category' in 'field list'")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.OperationalError: (1054, "Unknown column 'bourseapp_tutorial.category' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 91, in index
+    'targets_watch': target_watch,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'bourseapp_tutorial.category' in 'field list'")
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /company-list/null
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /license.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /robots.txt
+Not Found: /favicon.ico
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /old/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/mm-plugin/inc/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/jekyll-exporter/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-login.php
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /xmlrpc.php
+Not Found: /blog/wp-includes/wlwmanifest.xml
+Not Found: /web/wp-includes/wlwmanifest.xml
+Not Found: /wordpress/wp-includes/wlwmanifest.xml
+Not Found: /website/wp-includes/wlwmanifest.xml
+Not Found: /wp/wp-includes/wlwmanifest.xml
+Not Found: /news/wp-includes/wlwmanifest.xml
+Not Found: /2015/wp-includes/wlwmanifest.xml
+Not Found: /2016/wp-includes/wlwmanifest.xml
+Not Found: /2017/wp-includes/wlwmanifest.xml
+Not Found: /2018/wp-includes/wlwmanifest.xml
+Not Found: /shop/wp-includes/wlwmanifest.xml
+Not Found: /wp1/wp-includes/wlwmanifest.xml
+Not Found: /test/wp-includes/wlwmanifest.xml
+Not Found: /media/wp-includes/wlwmanifest.xml
+Not Found: /wp2/wp-includes/wlwmanifest.xml
+Not Found: /site/wp-includes/wlwmanifest.xml
+Not Found: /cms/wp-includes/wlwmanifest.xml
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /favicon.ico
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /xmlrpc.php
+Not Found: /blog/wp-includes/wlwmanifest.xml
+Not Found: /web/wp-includes/wlwmanifest.xml
+Not Found: /wordpress/wp-includes/wlwmanifest.xml
+Not Found: /website/wp-includes/wlwmanifest.xml
+Not Found: /wp/wp-includes/wlwmanifest.xml
+Not Found: /news/wp-includes/wlwmanifest.xml
+Not Found: /2015/wp-includes/wlwmanifest.xml
+Not Found: /2016/wp-includes/wlwmanifest.xml
+Not Found: /2017/wp-includes/wlwmanifest.xml
+Not Found: /2018/wp-includes/wlwmanifest.xml
+Not Found: /shop/wp-includes/wlwmanifest.xml
+Not Found: /wp1/wp-includes/wlwmanifest.xml
+Not Found: /test/wp-includes/wlwmanifest.xml
+Not Found: /media/wp-includes/wlwmanifest.xml
+Not Found: /wp2/wp-includes/wlwmanifest.xml
+Not Found: /site/wp-includes/wlwmanifest.xml
+Not Found: /cms/wp-includes/wlwmanifest.xml
+Not Found: /sito/wp-includes/wlwmanifest.xml
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /admin/
+Not Found: /wp/license.txt
+Not Found: /robots.txt
+Not Found: /vendor/phpunit/phpunit/phpunit.xsd
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /wp-login.php
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /info/license.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /favicon.ico
+OSError: LSAPI: Socket read/write error
+Not Found: /robots.txt
+2020-02-29 14:59:18.614877 [ERROR] [908305] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /.env
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+2020-03-04 13:10:44.742485 [3063278] Child process with pid: 3063294 was killed by signal: 15, core dump: 0
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /xmlrpc.php
+Not Found: /blog/wp-includes/wlwmanifest.xml
+Not Found: /web/wp-includes/wlwmanifest.xml
+Not Found: /wordpress/wp-includes/wlwmanifest.xml
+Not Found: /website/wp-includes/wlwmanifest.xml
+Not Found: /wp/wp-includes/wlwmanifest.xml
+Not Found: /news/wp-includes/wlwmanifest.xml
+Not Found: /2015/wp-includes/wlwmanifest.xml
+Not Found: /2016/wp-includes/wlwmanifest.xml
+Not Found: /2017/wp-includes/wlwmanifest.xml
+Not Found: /2018/wp-includes/wlwmanifest.xml
+Not Found: /shop/wp-includes/wlwmanifest.xml
+Not Found: /wp1/wp-includes/wlwmanifest.xml
+Not Found: /test/wp-includes/wlwmanifest.xml
+Not Found: /media/wp-includes/wlwmanifest.xml
+Not Found: /wp2/wp-includes/wlwmanifest.xml
+Not Found: /site/wp-includes/wlwmanifest.xml
+Not Found: /cms/wp-includes/wlwmanifest.xml
+Not Found: /sito/wp-includes/wlwmanifest.xml
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /admn
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /bitrix/admin/
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /license.txt
+Not Found: /.env
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /downloader/
+Not Found: /rss/catalog/notifystock/
+Not Found: /rss/order/new/
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /shop/license.txt
+Not Found: /accounts/
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /85/technical-deta
+Not Found: /85/tec
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+2020-03-08 21:35:15.910513 [ERROR] [184151] wsgiAppHandler pApp->start_response() return NULL.
+2020-03-08 21:35:24.791659 [ERROR] [184191] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 11-14: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 11-14: ordinal not in range(256)
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /company-list/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 189, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1040, 'Too many connections')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 44, in <lambda>
+    lambda u: u.is_authenticated,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 256, in inner
+    self._setup()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 392, in _setup
+    self._wrapped = self._setupfunc()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 182, in get_user
+    user_id = _get_user_session_key(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 54, in __getitem__
+    return self._session[key]
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 194, in _get_session
+    self._session_cache = self.load()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 402, in get
+    num = len(clone)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1040, 'Too many connections')
+Internal Server Error: /api/bourse/Symbols
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1040, 'Too many connections')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/drf_rw_serializers/generics.py", line 92, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/drf_rw_serializers/mixins.py", line 53, in list
+    return Response(serializer.data)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/serializers.py", line 760, in data
+    ret = super().data
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/serializers.py", line 260, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/serializers.py", line 678, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 274, in __iter__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1040, 'Too many connections')
+Internal Server Error: /api/bourse/Symbols
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1040, 'Too many connections')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/drf_rw_serializers/generics.py", line 92, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/drf_rw_serializers/mixins.py", line 53, in list
+    return Response(serializer.data)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/serializers.py", line 760, in data
+    ret = super().data
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/serializers.py", line 260, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/serializers.py", line 678, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 274, in __iter__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1040, 'Too many connections')
+Internal Server Error: /api/bourse/Symbols
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1040, 'Too many connections')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/drf_rw_serializers/generics.py", line 92, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/drf_rw_serializers/mixins.py", line 53, in list
+    return Response(serializer.data)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/serializers.py", line 760, in data
+    ret = super().data
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/serializers.py", line 260, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/rest_framework/serializers.py", line 678, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 274, in __iter__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1040, 'Too many connections')
+Internal Server Error: /company-list/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 189, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1040, 'Too many connections')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 44, in <lambda>
+    lambda u: u.is_authenticated,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 256, in inner
+    self._setup()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 392, in _setup
+    self._wrapped = self._setupfunc()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 182, in get_user
+    user_id = _get_user_session_key(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 54, in __getitem__
+    return self._session[key]
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 194, in _get_session
+    self._session_cache = self.load()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 402, in get
+    num = len(clone)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1040, 'Too many connections')
+Internal Server Error: /company-list/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 189, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1040, 'Too many connections')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 44, in <lambda>
+    lambda u: u.is_authenticated,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 256, in inner
+    self._setup()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 392, in _setup
+    self._wrapped = self._setupfunc()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 182, in get_user
+    user_id = _get_user_session_key(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 54, in __getitem__
+    return self._session[key]
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 194, in _get_session
+    self._session_cache = self.load()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 402, in get
+    num = len(clone)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1040, 'Too many connections')
+Internal Server Error: /company-list/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 189, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1040, 'Too many connections')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 44, in <lambda>
+    lambda u: u.is_authenticated,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 256, in inner
+    self._setup()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 392, in _setup
+    self._wrapped = self._setupfunc()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 182, in get_user
+    user_id = _get_user_session_key(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 54, in __getitem__
+    return self._session[key]
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 194, in _get_session
+    self._session_cache = self.load()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 402, in get
+    num = len(clone)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1040, 'Too many connections')
+Internal Server Error: /admin/jsi18n/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 189, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1040, 'Too many connections')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/sites.py", line 241, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/sites.py", line 212, in inner
+    if not self.has_permission(request):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/sites.py", line 186, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 256, in inner
+    self._setup()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 392, in _setup
+    self._wrapped = self._setupfunc()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 182, in get_user
+    user_id = _get_user_session_key(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 54, in __getitem__
+    return self._session[key]
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 194, in _get_session
+    self._session_cache = self.load()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 402, in get
+    num = len(clone)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1040, 'Too many connections')
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /admin/
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Internal Server Error: /362/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /favicon.ico
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /89/techni
+Not Found: /1/license.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /web.config.txt
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /xmlrpc.php
+Not Found: /favicon.ico
+Internal Server Error: /admin/bourseapp/news/56/change/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 189, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1040, 'Too many connections')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/options.py", line 606, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/sites.py", line 212, in inner
+    if not self.has_permission(request):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/sites.py", line 186, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 256, in inner
+    self._setup()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/functional.py", line 392, in _setup
+    self._wrapped = self._setupfunc()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 182, in get_user
+    user_id = _get_user_session_key(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 54, in __getitem__
+    return self._session[key]
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py", line 194, in _get_session
+    self._session_cache = self.load()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 402, in get
+    num = len(clone)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1040, 'Too many connections')
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /56/news-detail/None
+Not Found: /favicon.ico
+Not Found: /vendor/phpunit/phpunit/phpunit.xsd
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /vendor/phpunit/phpunit/phpunit.xsd
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /xmlrpc.php
+Not Found: /blog/wp-includes/wlwmanifest.xml
+Not Found: /web/wp-includes/wlwmanifest.xml
+Not Found: /wordpress/wp-includes/wlwmanifest.xml
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /license.txt
+Not Found: /robots.txt
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /modules/autoupgrade/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /composer/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /modules/ps_facetedsearch/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /payment/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /concrete/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /accounts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /system/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /modules/gamification/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/enjoy/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /shop/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /player/AutoPost/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /gr/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /site/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/woocommerce-software-license-manager/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/jekyll-exporter/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wordpress/license.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /wordpress/license.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /old/license.txt
+Not Found: /new/license.txt
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /cms/license.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /.env.applelama
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /.env
+Not Found: /robots.txt
+Not Found: /w/license.txt
+Not Found: /.env.applelama
+Not Found: /.env
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /.env.applelama
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /.env
+Not Found: /.env.applelama
+Not Found: /.env
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /.env.applelama
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /.env
+Not Found: /2/license.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /tmp/license.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+2020-03-15 14:09:16.181173 [2209658] Child process with pid: 2209691 was killed by signal: 15, core dump: 0
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /modules/autoupgrade/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /composer/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /modules/ps_facetedsearch/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /payment/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /concrete/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /accounts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /system/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /modules/gamification/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/enjoy/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /shop/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /player/AutoPost/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /gr/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /site/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/woocommerce-software-license-manager/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/jekyll-exporter/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /joomla/web.config.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /blog/
+Not Found: /favicon.ico
+Not Found: /test/web.config.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Internal Server Error: /375/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /favicon.ico
+Internal Server Error: /375/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Not Found: /bitrix/admin/
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /bitrix/admin/
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /admin/
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /xmlrpc.php
+Not Found: /blog/robots.txt
+Not Found: /blog/
+Not Found: /wordpress/
+Not Found: /wp/
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /wp-json/wp/v2/users/
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /blog/
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /.env
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /xmlrpc.php
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /ads.txt
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /robots.txt
+Not Found: /license.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /site/license.txt
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /xmlrpc.php
+Not Found: /blog/wp-includes/wlwmanifest.xml
+Not Found: /temp/license.txt
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /site/wp-includes/wlwmanifest.xml
+Not Found: /sito/wp-includes/wlwmanifest.xml
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /www/license.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /main/license.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /reserv/license.txt
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Not Found: /wp-login.php
+Bad Request: /wp-login.php
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /robots.txt
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/Template/TestCaseMethod.tpl.dist
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/Template/TestCaseMethod.tpl.dist
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /arx/license.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Not Found: /res/license.txt
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /backup/license.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /back/license.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /robots.txt
+Not Found: /_wp/license.txt
+Not Found: /robots.txt
+Not Found: /53/news-detail/None
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /xmlrpc.php
+Not Found: /blog/wp-includes/wlwmanifest.xml
+Not Found: /web/wp-includes/wlwmanifest.xml
+Not Found: /wordpress/wp-includes/wlwmanifest.xml
+Not Found: /website/wp-includes/wlwmanifest.xml
+Not Found: /wp/wp-includes/wlwmanifest.xml
+Not Found: /news/wp-includes/wlwmanifest.xml
+Not Found: /2018/wp-includes/wlwmanifest.xml
+Not Found: /2019/wp-includes/wlwmanifest.xml
+Not Found: /shop/wp-includes/wlwmanifest.xml
+Not Found: /wp1/wp-includes/wlwmanifest.xml
+Not Found: /test/wp-includes/wlwmanifest.xml
+Not Found: /media/wp-includes/wlwmanifest.xml
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /wp-json/wp/v2/users/
+Not Found: /favicon.ico
+Internal Server Error: /375/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /favicon.ico
+Internal Server Error: /375/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Internal Server Error: /375/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /375/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /admin/
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Internal Server Error: /375/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /favicon.ico
+Internal Server Error: /375/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /favicon.ico
+Not Found: /accounts/profile/
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /87/
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /ads.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /29/news-detail/None
+Not Found: /15/news-detail/None
+Not Found: /53/news-detail/None
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /robots.txt
+2020-04-10 19:44:02.637000 [2893640] Child process with pid: 166643 was killed by signal: 15, core dump: 0
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+2020-04-11 00:07:34.029788 [ERROR] [655526] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 1-5: ordinal not in range(256)
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /apple-touch-icon-120x120-precomposed.png
+Not Found: /apple-touch-icon-120x120.png
+Not Found: /apple-touch-icon-precomposed.png
+Not Found: /apple-touch-icon.png
+Not Found: /robots.txt
+Not Found: /56/news-detail/None
+Not Found: /36/news-detail/codal.ir
+Not Found: /52/news-detail/Codal.ir
+Not Found: /favicon.ico
+2020-04-11 08:13:58.041535 [ERROR] [2456297] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Not Found: /favicon.ico
+Internal Server Error: /405/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /favicon.ico
+Internal Server Error: /405/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 346, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /favicon.ico
+Not Found: /company-list/null
+Forbidden (Permission denied): /admin/bourseapp/company/405/change/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/options.py", line 606, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/options.py", line 1648, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/options.py", line 1529, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/admin/options.py", line 1557, in _changeform_view
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+2020-04-11 12:45:17.024258 [2893640] Child process with pid: 2863992 was killed by signal: 15, core dump: 0
+Not Found: /vendor/phpunit/phpunit/phpunit.xsd
+Not Found: /16/news-detail/codal.ir
+Not Found: /31/news-detail/codal.ir
+Not Found: /32/news-detail/codal.ir
+Not Found: /35/news-detail/codal.ir
+Not Found: /9/news-detail/@Eghtesad_Emroz
+Not Found: /6/news-detail/@Eghtesad_Emroz
+Not Found: /7/news-detail/@Eghtesad_Emroz
+Not Found: /10/news-detail/@Eghtesad_Emroz
+Not Found: /8/news-detail/@Eghtesad_Emroz
+Not Found: /robots.txt
+2020-04-11 17:15:18.090192 [ERROR] [3535775] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:15:23.346459 [ERROR] [3535085] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:15:37.641164 [ERROR] [3535085] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:15:44.719163 [ERROR] [3535085] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:15:47.715977 [ERROR] [3535085] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:16:07.714918 [ERROR] [3535085] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:16:12.290170 [ERROR] [3535775] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:16:13.236934 [ERROR] [3535775] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+2020-04-11 17:21:17.033950 [ERROR] [3556905] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:21:30.155283 [ERROR] [3556905] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:21:38.887490 [ERROR] [3556905] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:21:55.231932 [ERROR] [3556905] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:22:02.471032 [ERROR] [3558193] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:22:16.590046 [ERROR] [3556905] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:22:17.537991 [ERROR] [3556905] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:22:22.776182 [ERROR] [3558193] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:22:29.196990 [ERROR] [3558193] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:22:48.511007 [ERROR] [3558193] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:22:54.715142 [ERROR] [3556905] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 17:23:01.773035 [ERROR] [3558193] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+2020-04-11 17:32:11.541336 [ERROR] [3571340] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/font/roboto/Roboto-Regular.woff2
+Not Found: /static/bourseapp/font/roboto/Roboto-Regular.woff
+Not Found: /static/bourseapp/font/roboto/Roboto-Regular.ttf
+2020-04-11 18:41:14.974457 [ERROR] [3704377] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+2020-04-11 18:59:46.711092 [ERROR] [3739859] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 19:00:06.303300 [ERROR] [3739859] wsgiAppHandler pApp->start_response() return NULL.
+2020-04-11 19:00:51.276818 [ERROR] [3739859] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /vendor/phpunit/phpunit/phpunit.xsd
+2020-04-12 10:00:57.744158 [2893640] Child process with pid: 1085470 was killed by signal: 15, core dump: 0
+Not Found: /favicon.ico
+Not Found: /vendor/phpunit/phpunit/phpunit.xsd
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /.env
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /modules/autoupgrade/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /composer/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /modules/ps_facetedsearch/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /payment/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /concrete/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /accounts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /system/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /modules/gamification/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/enjoy/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /shop/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /player/AutoPost/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /gr/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /site/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/woocommerce-software-license-manager/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /wp-content/plugins/jekyll-exporter/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /apple-touch-icon-precomposed.png
+Not Found: /apple-touch-icon.png
+Not Found: /apple-touch-icon-precomposed.png
+Not Found: /apple-touch-icon.png
+Not Found: /robots.txt
+Not Found: /static/bourseapp/font/roboto/Roboto-Regular.woff2
+Not Found: /static/bourseapp/font/roboto/Roboto-Regular.woff
+Not Found: /static/bourseapp/font/roboto/Roboto-Regular.ttf
+Not Found: /apple-touch-icon-precomposed.png
+Not Found: /apple-touch-icon.png
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/font/roboto/Roboto-Regular.woff2
+Not Found: /static/bourseapp/font/roboto/Roboto-Regular.woff
+Not Found: /static/bourseapp/font/roboto/Roboto-Regular.ttf
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /wp-login.php
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /robots.txt
+2020-04-14 07:36:58.561672 [ERROR] [1529302] wsgiAppHandler pApp->start_response() return NULL.
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 138, in __call__
+    set_script_prefix(get_script_name(environ))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 179, in get_script_name
+    script_url = get_bytes_from_wsgi(environ, 'SCRIPT_URL', '') or get_bytes_from_wsgi(environ, 'REDIRECT_URL', '')
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/wsgi.py", line 204, in get_bytes_from_wsgi
+    return value.encode('iso-8859-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 16-19: ordinal not in range(256)
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
