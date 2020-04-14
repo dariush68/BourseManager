@@ -16,6 +16,7 @@
 *.sqlite3
 *.xml
 *.log
+*.log
 
 # add an exception (using !) to the preceding rule to track a specific file
 # !package.json
