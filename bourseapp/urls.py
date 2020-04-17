@@ -6,6 +6,9 @@ app_name = 'bourseapp'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
 
+    # manager panel urls
+    url(r'^manager-panel/$', views.manager_panel, name='manager-panel'),
+
     # category urls
     url(r'^category-list/$', views.category_list, name='category-list'),
     url(r'^(?P<category_id>[0-9]+)/category-detail/$', views.category_detail, name='category-detail'),

@@ -17,6 +17,7 @@ from django.utils import timezone
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth import get_user_model
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -88,6 +89,10 @@ def index(request):
     for itm in technical_target_list:
         technical_vip_target_list2.append(itm)
 
+    users_inactive_count = get_user_model().objects.filter(is_active=False).count()
+    news_inactive_count = models.News.objects.filter(isApproved=False).count()
+    events = (users_inactive_count + news_inactive_count)
+
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
         # return render(request, 'bourseapp/test.html', {
@@ -102,6 +107,7 @@ def index(request):
         'tutorials': tutorials,
         'tutorialCategory': tutorialCategory,
         'all_analized_symbols': all_analized_symbols,
+        'events': events,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
@@ -131,6 +137,23 @@ def category_list(request):
         'search': search,
         'page_size': page_size,
         'tutorialCategory': tutorialCategory,
+    })
+
+
+# @login_required
+@user_passes_test(lambda u: u.is_superuser)
+def manager_panel(request):
+
+    users = get_user_model().objects.all().order_by('groups')
+    users_inactive = get_user_model().objects.filter(is_active=False)
+    news_inactive = models.News.objects.filter(isApproved=False)
+    events = (users_inactive.count() + news_inactive.count())
+
+    return render(request, 'bourseapp/manager_panel.html', {
+        'users': users,
+        'users_inactive': users_inactive,
+        'news_inactive': news_inactive,
+        'events': events,
     })
 
 

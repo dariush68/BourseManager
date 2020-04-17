@@ -1,0 +1,182 @@
+<!-- use base html template -->
+{% extends 'bourseapp/base.html' %}
+{% load jalali_tags %}
+{% load social_share %}
+{% load auth_extras %}
+{% block title %}
+    <title>تحلیل بازار {{ bazaar.company.symbol }}</title>
+{% endblock %}
+<!-- begin of body block -->
+{% block body %}
+
+    <!-- load static file in django -->
+    {% load staticfiles %}
+
+    <div class="container">
+        <div class="row">
+
+            <!-- all users -->
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-header">
+                        کاربران
+                    </div>
+                    <div class="card-body">
+                        {% for user in users %}
+
+
+                                {% if user.is_superuser%}
+{#                                    <i class="blue z-depth-1 p-3 rounded-right text-white small" style="height: 54px; width: 70px">موئسس</i>#}
+                                {% elif user|has_group:"level1"%}
+{#                                    <i class="green z-depth-1 p-3 rounded-right text-white small" style="height: 54px; width: 70px">ادمین</i>#}
+                                {% elif user|has_group:"vip"%}
+{#                                    <i class="yellow z-depth-1 p-3 rounded-right text-black small" style="height: 54px; width: 70px">VIP</i>#}
+                                {% elif user|has_group:"level2"%}
+                                    <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+                                        <div class="media-body p-1">
+                                            <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank"><p class="text-uppercase text-muted mb-1"><small>{{ user }}</small></p></a>
+                                            <h7 class="font-weight-bold mb-0">{{ user.first_name }} {{ user.last_name }}</h7>
+                                        </div>
+                                        <i class="orange z-depth-1 p-3 rounded-right text-white small" style="height: 54px; width: 70px">سطح 2</i>
+                                    </div>
+                                {% else%}
+                                    <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+                                        <div class="media-body p-1">
+                                            <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank"><p class="text-uppercase text-muted mb-1"><small>{{ user }}</small></p></a>
+                                            <h7 class="font-weight-bold mb-0">{{ user.first_name }} {{ user.last_name }}</h7>
+                                        </div>
+                                        <i class="blue-grey z-depth-1 p-3 rounded-right text-white small" style="height: 54px; width: 70px">کاربر</i>
+                                    </div>
+                                {% endif %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- in active users -->
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-header">
+                       کاربران منتظر تایید
+                    </div>
+                    <div class="card-body">
+                        {% for user in users_inactive %}
+                            <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+
+                                <div class="media-body p-1">
+                                    <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank"><p class="text-uppercase text-muted mb-1"><small>{{ user }}</small></p></a>
+                                    <h7 class="font-weight-bold mb-0">{{ user.first_name }} {{ user.last_name }}</h7>
+                                </div>
+
+                                <i class="warning-color z-depth-1 p-3 rounded-right text-black small" style="height: 54px; width: 70px">انتظار</i>
+
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- in approved news -->
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-header">
+                       خبرهای منتظر تایید
+                    </div>
+                    <div class="card-body">
+                        {% for news in news_inactive %}
+                            <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+
+                                <div class="media-body p-1">
+                                    <p class="text-uppercase text-muted mb-1"><small>{{ news.createAt|to_jalali:'%y/%m/%d' }}</small></p>
+                                    <a href="{% url 'admin:bourseapp_news_change' news.id %}" target="_blank"><h7 class="font-weight-bold mb-0" style="color: #2d2d2d">{{ news.title }}</h7></a>
+                                </div>
+
+                                <i class="alert-danger z-depth-1 p-3 rounded-right text-black small" style="height: 54px; width: 70px">انتظار</i>
+
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- users -->
+            <div class="col-sm-3">
+
+                <!-- super admin users -->
+                <div class="card mb-2">
+                    <div class="card-header">
+                        موئسس ها
+                    </div>
+                    <div class="card-body">
+                        {% for user in users %}
+                            {% if user.is_superuser%}
+                                <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+                                    <div class="media-body p-1">
+                                        <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank"><p class="text-uppercase text-muted mb-1"><small>{{ user }}</small></p></a>
+                                        <h7 class="font-weight-bold mb-0">{{ user.first_name }} {{ user.last_name }}</h7>
+                                    </div>
+                                    <i class="fa fa-user-tie fa-lg blue z-depth-1 p-3 rounded-right text-white" style="height: 54px; width: 54px"></i>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- admin users -->
+                <div class="card">
+                    <div class="card-header">
+                        ادمین ها
+                    </div>
+                    <div class="card-body">
+                        {% for user in users %}
+                            {% if user|has_group:"level1"%}
+                                <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+                                    <div class="media-body p-1">
+                                        <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank"><p class="text-uppercase text-muted mb-1"><small>{{ user }}</small></p></a>
+                                        <h7 class="font-weight-bold mb-0">{{ user.first_name }} {{ user.last_name }}</h7>
+                                    </div>
+                                    <i class="fa fa-user-alt green z-depth-1 p-3 rounded-right text-white" style="height: 54px; width: 54px"></i>
+{#                                    <i class="green z-depth-1 p-3 rounded-right text-white small" style="height: 54px; width: 70px">ادمین</i>#}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- vip users -->
+                <div class="card">
+                    <div class="card-header">
+                        کاربران VIP
+                    </div>
+                    <div class="card-body">
+                        {% for user in users %}
+                            {% if user|has_group:"vip"%}
+                                <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+                                    <div class="media-body p-1">
+                                        <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank"><p class="text-uppercase text-muted mb-1"><small>{{ user }}</small></p></a>
+                                        <h7 class="font-weight-bold mb-0">{{ user.first_name }} {{ user.last_name }}</h7>
+                                    </div>
+                                    <i class="fa fa-user-alt yellow z-depth-1 p-3 rounded-right text-black" style="height: 54px; width: 54px"></i>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- base url address -->
+    <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
+
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
