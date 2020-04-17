@@ -27,6 +27,10 @@ urlpatterns = [
     url(r'^technical-list/$', views.technical_list, name='technical-list'),
     url(r'^(?P<technical_id>[0-9]+)/technical-detail/$', views.technical_detail, name='technical-detail'),
 
+    # webinar urls
+    url(r'^webinar-list/$', views.webinar_list, name='webinar-list'),
+    url(r'^(?P<webinar_id>[0-9]+)/webinar-detail/$', views.webinar_detail, name='webinar-detail'),
+
     # bazaar urls
     url(r'^bazzar-list/$', views.bazaar_list, name='bazaar-list'),
     url(r'^(?P<bazaar_id>[0-9]+)/bazaar-detail/$', views.bazaar_detail, name='bazaar-detail'),

@@ -106,6 +106,33 @@ class TechnicalAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
         return redirect('bourseapp:technical-list')
 
 
+@admin.register(models.Webinar)
+class WebinarAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    formfield_overrides = {
+    }
+
+    def get_fields(self, request, obj=None):
+        fields = super(WebinarAdmin, self).get_fields(request, obj)
+        if request.user.is_superuser or request.user.groups == "level1":
+            pass
+        else:
+            fields = tuple(x for x in fields if x != 'isSuperUserPermition')
+
+        return fields
+
+    # override add function
+    def response_add(self, request, obj, post_url_continue=None):
+        return redirect('bourseapp:webinar-list')
+
+    # override edit function
+    def response_change(self, request, obj):
+        return redirect('bourseapp:webinar-list')
+
+    # override delete function
+    def response_delete(self, request, obj_display, obj_id):
+        return redirect('bourseapp:webinar-list')
+
+
 @admin.register(models.Bazaar)
 class BazaarAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     formfield_overrides = {
