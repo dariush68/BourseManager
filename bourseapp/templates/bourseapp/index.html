@@ -103,72 +103,10 @@
                     <!--right section-->
                     <div class="col-md-3 mb-4">
 
-                        <!-- Classic tabs -->
-                        <div class="classic-tabs d-none">
-
-                            <ul class="nav tabs-cyan small" id="myClassicTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link  waves-light active show small" id="profile-tab-classic" data-toggle="tab" href="#profile-classic"
-                                       role="tab" aria-controls="profile-classic" aria-selected="true">نمادهای تحت نظر</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link waves-light small" id="follow-tab-classic" data-toggle="tab" href="#follow-classic" role="tab"
-                                       aria-controls="follow-classic" aria-selected="false">نمادهای بررسی شده</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
-                                <div class="tab-pane fade active show" id="profile-classic" role="tabpanel" aria-labelledby="profile-tab-classic">
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
-                                        sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                        consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-                                        dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
-                                        incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                                </div>
-                                <div class="tab-pane fade" id="follow-classic" role="tabpanel" aria-labelledby="follow-tab-classic">
-                                    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
-                                        aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                                        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- Classic tabs -->
-
-
                         <!-- watch list -->
                         {% if user.is_authenticated%}
                             <!-- targets -->
                             <div class="card mb-4">
-
-                                <!-- Card header -->
-                                <div class="card-header text-center d-none">
-{#                                    نمادهای تحت نظر#}
-
-{#                                    <ul class="nav nav-tabs" id="myTab" role="tablist">#}
-{#                                        <li class="nav-item">#}
-{#                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"#}
-{#                                               aria-selected="true"> نمادهای تحت نظر</a>#}
-{#                                        </li>#}
-{#                                        <li class="nav-item">#}
-{#                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"#}
-{#                                               aria-selected="false"> نمادهای بررسی شده</a>#}
-{#                                        </li>#}
-{#                                    </ul>#}
-
-{#                                    <ul class="nav nav-tabs md-tabs w-100" id="myTabMD" role="tablist" style="margin: -10px">#}
-{#                                        <li class="nav-item">#}
-{#                                            <a class="nav-link active" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"#}
-{#                                               aria-selected="true"> نمادهای تحت نظر</a>#}
-{#                                        </li>#}
-{#                                        <li class="nav-item">#}
-{#                                            <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"#}
-{#                                               aria-selected="false">نمادهای بررسی شده</a>#}
-{#                                        </li>#}
-{#                                    </ul>#}
-
-
-                                </div>
 
                                 <!--Card content-->
                                 <div class="card-body">
@@ -341,13 +279,9 @@
                                     </div>
                                     <!-- Tab panels -->
 
-
-
                                 </div>
-
                             </div>
                         {% endif %}
-
 
                         <!-- watch list -->
                         {% if request.user|has_abedi%}
@@ -398,136 +332,292 @@
                             </div>
                         {% endif %}
 
-                        <!-- news -->
-                        <div class="card mb-4">
-
-                            <!-- Card header -->
-                            <div class="card-header text-center">
-                                اخبار
-                            </div>
-
-                            <!--Card content-->
-                            <div class="card-body">
-
-                                <!-- List group links -->
-                                <div class="list-group list-group-flush" style="margin: -20px">
-
-                                    {% for new in news %}
-
-                                        {% if new.isSuperUserPermition %}
-                                            {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
-                                                <div class="list-group-item list-group-item-action waves-effect">
-                                                    <div class="row">
-                                                        <a href="{% url 'bourseapp:news-detail' new.id %}" >
-                                                            <p class="small">
-
-                                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-
-                                                                {{ new.title }}
-                                                                (
-                                                                {% if new.company %}
-                                                                    {{ new.company.symbol }}
-                                                                {% elif new.category %}
-                                                                    {{ new.category.title }}
-                                                                {% endif %}
-                                                                )
-                                                                {% if new.createAt|is_past_due:new.createAt %}
-                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
-                                                                {% endif %}
-                                                                <span class="small badge-pill mr-0 yellow ">VIP</span>
-                                                            </p>
-                                                        </a>
-                                                        {% if new.isApproved == False %}
-                                                            <a id="class-news-approve-status1-{{ new.id }}"
-                                                               onclick="document.getElementById('index-selected-news-id').value='{{ new.id }}';
-                                                               document.getElementById('index-selected-news-title').value='{{ new.title }}';
-                                                               document.getElementById('modal-news-title').innerHTML='{{ new.title }}'"
-                                                               data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
-                                                                <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
-                                                            </a>
-                                                        {% endif %}
-                                                    </div>
-                                                </div>
-
-                                            {% endif %}
-                                        {% else %}
-
-                                            {% if new.isApproved == False %}
-                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
-                                                    <div class="list-group-item list-group-item-action waves-effect">
-                                                    <div class="row">
-                                                        <a href="{% url 'bourseapp:news-detail' new.id %}" >
-                                                            <p class="small">
-
-                                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-
-                                                                {{ new.title }}
-                                                                (
-                                                                {% if new.company %}
-                                                                    {{ new.company.symbol }}
-                                                                {% elif new.category %}
-                                                                    {{ new.category.title }}
-                                                                {% endif %}
-                                                                )
-                                                                {% if new.createAt|is_past_due:new.createAt %}
-                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
-                                                                {% endif %}
-                                                            </p>
-                                                        </a>
-                                                        <a id="class-news-approve-status2-{{ new.id }}"
-                                                           onclick="document.getElementById('index-selected-news-id').value='{{ new.id }}';
-                                                           document.getElementById('index-selected-news-title').value='{{ new.title }}';
-                                                           document.getElementById('modal-news-title').innerHTML='{{ new.title }}'"
-                                                           data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
-                                                            <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
-                                                        </a>
-                                                    </div>
-                                                    </div>
-
-
-                                                {% endif %}
-                                            {% else %}
-                                                <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
-                                                <p class="small">
-
-                                                    <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-
-                                                    {{ new.title }}
-                                                    (
-                                                    {% if new.company %}
-                                                        {{ new.company.symbol }}
-                                                    {% elif new.category %}
-                                                        {{ new.category.title }}
-                                                    {% endif %}
-                                                    )
-                                                    {% if new.createAt|is_past_due:new.createAt %}
-                                                        <i class="fa fa-star" style="color: #ffc400"></i>
-                                                    {% endif %}
-                                                </p>
-                                            </a>
-                                            {% endif %}
-
-                                        {% endif %}
-
-                                    {% endfor %}
-                                    <a href="{% url 'bourseapp:news-list' %}" class="list-group-item list-group-item-action waves-effect text-center">
-                                        تمامی خبرها
-                                    </a>
-
-                                </div>
-                                <!-- List group links -->
-
-                            </div>
-
-                        </div>
-
-
                     </div>
-
 
                     <!-- left section -->
                     <div class="col-md-9 mb-4">
 
+                        <!-- analysis list -->
+                        <div class="row">
+                            {% if user.is_authenticated%}
+                                <div class="col-sm-8 mt-1">
+
+
+                                    <div class="card mb-4">
+
+                                        <!--Card content-->
+                                        <div class="card-body" style="background-color: #ffffff">
+
+                                            <!--Carousel Wrapper-->
+                                            <div id="video-carousel-example2" class="carousel slide carousel-fade" data-ride="carousel">
+                                                <!--Indicators-->
+                                                <ol class="carousel-indicators" style="margin-bottom: -12px">
+                                                    {% for newsItm in news|slice:":5" %}
+                                                        <li data-target="#video-carousel-example2" style="background-color: #a1a1a1" class="" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %} active {% endif %}></li>
+                                                    {% endfor %}
+                                                </ol>
+                                                <!--Slides-->
+                                                <div class="carousel-inner" role="listbox">
+                                                    {% for newsItm in news|slice:":5" %}
+                                                        <!-- First slide -->
+                                                        <div class="carousel-item {% if forloop.first %} active {% endif %}">
+
+                                                            <!--Grid row-->
+                                                            <div class="row z-depth-1">
+
+                                                                <!--Grid column-->
+                                                                <div class="col-md-6 mb-4 mb-md-0">
+                                                                    <!--Image-->
+                                                                    <div class="view overlay">
+                                                                        {% if newsItm.pic %}
+                                                                            <img src="{{ newsItm.pic.url }}" class="rounded img-thumbnail" alt="" style="width: 200px; height: 200px; object-fit: contain">
+                                                                        {% else %}
+                                                                            <img src="{% static 'bourseapp/images/news_placeholder.jpg' %}" class="rounded img-thumbnail" alt="" style="width: 200px; height: 200px; object-fit: cover">
+                                                                        {% endif %}
+
+                                                                        <a href="{% url 'bourseapp:news-detail' newsItm.id %}">
+                                                                            <div class="mask rgba-white-light"></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!--Grid column-->
+
+                                                                <!--Grid column-->
+                                                                <div class="col-md-6 mb-4 mb-md-0">
+
+                                                                    <a href="{% url 'bourseapp:news-detail' newsItm.id %}">
+                                                                        <h5 class="font-weight-bold">{{ newsItm.title }}</h5>
+                                                                    </a>
+                                                                    {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                                        <a href="{% url 'admin:bourseapp_news_change'  newsItm.id %}" target="_blank"><i class="fa fa-edit small"></i></a>
+                                                                    {% endif %}
+
+                                                                    <p class="text-muted small">
+                                                                        {{ newsItm.shortDescription|default_if_none:"" }}
+                                                                    </p>
+
+                                                                </div>
+                                                                <!--Grid column-->
+
+                                                            </div>
+                                                            <!--Grid row-->
+
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+
+                                                <!--Controls-->
+                                                <a class="carousel-control-prev" href="#video-carousel-example2" role="button" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next" href="#video-carousel-example2" role="button" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                                <!--/.Controls-->
+                                            </div>
+                                            <!--Carousel Wrapper-->
+
+                                        </div>
+                                    </div>
+
+
+                                    <!-- latest news -->
+                                    <div id="multi-item-example" class="d-none carousel slide carousel-fade" data-ride="carousel">
+
+                                        <!--Indicators-->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                                            <li data-target="#multi-item-example" data-slide-to="1"></li>
+                                            <li data-target="#multi-item-example" data-slide-to="2"></li>
+                                        </ol>
+                                        <!--/.Indicators-->
+
+                                        <!--Slides-->
+                                        <div class="carousel-inner" role="listbox">
+
+                                            <!--First slide-->
+                                            <div class="carousel-item active">
+
+                                                <div class="card mb-2" style="height: 200px">
+                                                    <img class="card-img-top"
+                                                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                                                         alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Card title</h4>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                                            card's content.</p>
+                                                        <a class="btn btn-primary">Button</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!--/.First slide-->
+
+                                            <!--First slide-->
+                                            <div class="carousel-item">
+
+                                                <div class="card mb-2" style="height: 200px">
+                                                    <img class="card-img-top"
+                                                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                                                         alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Card title</h4>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                                            card's content.</p>
+                                                        <a class="btn btn-primary">Button</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!--/.First slide-->
+
+                                        </div>
+                                        <!--/.Slides-->
+
+                                        <!--Controls-->
+                                        <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                            <i class="fas fa-chevron-left"></i>
+                                        </a>
+                                        <a class="carousel-control-next" href="#multi-item-example" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                        <!--/.Controls-->
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 mt-1">
+                                    <!-- news -->
+                                    <div class="card mb-4">
+
+                                        <!-- Card header -->
+                                        <div class="card-header text-center">
+                                            اخبار
+                                        </div>
+
+                                        <!--Card content-->
+                                        <div class="card-body">
+
+                                            <!-- List group links -->
+                                            <div class="list-group list-group-flush" style="margin: -20px">
+
+                                                {% for new in news %}
+
+                                                    {% if new.isSuperUserPermition %}
+                                                        {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
+                                                            <div class="list-group-item list-group-item-action waves-effect">
+                                                                <div class="row">
+                                                                    <a href="{% url 'bourseapp:news-detail' new.id %}" >
+                                                                        <p class="small">
+
+                                                                            <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+
+                                                                            {{ new.title }}
+                                                                            (
+                                                                            {% if new.company %}
+                                                                                {{ new.company.symbol }}
+                                                                            {% elif new.category %}
+                                                                                {{ new.category.title }}
+                                                                            {% endif %}
+                                                                            )
+                                                                            {% if new.createAt|is_past_due:new.createAt %}
+                                                                                <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                            {% endif %}
+                                                                            <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                                        </p>
+                                                                    </a>
+                                                                    {% if new.isApproved == False %}
+                                                                        <a id="class-news-approve-status1-{{ new.id }}"
+                                                                           onclick="document.getElementById('index-selected-news-id').value='{{ new.id }}';
+                                                                                   document.getElementById('index-selected-news-title').value='{{ new.title }}';
+                                                                                   document.getElementById('modal-news-title').innerHTML='{{ new.title }}'"
+                                                                           data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
+                                                                            <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
+                                                                        </a>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+
+                                                        {% endif %}
+                                                    {% else %}
+
+                                                        {% if new.isApproved == False %}
+                                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                                <div class="list-group-item list-group-item-action waves-effect">
+                                                                    <div class="row">
+                                                                        <a href="{% url 'bourseapp:news-detail' new.id %}" >
+                                                                            <p class="small">
+
+                                                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+
+                                                                                {{ new.title }}
+                                                                                (
+                                                                                {% if new.company %}
+                                                                                    {{ new.company.symbol }}
+                                                                                {% elif new.category %}
+                                                                                    {{ new.category.title }}
+                                                                                {% endif %}
+                                                                                )
+                                                                                {% if new.createAt|is_past_due:new.createAt %}
+                                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                                {% endif %}
+                                                                            </p>
+                                                                        </a>
+                                                                        <a id="class-news-approve-status2-{{ new.id }}"
+                                                                           onclick="document.getElementById('index-selected-news-id').value='{{ new.id }}';
+                                                                                   document.getElementById('index-selected-news-title').value='{{ new.title }}';
+                                                                                   document.getElementById('modal-news-title').innerHTML='{{ new.title }}'"
+                                                                           data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
+                                                                            <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            {% endif %}
+                                                        {% else %}
+                                                            <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect">
+                                                                <p class="small">
+
+                                                                    <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+
+                                                                    {{ new.title }}
+                                                                    (
+                                                                    {% if new.company %}
+                                                                        {{ new.company.symbol }}
+                                                                    {% elif new.category %}
+                                                                        {{ new.category.title }}
+                                                                    {% endif %}
+                                                                    )
+                                                                    {% if new.createAt|is_past_due:new.createAt %}
+                                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                    {% endif %}
+                                                                </p>
+                                                            </a>
+                                                        {% endif %}
+
+                                                    {% endif %}
+
+                                                {% endfor %}
+                                                <a href="{% url 'bourseapp:news-list' %}" class="list-group-item list-group-item-action waves-effect text-center">
+                                                    تمامی خبرها
+                                                </a>
+
+                                            </div>
+                                            <!-- List group links -->
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
 
                         <!-- analysis list -->
                         <div class="row">

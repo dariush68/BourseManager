@@ -73,6 +73,7 @@ class News(models.Model):
     tag = models.CharField(max_length=120, null=True, blank=True, help_text='تگ ها')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     isApproved = models.BooleanField(default=False, help_text='تایید خبر')
+    shortDescription = models.TextField(max_length=200, null=True, blank=True, help_text='توضیحات کوتاه')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
 

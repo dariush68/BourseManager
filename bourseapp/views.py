@@ -222,7 +222,7 @@ def new_list(request):
     except EmptyPage:
         news = paginator.page(paginator.num_pages)
 
-    return render(request, 'bourseapp/new_list.html', {
+    return render(request, 'bourseapp/news/new_list.html', {
         'newss': news,
         'search': search,
         'page_size': page_size,
@@ -247,7 +247,7 @@ def news_create(request):
                     id=request.POST.get('company'))  # use your own profile here
 
             candidate.save()
-            return render(request, 'bourseapp/new_list.html')
+            return render(request, 'bourseapp/news/new_list.html')
     else:
         form = NewsForm(user=request.user)
     category = request.GET.get('category')
@@ -435,7 +435,7 @@ def company_technical_view(request, company_id):
 # @login_required
 def news_detail(request, news_id):
     news = get_object_or_404(models.News, pk=news_id)
-    return render(request, 'bourseapp/news_detail.html', {
+    return render(request, 'bourseapp/news/news_detail.html', {
         'news': news,
         'url': request.path,
         'tutorialCategory': tutorialCategory,
