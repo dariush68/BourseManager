@@ -4067,3 +4067,919 @@ Not Found: /robots.txt
 Not Found: /wp-includes/wlwmanifest.xml
 Not Found: /robots.txt
 Not Found: /.well-known/assetlinks.json
+Not Found: /robots.txt
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /wp-includes/wlwmanifest.xml
+Not Found: /xmlrpc.php
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /blog/wp-includes/wlwmanifest.xml
+Not Found: /wordpress/wp-includes/wlwmanifest.xml
+Not Found: /wp/wp-includes/wlwmanifest.xml
+Not Found: /site/wp-includes/wlwmanifest.xml
+Not Found: /cms/wp-includes/wlwmanifest.xml
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Invalid HTTP_HOST header: 'mediabourse.mediawork.ir'. You may need to add 'mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /robots.txt
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /license.txt
+2020-04-16 02:27:39.786926 [2893640] Child process with pid: 1469538 was killed by signal: 15, core dump: 0
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /tmp/license.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /temp/
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /www/license.txt
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Not Found: /site/license.txt
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /bazzar-list/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 253, in bazaar_list
+    bazaar = models.Bazaar.objects.filter(Q(company__symbol__icontains=search)
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /bazzar-list/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 253, in bazaar_list
+    bazaar = models.Bazaar.objects.filter(Q(company__symbol__icontains=search)
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /robots.txt
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /new1/license.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /old/license.txt
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /robots.txt
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 47, in index
+    bazaar = models.Bazaar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Bazaar'
+Not Found: /favicon.ico
+Internal Server Error: /38/news-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1044, "Access denied for user 'boorchin_mediasoft'@'localhost' to database 'boorchin_bourse_db2'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 393, in news_detail
+    news = get_object_or_404(models.News, pk=news_id)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 93, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 402, in get
+    num = len(clone)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1044, "Access denied for user 'boorchin_mediasoft'@'localhost' to database 'boorchin_bourse_db2'")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1044, "Access denied for user 'boorchin_mediasoft'@'localhost' to database 'boorchin_bourse_db2'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 61, in index
+    for itm in technicals:
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 274, in __iter__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1044, "Access denied for user 'boorchin_mediasoft'@'localhost' to database 'boorchin_bourse_db2'")
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1044, "Access denied for user 'boorchin_mediasoft'@'localhost' to database 'boorchin_bourse_db2'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 61, in index
+    for itm in technicals:
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 274, in __iter__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1131, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 256, in cursor
+    return self._cursor()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 233, in _cursor
+    self.ensure_connection()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 217, in ensure_connection
+    self.connect()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/base/base.py", line 195, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 227, in get_new_connection
+    return Database.connect(**conn_params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 179, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (1044, "Access denied for user 'boorchin_mediasoft'@'localhost' to database 'boorchin_bourse_db2'")
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /new/license.txt
+Not Found: /accounts/profile/
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+2020-04-16 23:04:40.327438 [3363868] Child process with pid: 3589025 was killed by signal: 15, core dump: 0
+2020-04-16 23:04:40.330687 [3363868] Child process with pid: 3590832 was killed by signal: 15, core dump: 0
+Not Found: /1/license.txt
+2020-04-16 23:42:34.757566 [3607638] Child process with pid: 3664704 was killed by signal: 15, core dump: 0
+Not Found: /favicon.ico
+Invalid HTTP_HOST header: 'mail.mediabourse.ir'. You may need to add 'mail.mediabourse.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Invalid HTTP_HOST header: 'www.mediabourse.mediawork.ir'. You may need to add 'www.mediabourse.mediawork.ir' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Internal Server Error: /475/company-detail/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 375, in company_detail
+    'tutorialCategory': tutorialCategory,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 61, in url
+    self._require_file()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/fields/files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pic' attribute has no file associated with it.
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /wp/
+Not Found: /wp-login.php
+Not Found: /robots.txt
+Not Found: /wp/license.txt
+OSError: LSAPI: Socket read/write error
+2020-04-17 23:04:38.939270 [3685669] Child process with pid: 1627499 was killed by signal: 15, core dump: 0
+2020-04-17 23:04:38.997110 [3685669] Child process with pid: 1617417 was killed by signal: 15, core dump: 0
