@@ -1,9 +1,9 @@
 new WOW().init();
-new SmoothScroll('a[href*="#"]'),
-    {
-    easing:'linear',
-    speed:1000
-};
+// new SmoothScroll('a[href*="#"]'),
+//     {
+//     easing:'linear',
+//     speed:1000
+// };
 
 // add name to breadcrumb
 //-- used hidden input in base.html to access django url --//
@@ -57,5 +57,19 @@ function newsApproveByAdminInIndex(newsId) {
             }
         }
     })
+
+}
+
+showLimitedCountOfAnalyzedSymbols(10);
+
+//-- show 10 item of analyzed symbols --//
+function showLimitedCountOfAnalyzedSymbols(count) {
+
+    $(".symbol-analyzed-tile").each(function (index) {
+
+        if(index <= count){
+            $(this).removeClass("d-none");
+        }
+    });
 
 }

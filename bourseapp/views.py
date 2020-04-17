@@ -17,6 +17,7 @@ from django.utils import timezone
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth import get_user_model
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -41,13 +42,21 @@ def index(request):
     # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
     news = models.News.objects.all()[0:20]
-    technicals = models.Technical.objects.all() .exclude(user__username='d_abedi') # [0:10]
+    technicals = models.Technical.objects.all().exclude(user__username='d_abedi') # [0:10]
+    technicals_count = technicals.count()
 
     fundamentals = models.Fundamental.objects.all()[0:20]
     bazaar = models.Bazaar.objects.all()[0:10]
+    webinar = models.Webinar.objects.all()[0:10]
     targets = models.Company.objects.filter(isTarget=True)
     messages = models.Message.objects.filter(isShow=True)
     tutorials = models.Tutorial.objects.all()[0:12]
+    comp_tech = models.Technical.objects.all().values_list('company__id')
+    comp_fund = models.Fundamental.objects.all().values_list('company__id')
+    comp_bazr = models.Bazaar.objects.all().values_list('company__id')
+    comp_analiz = comp_tech.union(comp_fund)
+    comp_analiz = comp_analiz.union(comp_bazr)
+    all_analized_symbols = models.Company.objects.filter(id__in=comp_analiz)
 
     itms = models.Technical.objects.filter(user__username='d_abedi').values_list('company__id')
     target_watch = models.Company.objects.filter(id__in=itms)
@@ -81,18 +90,30 @@ def index(request):
     for itm in technical_target_list:
         technical_vip_target_list2.append(itm)
 
+    users_inactive_count = get_user_model().objects.filter(is_active=False).count()
+    news_inactive_count = models.News.objects.filter(isApproved=False).count()
+    events = (users_inactive_count + news_inactive_count)
+    users_count = get_user_model().objects.all().count()
+
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
         # return render(request, 'bourseapp/test.html', {
         'news': news,
         'targets': targets,
         'bazaars': bazaar,
+        'webinar': webinar,
         'technicals': technical_vip_target_list2[0:20],
+        'technicals_count': technicals_count,
         'fundamentals': fundamentals,
         'messages': messages,
         'targets_watch': target_watch,
         'tutorials': tutorials,
         'tutorialCategory': tutorialCategory,
+        'all_analized_symbols': all_analized_symbols,
+        'users_inactive_count': users_inactive_count,
+        'news_inactive_count': news_inactive_count,
+        'events': events,
+        'users_count': users_count,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
@@ -125,6 +146,23 @@ def category_list(request):
     })
 
 
+# @login_required
+@user_passes_test(lambda u: u.is_superuser)
+def manager_panel(request):
+
+    users = get_user_model().objects.all().order_by('groups')
+    users_inactive = get_user_model().objects.filter(is_active=False)
+    news_inactive = models.News.objects.filter(isApproved=False)
+    events = (users_inactive.count() + news_inactive.count())
+
+    return render(request, 'bourseapp/manager_panel.html', {
+        'users': users,
+        'users_inactive': users_inactive,
+        'news_inactive': news_inactive,
+        'events': events,
+    })
+
+
 @login_required
 # @user_passes_test(lambda u: u.is_superuser)
 def company_list(request):
@@ -147,11 +185,48 @@ def company_list(request):
                                                 )
 
     # return render(request, 'bourseapp/company_list.html', {
-    return render(request, 'bourseapp/symbols_list.html', {
+    return render(request, 'bourseapp/symbols/symbols_list.html', {
         'categories': categories,
         'companies': companies,
         'search': search,
         'search_category': search_category,
+        'tutorialCategory': tutorialCategory,
+    })
+
+
+@login_required
+# @user_passes_test(lambda u: u.is_superuser)
+def company_analyzed(request):
+
+    comp_tech = models.Technical.objects.all().values_list('company__id')
+    comp_fund = models.Fundamental.objects.all().values_list('company__id')
+    comp_bazr = models.Bazaar.objects.all().values_list('company__id')
+    comp_analiz = comp_tech.union(comp_fund)
+    comp_analiz = comp_analiz.union(comp_bazr)
+    all_analized_symbols = models.Company.objects.filter(id__in=comp_analiz).order_by('category__title')
+
+    category_list = all_analized_symbols.values('category__id').annotate(dcount=Count('category')).distinct()
+    categories = []
+    for cat in category_list:
+        cat_itm = get_object_or_404(models.Category, pk=cat['category__id'])
+        symbols = all_analized_symbols.filter(category__id=cat_itm.id)
+        categories.append({
+            'category': cat_itm,
+            'symbols': symbols,
+        })
+
+    len2 = int(len(categories)/4)
+    cat_1 = categories[:len2]
+    cat_2 = categories[len2:len2*2]
+    cat_3 = categories[len2*2:len2*3]
+    cat_4 = categories[len2*3:]
+    cats = []
+    cats.append(cat_1)
+    cats.append(cat_2)
+    cats.append(cat_3)
+    cats.append(cat_4)
+    return render(request, 'bourseapp/symbols/symbols_analyzed.html', {
+        'categories': cats,
         'tutorialCategory': tutorialCategory,
     })
 
@@ -178,7 +253,7 @@ def new_list(request):
     except EmptyPage:
         news = paginator.page(paginator.num_pages)
 
-    return render(request, 'bourseapp/new_list.html', {
+    return render(request, 'bourseapp/news/new_list.html', {
         'newss': news,
         'search': search,
         'page_size': page_size,
@@ -203,7 +278,7 @@ def news_create(request):
                     id=request.POST.get('company'))  # use your own profile here
 
             candidate.save()
-            return render(request, 'bourseapp/new_list.html')
+            return render(request, 'bourseapp/news/new_list.html')
     else:
         form = NewsForm(user=request.user)
     category = request.GET.get('category')
@@ -237,6 +312,33 @@ def technical_list(request):
 
     return render(request, 'bourseapp/technical_list.html', {
         'technical': technical,
+        'search': search,
+        'page_size': page_size,
+        'tutorialCategory': tutorialCategory,
+    })
+
+
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
+def webinar_list(request):
+    page = request.GET.get('page', 1)
+    page_size = request.GET.get('page-size', 10)
+    search = request.GET.get('search', '')
+
+    webinar = models.Webinar.objects.filter(Q(company__symbol__icontains=search)
+                                                | Q(createAt__icontains=search)
+                                                | Q(description__icontains=search)
+                                                )
+    paginator = Paginator(webinar, page_size)
+    try:
+        webinar = paginator.page(page)
+    except PageNotAnInteger:
+        webinar = paginator.page(1)
+    except EmptyPage:
+        webinar = paginator.page(paginator.num_pages)
+
+    return render(request, 'bourseapp/webinars/webinar_list.html', {
+        'webinar': webinar,
         'search': search,
         'page_size': page_size,
         'tutorialCategory': tutorialCategory,
@@ -379,7 +481,7 @@ def company_detail(request, company_id):
 @user_passes_test(lambda u: u.is_superuser)
 def company_technical_view(request, company_id):
     company = get_object_or_404(models.Company, pk=company_id)
-    technicals_watch = models.Technical.objects.filter(company=company.id).filter(user__username='d_abedi')
+    technicals_watch = models.Technical.objects.filter(company=company.id)#.filter(user__username='d_abedi')
     return render(request, 'bourseapp/company_technical_view.html', {
         'company': company,
         'technicals_watch': technicals_watch,
@@ -391,7 +493,7 @@ def company_technical_view(request, company_id):
 # @login_required
 def news_detail(request, news_id):
     news = get_object_or_404(models.News, pk=news_id)
-    return render(request, 'bourseapp/news_detail.html', {
+    return render(request, 'bourseapp/news/news_detail.html', {
         'news': news,
         'url': request.path,
         'tutorialCategory': tutorialCategory,
@@ -412,6 +514,17 @@ def technical_detail(request, technical_id):
     technical = get_object_or_404(models.Technical, pk=technical_id)
     return render(request, 'bourseapp/technical_detail.html', {
         'technical': technical,
+        'url': request.path,
+        'tutorialCategory': tutorialCategory,
+    })
+
+
+# @user_passes_test(lambda u: u.is_superuser)
+@login_required
+def webinar_detail(request, webinar_id):
+    webinar = get_object_or_404(models.Webinar, pk=webinar_id)
+    return render(request, 'bourseapp/webinars/webinar_detail.html', {
+        'webinar': webinar,
         'url': request.path,
         'tutorialCategory': tutorialCategory,
     })

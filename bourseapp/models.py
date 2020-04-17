@@ -73,6 +73,7 @@ class News(models.Model):
     tag = models.CharField(max_length=120, null=True, blank=True, help_text='تگ ها')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     isApproved = models.BooleanField(default=False, help_text='تایید خبر')
+    shortDescription = models.TextField(max_length=200, null=True, blank=True, help_text='توضیحات کوتاه')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
 
@@ -88,6 +89,29 @@ class News(models.Model):
 
 
 class Technical(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
+    createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
+                            help_text='تصویر')
+    title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
+    aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
+    isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
+    description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
+
+    class Meta:
+        ordering = ["-isSuperUserPermition", "-createAt"]
+
+    def __str__(self):
+        return self.company.symbol
+
+    @property
+    def owner(self):
+        return self.user
+
+
+class Webinar(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')

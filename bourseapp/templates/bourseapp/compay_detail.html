@@ -35,14 +35,21 @@
                 <div class="col-md-3 mb-4">
 
                     <!-- Card -->
-                    <a href="{{ company.pic.url }}" class="card hoverable" target="_blank">
-
-                        <!-- Card content -->
-                        <div class="card-body my-4">
-                            <img src="{{ company.pic.url }}" alt="{{ company.symbol }}"style="height: 70px; object-fit: contain">
-                        </div>
-
-                    </a>
+                    {% if company.pic %}
+                        <a href="{{ company.pic.url }}" class="card hoverable" target="_blank">
+                            <!-- Card content -->
+                            <div class="card-body my-4">
+                                <img src="{{ company.pic.url }}" alt="{{ company.symbol }}"style="height: 70px; object-fit: contain">
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="#" class="card hoverable" target="_blank">
+                            <!-- Card content -->
+                            <div class="card-body my-4">
+                                <i class="fas fa-chart-bar fa-lg blue p-4 img-fluid img-thumbnail text-white" style="height: 70px; width: 70px; object-fit: contain"></i>
+                            </div>
+                        </a>
+                    {% endif %}
                     <!-- Card -->
 
                 </div>

@@ -6,6 +6,9 @@ app_name = 'bourseapp'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
 
+    # manager panel urls
+    url(r'^manager-panel/$', views.manager_panel, name='manager-panel'),
+
     # category urls
     url(r'^category-list/$', views.category_list, name='category-list'),
     url(r'^(?P<category_id>[0-9]+)/category-detail/$', views.category_detail, name='category-detail'),
@@ -14,6 +17,7 @@ urlpatterns = [
     url(r'^company-list/$', views.company_list, name='company-list'),
     url(r'^(?P<company_id>[0-9]+)/company-detail/$', views.company_detail, name='company-detail'),
     url(r'^(?P<company_id>[0-9]+)/company-technical-view/$', views.company_technical_view, name='company-technical-view'),
+    url(r'^company-analyzed/$', views.company_analyzed, name='company-analyzed'),
 
     # new urls
     url(r'^news-list/$', views.new_list, name='news-list'),
@@ -25,6 +29,10 @@ urlpatterns = [
     # technical urls
     url(r'^technical-list/$', views.technical_list, name='technical-list'),
     url(r'^(?P<technical_id>[0-9]+)/technical-detail/$', views.technical_detail, name='technical-detail'),
+
+    # webinar urls
+    url(r'^webinar-list/$', views.webinar_list, name='webinar-list'),
+    url(r'^(?P<webinar_id>[0-9]+)/webinar-detail/$', views.webinar_detail, name='webinar-detail'),
 
     # bazaar urls
     url(r'^bazzar-list/$', views.bazaar_list, name='bazaar-list'),
