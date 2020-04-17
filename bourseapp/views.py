@@ -43,6 +43,7 @@ def index(request):
 
     news = models.News.objects.all()[0:20]
     technicals = models.Technical.objects.all().exclude(user__username='d_abedi') # [0:10]
+    technicals_count = technicals.count()
 
     fundamentals = models.Fundamental.objects.all()[0:20]
     bazaar = models.Bazaar.objects.all()[0:10]
@@ -92,6 +93,7 @@ def index(request):
     users_inactive_count = get_user_model().objects.filter(is_active=False).count()
     news_inactive_count = models.News.objects.filter(isApproved=False).count()
     events = (users_inactive_count + news_inactive_count)
+    users_count = get_user_model().objects.all().count()
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
@@ -101,13 +103,17 @@ def index(request):
         'bazaars': bazaar,
         'webinar': webinar,
         'technicals': technical_vip_target_list2[0:20],
+        'technicals_count': technicals_count,
         'fundamentals': fundamentals,
         'messages': messages,
         'targets_watch': target_watch,
         'tutorials': tutorials,
         'tutorialCategory': tutorialCategory,
         'all_analized_symbols': all_analized_symbols,
+        'users_inactive_count': users_inactive_count,
+        'news_inactive_count': news_inactive_count,
         'events': events,
+        'users_count': users_count,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))
