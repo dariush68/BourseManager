@@ -4983,3 +4983,2160 @@ Not Found: /wp/license.txt
 OSError: LSAPI: Socket read/write error
 2020-04-17 23:04:38.939270 [3685669] Child process with pid: 1627499 was killed by signal: 15, core dump: 0
 2020-04-17 23:04:38.997110 [3685669] Child process with pid: 1617417 was killed by signal: 15, core dump: 0
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 95, in index
+    events = (users_inactive_count + news_inactive_count)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/urls/resolvers.py", line 673, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'manager-panel' not found. 'manager-panel' is not a valid view function or pattern name.
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = []#models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = []#models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = []#models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 50, in index
+    webinar = models.Webinar.objects.all()[0:10]
+AttributeError: module 'bourseapp.models' has no attribute 'Webinar'
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/js/bootstrap.min.js.map
+Not Found: /static/bourseapp/css/bootstrap.min.css.map
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /accounts/profile/
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Not Found: /symbols-list/
+Internal Server Error: /company-analyzed/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 210, in company_analyzed
+    for cat in category_list:
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 274, in __iter__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 113, in __iter__
+    for row in compiler.results_iter(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1085, in results_iter
+    results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 116, in index
+    'users_count': users_count,
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Internal Server Error: /company-analyzed/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 206, in company_analyzed
+    comp_analiz = comp_tech | comp_fund #comp_tech.union(comp_fund)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 333, in __or__
+    combined.query.combine(other.query, sql.OR)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/query.py", line 542, in combine
+    "Cannot combine queries on two different base models."
+AssertionError: Cannot combine queries on two different base models.
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Internal Server Error: /company-analyzed/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 206, in company_analyzed
+    # comp_analiz = comp_tech.union(comp_fund)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 333, in __or__
+    combined.query.combine(other.query, sql.OR)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/query.py", line 542, in combine
+    "Cannot combine queries on two different base models."
+AssertionError: Cannot combine queries on two different base models.
+Not Found: /favicon.ico
+Internal Server Error: /company-analyzed/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 212, in company_analyzed
+    for cat in category_list:
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 274, in __iter__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 113, in __iter__
+    for row in compiler.results_iter(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1085, in results_iter
+    results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Internal Server Error: /company-analyzed/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 212, in company_analyzed
+    for cat in category_list:
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 274, in __iter__
+    self._fetch_all()
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 113, in __iter__
+    for row in compiler.results_iter(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1085, in results_iter
+    results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1133, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UNION (SELECT `bourseapp_fundamental`.`company_id` FROM `bourseapp_fundamental` ' at line 1")
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Internal Server Error: /company-analyzed/
+Traceback (most recent call last):
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/boorchin/MediaBourse/bourseapp/views.py", line 206, in company_analyzed
+    # comp_analiz = comp_tech.union(comp_fund)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/query.py", line 333, in __or__
+    combined.query.combine(other.query, sql.OR)
+  File "/home/boorchin/virtualenv/MediaBourse/3.7/lib/python3.7/site-packages/django/db/models/sql/query.py", line 542, in combine
+    "Cannot combine queries on two different base models."
+AssertionError: Cannot combine queries on two different base models.
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /w/license.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.well-known/assetlinks.json
+Not Found: /accounts/profile/
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /blog/license.txt
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /robots.txt
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/js/bootstrap.min.js.map
+Not Found: /static/bourseapp/css/bootstrap.min.css.map
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg
+Not Found: /favicon.ico
+Not Found: /static/bourseapp/img/svg/arrow_left.svg
+Not Found: /static/bourseapp/img/svg/arrow_right.svg

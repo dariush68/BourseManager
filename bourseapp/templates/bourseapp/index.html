@@ -229,32 +229,6 @@
                                                         {% endif %}
                                                     {% else %}
 
-                                                        <!--target tiles-->
-                                                        <div class=" mb-1 symbol-analyzed-tile d-none">
-                                                            <a href="{% url 'bourseapp:company-detail' target.id%}">
-
-                                                                <div class="media white z-depth-0 border rounded">
-                                                                    {% if target.pic %}
-                                                                        <img src="{{ target.pic.url }}" alt="" class="rounded-right z-depth-1" style="height: 53px; width: 90px; object-fit: contain">
-                                                                    {% else %}
-                                                                        <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-right text-white"  style="height: 53px; width: 90px;"></i>
-                                                                    {% endif %}
-                                                                    <div class="media-body p-1">
-                                                                        <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
-                                                                        <h7 class="font-weight-bold mb-0">
-                                                                            {{ target.symbol }}
-                                                                            {% if user.is_superuser%}
-                                                                                <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit text-black-50"></i></a>
-                                                                            {% endif %}
-                                                                        </h7>
-
-                                                                    </div>
-
-                                                                </div>
-
-                                                            </a>
-                                                        </div>
-
                                                     {% endif %}
 
                                             {% endfor %}
