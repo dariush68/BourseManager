@@ -16,8 +16,7 @@ class Category(models.Model):
                              help_text='کاربر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='گروه بورسی')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
-    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='تصویر')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
@@ -38,8 +37,7 @@ class Company(models.Model):
     symbol = models.CharField(max_length=120, null=True, blank=True, help_text='نماد')
     fullName = models.CharField(max_length=120, null=True, blank=True, help_text='نام شرکت')
     bourseType = models.CharField(max_length=120, null=True, blank=True, help_text='بازار بورس')
-    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='تصویر')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     tse = models.URLField(null=True, blank=True, help_text='لینک tse')
     site = models.URLField(null=True, blank=True, help_text='وبسایت')
@@ -68,8 +66,7 @@ class News(models.Model):
     title = models.CharField(max_length=120, null=True, blank=True, help_text='گروه بورسی')
     reference = models.CharField(max_length=120, null=True, blank=True, help_text='مرجع')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
-    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='تصویر')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     tag = models.CharField(max_length=120, null=True, blank=True, help_text='تگ ها')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     isApproved = models.BooleanField(default=False, help_text='تایید خبر')
@@ -93,8 +90,7 @@ class Technical(models.Model):
                              help_text='کاربر')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
-    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='تصویر')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
@@ -116,8 +112,7 @@ class Webinar(models.Model):
                              help_text='کاربر')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
-    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='تصویر')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
@@ -139,8 +134,7 @@ class Fundamental(models.Model):
                              help_text='کاربر')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
-    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='تصویر')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
@@ -161,8 +155,7 @@ class Bazaar(models.Model):
                              help_text='کاربر')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
-    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='تصویر')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
@@ -179,14 +172,44 @@ class Bazaar(models.Model):
         return self.user
 
 
+TIME_FRAME_CHOICES = (
+    ('0', "1 دقیقه"),
+    ('1', "5 دقیقه"),
+    ('2', "15 دقیقه"),
+    ('3', "30 دقیقه"),
+    ('4', "45 دقیقه"),
+    ('5', "۱ ساعت"),
+    ('6', "4 ساعت"),
+    ('7', "1 روز"),
+    ('8', "1 هفته"),
+    ('9', "1 ماه"),
+)
+class Chart(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
+    timeFrame = models.CharField(max_length=20, help_text='تایم فریم', choices=TIME_FRAME_CHOICES, default='7')
+    data = models.FileField('uploaded chart file', null=True, blank=True, help_text='فایل csv چارت نماد')
+
+    class Meta:
+        ordering = ["-createAt"]
+
+    def __str__(self):
+        return self.company.symbol
+
+    @property
+    def owner(self):
+        return self.user
+
+
 class TutorialCategory(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
-    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='تصویر')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
 
     class Meta:
         ordering = ["-createAt"]
@@ -213,8 +236,7 @@ class TutorialSubCategory(models.Model):
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     categoryLevel = models.CharField(max_length=20, help_text='سطح آموزش', choices=CATEGORY_LEVEL_CHOICES,
                                 default='0')
-    pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='تصویر')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
 
     class Meta:
         ordering = ["-createAt"]
@@ -232,8 +254,7 @@ class Tutorial(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
-    file = models.FileField('uploaded file', null=True, blank=True, upload_to=scramble_uploaded_filename,
-                            help_text='فایل')
+    file = models.FileField('uploaded file', null=True, blank=True, help_text='فایل')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     # category = models.CharField(max_length=120, null=True, blank=True, help_text='دسته آموزش', choices=CATEGORY_CHOICES,
     #                             default='تحلیل بازار')

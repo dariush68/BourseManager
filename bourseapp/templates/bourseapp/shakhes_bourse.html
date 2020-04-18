@@ -8,6 +8,10 @@
 
     </style>
 
+    <input type="hidden" id="url-chart-shakes" data-url="{% url 'api-bourseapp:chart-bazaar-view' %}" />
+
+
+
     <!-- Resources -->
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
     <script src="https://www.amcharts.com/lib/4/charts.js"></script>
@@ -25,35 +29,39 @@
             var chart = am4core.create("chartdiv", am4charts.XYChart);
 
             // Add data
-            chart.data = generateChartData();
+            {#chart.data = generateChartData();#}
 
-            // Create axes
-            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-            dateAxis.renderer.minGridDistance = 50;
+            fetchChart(function (chartData) {
+                chart.data = chartData;
 
-            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+                // Create axes
+                var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+                dateAxis.renderer.minGridDistance = 50;
 
-            // Create series
-            var series = chart.series.push(new am4charts.LineSeries());
-            series.dataFields.valueY = "visits";
-            series.dataFields.dateX = "date";
-            series.strokeWidth = 2;
-            series.minBulletDistance = 10;
-            series.tooltipText = "{valueY}";
-            series.tooltip.pointerOrientation = "vertical";
-            series.tooltip.background.cornerRadius = 20;
-            series.tooltip.background.fillOpacity = 0.5;
-            series.tooltip.label.padding(12,12,12,12)
+                var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
-            // Add scrollbar
-            chart.scrollbarX = new am4charts.XYChartScrollbar();
-            chart.scrollbarX.series.push(series);
+                // Create series
+                var series = chart.series.push(new am4charts.LineSeries());
+                series.dataFields.valueY = "visits";
+                series.dataFields.dateX = "date";
+                series.strokeWidth = 2;
+                series.minBulletDistance = 10;
+                series.tooltipText = "{valueY}";
+                series.tooltip.pointerOrientation = "vertical";
+                series.tooltip.background.cornerRadius = 20;
+                series.tooltip.background.fillOpacity = 0.5;
+                series.tooltip.label.padding(12,12,12,12)
 
-            // Add cursor
-            chart.cursor = new am4charts.XYCursor();
-            chart.cursor.xAxis = dateAxis;
-            chart.cursor.snapToSeries = series;
-            //chart.dataDateFormat = "fa-IR";
+                // Add scrollbar
+                chart.scrollbarX = new am4charts.XYChartScrollbar();
+                chart.scrollbarX.series.push(series);
+
+                // Add cursor
+                chart.cursor = new am4charts.XYCursor();
+                chart.cursor.xAxis = dateAxis;
+                chart.cursor.snapToSeries = series;
+                //chart.dataDateFormat = "fa-IR";
+            });
 
             function generateChartData() {
                 var chartData = [];
@@ -99,6 +107,55 @@
             }
 
         }); // end am4core.ready()
+
+        function fetchChart(callBack) {
+
+            let url_chart = document.querySelector('#url-chart-shakes').dataset.url;
+
+             {#alert(url_chart);#}
+             {#return#}
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                   // Typical action to be performed when the document is ready:
+                   {#console.log(JSON.parse(xhttp.response).Date);#}
+
+                    var chartData = [];
+
+                    var m_data = JSON.parse(xhttp.response).Close;
+                    var m_labels = JSON.parse(xhttp.response).Date;
+
+                    m_data = m_data.substr(1,m_data.length-2);
+                    m_data = m_data.split(',');
+                    m_labels = m_labels.substr(1,m_labels.length-2);
+                    m_labels = m_labels.split(',');
+
+                    document.querySelector('#shakesh-last-date').innerHTML = "(" + m_labels[0].substr(1,m_labels[0].length-2) + ")";
+                    document.querySelector('#shakesh-last-price').innerHTML = m_data[0];
+
+                    for (var i = 0; i < m_data.length; i++) {
+                        // we create date objects here. In your data, you can have date strings
+                        // and then set format of your dates using chart.dataDateFormat property,
+                        // however when possible, use date objects, as this will speed up chart rendering.
+
+                        let newDate = m_labels[i];
+
+                        let visits = m_data[i];
+
+                        chartData.push({
+                            date: newDate,
+                            visits: visits
+                        });
+                    }
+                    callBack(chartData);
+
+                }
+            };
+            xhttp.open("GET", url_chart, true);
+            xhttp.send();
+        }
+
     </script>
 
     <!-- HTML -->

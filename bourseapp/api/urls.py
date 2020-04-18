@@ -12,6 +12,8 @@ urlpatterns = [
     # url(r'^Category/(?P<pk>\d+)/$', views.CategoryRudView.as_view(), name='post-rud'),
 
     url(r'^Symbols$', views.SymbolsAPIView.as_view(), name='symbols-view'),
+    url(r'^ChartBazaar$', views.ChartView, name='chart-bazaar-view'),
+    url(r'^(?P<company_id>[0-9]+)/chart-detail/$', views.chart_detail, name='chart-detail'),
 
 ]
 
