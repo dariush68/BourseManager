@@ -37,7 +37,7 @@ from django.http import HttpResponse
 from bourseapp.models import Technical
 tutorialCategory = models.TutorialCategory.objects.all()
 
-from itertools import chain
+
 def index(request):
     # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
@@ -203,9 +203,9 @@ def company_analyzed(request):
     comp_tech = models.Technical.objects.all().values_list('company__id')
     comp_fund = models.Fundamental.objects.all().values_list('company__id')
     comp_bazr = models.Bazaar.objects.all().values_list('company__id')
-    # comp_analiz = comp_tech.union(comp_fund)
-    # comp_analiz = comp_analiz.union(comp_bazr)
-    all_analized_symbols = models.Company.objects.filter(id__in=comp_tech).order_by('category__title')
+    comp_analiz = comp_tech.union(comp_fund)
+    comp_analiz = comp_analiz.union(comp_bazr)
+    all_analized_symbols = models.Company.objects.filter(id__in=comp_analiz).order_by('category__title')
 
     category_list = all_analized_symbols.values('category__id').annotate(dcount=Count('category')).distinct()
     categories = []
