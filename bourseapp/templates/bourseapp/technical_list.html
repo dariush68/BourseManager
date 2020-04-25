@@ -82,6 +82,7 @@
                         <th scope="col">تاریخ</th>
                         <th scope="col">توضیحات</th>
                         <th scope="col">تصویر</th>
+                        <th scope="col">ویدیو</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -101,7 +102,11 @@
                                         <td ><a href="{{ tech.pic.url }}" target="_blank"><i class="fa fa-image"></i></a></td>
                                     {% else %}
                                         <td ><a href="#"></a></td>
-
+                                    {% endif %}
+                                    {% if tech.video %}
+                                        <td ><a href="{{ tech.video.url }}" target="_blank"><i class="fa fa-video-camera"></i></a></td>
+                                    {% else %}
+                                        <td ><a href="#"></a></td>
                                     {% endif %}
                                 </tr>
 
@@ -119,7 +124,11 @@
                                     <td ><a href="{{ tech.pic.url }}" target="_blank"><i class="fa fa-image"></i></a></td>
                                 {% else %}
                                     <td ><a href="#"></a></td>
-
+                                {% endif %}
+                                {% if tech.video %}
+                                    <td ><a href="{{ tech.video.url }}" target="_blank"><i class="fa fa-video"></i></a></td>
+                                {% else %}
+                                    <td ><a href="#"></a></td>
                                 {% endif %}
                             </tr>
 

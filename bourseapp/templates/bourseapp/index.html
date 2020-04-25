@@ -133,22 +133,22 @@
                                                             <a href="{% url 'bourseapp:company-detail' target.id%}">
 
                                                                 <div class="media white z-depth-0 border rounded">
+                                                                    {% if target.pic %}
+                                                                        <img src="{{ target.pic.url }}" alt="" class="rounded-right z-depth-1" style="height: 53px; width: 90px; object-fit: contain">
+                                                                    {% else %}
+                                                                        <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-right text-white"  style="height: 53px; width: 90px;"></i>
+                                                                    {% endif %}
                                                                     <div class="media-body p-1">
                                                                         <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
                                                                         <h5 class="font-weight-bold mb-0 small">
                                                                             {{ target.symbol }}
                                                                             {% if user.is_superuser%}
-                                                                                <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                                <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit text-black-50"></i></a>
                                                                             {% endif %}
                                                                             <span class="small badge-pill mr-0 yellow ">VIP</span>
                                                                         </h5>
 
                                                                     </div>
-                                                                    {% if target.pic %}
-                                                                        <img src="{{ target.pic.url }}" alt="" class="rounded-left mr-3 z-depth-1" style="height: 60px; width: 70px; object-fit: contain">
-                                                                    {% else %}
-                                                                        <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
-                                                                    {% endif %}
 
                                                                 </div>
 
@@ -170,7 +170,7 @@
                                                                 {% endif %}
                                                                 <div class="media-body p-1">
                                                                     <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
-                                                                    <h7 class="font-weight-bold mb-0">
+                                                                    <h7 class="font-weight-bold mb-0 small">
                                                                         {{ target.symbol }}
                                                                         {% if user.is_superuser%}
                                                                             <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit text-black-50"></i></a>
@@ -205,7 +205,7 @@
 
                                                                     <div class="media white z-depth-0 border rounded">
                                                                         {% if target.pic %}
-                                                                            <img src="{{ target.pic.url }}" alt="" class="rounded-rightz-depth-1" style="height: 53px; width: 90px; object-fit: contain">
+                                                                            <img src="{{ target.pic.url }}" alt="" class="rounded-right z-depth-1" style="height: 53px; width: 90px; object-fit: contain">
                                                                         {% else %}
                                                                             <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-4 rounded-right text-white" style="height: 53px; width: 90px;"></i>
                                                                         {% endif %}
@@ -524,7 +524,9 @@
                                                                     <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
                                                                 {% else %}
                                                                     <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
-
+                                                                {% endif %}
+                                                                {% if technical.video %}
+                                                                    <img class="d-flex mr-3" src="{% static 'bourseapp/images/video.png' %}" alt="News" style="width: 70px; height: 70px; object-fit: contain">
                                                                 {% endif %}
                                                                 <div class="media-body">
                                                                     <h6 class="mt-1 font-weight-bold mr-3">

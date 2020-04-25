@@ -48,7 +48,7 @@ class Company(models.Model):
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
-        ordering = ["createAt"]
+        ordering = ["-createAt"]
 
     def __str__(self):
         return self.symbol
@@ -95,6 +95,7 @@ class Technical(models.Model):
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
                             help_text='تصویر')
+    video = models.FileField(upload_to='videos/', null=True, blank=True, help_text='فایل ویدیو')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
