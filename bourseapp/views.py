@@ -1,6 +1,6 @@
 from django.db.models import Q
 # from drf_multiple_model.views import ObjectMultipleModelAPIView
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.http import HttpResponseRedirect
 # from mypy.test import update
 from django.db.models import Q
@@ -510,6 +510,26 @@ def news_approve(request, news_id):
     return HttpResponse("news approved")
 
 
+@user_passes_test(lambda u: u.is_superuser)
+def user_approve(request, user_id):
+    user = get_user_model().objects.get(pk=user_id)
+    user.is_active = True
+    user.save()
+    return HttpResponse("user activated")
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def user_vip(request, user_id, status):
+    user = get_user_model().objects.get(pk=user_id)
+    my_group = Group.objects.get(name='vip')
+    if status == '0':
+        my_group.user_set.remove(user)
+        return HttpResponse("remove user vip")
+    else:
+        my_group.user_set.add(user)
+        return HttpResponse("add user vip")
+
+
 # @user_passes_test(lambda u: u.is_superuser)
 @login_required
 def technical_detail(request, technical_id):
@@ -569,11 +589,15 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
+            # form.set
+            obj = form.save()
+            obj.is_active = False
+            obj.save()
+            # auto login
+            # username = form.cleaned_data.get('username')
+            # raw_password = form.cleaned_data.get('password1')
+            # user = authenticate(username=username, password=raw_password)
+            # login(request, user)
             return render(request, 'registration/admin_user_confirmation.html')
     else:
         form = SignUpForm()

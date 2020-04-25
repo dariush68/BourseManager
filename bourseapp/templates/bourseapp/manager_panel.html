@@ -21,7 +21,7 @@
                     <div class="card-header">
                         کاربران
                     </div>
-                    <div class="card-body">
+                    <div id="card-all-users" class="card-body">
                         {% for user in users %}
 
 
@@ -40,9 +40,16 @@
                                         <i class="orange z-depth-1 p-3 rounded-right text-white small" style="height: 54px; width: 70px">سطح 2</i>
                                     </div>
                                 {% else%}
-                                    <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+                                    <div id="user-awaitForVIP-{{ user.id }}" class="media white z-depth-1 rounded mb-1" dir="ltr">
                                         <div class="media-body p-1">
-                                            <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank"><p class="text-uppercase text-muted mb-1"><small>{{ user }}</small></p></a>
+                                            <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank">
+                                                <p class="text-uppercase text-muted mb-1">
+                                                    <a class="float-left" target="_blank" onclick="userVIPByManager({{ user.id }}, '1', '{{ user }}', '{{ user.first_name }}', '{{ user.last_name }}' )" data-toggle="tooltip" title="ارتقاع سطح به VIP"><i class="small" style="color: #c69500">VIP</i></a>
+                                                    <a class="float-left" target="_blank" href="{% url 'admin:auth_user_change' user.id %}" data-toggle="tooltip" title="تغییر اطلاعات کاربر"><i class="fa fa-edit ml-1 small" style="color: #a0a0a0"></i></a>
+                                                    <a class="float-left" target="_blank" href="{% url 'admin:auth_user_delete' user.id %}" data-toggle="tooltip" title="حذف کاربر"><i class="fa fa-trash-alt ml-1 small" style="color: #a0a0a0"></i></a>
+                                                    <small>{{ user }}</small>
+                                                </p>
+                                            </a>
                                             <h7 class="font-weight-bold mb-0">{{ user.first_name }} {{ user.last_name }}</h7>
                                         </div>
                                         <i class="blue-grey z-depth-1 p-3 rounded-right text-white small" style="height: 54px; width: 70px">کاربر</i>
@@ -62,10 +69,17 @@
                     </div>
                     <div class="card-body">
                         {% for user in users_inactive %}
-                            <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+                            <div id="user-awaitForCheck-{{ user.id }}" class="media white z-depth-1 rounded mb-1" dir="ltr">
 
                                 <div class="media-body p-1">
-                                    <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank"><p class="text-uppercase text-muted mb-1"><small>{{ user }}</small></p></a>
+                                    <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank">
+                                        <p class="text-uppercase text-muted mb-1">
+                                            <a class="float-left" target="_blank" onclick="userApproveByManager({{ user.id }})" data-toggle="tooltip" title="تایید کاربر"><i class="fa fa-calendar-check" style="color: green"></i></a>
+                                            <a class="float-left" target="_blank" href="{% url 'admin:auth_user_change' user.id %}" data-toggle="tooltip" title="تغییر اطلاعات کاربر"><i class="fa fa-edit ml-1 small" style="color: #a0a0a0"></i></a>
+                                            <a class="float-left" target="_blank" href="{% url 'admin:auth_user_delete' user.id %}" data-toggle="tooltip" title="حذف کاربر"><i class="fa fa-trash-alt ml-1 small" style="color: #a0a0a0"></i></a>
+                                            <small>{{ user }}</small>
+                                        </p>
+                                    </a>
                                     <h7 class="font-weight-bold mb-0">{{ user.first_name }} {{ user.last_name }}</h7>
                                 </div>
 
@@ -86,11 +100,17 @@
                     </div>
                     <div class="card-body">
                         {% for news in news_inactive %}
-                            <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+                            <div id="news-awaitForCheck-{{ news.id }}" class="media white z-depth-1 rounded mb-1" dir="ltr">
 
                                 <div class="media-body p-1">
-                                    <p class="text-uppercase text-muted mb-1"><small>{{ news.createAt|to_jalali:'%y/%m/%d' }}</small></p>
-                                    <a href="{% url 'admin:bourseapp_news_change' news.id %}" target="_blank"><h7 class="font-weight-bold mb-0" style="color: #2d2d2d">{{ news.title }}</h7></a>
+                                    <p class="text-uppercase text-muted mb-1">
+                                        <a class="float-left" target="_blank" onclick="newsApproveByManager({{ news.id }})" data-toggle="tooltip" title="تایید خبر"><i class="fa fa-calendar-check" style="color: green"></i></a>
+                                        <a class="float-left" target="_blank" href="{% url 'bourseapp:news-detail' news.id %}" data-toggle="tooltip" title="مشاهده خبر" ><i class="fa fa-eye ml-1 small" style="color: #a0a0a0"></i></a>
+                                        <a class="float-left" target="_blank" href="{% url 'admin:bourseapp_news_change'  news.id %}" data-toggle="tooltip" title="تغییر اطلاعات خبر"><i class="fa fa-edit ml-1 small" style="color: #a0a0a0"></i></a>
+                                        <a class="float-left" target="_blank" href="{% url 'admin:bourseapp_news_delete'  news.id %}" data-toggle="tooltip" title="حذف خبر"><i class="fa fa-trash-alt ml-1 small" style="color: #a0a0a0"></i></a>
+                                        <small>{{ news.createAt|to_jalali:'%y/%m/%d' }}</small>
+                                    </p>
+                                    <a href="{% url 'admin:bourseapp_news_change' news.id %}" target="_blank"><h7 class="font-weight-bold mb-0" style="color: #2d2d2d">{{ news.title|truncatechars:50 }}</h7></a>
                                 </div>
 
                                 <i class="alert-danger z-depth-1 p-3 rounded-right text-black small" style="height: 54px; width: 70px">انتظار</i>
@@ -151,12 +171,20 @@
                     <div class="card-header">
                         کاربران VIP
                     </div>
-                    <div class="card-body">
+                    <div id="card-vip-users" class="card-body">
                         {% for user in users %}
                             {% if user|has_group:"vip"%}
-                                <div class="media white z-depth-1 rounded mb-1" dir="ltr">
+                                <div id="user-VIP-{{ user.id }}" class="media white z-depth-1 rounded mb-1" dir="ltr">
                                     <div class="media-body p-1">
-                                        <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank"><p class="text-uppercase text-muted mb-1"><small>{{ user }}</small></p></a>
+                                        <a href="{% url 'admin:auth_user_change' user.id %}" target="_blank">
+                                            <p class="text-uppercase text-muted mb-1">
+                                                <a class="float-left" target="_blank" onclick="userVIPByManager({{ user.id }}, '0', '{{ user }}', '{{ user.first_name }}', '{{ user.last_name }}' )" data-toggle="tooltip" title="حذف سطح VIP">
+                                                    <i class="fa fa-times small" style="color: #9f105c"></i><i class="small" style="color: #9f105c">VIP</i></a>
+                                                <a class="float-left" target="_blank" href="{% url 'admin:auth_user_change' user.id %}" data-toggle="tooltip" title="تغییر اطلاعات کاربر"><i class="fa fa-edit ml-1 small" style="color: #a0a0a0"></i></a>
+                                                <a class="float-left" target="_blank" href="{% url 'admin:auth_user_delete' user.id %}" data-toggle="tooltip" title="حذف کاربر"><i class="fa fa-trash-alt ml-1 small" style="color: #a0a0a0"></i></a>
+                                                <small>{{ user }}</small>
+                                            </p>
+                                        </a>
                                         <h7 class="font-weight-bold mb-0">{{ user.first_name }} {{ user.last_name }}</h7>
                                     </div>
                                     <i class="fa fa-user-alt yellow z-depth-1 p-3 rounded-right text-black" style="height: 54px; width: 54px"></i>
@@ -174,9 +202,12 @@
 
     <!-- base url address -->
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
+    <input type="hidden" id="url-news-approve" data-url="{% url 'bourseapp:news-approve' 1234%}" />
+    <input type="hidden" id="url-user-approve" data-url="{% url 'bourseapp:user-approve' 1234%}" />
+    <input type="hidden" id="url-user-vip" data-url="{% url 'bourseapp:user-vip' 1234 5678%}" />
 
 {% endblock %}
 
 {% block javascript %}
-
+    <script type="text/javascript" src="{% static 'bourseapp/js/pages/manager_panel.js' %}"></script>
 {% endblock %}

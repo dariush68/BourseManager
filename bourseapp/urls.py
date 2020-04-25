@@ -8,6 +8,8 @@ urlpatterns = [
 
     # manager panel urls
     url(r'^manager-panel/$', views.manager_panel, name='manager-panel'),
+    url(r'^(?P<user_id>[0-9]+)/user-approve/$', views.user_approve, name='user-approve'),
+    url(r'^(?P<user_id>[0-9]+)/(?P<status>[0-9]+)/user-vip/$', views.user_vip, name='user-vip'),
 
     # category urls
     url(r'^category-list/$', views.category_list, name='category-list'),
