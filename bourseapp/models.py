@@ -96,6 +96,7 @@ class Technical(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
                             help_text='تصویر')
     video = models.FileField(upload_to='videos/', null=True, blank=True, help_text='فایل ویدیو')
+    audio = models.FileField(upload_to='audio/', null=True, blank=True, help_text='فایل صوتی')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
