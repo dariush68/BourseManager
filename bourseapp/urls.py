@@ -13,7 +13,6 @@ urlpatterns = [
 
     # message urls
     url(r'^messenger/$', views.messenger, name='messenger'),
-    #url(r'^(?P<category_id>[0-9]+)/category-detail/$', views.category_detail, name='category-detail'),
 
     # category urls
     url(r'^category-list/$', views.category_list, name='category-list'),

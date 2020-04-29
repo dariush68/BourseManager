@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from rest_framework.pagination import PageNumberPagination
 
 from bourseapp import models
-from . import serializers, permissions
+from . import serializers
 import operator
 import functools
 
@@ -111,7 +111,7 @@ class StandardResultsSetPagination(PageNumberPagination):
 class UserList(mixins.CreateModelMixin, generics.ListAPIView):
     lookup_field = 'pk'  # slug, id # url(r'?P<pk>\d+')
     serializer_class = serializers.UserSerializer
-    permission_classes = [permissions.IsAdmin, IsAuthenticated]  # [IsOwnerOrReadOnly, IsAuthenticated]
+    permission_classes = [IsAuthenticated]  # [IsOwnerOrReadOnly, IsAuthenticated]
     # pagination_class = StandardResultsSetPagination
 
     # search, ?q=tt

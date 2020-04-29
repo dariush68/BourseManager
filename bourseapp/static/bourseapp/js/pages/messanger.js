@@ -27,7 +27,10 @@ $(document).ready(function(){
 	//-- load admin message --//
 	selectMember('admin-member');
 
-    function loadMemberList(search="") {
+});
+
+//-- load all member --//
+function loadMemberList(search="") {
 
         let url_memberList = $("#url-member-list").attr("data-url");
          // alert(url_memberList);
@@ -74,9 +77,6 @@ $(document).ready(function(){
         })
 
     }
-
-});
-
 
 //-- select on member --//
 function selectMember(memberId, isAdmin=false, isFromHtml=false) {

@@ -1,11 +1,25 @@
 
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.conf.urls.static import static
 from django.conf import settings
+from django.urls import path
+
 from bourseapp import views as core_views
+from bourseapp import sitemaps
+
+sitemaps = {
+    # 'static': sitemaps.StaticViewSitemap,
+    'category': sitemaps.CategorySitemap,
+    'company': sitemaps.CompanySitemap,
+    'news': sitemaps.NewsSitemap,
+}
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
 
     # website urls
     url(r'^', include('bourseapp.urls')),

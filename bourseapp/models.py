@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils import timezone
 import uuid
 from ckeditor_uploader.fields import RichTextUploadingField
+# from meta.models import ModelMeta
 
 
 def scramble_uploaded_filename(instance, filename):
@@ -11,7 +12,7 @@ def scramble_uploaded_filename(instance, filename):
     return "{}.{}".format(uuid.uuid4(), extention)
 
 
-class Category(models.Model):
+class Category(models.Model): #ModelMeta
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='گروه بورسی')
@@ -19,6 +20,12 @@ class Category(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, upload_to=scramble_uploaded_filename,
                             help_text='تصویر')
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
+
+    # _metadata = {
+    #     'title': 'title',
+    #     'description': 'description',
+    #     'image': 'get_meta_image',
+    # }
 
     class Meta:
         ordering = ["createAt"]
@@ -29,6 +36,13 @@ class Category(models.Model):
     @property
     def owner(self):
         return self.user
+
+    def get_absolute_url(self, request=None):
+        return reverse("bourseapp:category-detail", kwargs={'category_id': self.pk})
+
+    # def get_meta_image(self):
+    #     if self.pic:
+    #         return self.pic.url
 
 
 class Company(models.Model):
@@ -56,6 +70,9 @@ class Company(models.Model):
     @property
     def owner(self):
         return self.user
+
+    def get_absolute_url(self, request=None):
+        return reverse("bourseapp:company-detail", kwargs={'company_id': self.pk})
 
 
 class News(models.Model):
@@ -88,6 +105,9 @@ class News(models.Model):
     def owner(self):
         return self.user
 
+    def get_absolute_url(self, request=None):
+        return reverse("bourseapp:news-detail", kwargs={'news_id': self.pk})
+
 
 class Technical(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
@@ -112,6 +132,9 @@ class Technical(models.Model):
     @property
     def owner(self):
         return self.user
+
+    def get_absolute_url(self, request=None):
+        return reverse("bourseapp:technical-detail", kwargs={'technical_id': self.pk})
 
 
 class ChatMessage(models.Model):
@@ -156,6 +179,9 @@ class Webinar(models.Model):
     def owner(self):
         return self.user
 
+    def get_absolute_url(self, request=None):
+        return reverse("bourseapp:webinar-detail", kwargs={'webinar_id': self.pk})
+
 
 class Fundamental(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
@@ -177,6 +203,9 @@ class Fundamental(models.Model):
     @property
     def owner(self):
         return self.user
+
+    def get_absolute_url(self, request=None):
+        return reverse("bourseapp:fundamental-detail", kwargs={'fundamental_id': self.pk})
 
 
 class Bazaar(models.Model):
@@ -201,6 +230,9 @@ class Bazaar(models.Model):
     def owner(self):
         return self.user
 
+    def get_absolute_url(self, request=None):
+        return reverse("bourseapp:bazaar-detail", kwargs={'bazaar_id': self.pk})
+
 
 class TutorialCategory(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
@@ -220,7 +252,6 @@ class TutorialCategory(models.Model):
     @property
     def owner(self):
         return self.user
-
 
 
 CATEGORY_LEVEL_CHOICES = (
@@ -250,7 +281,6 @@ class TutorialSubCategory(models.Model):
         return self.user
 
 
-
 class Tutorial(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')
@@ -275,6 +305,9 @@ class Tutorial(models.Model):
     @property
     def owner(self):
         return self.user
+
+    def get_absolute_url(self, request=None):
+        return reverse("bourseapp:tutorial-detail", kwargs={'tutorial_id': self.pk})
 
 
 class Message(models.Model):

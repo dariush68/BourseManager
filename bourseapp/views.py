@@ -116,6 +116,7 @@ def index(request):
         'all_analized_symbols': all_analized_symbols,
         'users_inactive_count': users_inactive_count,
         'news_inactive_count': news_inactive_count,
+        'news_count': news.count(),
         'events': events,
         'users_count': users_count,
     })
@@ -147,6 +148,7 @@ def category_list(request):
         'search': search,
         'page_size': page_size,
         'tutorialCategory': tutorialCategory,
+        #'meta': categories.as_meta(),
     })
 
 
