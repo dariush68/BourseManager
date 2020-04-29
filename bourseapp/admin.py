@@ -236,6 +236,12 @@ class TutorialCategoryAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     list_filter = ("user", )
 
 
+@admin.register(models.ChatMessage)
+class ChatMessageAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    list_display = ("sender", "receiver", "createAt", "isSeen", "description",)
+    list_filter = ("sender", "receiver", "isSeen", )
+
+
 @admin.register(models.TutorialSubCategory)
 class TutorialSubCategoryAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     list_display = ("title", "categoryLevel", "user", "description", "category", "createAt",)

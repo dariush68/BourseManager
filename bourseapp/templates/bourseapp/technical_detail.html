@@ -82,13 +82,9 @@
             <!-- video file -->
             {% if technical.video %}
                 <div class="text-center">
-{#                    <video class="video-fluid z-depth-1 w-75" controls>#}
-{#                        <source src="{{ technical.video.url }}" type="video/mp4" />#}
-{#                    </video>#}
-                    <audio controls>
-                        <source src="{{ technical.video.url }}" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
+                    <video class="video-fluid z-depth-1 w-75" controls>
+                        <source src="{{ technical.video.url }}" type="video/mp4" />
+                    </video>
                 </div>
             {% endif %}
 

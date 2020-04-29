@@ -56,3 +56,40 @@ class SymbolSerializer(serializers.ModelSerializer):  # forms.ModelForm
         ]
         read_only_fields = ['id', 'symbol', 'fullName', 'bourseType', 'tse', 'site', 'isTarget']
 
+
+class UserSerializer(serializers.ModelSerializer):  # forms.ModelForm
+
+    class Meta:
+        model = User
+        fields = [
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+        ]
+        read_only_fields = ['id', 'username', 'first_name', 'last_name']
+
+
+class ChatMessageSerializer(serializers.ModelSerializer):  # forms.ModelForm
+    receiver_name = serializers.SerializerMethodField(read_only=True)
+    sender_name = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = models.ChatMessage
+        fields = [
+            'id',
+            'sender',
+            'sender_name',
+            'receiver',
+            'receiver_name',
+            'createAt',
+            'isSeen',
+            'description',
+        ]
+        read_only_fields = ['id', 'receiver_name', 'sender_name']
+
+    def get_receiver_name(self, obj):
+        return str(obj.receiver.username)
+
+    def get_sender_name(self, obj):
+        return str(obj.sender.username)

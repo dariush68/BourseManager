@@ -12,6 +12,10 @@ urlpatterns = [
     # url(r'^Category/(?P<pk>\d+)/$', views.CategoryRudView.as_view(), name='post-rud'),
 
     url(r'^Symbols$', views.SymbolsAPIView.as_view(), name='symbols-view'),
+    url(r'^user-list$', views.UserList.as_view(), name='user-list'),
+
+    url(r'^ChatMessage$', views.ChatMessageAPIView.as_view(), name='post-listcreate-chatMessage'),
+    url(r'^ChatMessage/(?P<pk>\d+)/$', views.ChatMessageRudView.as_view(), name='post-rud-chatMessage'),
 
 ]
 

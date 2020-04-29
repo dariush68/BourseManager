@@ -113,6 +113,26 @@ class Technical(models.Model):
         return self.user
 
 
+class ChatMessage(models.Model):
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sender_user', on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='فرستنده')
+    receiver = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='receiver_user', on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='گیرنده')
+    createAt = models.DateTimeField(default=timezone.now, help_text='تاریخ ایجاد')
+    isSeen = models.BooleanField(default=False, help_text='مشاهده شده')
+    description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
+
+    class Meta:
+        ordering = ["-createAt"]
+
+    def __str__(self):
+        return str(self.sender)
+
+    @property
+    def owner(self):
+        return self.sender
+
+
 class Webinar(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')

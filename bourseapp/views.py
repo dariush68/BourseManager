@@ -148,6 +148,42 @@ def category_list(request):
     })
 
 
+@login_required
+def messenger(request):
+
+    users = get_user_model().objects.all().order_by('groups')
+    admin_user = get_user_model().objects.get(username='admins')
+    adminMsg = models.ChatMessage.objects.filter(Q(receiver=admin_user)).values('sender').order_by('sender')
+    adminMsg2 = adminMsg.values('sender').filter(Q(isSeen=False)).annotate(dcount=Count('sender__id'))
+    member_msg2admin_temp = get_user_model().objects.filter(id__in=adminMsg).order_by('-last_login')
+    unReadMsgCount = 0
+    member_msg2admin = []
+    for itm_user in member_msg2admin_temp:
+        isFind = False
+        for itm_msg in adminMsg2:
+            if itm_msg['sender'] == itm_user.id:
+                member_msg2admin.append({
+                    'account': itm_user,
+                    'last_login ': itm_user.last_login,
+                    'unReadMsg': itm_msg['dcount'],
+                })
+                unReadMsgCount = unReadMsgCount + itm_msg['dcount']
+                isFind = True
+                break
+        if isFind is False:
+            member_msg2admin.append({
+                'account': itm_user,
+                'last_login ': itm_user.last_login,
+                'unReadMsg': 0,
+            })
+    return render(request, 'bourseapp/Messages/messenger.html', {
+        'members': users,
+        'admin_user': admin_user,
+        'member_msg2admin': member_msg2admin,
+        'unReadMsgCount': unReadMsgCount,
+    })
+
+
 # @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def manager_panel(request):
