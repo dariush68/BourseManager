@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^news-create/$', views.news_create, name='news-create'),
     url(r'^(?P<news_id>[0-9]+)/news-detail/$', views.news_detail, name='news-detail'),
     url(r'^(?P<news_id>[0-9]+)/news-approve/$', views.news_approve, name='news-approve'),
+    url(r'^news-important/$', views.news_important, name='news-important'),
     # path('create', views.ContactCreate.as_view(), name='contact_create'),
 
     # technical urls

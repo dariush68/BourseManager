@@ -41,7 +41,8 @@ tutorialCategory = models.TutorialCategory.objects.all()
 def index(request):
     # jalali_join = datetime2jalali(request.user.date_joined).strftime('%y/%m/%d _ %H:%M:%S')
 
-    news = models.News.objects.all()[0:20]
+    news = models.News.objects.all()
+    news_important = models.News.objects.filter(isImportant=True)[:5]
     technicals = models.Technical.objects.all().exclude(user__username='d_abedi') # [0:10]
     technicals_count = technicals.count()
 
@@ -100,7 +101,8 @@ def index(request):
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
         # return render(request, 'bourseapp/test.html', {
-        'news': news,
+        'news': news[0:20],
+        'news_important': news_important,
         'targets': targets,
         'bazaars': bazaar,
         'webinar': webinar,
@@ -544,6 +546,17 @@ def news_approve(request, news_id):
     news.isApproved = True
     news.save()
     return HttpResponse("news approved")
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def news_important(request):
+    news = get_object_or_404(models.News, pk=request.POST.get('newsId'))
+    if request.POST.get('important') == 'true':
+        news.isImportant = True
+    else:
+        news.isImportant = False
+    news.save()
+    return HttpResponse("news updated")
 
 
 @user_passes_test(lambda u: u.is_superuser)

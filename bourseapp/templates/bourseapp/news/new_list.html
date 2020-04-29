@@ -70,7 +70,6 @@
     <!-- body -->
     <div class="">
         <div class="container py-1">
-
             <div class="row pagination-sm table-responsive" id="news-list">
 
                 <table class="table table-sm table-hover table-striped"  id="news-table">
@@ -79,10 +78,13 @@
                         <th scope="col">#</th>
                         <th scope="col"></th>
                         <th scope="col">عنوان</th>
+                        {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                            <th scope="col">مهم</th>
+                        {% endif %}
                         <th scope="col">نماد</th>
                         <th scope="col">مرجع</th>
                         <th scope="col">تاریخ</th>
-                        <th scope="col">توضیحات</th>
+{#                        <th scope="col">توضیحات</th>#}
                         <th scope="col">تگ</th>
                         <th scope="col">تصویر</th>
                     </tr>
@@ -99,6 +101,16 @@
                                     </th>
                                     <td class="" ><span class="badge yellow mr-1"><small style="color: black">VIP</small></span></td>
                                     <td class=""><a href="{% url 'bourseapp:news-detail' news.id %}" target="_blank"><span>{{ news.title }}</span></a></td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="switch">
+                                                <label>
+                                                    <input type="checkbox" class="news-important-checkbox" dataId={{ news.id }} {% if news.isImportant %} checked {% endif %}>
+                                                    <span class="lever"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </td>
                                     {% if news.category %}
                                         <td class="" >{{ news.category.title }}</td>
                                     {% elif news.company %}
@@ -108,7 +120,7 @@
                                     {% endif %}
                                     <td class=""><a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"></i></a></td>
                                     <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
-                                    <td class="">{{ news.description | truncatechars:60 }}</td>
+{#                                    <td class="">{{ news.description | truncatechars:60 }}</td>#}
                                     <td class="">{{ news.tag }}</td>
                                     {% if news.pic %}
                                         <td ><a href="{{ news.pic.url }}"><i class="fa fa-image"></i></a></td>
@@ -129,6 +141,18 @@
                                         <span class="small badge-pill mr-0 red" style="color: white; font-size: 8px">تایید نشده</span>
                                     {% endif %}
                                 </span></a></td>
+                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                <td>
+                                    <div class="row">
+                                        <div class="switch">
+                                            <label>
+                                                <input type="checkbox" class="news-important-checkbox" dataId={{ news.id }} {% if news.isImportant %} checked {% endif %}>
+                                                <span class="lever"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                {% endif %}
                                 {% if news.category %}
                                     <td class="" >{{ news.category.title }}</td>
                                 {% elif news.company %}
@@ -138,7 +162,7 @@
                                 {% endif %}
                                 <td class=""><a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"></i></a></td>
                                 <td class="" style="font-family: 'IRANSansNum';">{{ news.createAt|to_jalali:'%y/%m/%d' }}</td>
-                                <td class="">{{ news.description | truncatechars:60 }}</td>
+{#                                <td class="">{{ news.description | truncatechars:60 }}</td>#}
                                 <td class="">{{ news.tag }}</td>
                                 {% if news.pic %}
                                     <td ><a href="{{ news.pic.url }}"><i class="fa fa-image"></i></a></td>
@@ -212,54 +236,31 @@
 
     <!-- base url address -->
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />
+    <input type="hidden" id="url-news-update" data-url="{% url 'bourseapp:news-important'%}" />
 
     <!-- selected category id -->
 {#    <input type="hidden" id="category-selected-id" selected-id="-1">#}
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables.min.js' %}"></script><!-- MDBootstrap Datatables  -->
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables-select.min.js' %}"></script><!-- MDBootstrap Datatables  -->
+{% endblock %}
 
+
+{% block javascript %}
     <script>
+        var csrftoken = '{{ csrf_token }}';
 
         $("#news-table tr").click(function(){
-           $(this).addClass('table-primary').siblings().removeClass('table-primary');
-           var value=$(this).find('input.newsId').attr("dataId");
+            $(this).addClass('table-primary').siblings().removeClass('table-primary');
+            var value=$(this).find('input.newsId').attr("dataId");
 
+            var url_mask_edit = "{% url 'admin:bourseapp_news_change' 12345 %}".replace(/12345/, value.toString());
+            $("#news-edit").attr("href", url_mask_edit)
 
-           var url_mask_edit = "{% url 'admin:bourseapp_news_change' 12345 %}".replace(/12345/, value.toString());
-           $("#news-edit").attr("href", url_mask_edit)
+            var url_mask_delete = "{% url 'admin:bourseapp_news_delete' 12345 %}".replace(/12345/, value.toString());
+            $("#news-delete").attr("href", url_mask_delete)
 
-           var url_mask_delete = "{% url 'admin:bourseapp_news_delete' 12345 %}".replace(/12345/, value.toString());
-           $("#news-delete").attr("href", url_mask_delete)
-
-           {#alert(value)#}
-                   });
-
-        $('.ok').on('click', function(e){
-            alert($("#news-table tr.selected td:first").html());
         });
 
-        // Material Select Initialization
-        $(document).ready(function() {
-            $('.mdb-select').materialSelect();
-            $('.select-wrapper.md-form.md-outline input.select-dropdown').bind('focus blur', function () {
-                $(this).closest('.select-outline').find('label').toggleClass('active');
-                $(this).closest('.select-outline').find('.caret').toggleClass('active');
-            });
-        });
-
-
-
-    </script>
-
-    <!-- search -->
-    <script>
+        <!-- search -->
         $("#search-news").on('keyup', function (e) {
             if (e.keyCode === 13) {
                 let srchterm = $("#search-news").val();
@@ -269,4 +270,6 @@
             }
         });
     </script>
+
+    <script src="{% static 'bourseapp/js/pages/news_list.js' %}"></script>
 {% endblock %}

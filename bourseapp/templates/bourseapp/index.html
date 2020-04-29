@@ -389,13 +389,15 @@
                                         <div id="video-carousel-example2" class="carousel slide carousel-fade" data-ride="carousel">
                                             <!--Indicators-->
                                             <ol class="carousel-indicators" style="margin-bottom: -12px">
-                                                {% for newsItm in news|slice:":5" %}
-                                                    <li data-target="#video-carousel-example2" style="background-color: #a1a1a1" class="" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %} active {% endif %}></li>
+{#                                                {% for newsItm in news|slice:":5" %}#}
+                                                {% for newsItm in news_important %}
+                                                    <li data-target="#video-carousel-example2" style="background-color: #0b51c5" class="" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %} active {% endif %}></li>
                                                 {% endfor %}
                                             </ol>
                                             <!--Slides-->
                                             <div class="carousel-inner" role="listbox">
-                                                {% for newsItm in news|slice:":5" %}
+{#                                                {% for newsItm in news|slice:":5" %}#}
+                                                {% for newsItm in news_important %}
                                                     <!-- First slide -->
                                                     <div class="carousel-item {% if forloop.first %} active {% endif %}">
 

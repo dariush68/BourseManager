@@ -154,7 +154,7 @@ function selectMember(memberId, isAdmin=false, isFromHtml=false) {
 
 				let deletPermition = data[i].sender == user_id ? '' : 'd-none';
 				if(isAdmin) data[i].sender == $('#admin-member').attr('value') ? '' : 'd-none';
-				console.log(data[i].sender + '==' + $('#admin-member').attr('value') + "? " + (data[i].sender == $('#admin-member').attr('value')))
+				// console.log(data[i].sender + '==' + $('#admin-member').attr('value') + "? " + (data[i].sender == $('#admin-member').attr('value')))
 				//-- target is sender --//
 				if(target == checkUser){
 					container.prepend(
