@@ -142,7 +142,27 @@
 
 
     <!-- news -->
-    <div class="container my-5">
+    <div class="container my-1">
+
+        <!-- chart -->
+        <section>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="mt-1 mb-0">
+                        <span>چارت قیمتی</span>
+                        <span id="bourse-index-value"  class="float-left">
+                            <span id="shakesh-last-date" class="small ml-2" style="font-size: 12px">
+                                (--/--/--)
+                            </span>
+                            <span id="shakesh-last-price">00</span>
+                        </span>
+                    </h5>
+                    <hr/>
+                    <input type="hidden" id="input-temp-current-symbol-id" data-symbol="{{ company.id }}">
+                    {% include 'bourseapp/charts/CandelStake.html' %}
+                </div>
+            </div>
+        </section>
 
         <!-- Section: Block Content -->
         <section>

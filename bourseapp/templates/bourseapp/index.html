@@ -53,10 +53,11 @@
                                     <span>شاخص کل بورس</span>
                                     <i class="fas fa-angle-down rotate-icon ml-3"></i>
                                     <span id="bourse-index-value"  class="float-left">
-                                        <span class="small ml-2" style="font-size: 12px">
-                                            (1398/11/02)
+                                        <span id="shakesh-last-date" class="small ml-2" style="font-size: 12px">
+                                            (--/--/--)
                                         </span>
-                                        410,842
+                                        <span id="shakesh-last-price">00</span>
+
                                     </span>
                                 </h5>
                             </a>
@@ -67,7 +68,9 @@
                         <div id="collapseUnfiled" class="collapse" role="tabpanel" aria-labelledby="headingUnfiled"
                              data-parent="#accordionEx78">
                             <div class="card-body">
-                                {% include 'bourseapp/shakhes_bourse.html' %}
+{#                                {% include 'bourseapp/shakhes_bourse.html' %}#}
+                                <input type="hidden" id="input-temp-current-symbol-id" data-symbol="-1">
+                                {% include 'bourseapp/charts/CandelStake.html' %}
                             </div>
                         </div>
                     </div>
@@ -1101,6 +1104,7 @@
             $("#bourse-chart").empty()
         }
     </script>
+    
 
 {% endblock %}
 

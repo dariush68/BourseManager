@@ -187,6 +187,12 @@ class FundamentalAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
         return redirect('bourseapp:fundamental-list')
 
 
+@admin.register(models.Chart)
+class ChartAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    formfield_overrides = {
+    }
+
+
 @admin.register(models.Tutorial)
 class TutorialAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     list_display = ("title", "user", "description", "subCategory", "externalLink", "isSuperUserPermition", "createAt",)
