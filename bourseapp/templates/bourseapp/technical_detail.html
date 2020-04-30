@@ -1,6 +1,7 @@
 <!-- use base html template -->
 {% extends 'bourseapp/base.html' %}
 {% load jalali_tags %}
+{% load auth_extras %}
 {% load social_share %}
 {% block title %}
     <title>تحلیل تکنیکال {{ technical.company.symbol }}</title>
@@ -54,7 +55,7 @@
                     <h3 class="font-weight-bold text-right">{{ technical.company.fullName }} ({{ technical.company.symbol }})</h3>
 
                     <p class="font-weight-bold text-right">{{ technical.title }} - {{ technical.createAt|to_jalali:'%y/%m/%d' }}
-                    {% if user.is_authenticated%}
+                    {% if request.user.is_superuser or request.user|has_group:"level1" %}
                         <a class=" text-right" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                     {% endif %}
                     </p>
@@ -78,7 +79,11 @@
                 <div class="col-lg-6 mb-4 mb-lg-0 d-flex align-items-center justify-content-center">
 
                     {% if technical.pic %}
-                        <a href="{{ technical.pic.url }}" target="_blank"><img src="{{ technical.pic.url }}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover"></a>
+                        {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
+                            <a href="{{ technical.pic.url }}" target="_blank"><img src="{{ technical.pic.url }}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover"></a>
+                        {% else %}
+                            <img src="{% static 'bourseapp/images/technical.jpg' %}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover">
+                        {% endif %}
                     {% else %}
                         <img src="{% static 'bourseapp/images/technical.jpg' %}" class="img-fluid" alt="" style="width: 150px; height: 150px; object-fit: cover">
                     {% endif %}
@@ -91,40 +96,42 @@
 
             <hr>
 
-            <p class="text-muted text-right text-justify mt-5 mb-5">{{ technical.description | safe }}</p>
+            {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
+                <p class="text-muted text-right text-justify mt-5 mb-5">{{ technical.description | safe }}</p>
 
-            <div class="mt-5" style="text-align: center">
-                <div class="w-75" style="display: inline-block">
-                    {% if technical.aparatEmbedCode %}
-                        {{ technical.aparatEmbedCode|safe }}
-                    {% endif %}
+                <div class="mt-5" style="text-align: center">
+                    <div class="w-75" style="display: inline-block">
+                        {% if technical.aparatEmbedCode %}
+                            {{ technical.aparatEmbedCode|safe }}
+                        {% endif %}
+                    </div>
+
                 </div>
 
-            </div>
+                <!-- video file -->
+                {% if technical.video %}
+                    <div class="text-center">
+                        <video class="video-fluid z-depth-1 w-75" controls>
+                            <source src="{{ technical.video.url }}" type="video/mp4" />
+                        </video>
+                    </div>
+                {% endif %}
 
-            <!-- video file -->
-            {% if technical.video %}
-                <div class="text-center">
-                    <video class="video-fluid z-depth-1 w-75" controls>
-                        <source src="{{ technical.video.url }}" type="video/mp4" />
-                    </video>
-                </div>
+                <!-- audio file -->
+                {% if technical.audio %}
+                    <div class="text-center">
+
+                        <audio controls>
+                            <source src="{{ technical.audio.url }}" type="audio/mp3">
+                            {#                        <source src="horse.ogg" type="audio/ogg">#}
+                            {#                        <source src="horse.mp3" type="audio/mpeg">#}
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+                {% endif %}
+
             {% endif %}
-
-            <!-- audio file -->
-            {% if technical.audio %}
-                <div class="text-center">
-
-                    <audio controls>
-                        <source src="{{ technical.audio.url }}" type="audio/mp3">
-{#                        <source src="horse.ogg" type="audio/ogg">#}
-{#                        <source src="horse.mp3" type="audio/mpeg">#}
-                        Your browser does not support the audio element.
-                    </audio>
-
-                </div>
-            {% endif %}
-
         </section>
         <!--Section: Content-->
 

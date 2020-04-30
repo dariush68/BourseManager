@@ -510,9 +510,16 @@ def company_detail(request, company_id):
     technicals = models.Technical.objects.filter(company=company.id).exclude(user__username='d_abedi')
     fundamental = models.Fundamental.objects.filter(company=company.id)
     technicals_watch = models.Technical.objects.filter(company=company.id).filter(user__username='d_abedi')
+    charts = models.Chart.objects.filter(company=company)
+    if charts.count() > 0:
+        chart_company = charts[0]
+    else:
+        chart_company = None
+    print(chart_company)
     return render(request, 'bourseapp/compay_detail.html', {
         'company': company,
         'news': news,
+        'chart': chart_company,
         'technicals': technicals,
         'fundamentals': fundamental,
         'technicals_watch': technicals_watch,

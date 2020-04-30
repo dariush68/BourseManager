@@ -115,15 +115,21 @@
 
                 let d1 = data['<DTYYYYMMDD>'][len-1].toString();
                 let datec1 = d1.substr(0,4) + "-" + d1.substr(4,2) + "-" + d1.substr(6,2);
-                document.querySelector('#shakesh-last-date').innerHTML = datec1;
+
+                const d = new Date(datec1);
+                let options = { year: 'numeric', month: 'numeric', day: 'numeric', };
+                const datec2 = new Intl.DateTimeFormat('fa-IR', options).format(d);
+
+                document.querySelector('#shakesh-last-date').innerHTML = datec2;
                 document.querySelector('#shakesh-last-price').innerHTML = data['<CLOSE>'][len-1];
 
                 let chartData = [];
 
                 for (var i = Math.floor(len*0.75); i < len; i++) {
 
-                    let d = data['<DTYYYYMMDD>'][i].toString();
-                    let datec = d.substr(0,4) + "-" + d.substr(4,2) + "-" + d.substr(6,2);
+                    let d2 = data['<DTYYYYMMDD>'][i].toString();
+                    let datec = d2.substr(0,4) + "-" + d2.substr(4,2) + "-" + d2.substr(6,2);
+
                     {#console.log(d, datec)#}
 
                     chartData.push({

@@ -2,6 +2,7 @@
 {% extends 'bourseapp/base.html' %}
 {% load jalali_tags %}
 {% load social_share %}
+{% load auth_extras %}
 {% block title %}
     <title>خبر {{ news.title }}</title>
 
@@ -55,17 +56,21 @@
                 <!--Grid column-->
                 <div class="col-lg-6 mb-4 mb-lg-0 ">
 
+                {% if news.company %}
                     <h3 class="font-weight-bold text-right">{{ news.company.fullName }} ({{ news.company.symbol }})</h3>
+                {% endif %}
 
                     <p class="font-weight-bold text-right">{{ news.title }} - {{ news.createAt|to_jalali:'%y/%m/%d' }}
 
                     <span class="badge badge-secondary  float-left"><small>{{ news.user }}</small></span>
 
-                    <a href="{% url 'admin:bourseapp_news_change'  news.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                        {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                            <a href="{% url 'admin:bourseapp_news_change'  news.id %}" target="_blank"><i class="fa fa-edit"></i></a>
 
-                        {% if news.isApproved == False %}
-{#                            <a href="{% url 'bourseapp:news-approve'  news.id %}" target="_blank"><span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span></a>#}
-                            <a id="news-approve-status" data-toggle="modal" data-target="#modalNewsApprove"><span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span></a>
+                            {% if news.isApproved == False %}
+                                {#                            <a href="{% url 'bourseapp:news-approve'  news.id %}" target="_blank"><span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span></a>#}
+                                <a id="news-approve-status" data-toggle="modal" data-target="#modalNewsApprove"><span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span></a>
+                            {% endif %}
                         {% endif %}
                     </p>
 
@@ -83,9 +88,13 @@
 {#                        {{ news.description }}#}
 {#                    </textarea>#}
 
+                {% if news.reference  %}
                     <a href="{{ news.reference }}" target="_blank"><i class="fa fa-link"><span style="font-family: IRANSans"> مرجع  </span></i></a>
+                {% endif %}
 {#                    <p class="mt-2"><span class="badge badge-info  float-left">{{ news.tag }}</span></p>#}
+                {% if news.tag  %}
                     <p class="mt-2"><span class="badge badge-info  float-left">{{ news.tag }}</span></p>
+                {% endif %}
 
                 </div>
                 <!--Grid column-->

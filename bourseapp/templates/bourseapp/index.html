@@ -498,7 +498,7 @@
                                                                                     <i class="fa fa-star" style="color: #ffc400"></i>
                                                                                 {% endif %}
 
-                                                                                {% if user.is_authenticated%}
+                                                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
                                                                                     <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                                 {% endif %}
                                                                             </a>
@@ -542,7 +542,7 @@
                                                                                 <i class="fa fa-star" style="color: #ffc400"></i>
                                                                             {% endif %}
 
-                                                                            {% if user.is_authenticated%}
+                                                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
                                                                                 <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                             {% endif %}
                                                                         </a>
@@ -598,7 +598,7 @@
                                                                                     <i class="fa fa-star" style="color: #ffc400"></i>
                                                                                 {% endif %}
 
-                                                                                {% if user.is_authenticated%}
+                                                                                {% if request.user.is_superuser or request.user|has_group:"level1"%}
                                                                                     <a class="small" href="{% url 'admin:bourseapp_fundamental_change' fundamental.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                                 {% endif %}
                                                                             </a>
@@ -639,7 +639,7 @@
                                                                                 <i class="fa fa-star" style="color: #ffc400"></i>
                                                                             {% endif %}
 
-                                                                            {% if user.is_authenticated%}
+                                                                            {% if request.user.is_superuser or request.user|has_group:"level1"%}
                                                                                 <a class="small" href="{% url 'admin:bourseapp_fundamental_change' fundamental.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                             {% endif %}
                                                                         </a>
@@ -692,7 +692,7 @@
                                                                                     <i class="fa fa-star" style="color: #ffc400"></i>
                                                                                 {% endif %}
 
-                                                                                {% if user.is_authenticated%}
+                                                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
                                                                                     <a class="small" href="{% url 'admin:bourseapp_bazaar_change' bazaar.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                                 {% endif %}
                                                                             </a>
@@ -734,7 +734,7 @@
                                                                                 <i class="fa fa-star" style="color: #ffc400"></i>
                                                                             {% endif %}
 
-                                                                            {% if user.is_authenticated%}
+                                                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
                                                                                 <a class="small" href="{% url 'admin:bourseapp_bazaar_change' bazaar.id %}" target="_blank"><i class="fa fa-edit"></i></a>
                                                                             {% endif %}
                                                                         </a>

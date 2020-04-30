@@ -203,13 +203,13 @@ class ChatMessageRudView(generics.RetrieveUpdateDestroyAPIView):  # DetailView C
 
 def chart_detail(request, company_id):
     chart = get_object_or_404(models.Chart, company=company_id)
-    print('chart')
-    print(chart)
+    # print('chart')
+    # print(chart)
     if chart.data is not None:
-        print('data valid')
+        # print('data valid')
         # read the file
         df = pd.read_csv(chart.data)
-        print(df.head())
+        # print(df.head())
 
         profile_json = {
             # "Date": df['<DTYYYYMMDD>'].to_json(orient='values'),
