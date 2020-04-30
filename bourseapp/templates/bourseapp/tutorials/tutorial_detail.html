@@ -4,6 +4,29 @@
 {% load social_share %}
 {% block title %}
     <title> {{ tutorial.title }}</title>
+
+    <meta name="description" content="{{ tutorial.description|truncatechars:120 }}"/>
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:type" content="tutorial" />
+    <meta property="og:title" content="{{ tutorial.title }}" />
+    <meta property="og:description" content="{{ tutorial.description|truncatechars:120 }}" />
+    <meta property="og:url" content="{{ request.get_host }}{% url 'bourseapp:tutorial-detail' tutorial.id %}"/>
+    <meta property="og:site_name" content="مدیابورس" />
+    {% if tutorial.pic %}
+        <meta property="og:image" content="{{ request.get_host }}{{ tutorial.pic.url }}" />
+    {% endif %}
+    <meta property="article:tag" content="بورس" />
+    <meta property="article:tag" content="آموزش بورس" />
+    <meta property="article:tag" content="بورس تهران" />
+    <meta property="article:tag" content="{{ tutorial.subCategory.title }}" />
+    <meta property="article:tag" content="{{ tutorial.subCategory.category.title }}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="{{ tutorial.description|truncatechars:120 }}" />
+    <meta name="twitter:title" content="{{ tutorial.title }}" />
+    {% if tutorial.pic %}
+        <meta name="twitter:image" content="{{ request.get_host }}{{ tutorial.pic.url }}" />
+    {% endif %}
 {% endblock %}
 <!-- begin of body block -->
 {% block body %}
@@ -146,14 +169,7 @@
     <!-- selected category id -->
 {#    <input type="hidden" id="category-selected-id" selected-id="-1">#}
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables.min.js' %}"></script><!-- MDBootstrap Datatables  -->
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables-select.min.js' %}"></script><!-- MDBootstrap Datatables  -->
+{% endblock %}
 
-
+{% block javascript %}
 {% endblock %}

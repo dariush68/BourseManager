@@ -4,6 +4,29 @@
 {% load social_share %}
 {% block title %}
     <title>تحلیل بنیادی {{ fundamental.company.symbol }}</title>
+
+    <meta name="description" content="{{ fundamental.description|truncatechars:120 }}"/>
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:type" content="news" />
+    <meta property="og:title" content="{{ fundamental.title }}" />
+    <meta property="og:description" content="{{ fundamental.description|truncatechars:120 }}" />
+    <meta property="og:url" content="{{ request.get_host }}{% url 'bourseapp:fundamental-detail' fundamental.id %}"/>
+    <meta property="og:site_name" content="مدیابورس" />
+    {% if fundamental.pic %}
+        <meta property="og:image" content="{{ request.get_host }}{{ fundamental.pic.url }}" />
+    {% endif %}
+    <meta property="article:tag" content="بورس" />
+    <meta property="article:tag" content="تحلیل بنیادی بورس" />
+    <meta property="article:tag" content="بورس تهران" />
+    <meta property="article:tag" content="{{ fundamental.company.symbol }}" />
+    <meta property="article:tag" content="{{ fundamental.company.fullName }}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="{{ fundamental.description|truncatechars:120 }}" />
+    <meta name="twitter:title" content="{{ fundamental.title }}" />
+    {% if fundamental.pic %}
+        <meta name="twitter:image" content="{{ request.get_host }}{{ fundamental.pic.url }}" />
+    {% endif %}
 {% endblock %}
 <!-- begin of body block -->
 {% block body %}

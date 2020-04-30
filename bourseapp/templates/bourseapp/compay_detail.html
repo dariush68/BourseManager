@@ -4,6 +4,29 @@
 {% load auth_extras %}
 {% block title %}
     <title>نماد {{ company.symbol }}</title>
+
+    <meta name="description" content="{{ company.description|truncatechars:120 }} {{ company.fullName }}"/>
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:type" content="news" />
+    <meta property="og:title" content="{{ company.symbol }}" />
+    <meta property="og:description" content="{{ company.description|truncatechars:120 }} {{ company.fullName }}" />
+    <meta property="og:url" content="{{ request.get_host }}{% url 'bourseapp:company-detail' company.id %}"/>
+    <meta property="og:site_name" content="مدیابورس" />
+    {% if company.pic %}
+        <meta property="og:image" content="{{ request.get_host }}{{ company.pic.url }}" />
+    {% endif %}
+    <meta property="article:tag" content="بورس" />
+    <meta property="article:tag" content="نماد بورس" />
+    <meta property="article:tag" content="بورس تهران" />
+    <meta property="article:tag" content="{{ company.symbol }}" />
+    <meta property="article:tag" content="{{ company.fullName }}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="{{ company.description|truncatechars:120 }} {{ company.fullName }}" />
+    <meta name="twitter:title" content="{{ company.title }}" />
+    {% if company.pic %}
+        <meta name="twitter:image" content="{{ request.get_host }}{{ company.pic.url }}" />
+    {% endif %}
 {% endblock %}
 <!-- begin of body block -->
 {% block body %}
@@ -568,4 +591,7 @@
     <!-- selected category id -->
 {#    <input type="hidden" id="category-selected-id" selected-id="-1">#}
 
+{% endblock %}
+
+{% block javascript %}
 {% endblock %}

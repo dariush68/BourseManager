@@ -4,6 +4,29 @@
 {% load social_share %}
 {% block title %}
     <title>تحلیل تکنیکال {{ technical.company.symbol }}</title>
+
+    <meta name="description" content="{{ technical.description|truncatechars:120 }}"/>
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:type" content="news" />
+    <meta property="og:title" content="{{ technical.title }}" />
+    <meta property="og:description" content="{{ technical.description|truncatechars:120 }}" />
+    <meta property="og:url" content="{{ request.get_host }}{% url 'bourseapp:technical-detail' technical.id %}"/>
+    <meta property="og:site_name" content="مدیابورس" />
+    {% if technical.pic %}
+        <meta property="og:image" content="{{ request.get_host }}{{ technical.pic.url }}" />
+    {% endif %}
+    <meta property="article:tag" content="بورس" />
+    <meta property="article:tag" content="تحلیل تکنیکال بورس" />
+    <meta property="article:tag" content="بورس تهران" />
+    <meta property="article:tag" content="{{ technical.company.symbol }}" />
+    <meta property="article:tag" content="{{ technical.company.fullName }}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="{{ technical.description|truncatechars:120 }}" />
+    <meta name="twitter:title" content="{{ technical.title }}" />
+    {% if technical.pic %}
+        <meta name="twitter:image" content="{{ request.get_host }}{{ technical.pic.url }}" />
+    {% endif %}
 {% endblock %}
 <!-- begin of body block -->
 {% block body %}

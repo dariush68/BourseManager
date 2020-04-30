@@ -4,6 +4,28 @@
 {% load social_share %}
 {% block title %}
     <title> {{ tutorial.title }}</title>
+
+    <meta name="description" content="{{ tutorialSubCat.description|truncatechars:120 }}"/>
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:type" content="tutorial" />
+    <meta property="og:title" content="{{ tutorialSubCat.title }}" />
+    <meta property="og:description" content="{{ tutorialSubCat.description|truncatechars:120 }}" />
+    <meta property="og:url" content="{{ request.get_host }}{% url 'bourseapp:tutorial-subCategory' tutorialSubCat.id %}"/>
+    <meta property="og:site_name" content="مدیابورس" />
+    {% if tutorialSubCat.pic %}
+        <meta property="og:image" content="{{ request.get_host }}{{ tutorialSubCat.pic.url }}" />
+    {% endif %}
+    <meta property="article:tag" content="بورس" />
+    <meta property="article:tag" content="آموزش بورس" />
+    <meta property="article:tag" content="بورس تهران" />
+    <meta property="article:tag" content="{{ tutorialSubCat.category.title }}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="{{ tutorialSubCat.description|truncatechars:120 }}" />
+    <meta name="twitter:title" content="{{ tutorialSubCat.title }}" />
+    {% if tutorialSubCat.pic %}
+        <meta name="twitter:image" content="{{ request.get_host }}{{ tutorialSubCat.pic.url }}" />
+    {% endif %}
 {% endblock %}
 <!-- begin of body block -->
 {% block body %}
@@ -23,7 +45,7 @@
         <!--Tutorial-->
         <div class="card mt-3">
             <div class="card-header" role="tab">
-                <h5 class="text-center font-weight-bold mb-1">آموزش های {{ tutorialSubCat.title }}</h5>
+                <h5 class="text-center font-weight-bold mb-1">{{ tutorialSubCat.title }}</h5>
             </div>
             <!--Card content-->
         </div>
@@ -78,14 +100,7 @@
     <!-- selected category id -->
 {#    <input type="hidden" id="category-selected-id" selected-id="-1">#}
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/jquery.min.js' %}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/mdb.min.js' %}"></script>
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables.min.js' %}"></script><!-- MDBootstrap Datatables  -->
-    <!-- MDB table core JavaScript -->
-    <script type="text/javascript" src="{% static 'bourseapp/js/addons/datatables-select.min.js' %}"></script><!-- MDBootstrap Datatables  -->
+{% endblock %}
 
-
+{% block javascript %}
 {% endblock %}

@@ -4,6 +4,28 @@
 {% load social_share %}
 {% block title %}
     <title>وبینار {{ webinar.company.symbol }}</title>
+
+    <meta name="description" content="{{ webinar.description }}"/>
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:type" content="news" />
+    <meta property="og:title" content="{{ webinar.title }}" />
+    <meta property="og:description" content="{{ webinar.description }}" />
+    <meta property="og:url" content="{{ request.get_host }}{% url 'bourseapp:webinar-detail' webinar.id %}"/>
+    <meta property="og:site_name" content="مدیابورس" />
+    {% if webinar.pic %}
+        <meta property="og:image" content="{{ request.get_host }}{{ webinar.pic.url }}" />
+    {% endif %}
+    <meta property="article:tag" content="بورس" />
+    <meta property="article:tag" content="وبینار آموزشی بورس" />
+    <meta property="article:tag" content="بورس تهران" />
+    <meta property="article:tag" content="{{ webinar.company.symbol }}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="{{ webinar.description }}" />
+    <meta name="twitter:title" content="{{ webinar.title }}" />
+    {% if webinar.pic %}
+        <meta name="twitter:image" content="{{ request.get_host }}{{ webinar.pic.url }}" />
+    {% endif %}
 {% endblock %}
 <!-- begin of body block -->
 {% block body %}
