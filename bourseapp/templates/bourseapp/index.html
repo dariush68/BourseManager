@@ -1323,6 +1323,37 @@
 
 {% block javascript %}
 
+    <script>
+
+{#    console.log("read csv")#}
+    {#let csv = "http://{{ request.get_host }}{% static 'bourseapp/images/dtolid-D1.CSV' %}";#}
+{#    $.ajax({#}
+{#        type: "GET",#}
+{#        url: "{% static 'bourseapp/images/dtolid-D1.CSV' %}",#}
+{#        dataType: "text",#}
+{#        success: function(csv) {#}
+{#            console.log(" csv loaded")#}
+            {#console.log(csv)#}
+{#            var data = $.csv.toObjects(csv);#}
+{#            /*#}
+{#            " <TIME>": "000000"#}
+{#<CLOSE>: "1044"#}
+{#<DTYYYYMMDD>: "20130923"#}
+{#<HIGH>: "1044"#}
+{#<LOW>: "1044"#}
+{#<OPEN>: "1044"#}
+{#<OPENINT>: "0"#}
+{#<PER>: "D1"#}
+{#<TICKER>: "dtolid-D1"#}
+{#<VOL>: "43533"#}
+{#             */#}
+{#            console.log(data[0])#}
+{#            console.log(data[0]["<DTYYYYMMDD>"])#}
+{#        }#}
+{#     });#}
+
+    </script>
+
     <script src="{% static 'bourseapp/js/scripts.js' %}"></script>
 
     <script>

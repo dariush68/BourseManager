@@ -11,7 +11,6 @@ from bourseapp import models
 from . import serializers
 import operator
 import functools
-import pandas as pd
 
 from rest_framework.permissions import IsAuthenticated
 
@@ -203,48 +202,19 @@ class ChatMessageRudView(generics.RetrieveUpdateDestroyAPIView):  # DetailView C
 
 def chart_detail(request, company_id):
     chart = get_object_or_404(models.Chart, company=company_id)
-    # print('chart')
-    # print(chart)
-    if chart.data is not None:
-        # print('data valid')
-        # read the file
-        df = pd.read_csv(chart.data)
-        # print(df.head())
-
-        profile_json = {
-            # "Date": df['<DTYYYYMMDD>'].to_json(orient='values'),
-            # "Close": df['<CLOSE>'].to_json(orient='values'),
-            "data": df.to_json(),
-        }
-    else:
-        print('data invalid')  # read the file
-
-        profile_json = {
-            "data": "empty",
-        }
+    profile_json = {
+        "data": chart.data.url,
+    }
     return JsonResponse(profile_json, safe=False)
 
 
 def ChartView(request):
 
     chart = get_object_or_404(models.Chart, company__symbol__icontains='شاخص بازار بورس')
-    if chart.data is not None:
-        print('data valid')
-        # read the file
-        df = pd.read_csv(chart.data)
-        # print(df.head())
-
-        profile_json = {
-            # "Date": df['<DTYYYYMMDD>'].to_json(orient='values'),
-            # "Close": df['<CLOSE>'].to_json(orient='values'),
-            "data": df.to_json(),
-        }
-    else:
-        print('data invalid')# read the file
-
-        profile_json = {
-            "data": "empty",
-        }
+    profile_json = {
+        "data": chart.data.url,
+    }
     return JsonResponse(profile_json, safe=False)
+
 
 
