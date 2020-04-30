@@ -37,7 +37,7 @@
                 {% endfor %}
 
 
-                <!-- temp -->
+                <!-- bazaar map and shakhes chart -->
                 <div class="accordion md-accordion accordion-blocks" id="accordionEx78" role="tablist"
                      aria-multiselectable="true">
 
@@ -406,8 +406,8 @@
                             <!-- first section -->
                             <div class="col-sm-8 mt-1">
 
+                                <!-- latest news -->
                                 <div class="card mb-4">
-                                    <!-- latest news -->
                                     <div class="card-body" style="background-color: #ffffff">
                                         <!--Carousel Wrapper of news-->
                                         <div id="video-carousel-example2" class="carousel slide carousel-fade" data-ride="carousel">
@@ -471,12 +471,13 @@
                                         </div>
                                         <!--Carousel Wrapper-->
                                     </div>
-
                                 </div>
 
                                 {% if user.is_authenticated%}
 
+                                    <!-- analyze Technical, fundamental and bazaar -->
                                     <div class="card text-center mb-2">
+                                        <!-- Tabs -->
                                         <div class="card-header">
                                             <ul class="nav nav-tabs card-header-tabs">
                                                 <li class="nav-item">
@@ -491,8 +492,17 @@
                                                     <a class="nav-link small" data-toggle="tab" href="#panelBazaar" role="tab">
                                                         تحلیل های بازار</a>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link small" data-toggle="tab" href="#panelShakhes" role="tab">
+                                                        شاخص ها</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link small" data-toggle="tab" href="#panelShakhesIndutrial" role="tab">
+                                                        شاخص صنعت ها</a>
+                                                </li>
                                             </ul>
                                         </div>
+                                        <!-- Tabs body -->
                                         <div class="card-body">
                                             <!-- Tab panels -->
                                             <div class="tab-content"  style="margin-left: -21px; margin-right: -21px;">
@@ -778,6 +788,202 @@
                                                         {% endif %}
 
                                                     {% endfor %}
+                                                    <div class="card-footer text-center small">
+                                                        <a href="{% url 'bourseapp:bazaar-list' %}">
+                                                            مشاهده تمامی تحلیل ها
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Panel shakhes ha -->
+                                                <div class="tab-pane fade" id="panelShakhes" role="tabpanel">
+
+                                                    {% for technical in technicals_total_shakhes %}
+                                                        {% if technical.isSuperUserPermition %}
+                                                            {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
+
+                                                                <div class="media">
+                                                                    {% if technical.pic %}
+                                                                        <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                                    {% else %}
+                                                                        <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                    {% endif %}
+                                                                    <div class="media-body">
+                                                                        <h6 class="mt-1 font-weight-bold mr-3">
+                                                                            <a href="{% url 'bourseapp:technical-detail' technical.id %}">
+
+                                                                                {{ technical.title }}
+                                                                                {% if technical.createAt|is_past_due:technical.createAt %}
+                                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                                {% endif %}
+
+                                                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                                                    <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                                {% endif %}
+                                                                            </a>
+
+                                                                        </h6>
+                                                                        <span class="badge badge-default mr-1">
+                                                                                        {% if technical.company %}
+                                                                                            {{ technical.company.symbol }}
+                                                                                        {% elif technical.category %}
+                                                                                            {{ technical.category.title }}
+                                                                                        {% endif %}
+                                                                                    </span>
+                                                                        <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                        <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                        <span class="badge yellow mr-1"><small style="color: black">VIP</small></span>
+                                                                        {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+
+                                                                    </div>
+                                                                </div>
+                                                                <hr>
+
+                                                            {% endif %}
+
+                                                        {% else %}
+
+                                                            <div class="media">
+                                                                {% if technical.pic %}
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                                {% else %}
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+                                                                {% endif %}
+                                                                {% if technical.video %}
+                                                                    <img class="d-flex mr-3" src="{% static 'bourseapp/images/video.png' %}" alt="News" style="width: 70px; height: 70px; object-fit: contain">
+                                                                {% endif %}
+                                                                <div class="media-body">
+                                                                    <h6 class="mt-1 font-weight-bold mr-3">
+                                                                        <a href="{% url 'bourseapp:technical-detail' technical.id %}">
+
+                                                                            {{ technical.title }}
+                                                                            {% if technical.createAt|is_past_due:technical.createAt %}
+                                                                                <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                            {% endif %}
+
+                                                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                                                <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                            {% endif %}
+                                                                        </a>
+
+                                                                    </h6>
+                                                                    <span class="badge badge-default mr-1">
+                                                                                        {% if technical.company %}
+                                                                                            {{ technical.company.symbol }}
+                                                                                        {% elif technical.category %}
+                                                                                            {{ technical.category.title }}
+                                                                                        {% endif %}
+                                                                                    </span>
+                                                                    <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                    <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                    {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                        {% endif %}
+
+                                                    {% endfor %}
+
+                                                    <div class="card-footer text-center small">
+                                                        <a href="{% url 'bourseapp:bazaar-list' %}">
+                                                            مشاهده تمامی تحلیل ها
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Panel shakhes indutrial -->
+                                                <div class="tab-pane fade" id="panelShakhesIndutrial" role="tabpanel">
+
+                                                    {% for technical in technicals_industrial_shakhes %}
+                                                        {% if technical.isSuperUserPermition %}
+                                                            {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
+
+                                                                <div class="media">
+                                                                    {% if technical.pic %}
+                                                                        <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                                    {% else %}
+                                                                        <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+
+                                                                    {% endif %}
+                                                                    <div class="media-body">
+                                                                        <h6 class="mt-1 font-weight-bold mr-3">
+                                                                            <a href="{% url 'bourseapp:technical-detail' technical.id %}">
+
+                                                                                {{ technical.title }}
+                                                                                {% if technical.createAt|is_past_due:technical.createAt %}
+                                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                                {% endif %}
+
+                                                                                {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                                                    <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                                {% endif %}
+                                                                            </a>
+
+                                                                        </h6>
+                                                                        <span class="badge badge-default mr-1">
+                                                                                        {% if technical.company %}
+                                                                                            {{ technical.company.symbol }}
+                                                                                        {% elif technical.category %}
+                                                                                            {{ technical.category.title }}
+                                                                                        {% endif %}
+                                                                                    </span>
+                                                                        <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                        <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                        <span class="badge yellow mr-1"><small style="color: black">VIP</small></span>
+                                                                        {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+
+                                                                    </div>
+                                                                </div>
+                                                                <hr>
+
+                                                            {% endif %}
+
+                                                        {% else %}
+
+                                                            <div class="media">
+                                                                {% if technical.pic %}
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{{ technical.pic.url }}" alt="{{ technical.title }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                                {% else %}
+                                                                    <img class="d-flex mr-3 img-thumbnail" src="{% static 'bourseapp/images/technical.jpg' %}" alt="News" style="width: 70px; height: 70px; object-fit: cover">
+                                                                {% endif %}
+                                                                {% if technical.video %}
+                                                                    <img class="d-flex mr-3" src="{% static 'bourseapp/images/video.png' %}" alt="News" style="width: 70px; height: 70px; object-fit: contain">
+                                                                {% endif %}
+                                                                <div class="media-body">
+                                                                    <h6 class="mt-1 font-weight-bold mr-3">
+                                                                        <a href="{% url 'bourseapp:technical-detail' technical.id %}">
+
+                                                                            {{ technical.title }}
+                                                                            {% if technical.createAt|is_past_due:technical.createAt %}
+                                                                                <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                            {% endif %}
+
+                                                                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                                                                <a class="small" href="{% url 'admin:bourseapp_technical_change' technical.id %}" target="_blank"><i class="fa fa-edit"></i></a>
+                                                                            {% endif %}
+                                                                        </a>
+
+                                                                    </h6>
+                                                                    <span class="badge badge-default mr-1">
+                                                                                        {% if technical.company %}
+                                                                                            {{ technical.company.symbol }}
+                                                                                        {% elif technical.category %}
+                                                                                            {{ technical.category.title }}
+                                                                                        {% endif %}
+                                                                                    </span>
+                                                                    <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                    <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                    {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
+
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                        {% endif %}
+
+                                                    {% endfor %}
+
                                                     <div class="card-footer text-center small">
                                                         <a href="{% url 'bourseapp:bazaar-list' %}">
                                                             مشاهده تمامی تحلیل ها

@@ -43,8 +43,11 @@ def index(request):
 
     news = models.News.objects.all()
     news_important = models.News.objects.filter(isImportant=True)[:5]
-    technicals = models.Technical.objects.all().exclude(user__username='d_abedi') # [0:10]
+    technicals = models.Technical.objects.filter(company__type=1).exclude(user__username='d_abedi') # [0:10]
     technicals_count = technicals.count()
+
+    technicals_total_shakhes = models.Technical.objects.filter(company__type=0)
+    technicals_industrial_shakhes = models.Technical.objects.filter(company__type=2)
 
     fundamentals = models.Fundamental.objects.all()[0:20]
     bazaar = models.Bazaar.objects.all()[0:10]
@@ -114,6 +117,8 @@ def index(request):
         'webinar': webinar,
         'technicals': technical_vip_target_list2[0:20],
         'technicals_count': technicals_count,
+        'technicals_total_shakhes': technicals_total_shakhes,
+        'technicals_industrial_shakhes': technicals_industrial_shakhes,
         'fundamentals': fundamentals,
         'messages': messages,
         'targets_watch': target_watch,

@@ -44,12 +44,20 @@ class Category(models.Model): #ModelMeta
     #         return self.pic.url
 
 
+SYMBOL_TYPE_CHOICES = (
+    ('0', "شاخص کل"),
+    ('1', "نماد"),
+    ('2', "شاخص صنعت"),
+)
+
+
 class Company(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, help_text='گروه')
     symbol = models.CharField(max_length=120, null=True, blank=True, help_text='نماد')
     fullName = models.CharField(max_length=120, null=True, blank=True, help_text='نام شرکت')
+    type = models.CharField(max_length=20, help_text='نوع نماد', choices=SYMBOL_TYPE_CHOICES, default='1')
     bourseType = models.CharField(max_length=120, null=True, blank=True, help_text='بازار بورس')
     pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
