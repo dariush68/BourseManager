@@ -178,6 +178,23 @@ class Webinar(models.Model):
         return reverse("bourseapp:webinar-detail", kwargs={'webinar_id': self.pk})
 
 
+class MapBazaar(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+    pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
+
+    class Meta:
+        ordering = ["-createAt"]
+
+    def __unicode__(self):
+        return self.createAt
+
+    @property
+    def owner(self):
+        return self.user
+
+
 class Fundamental(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')

@@ -97,6 +97,12 @@ def index(request):
     news_inactive_count = models.News.objects.filter(isApproved=False).count()
     events = (users_inactive_count + news_inactive_count)
     users_count = get_user_model().objects.all().count()
+    unReadMsgCount = models.ChatMessage.objects.filter(Q(isSeen=False)).exclude(sender__username='admins').count()
+
+    if models.MapBazaar.objects.count() > 0:
+        bazaarMap = models.MapBazaar.objects.latest('createAt')
+    else:
+        bazaarMap = None
 
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
@@ -119,6 +125,8 @@ def index(request):
         'news_count': news.count(),
         'events': events,
         'users_count': users_count,
+        'unReadMsgCount': unReadMsgCount,
+        'bazaarMap': bazaarMap,
     })
 
     # HttpResponseRedirect(reverse('admin:login'))

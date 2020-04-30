@@ -36,7 +36,8 @@
                     </div>
                 {% endfor %}
 
-                <!--Bourse Index Chart-->
+
+                <!-- temp -->
                 <div class="accordion md-accordion accordion-blocks" id="accordionEx78" role="tablist"
                      aria-multiselectable="true">
 
@@ -68,31 +69,51 @@
                         <div id="collapseUnfiled" class="collapse" role="tabpanel" aria-labelledby="headingUnfiled"
                              data-parent="#accordionEx78">
                             <div class="card-body">
-{#                                {% include 'bourseapp/shakhes_bourse.html' %}#}
-                                <input type="hidden" id="input-temp-current-symbol-id" data-symbol="-1">
-                                {% include 'bourseapp/charts/CandelStake.html' %}
+                                <!-- tabs2 -->
+                                <div class="card text-center mb-1 z-depth-0" >
+                                    <div class="card-header">
+                                        <ul class="nav nav-tabs vertical card-header-tabs" style="margin-right: -20px; margin-left: -20px; margin-top: -20px">
+                                            <li class="nav-item">
+                                                <a class="nav-link active small" data-toggle="tab" href="#shakhes-total-chart" role="tab">
+                                                    نمودار شاخص کل</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link small" data-toggle="tab" href="#bazaar-map-img" role="tab">
+                                                    نقشه بازار</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Tab panels -->
+                                        <div class="tab-content"  style="margin-left: -21px; margin: -21px;">
+
+                                            <!-- shakhes total chart -->
+                                            <div class="tab-pane fade in show active" id="shakhes-total-chart" role="tabpanel">
+{#                                                {% include 'bourseapp/shakhes_bourse.html' %}#}
+                                                <input type="hidden" id="input-temp-current-symbol-id" data-symbol="-1">
+                                                {% include 'bourseapp/charts/CandelStake.html' %}
+                                            </div>
+
+                                            <!-- bazaar map img -->
+                                            <div class="tab-pane fade" id="bazaar-map-img" role="tabpanel">
+                                                {% if bazaarMap.pic %}
+                                                    <a target="_blank" href="{{ bazaarMap.pic.url }}">
+                                                        <img class="img-thumbnail" src="{{ bazaarMap.pic.url }}" alt="" style="width: 100%; object-fit: contain;">
+                                                    </a>
+                                                {% endif %}
+                                                {% if request.user.is_superuser or request.user|has_group:"level1"%}
+                                                    <a href="{% url 'admin:bourseapp_mapbazaar_add' %}?user={{ user.id }}"  target="_blank"
+                                                       class="btn-floating btn-primary" style="position: absolute; top: 40px; right: 20px"><i class="fas fa-plus"></i></a>
+                                                {% endif %}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- tabs2 -->
+
                             </div>
                         </div>
-                    </div>
-                    <!-- Accordion card -->
-
-                </div>
-
-                <!-- Heading -->
-                <div class="d-none card mb-4 wow fadeIn">
-
-                    <!-- Card header -->
-                    <div class="card-header text-center">
-                        <a onclick="toggleBourseChart()">
-                            شاخص بورس
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div id="bourse-chart" class="card-body d-sm-flex justify-content-between mx-0">
-
-{#                        {% include 'bourseapp/shakhes_bourse.html' %}#}
-
                     </div>
 
                 </div>

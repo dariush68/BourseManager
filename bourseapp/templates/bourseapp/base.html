@@ -224,6 +224,10 @@
                             <span id="companies" style="font-size: 16px; cursor: pointer; color: black">
                                 <i id="companies-icon" class="fa fa-comments align-middle mr-1" style="font-size: 12px; color: gray"></i>
                                 پیام ها
+
+                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                                <span class="badge badge-info badge-pill">{{ unReadMsgCount }}</span>
+                            {% endif %}
                             </span>
                             </a>
                         </li>
