@@ -110,7 +110,7 @@ def index(request):
     # if request.user.is_authenticated:
     return render(request, 'bourseapp/index.html', {
         # return render(request, 'bourseapp/test.html', {
-        'news': news[0:20],
+        'news': news[0:40],
         'news_important': news_important,
         'targets': targets,
         'bazaars': bazaar,
@@ -555,8 +555,10 @@ def company_technical_view(request, company_id):
 # @login_required
 def news_detail(request, news_id):
     news = get_object_or_404(models.News, pk=news_id)
+    news_all = models.News.objects.all()
     return render(request, 'bourseapp/news/news_detail.html', {
         'news': news,
+        'news_all': news_all,
         'url': request.path,
         'tutorialCategory': tutorialCategory,
     })
