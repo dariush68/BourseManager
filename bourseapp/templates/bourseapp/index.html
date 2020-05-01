@@ -3,13 +3,34 @@
 {% load humanize %}
 {% load jalali_tags %}
 {% load auth_extras %}
-{% block title %}
-    <title>بورس | خانه</title>
-{% endblock %}
 
 <!-- load static file in django -->
 {% load staticfiles %}
 
+{% block title %}
+    <title>مدیابورس: اخبار و آموزش بورس</title>
+    <link rel=canonical href=https://mediabourse.ir/ >
+
+    <meta name="description" content="آموزش بورس ، آموزش معامله گری ، اموزش بورس ، آموزش تحلیل تکنیکال ، آموزش تحلیل بنیادی ، روانشناسی معاملات ، روانشناسی معامله گر ، مدیریت سرمایه ، نظم در معاملات ، شاخص های بورسی ، آموزش الیوت ، فیلم آموزش بورس ، اخبار بورسی "/>
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="مدیابورس: اخبار و آموزش بورس" />
+    <meta property="og:description" content="آموزش بورس ، آموزش معامله گری ، اموزش بورس ، آموزش تحلیل تکنیکال ، آموزش تحلیل بنیادی ، روانشناسی معاملات ، روانشناسی معامله گر ، مدیریت سرمایه ، نظم در معاملات ، شاخص های بورسی ، آموزش الیوت ، فیلم آموزش بورس ، اخبار بورسی " />
+    <meta property="og:url" content="http://mediabourse.ir"/>
+    <meta property="og:site_name" content="مدیابورس: اخبار و آموزش بورس" />
+    <meta property="og:image" content="{{ request.get_host }}{% static 'bourseapp/images/logo.png' %}" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+    <meta property="article:tag" content="بورس" />
+    <meta property="article:tag" content="اخبار بورس" />
+    <meta property="article:tag" content="بورس تهران" />
+    <meta property="article:tag" content="آموزش بورس" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="آموزش بورس ، آموزش معامله گری ، اموزش بورس ، آموزش تحلیل تکنیکال ، آموزش تحلیل بنیادی ، روانشناسی معاملات ، روانشناسی معامله گر ، مدیریت سرمایه ، نظم در معاملات ، شاخص های بورسی ، آموزش الیوت ، فیلم آموزش بورس ، اخبار بورسی " />
+    <meta name="twitter:title" content="مدیابورس: اخبار و آموزش بورس" />
+    <meta name="twitter:image" content="{{ request.get_host }}{% static 'bourseapp/images/logo.png' %}" />
+{% endblock %}
 
 <!-- begin of body block -->
 {% block body %}

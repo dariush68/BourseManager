@@ -7,11 +7,11 @@
 
     <meta name="description" content="{{ company.description|truncatechars:120 }} {{ company.fullName }}"/>
     <meta property="og:locale" content="fa_IR" />
-    <meta property="og:type" content="news" />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ company.symbol }}" />
     <meta property="og:description" content="{{ company.description|truncatechars:120 }} {{ company.fullName }}" />
     <meta property="og:url" content="{{ request.get_host }}{% url 'bourseapp:company-detail' company.id %}"/>
-    <meta property="og:site_name" content="مدیابورس" />
+    <meta property="og:site_name" content="مدیابورس: اخبار و آموزش بورس" />
     {% if company.pic %}
         <meta property="og:image" content="{{ request.get_host }}{{ company.pic.url }}" />
     {% endif %}

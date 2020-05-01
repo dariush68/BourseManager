@@ -7,11 +7,11 @@
 
     <meta name="description" content="{{ bazaar.description|truncatechars:120 }}"/>
     <meta property="og:locale" content="fa_IR" />
-    <meta property="og:type" content="news" />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ bazaar.title }}" />
     <meta property="og:description" content="{{ bazaar.description|truncatechars:120 }}" />
     <meta property="og:url" content="{{ request.get_host }}{% url 'bourseapp:bazaar-detail' bazaar.id %}"/>
-    <meta property="og:site_name" content="مدیابورس" />
+    <meta property="og:site_name" content="مدیابورس: اخبار و آموزش بورس" />
     {% if bazaar.pic %}
         <meta property="og:image" content="{{ request.get_host }}{{ bazaar.pic.url }}" />
     {% endif %}
