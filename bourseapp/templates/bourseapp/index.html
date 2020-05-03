@@ -1174,32 +1174,28 @@
                                     <div class="card-body">
 
                                         <!-- List group links -->
-                                        <div class="list-group list-group-flush" style="margin: -20px">
+                                        <div class=" " style="margin-bottom: -3px">
 
                                             {% for new in news %}
 
                                                 {% if new.isSuperUserPermition %}
                                                     {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
-                                                        <div class="list-group-item list-group-item-action waves-effect" style="margin-bottom: -20px;">
-                                                            <div class="row">
-                                                                <a href="{% url 'bourseapp:news-detail' new.id %}" >
-                                                                    <p class="small">
-
-                                                                        <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-
-                                                                        {{ new.title }}
-                                                                            {% if new.company %}
-                                                                               ({{ new.company.symbol }})
-                                                                            {% elif new.category %}
-                                                                               ({{ new.category.title }})
-                                                                            {% endif %}
-                                                                        {% if new.createAt|is_past_due:new.createAt %}
-                                                                            <i class="fa fa-star" style="color: #ffc400"></i>
-                                                                        {% endif %}
-                                                                        <span class="small badge-pill mr-0 yellow ">VIP</span>
-                                                                    </p>
-                                                                </a>
-                                                                {% if new.isApproved == False %}
+                                                        <div class="" style="margin-bottom: -3px">
+                                                            <a href="{% url 'bourseapp:news-detail' new.id %}" class="" >
+                                                                <p class="small" style="text-align: justify; color: black">
+                                                                    <i class="fa fa-angle-double-left text-info"></i>
+                                                                    {{ new.title }}
+                                                                    {% if new.company %}
+                                                                        ({{ new.company.symbol }})
+                                                                    {% elif new.category %}
+                                                                        ({{ new.category.title }})
+                                                                    {% endif %}
+                                                                    {% if new.createAt|is_past_due:new.createAt %}
+                                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                    {% endif %}
+                                                                    <span class="small text-black-50">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                    <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                                    {% if new.isApproved == False %}
                                                                     <a id="class-news-approve-status1-{{ new.id }}"
                                                                        onclick="document.getElementById('index-selected-news-id').value='{{ new.id }}';
                                                                                document.getElementById('index-selected-news-title').value='{{ new.title }}';
@@ -1207,57 +1203,60 @@
                                                                        data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
                                                                         <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
                                                                     </a>
-                                                                {% endif %}
-                                                            </div>
+                                                                    {% endif %}
+                                                                </p>
+                                                            </a>
                                                         </div>
 
                                                     {% endif %}
                                                 {% else %}
                                                     {% if new.isApproved == False %}
                                                         {% if request.user.is_superuser or request.user|has_group:"level1" %}
-                                                            <div class="list-group-item list-group-item-action waves-effect" style="margin-bottom: -20px">
-                                                                <div class="row">
-                                                                    <a href="{% url 'bourseapp:news-detail' new.id %}" >
-                                                                        <p class="small">
-
-                                                                            <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-
-                                                                            {{ new.title }}
-                                                                            {% if new.company %}
-                                                                               ({{ new.company.symbol }})
-                                                                            {% elif new.category %}
-                                                                               ({{ new.category.title }})
-                                                                            {% endif %}
-                                                                            {% if new.createAt|is_past_due:new.createAt %}
-                                                                                <i class="fa fa-star" style="color: #ffc400"></i>
-                                                                            {% endif %}
-                                                                        </p>
-                                                                    </a>
-                                                                    <a id="class-news-approve-status2-{{ new.id }}"
+                                                            <div class="" style="margin-bottom: -3px">
+                                                                <a href="{% url 'bourseapp:news-detail' new.id %}" class="" >
+                                                                    <p class="small" style="text-align: justify; color: black">
+                                                                        <i class="fa fa-angle-double-left text-info"></i>
+                                                                        {{ new.title }}
+                                                                        {% if new.company %}
+                                                                            ({{ new.company.symbol }})
+                                                                        {% elif new.category %}
+                                                                            ({{ new.category.title }})
+                                                                        {% endif %}
+                                                                        {% if new.createAt|is_past_due:new.createAt %}
+                                                                            <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                        {% endif %}
+                                                                        <span class="small text-black-50">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                        <a id="class-news-approve-status1-{{ new.id }}"
                                                                        onclick="document.getElementById('index-selected-news-id').value='{{ new.id }}';
                                                                                document.getElementById('index-selected-news-title').value='{{ new.title }}';
                                                                                document.getElementById('modal-news-title').innerHTML='{{ new.title }}'"
                                                                        data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
                                                                         <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
                                                                     </a>
-                                                                </div>
+
+                                                                    </p>
+                                                                </a>
                                                             </div>
+
                                                         {% endif %}
                                                     {% else %}
-                                                        <a href="{% url 'bourseapp:news-detail' new.id %}" class="list-group-item list-group-item-action waves-effect" style="margin-bottom: -20px;">
-                                                            <p class="small" style="text-align: justify">
-                                                                <span class="small badge-pill mr-0 blue white-text">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                                {{ new.title }}
-                                                                {% if new.company %}
-                                                                   ({{ new.company.symbol }})
-                                                                {% elif new.category %}
-                                                                   ({{ new.category.title }})
-                                                                {% endif %}
-                                                                {% if new.createAt|is_past_due:new.createAt %}
-                                                                    <i class="fa fa-star" style="color: #ffc400"></i>
-                                                                {% endif %}
-                                                            </p>
-                                                        </a>
+                                                        <div class="" style="margin-bottom: -3px">
+                                                            <a href="{% url 'bourseapp:news-detail' new.id %}" class="" >
+                                                                <p class="small" style="text-align: justify; color: black">
+                                                                    <i class="fa fa-angle-double-left text-info"></i>
+                                                                    {{ new.title }}
+                                                                    {% if new.company %}
+                                                                        ({{ new.company.symbol }})
+                                                                    {% elif new.category %}
+                                                                        ({{ new.category.title }})
+                                                                    {% endif %}
+                                                                    {% if new.createAt|is_past_due:new.createAt %}
+                                                                        <i class="fa fa-star" style="color: #ffc400"></i>
+                                                                    {% endif %}
+                                                                    <span class="small text-black-50">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                </p>
+                                                            </a>
+                                                        </div>
                                                     {% endif %}
                                                 {% endif %}
 
@@ -1297,7 +1296,7 @@
                     <h5 class="modal-title text-right" id="modalNewsApproveLabel2">تایید خبر</h5>
                 </div>
                 <div class="modal-body">
-                    آیا از حذف خبر
+                    آیا از تایید خبر
                     <strong id="modal-news-title" style="font-weight: bold"> </strong>
                       مطمئنید؟
                 </div>

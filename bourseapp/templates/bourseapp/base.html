@@ -3,6 +3,7 @@
 <html lang="en">
 
 {% load auth_extras %}
+{% spaceless %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,7 +38,9 @@
 {#    <link rel="icon" href="#" />#}
 
 </head>
+{% endspaceless %}
 
+{% spaceless %}
 <body style="direction: rtl ; background-color: #f9f9f9; text-align: right ; font-family: IRANSans,serif !important; font-size: 14px;" id="home">
 
     {% if user.is_authenticated%}
@@ -401,5 +404,6 @@
         });
     </script>
 </body>
+{% endspaceless %}
 </html>
 {#"#}
