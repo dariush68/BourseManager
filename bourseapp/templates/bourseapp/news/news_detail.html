@@ -118,11 +118,6 @@
                             <!--Grid row-->
 
                             <hr>
-                            {% if news.pic %}
-                                <a href="{{ news.pic.url }}" target="_blank">
-                                    <img src="{{ news.pic.url }}" class="img-fluid" alt="" style="width: 100%; object-fit: cover">
-                                </a>
-                            {% endif %}
 
                             <p class="text-muted text-right text-justify" dir="rtl">{{ news.description | safe  }}</p>
 
