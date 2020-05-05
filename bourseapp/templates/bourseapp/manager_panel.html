@@ -90,10 +90,34 @@
 
                     </div>
                 </div>
+
+                <!-- pupalar analyze -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                       تحلیل های پربازدید
+                    </div>
+                    <div class="card-body">
+                        {% for tec in tecnical_popular %}
+                            <div  class="media white z-depth-1 rounded mb-1" dir="ltr">
+
+                                <div class="media-body p-1">
+                                    <p class="text-uppercase text-muted mb-1">
+                                        <a class="float-left small mt-1" target="_blank" href="{% url 'bourseapp:technical-detail' tec.id %}" data-toggle="tooltip" title="مشاهده تحلیل"  style="color: #a0a0a0">{{ tec.hit_count }}<i class="fa fa-eye mr-1 ml-1" style="color: #a0a0a0"></i></a>
+                                        <a class="float-left" target="_blank" href="{% url 'admin:bourseapp_technical_change'  tec.id %}" data-toggle="tooltip" title="تغییر اطلاعات تحلیل"><i class="fa fa-edit ml-1 small" style="color: #a0a0a0"></i></a>
+                                        <a class="float-left" target="_blank" href="{% url 'admin:bourseapp_technical_delete'  tec.id %}" data-toggle="tooltip" title="حذف تحلیل"><i class="fa fa-trash-alt ml-1 small" style="color: #a0a0a0"></i></a>
+                                        <small>{{ tec.createAt|to_jalali:'%y/%m/%d' }}</small>
+                                    </p>
+                                    <a href="{% url 'admin:bourseapp_technical_change' tec.id %}" target="_blank"><h7 class="font-weight-bold mb-0" style="color: #2d2d2d">{{ tec.title|truncatechars:50 }}</h7></a>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
             </div>
 
-            <!-- in approved news -->
             <div class="col-sm-3">
+                <!-- in approved news -->
                 <div class="card">
                     <div class="card-header">
                        خبرهای منتظر تایید
@@ -110,11 +134,35 @@
                                         <a class="float-left" target="_blank" href="{% url 'admin:bourseapp_news_delete'  news.id %}" data-toggle="tooltip" title="حذف خبر"><i class="fa fa-trash-alt ml-1 small" style="color: #a0a0a0"></i></a>
                                         <small>{{ news.createAt|to_jalali:'%y/%m/%d' }}</small>
                                     </p>
-                                    <a href="{% url 'admin:bourseapp_news_change' news.id %}" target="_blank"><h7 class="font-weight-bold mb-0" style="color: #2d2d2d">{{ news.title|truncatechars:50 }}</h7></a>
+                                    <a href="{% url 'admin:bourseapp_news_change' news.id %}" target="_blank"><h7 class="font-weight-bold mb-0" style="color: #2d2d2d">{{ news.title|truncatechars:30 }}</h7></a>
                                 </div>
 
                                 <i class="alert-danger z-depth-1 p-3 rounded-right text-black small" style="height: 54px; width: 70px">انتظار</i>
 
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                <!-- pupiolar news -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                       خبرهای پربازدید
+                    </div>
+                    <div class="card-body">
+                        {% for news in news_popular %}
+                            <div id="news-awaitForCheck-{{ news.id }}" class="media white z-depth-1 rounded mb-1" dir="ltr">
+
+                                <div class="media-body p-1">
+                                    <p class="text-uppercase text-muted mb-1">
+                                        <a class="float-left small mt-1" target="_blank" href="{% url 'bourseapp:news-detail' news.id %}" data-toggle="tooltip" title="مشاهده خبر"  style="color: #a0a0a0">{{ news.hit_count }}<i class="fa fa-eye mr-1 ml-1" style="color: #a0a0a0"></i></a>
+                                        <a class="float-left" target="_blank" href="{% url 'admin:bourseapp_news_change'  news.id %}" data-toggle="tooltip" title="تغییر اطلاعات خبر"><i class="fa fa-edit ml-1 small" style="color: #a0a0a0"></i></a>
+                                        <a class="float-left" target="_blank" href="{% url 'admin:bourseapp_news_delete'  news.id %}" data-toggle="tooltip" title="حذف خبر"><i class="fa fa-trash-alt ml-1 small" style="color: #a0a0a0"></i></a>
+                                        <small>{{ news.createAt|to_jalali:'%y/%m/%d' }}</small>
+                                    </p>
+                                    <a href="{% url 'admin:bourseapp_news_change' news.id %}" target="_blank"><h7 class="font-weight-bold mb-0" style="color: #2d2d2d">{{ news.title|truncatechars:50 }}</h7></a>
+                                </div>
                             </div>
                         {% endfor %}
 

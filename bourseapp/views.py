@@ -208,12 +208,16 @@ def manager_panel(request):
     users = get_user_model().objects.all().order_by('groups')
     users_inactive = get_user_model().objects.filter(is_active=False)
     news_inactive = models.News.objects.filter(isApproved=False)
+    news_popular = models.News.objects.all().order_by('-hit_count')[:15]
+    tecnical_popular = models.Technical.objects.all().order_by('-hit_count')[:15]
     events = (users_inactive.count() + news_inactive.count())
 
     return render(request, 'bourseapp/manager_panel.html', {
         'users': users,
         'users_inactive': users_inactive,
         'news_inactive': news_inactive,
+        'news_popular': news_popular,
+        'tecnical_popular': tecnical_popular,
         'events': events,
     })
 

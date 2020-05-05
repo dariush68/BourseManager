@@ -1,6 +1,7 @@
 <!-- use base html template -->
 {% extends 'bourseapp/base.html' %}
 {% load jalali_tags %}
+{% load humanize %}
 {% load auth_extras %}
 {% block title %}
     <title>پیام ها</title>
@@ -95,7 +96,8 @@
                                                     <p class="last-message text-muted mb-0">{{ member.account.first_name }} {{ member.account.last_name }}</p>
                                                 </div>
                                                 <div class="text-small text-right" >
-                                                    <p dir="ltr" class="text-smaller text-muted mb-0 small">{{ member.account.last_login|to_jalali:'%y/%m/%d %H:%M:%S' }}</p>
+{#                                                    <p dir="ltr" class="text-smaller text-muted mb-0 small">{{ member.account.last_login|to_jalali:'%y/%m/%d %H:%M:%S' }}</p>#}
+                                                    <p dir="ltr" class="text-smaller text-muted mb-0 small">{{ member.account.last_login|naturaltime }}</p>
                                                     {% if member.unReadMsg > 0 %}
                                                     <span id="member-unReadMsgCount-{{ member.account.id }}" class="badge badge-danger float-left">{{ member.unReadMsg }}</span>
                                                     {% endif %}
