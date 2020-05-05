@@ -131,6 +131,18 @@
                     </div>
                 {% endif %}
 
+                <hr>
+                <span class="float-right"><small>
+                تحلیلگر:
+                                {% if technical.user.last_name %}
+                                    {{ technical.user.last_name }}
+                                {% else %}
+                                    {{ technical.user }}
+                                {% endif %}
+                            </small></span>
+
+                <span class="small text-black-50 mr-1 ml-1" > {{ technical.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+
             {% endif %}
         </section>
         <!--Section: Content-->

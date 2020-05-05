@@ -65,6 +65,7 @@ class Company(models.Model):
     site = models.URLField(null=True, blank=True, help_text='وبسایت')
     isTarget = models.BooleanField(default=False, help_text='تحت نظر')
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
+    hit_count = models.BigIntegerField(default=0)
     description = models.TextField(max_length=10000, null=True, blank=True, help_text='توضیحات')
 
     class Meta:
@@ -96,6 +97,7 @@ class News(models.Model):
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     isApproved = models.BooleanField(default=False, help_text='تایید خبر')
     isImportant = models.BooleanField(default=False, help_text='خبر مهم')
+    hit_count = models.BigIntegerField(default=0)
     shortDescription = models.TextField(max_length=200, null=True, blank=True, help_text='توضیحات کوتاه')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
@@ -124,6 +126,7 @@ class Technical(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
+    hit_count = models.BigIntegerField(default=0)
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
@@ -169,6 +172,7 @@ class Webinar(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
+    hit_count = models.BigIntegerField(default=0)
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
@@ -210,6 +214,7 @@ class Fundamental(models.Model):
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
+    hit_count = models.BigIntegerField(default=0)
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
@@ -235,6 +240,7 @@ class Bazaar(models.Model):
     pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
     title = models.CharField(max_length=120, null=True, blank=True, help_text='عنوان')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
+    hit_count = models.BigIntegerField(default=0)
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 
@@ -339,6 +345,7 @@ class Tutorial(models.Model):
     subCategory = models.ForeignKey(TutorialSubCategory, on_delete=models.CASCADE, null=True, blank=True, help_text='زیر دسته بندی')
     externalLink = models.URLField(null=True, blank=True, help_text='لینک آموزش')
     aparatEmbedCode = models.CharField(max_length=1000, null=True, blank=True, help_text='کد امبد آپارات')
+    hit_count = models.BigIntegerField(default=0)
     isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
     description = RichTextUploadingField(null=True, blank=True, help_text='توضیحات')
 

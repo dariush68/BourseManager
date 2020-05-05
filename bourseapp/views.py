@@ -29,7 +29,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
 from bourseapp.forms import SignUpForm, NewsForm
-from django.db.models import Count
+from django.db.models import Count, F
 from django.http import HttpResponse
 
 
@@ -519,6 +519,8 @@ def category_detail(request, category_id):
 @login_required
 def company_detail(request, company_id):
     company = get_object_or_404(models.Company, pk=company_id)
+    company.hit_count = company.hit_count+1
+    company.save()
     news = models.News.objects.filter(company=company.id)
     technicals = models.Technical.objects.filter(company=company.id).exclude(user__username='d_abedi')
     fundamental = models.Fundamental.objects.filter(company=company.id)
@@ -528,7 +530,6 @@ def company_detail(request, company_id):
         chart_company = charts[0]
     else:
         chart_company = None
-    print(chart_company)
     return render(request, 'bourseapp/compay_detail.html', {
         'company': company,
         'news': news,
@@ -555,6 +556,9 @@ def company_technical_view(request, company_id):
 # @login_required
 def news_detail(request, news_id):
     news = get_object_or_404(models.News, pk=news_id)
+    # news.hit_count = F('hit_count')+1
+    news.hit_count = news.hit_count+1
+    news.save()
     news_all = models.News.objects.all()
     return render(request, 'bourseapp/news/news_detail.html', {
         'news': news,
@@ -607,6 +611,8 @@ def user_vip(request, user_id, status):
 @login_required
 def technical_detail(request, technical_id):
     technical = get_object_or_404(models.Technical, pk=technical_id)
+    technical.hit_count = technical.hit_count+1
+    technical.save()
     return render(request, 'bourseapp/technical_detail.html', {
         'technical': technical,
         'url': request.path,
@@ -618,6 +624,8 @@ def technical_detail(request, technical_id):
 @login_required
 def webinar_detail(request, webinar_id):
     webinar = get_object_or_404(models.Webinar, pk=webinar_id)
+    webinar.hit_count = webinar.hit_count+1
+    webinar.save()
     return render(request, 'bourseapp/webinars/webinar_detail.html', {
         'webinar': webinar,
         'url': request.path,
@@ -629,6 +637,8 @@ def webinar_detail(request, webinar_id):
 @login_required
 def bazaar_detail(request, bazaar_id):
     bazaar = get_object_or_404(models.Bazaar, pk=bazaar_id)
+    bazaar.hit_count = bazaar.hit_count+1
+    bazaar.save()
     return render(request, 'bourseapp/bazaar_detail.html', {
         'bazaar': bazaar,
         'url': request.path,
@@ -640,6 +650,8 @@ def bazaar_detail(request, bazaar_id):
 @login_required
 def fundamental_detail(request, fundamental_id):
     fundamental = get_object_or_404(models.Fundamental, pk=fundamental_id)
+    fundamental.hit_count = fundamental.hit_count+1
+    fundamental.save()
     return render(request, 'bourseapp/fundamental_detail.html', {
         'fundamental': fundamental,
         'url': request.path,
@@ -651,6 +663,8 @@ def fundamental_detail(request, fundamental_id):
 @login_required
 def tutorial_detail(request, tutorial_id):
     tutorial = get_object_or_404(models.Tutorial, pk=tutorial_id)
+    tutorial.hit_count = tutorial.hit_count+1
+    tutorial.save()
     return render(request, 'bourseapp/tutorials/tutorial_detail.html', {
         'tutorial': tutorial,
         'url': request.path,

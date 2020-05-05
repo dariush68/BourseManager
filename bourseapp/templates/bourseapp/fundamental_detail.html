@@ -108,6 +108,18 @@
             </section>
         {% endif %}
 
+        <hr>
+        <span class="float-right"><small>
+                تحلیلگر:
+            {% if fundamental.user.last_name %}
+                {{ fundamental.user.last_name }}
+            {% else %}
+                {{ fundamental.user }}
+            {% endif %}
+                            </small></span>
+
+        <span class="small text-black-50 mr-1 ml-1 float-left" > {{ fundamental.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+
     </div>
 
     <!-- base url address -->

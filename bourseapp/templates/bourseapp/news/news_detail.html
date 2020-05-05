@@ -132,6 +132,8 @@
                                 </a>
                             {% endif %}
 
+                            <span class="small text-black-50 mr-1 ml-1" > {{ news.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+
                         </section>
                         <!--Section: Content-->
                     </div>
@@ -145,30 +147,6 @@
                     <!-- Card header -->
                     <div class="card-header text-center">
                         اخبار
-                    </div>
-
-
-                    <div class="card-body d-none">
-                    {% for new in news_all %}
-                        <div class="" style="margin-bottom: -3px">
-                            <a href="{% url 'bourseapp:news-detail' new.id %}" class="" >
-                                <p class="small" style="text-align: justify; color: black">
-                                    <i class="fa fa-angle-double-left text-info"></i>
-                                    {{ new.title }}
-                                    {% if new.company %}
-                                        ({{ new.company.symbol }})
-                                    {% elif new.category %}
-                                        ({{ new.category.title }})
-                                    {% endif %}
-                                    {% if new.createAt|is_past_due:new.createAt %}
-                                        <i class="fa fa-star" style="color: #ffc400"></i>
-                                    {% endif %}
-                                    <span class="small text-black-50">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                </p>
-                            </a>
-                        </div>
-
-                    {% endfor %}
                     </div>
 
                     <!--Card content-->
@@ -195,9 +173,10 @@
                                                         <i class="fa fa-star" style="color: #ffc400"></i>
                                                     {% endif %}
                                                     <span class="small text-black-50">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                        <span class="small badge-pill mr-0 yellow ">VIP</span>
-                                                {% if new.isApproved == False %}
-                                                        <span class="small badge-pill mr-0 red white-text">تایید نشده</span>
+                                                    <span class="small text-black-50 mr-1 ml-1" > {{ new.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                    <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                    {% if new.isApproved == False %}
+                                                        <span class="small badge-pill mr-1 red white-text">تایید نشده</span>
                                                 {% endif %}
                                                 </p>
                                             </a>
@@ -221,6 +200,7 @@
                                                             <i class="fa fa-star" style="color: #ffc400"></i>
                                                         {% endif %}
                                                         <span class="small text-black-50">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                        <span class="small text-black-50 mr-1 ml-1" > {{ new.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
                                                         <span class="small badge-pill mr-0 red white-text">تایید نشده</span>
                                                     </p>
                                                 </a>
@@ -242,6 +222,9 @@
                                                         <i class="fa fa-star" style="color: #ffc400"></i>
                                                     {% endif %}
                                                     <span class="small text-black-50">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                    {% if new.hit_count > 0 %}
+                                                        <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ new.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                    {% endif %}
                                                 </p>
                                             </a>
                                         </div>

@@ -62,7 +62,7 @@ class NewsAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
             pass
         else:
             # fields += ('isSuperUserPermition',)
-            fields = tuple(x for x in fields if x != 'isSuperUserPermition')
+            fields = tuple(x for x in fields if x != 'isSuperUserPermition' or x != 'hit_count')
 
         return fields
 

@@ -190,6 +190,9 @@
                                                                                 <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit text-black-50"></i></a>
                                                                             {% endif %}
                                                                             <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                                            {% if target.hit_count > 0 %}
+                                                                                <span class="small mr-1 ml-1 float-left" style="color: #c1c1c1" > {{ target.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                            {% endif %}
                                                                         </h5>
 
                                                                     </div>
@@ -218,6 +221,9 @@
                                                                         {{ target.symbol }}
                                                                         {% if user.is_superuser%}
                                                                             <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit text-black-50"></i></a>
+                                                                        {% endif %}
+                                                                        {% if target.hit_count > 0 %}
+                                                                            <span class="small mr-1 ml-1 float-left" style="color: #c1c1c1" > {{ target.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
                                                                         {% endif %}
                                                                     </h7>
 
@@ -261,6 +267,9 @@
                                                                                     <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit text-black-50"></i></a>
                                                                                 {% endif %}
                                                                                 <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                                                {% if target.hit_count > 0 %}
+                                                                                    <span class="small mr-1 ml-1 float-left" style="color: #c1c1c1" > {{ target.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                                {% endif %}
                                                                             </h7>
 
                                                                         </div>
@@ -289,6 +298,9 @@
                                                                             {{ target.symbol }}
                                                                             {% if user.is_superuser%}
                                                                                 <a class="small" href="{% url 'admin:bourseapp_company_change' target.id %}" target="_blank"><i class="fa fa-edit text-black-50"></i></a>
+                                                                            {% endif %}
+                                                                            {% if target.hit_count > 0 %}
+                                                                                <span class="small mr-1 ml-1 float-left" style="color: #c1c1c1" > {{ target.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
                                                                             {% endif %}
                                                                         </h7>
 
@@ -388,7 +400,12 @@
 
                                             <div class="media white z-depth-0 border rounded">
                                                 <div class="media-body p-1">
-                                                    <p class="text-uppercase text-muted mb-1"><small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small></p>
+                                                    <p class="text-uppercase text-muted mb-1">
+                                                        <small>{{ target.createAt|to_jalali:'%y/%m/%d' }}</small>
+                                                        {% if target.hit_count > 0 %}
+                                                            <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ target.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                        {% endif %}
+                                                    </p>
                                                     <h5 class="font-weight-bold mb-0 small">
                                                         {{ target.title }}
                                                         {% if user.is_superuser%}
@@ -565,6 +582,9 @@
                                                                         <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                                         <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
                                                                         <span class="badge yellow mr-1"><small style="color: black">VIP</small></span>
+                                                                        {% if technical.hit_count > 0 %}
+                                                                            <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ technical.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                        {% endif %}
                                                                         {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
 
                                                                     </div>
@@ -608,6 +628,9 @@
                                                                                     </span>
                                                                     <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                                     <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                    {% if technical.hit_count > 0 %}
+                                                                        <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ technical.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                    {% endif %}
                                                                     {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
 
                                                                 </div>
@@ -665,6 +688,9 @@
                                                                         <span class="badge badge-info ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                                         <span class="badge badge-secondary ml-1"><small>{{ fundamental.user }}</small></span>
                                                                         <span class="badge yellow mr-1"><small style="color: black">VIP</small></span>
+                                                                        {% if fundamental.hit_count > 0 %}
+                                                                            <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ fundamental.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                        {% endif %}
                                                                         {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>#}
 
                                                                     </div>
@@ -705,6 +731,9 @@
                                                                     </span>
                                                                     <span class="badge badge-info ml-1">{{ fundamental.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                                     <span class="badge badge-secondary ml-1"><small>{{ fundamental.user }}</small></span>
+                                                                    {% if fundamental.hit_count > 0 %}
+                                                                        <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ fundamental.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                    {% endif %}
                                                                     {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ fundamental.description|truncatechars:100 }}</p>#}
 
                                                                 </div>
@@ -759,6 +788,9 @@
                                                                         <span class="badge badge-info mr-1">{{ bazaar.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                                         <span class="badge badge-secondary mr-1"><small>{{ bazaar.user }}</small></span>
                                                                         <span class="badge yellow mr-1"><small style="color: black">VIP</small></span>
+                                                                        {% if bazaar.hit_count > 0 %}
+                                                                            <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ bazaar.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                        {% endif %}
                                                                         {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
 
                                                                     </div>
@@ -800,6 +832,9 @@
                                                                                     </span>
                                                                     <span class="badge badge-info mr-1">{{ bazaar.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                                     <span class="badge badge-secondary mr-1"><small>{{ bazaar.user }}</small></span>
+                                                                    {% if bazaar.hit_count > 0 %}
+                                                                        <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ bazaar.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                    {% endif %}
                                                                     {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
 
                                                                 </div>
@@ -854,6 +889,9 @@
                                                                         <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                                         <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
                                                                         <span class="badge yellow mr-1"><small style="color: black">VIP</small></span>
+                                                                        {% if technical.hit_count > 0 %}
+                                                                            <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ technical.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                        {% endif %}
                                                                         {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
 
                                                                     </div>
@@ -897,6 +935,9 @@
                                                                                     </span>
                                                                     <span class="badge badge-info mr-1">{{ technical.createAt|to_jalali:'%y/%m/%d' }}</span>
                                                                     <span class="badge badge-secondary mr-1"><small>{{ technical.user }}</small></span>
+                                                                    {% if technical.hit_count > 0 %}
+                                                                        <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ technical.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                    {% endif %}
                                                                     {#                                                                    <p class="text-muted mr-3" style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ technical.description|truncatechars:100 }}</p>#}
 
                                                                 </div>
@@ -1178,7 +1219,7 @@
 
                                             {% for new in news %}
 
-                                                {% if new.isSuperUserPermition %}
+                                                 {% if new.isSuperUserPermition %}
                                                     {% if request.user.is_superuser or request.user|has_group:"level1" or request.user|has_group:"vip" %}
                                                         <div class="" style="margin-bottom: -3px">
                                                             <a href="{% url 'bourseapp:news-detail' new.id %}" class="" >
@@ -1194,14 +1235,15 @@
                                                                         <i class="fa fa-star" style="color: #ffc400"></i>
                                                                     {% endif %}
                                                                     <span class="small text-black-50">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
-                                                                    <span class="small badge-pill mr-0 yellow ">VIP</span>
+                                                                    <span class="small text-black-50 mr-1" > {{ new.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                    <span class="small badge-pill mr-0 yellow mr-1 ">VIP</span>
                                                                     {% if new.isApproved == False %}
                                                                     <a id="class-news-approve-status1-{{ new.id }}"
                                                                        onclick="document.getElementById('index-selected-news-id').value='{{ new.id }}';
                                                                                document.getElementById('index-selected-news-title').value='{{ new.title }}';
                                                                                document.getElementById('modal-news-title').innerHTML='{{ new.title }}'"
                                                                        data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
-                                                                        <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
+                                                                        <span class="small badge-pill mr-0 red mr-1" style="color: white">تایید نشده</span>
                                                                     </a>
                                                                     {% endif %}
                                                                 </p>
@@ -1231,7 +1273,7 @@
                                                                                document.getElementById('index-selected-news-title').value='{{ new.title }}';
                                                                                document.getElementById('modal-news-title').innerHTML='{{ new.title }}'"
                                                                        data-toggle="modal" data-target="#modalNewsApproveIndex" data-id="{{ new.id }}" data-title="{{ new.title }}">
-                                                                        <span class="small badge-pill mr-0 red " style="color: white">تایید نشده</span>
+                                                                        <span class="small badge-pill mr-0 red mr-1" style="color: white">تایید نشده</span>
                                                                     </a>
 
                                                                     </p>
@@ -1254,6 +1296,9 @@
                                                                         <i class="fa fa-star" style="color: #ffc400"></i>
                                                                     {% endif %}
                                                                     <span class="small text-black-50">{{ new.createAt|to_jalali:'%y/%m/%d' }}</span>
+                                                                    {% if new.hit_count > 0 %}
+                                                                        <span class="small mr-1 ml-1" style="color: #c1c1c1" > {{ new.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
+                                                                    {% endif %}
                                                                 </p>
                                                             </a>
                                                         </div>
