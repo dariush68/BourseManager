@@ -196,6 +196,33 @@
                     </div>
                 </div>
 
+                <!-- portfolio users -->
+                <div class="card scrollbar-ripe-malinka mb-2">
+                    <div class="card-header">
+                        کاربران دارای سبد
+                    </div>
+                    <div id="card-portfolio-users" class="card-body" style="position: relative; overflow-y: scroll; height: 400px;">
+                        {% for user in portfolio_users %}
+                            <div id="user-VIP-{{ user.id }}" class="media white z-depth-1 rounded mb-1" dir="ltr">
+                                <div class="media-body p-1">
+                                    <a href="{% url 'admin:auth_user_change' user.user %}" target="_blank">
+                                        <p class="text-uppercase text-muted mb-1">
+{#                                            <a class="float-left" target="_blank" onclick="userVIPByManager({{ user.user }}, '0', '{{ user.user__username }}', '{{ user.user__first_name }}', '{{ user.user__last_name }}' )" data-toggle="tooltip" title="حذف سطح سبدگردانی">#}
+{#                                                <i class="fa fa-times small" style="color: #9f105c"></i><i class="small" style="color: #9f105c">PFO</i></a>#}
+                                            <a class="float-left" target="_blank" href="{% url 'admin:auth_user_change' user.user %}" data-toggle="tooltip" title="تغییر اطلاعات کاربر"><i class="fa fa-edit ml-1 small" style="color: #a0a0a0"></i></a>
+                                            <a class="float-left" target="_blank" href="{% url 'admin:auth_user_delete' user.user %}" data-toggle="tooltip" title="حذف کاربر"><i class="fa fa-trash-alt ml-1 small" style="color: #a0a0a0"></i></a>
+                                            <small>{{ user.user__username }}</small>
+                                        </p>
+                                    </a>
+                                    <h7 class="font-weight-bold mb-0">{{ user.user__first_name }} {{ user.user__last_name }}</h7>
+                                </div>
+                                <i class="fa fa-user-alt success-color z-depth-1 p-3 rounded-right text-black" style="height: 54px; width: 54px"></i>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+
                 <!-- vip users -->
                 <div class="card scrollbar-ripe-malinka mb-2">
                     <div class="card-header">
@@ -353,7 +380,7 @@
 
                                     <div class="media white z-depth-0 border rounded">
                                         {% if target.company__pic %}
-                                            <img src="{{ target.company__pic.url }}" alt="" class="rounded-right z-depth-1" style="height: 53px; width: 53px; object-fit: contain">
+                                            <img src="http://{{ request.get_host }}/media/{{ target.company__pic}}" alt="" class="rounded-right z-depth-1" style="height: 53px; width: 53px; object-fit: contain">
                                         {% else %}
                                             <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-3 rounded-right text-white"  style="height: 53px; width: 53px;"></i>
                                         {% endif %}
@@ -391,7 +418,7 @@
 
                                     <div class="media white z-depth-0 border rounded">
                                         {% if target.company__pic %}
-                                            <img src="{{ target.company__pic.url }}" alt="" class="rounded-right z-depth-1" style="height: 53px; width: 53px; object-fit: contain">
+                                            <img src="http://{{ request.get_host }}/media/{{ target.company__pic}}" alt="" class="rounded-right z-depth-1" style="height: 53px; width: 53px; object-fit: contain">
                                         {% else %}
                                             <i class="fas fa-chart-bar fa-lg blue z-depth-1 p-3 rounded-right text-white"  style="height: 53px; width: 53px;"></i>
                                         {% endif %}

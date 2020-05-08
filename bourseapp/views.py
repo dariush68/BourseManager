@@ -205,7 +205,7 @@ def messenger(request):
 @user_passes_test(lambda u: u.is_superuser)
 def manager_panel(request):
 
-    users = get_user_model().objects.all().order_by('groups')
+    users = get_user_model().objects.all().order_by('username')
     users_inactive = get_user_model().objects.filter(is_active=False)
     news_inactive = models.News.objects.filter(isApproved=False)
     news_popular = models.News.objects.all().order_by('-hit_count')[:15]
@@ -223,7 +223,7 @@ def manager_panel(request):
     portfolio_symbols_users = models.StockPortfolio.objects.values('user').order_by('user')\
         .annotate(num_symbol=Count('user'))\
         .values('user', 'user__username', 'num_symbol', 'user__first_name', 'user__last_name').order_by('-num_symbol')
-    # print(req_analyze_users)
+    # print(portfolio_symbols_users)
 
     return render(request, 'bourseapp/manager_panel.html', {
         'users': users,
