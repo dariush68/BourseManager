@@ -41,7 +41,7 @@
 {% endspaceless %}
 
 {% spaceless %}
-<body style="direction: rtl ; background-color: #f9f9f9; text-align: right ; font-family: IRANSans,serif !important; font-size: 14px;" id="home">
+<body id="main-container-base" style="direction: rtl ; background-color: #f9f9f9; text-align: right ; font-family: IRANSans,serif !important; font-size: 14px;" id="home">
 
     {% if user.is_authenticated%}
         <!-- nav bar -->
@@ -75,7 +75,12 @@
                                     <i class="fa fa-lock-open align-middle ml-2" style="width: 18px;"></i>
                                     (دسترسی مدیریت)
                                 </a>
-                            {% elif request.user|has_group:"vip" or request.user|has_group:"level1" %}
+                            {% elif request.user|has_group:"level1" %}
+                                <a href="#" class="dropdown-item d-md-block text-right  pr-3" style="color: black; cursor: pointer; font-size: 14px">
+                                    <i class="fa fa-lock-open align-middle ml-2" style="width: 18px;"></i>
+                                    <span class="small badge-pill mr-0 text-white blue ">ADMIN</span>
+                                </a>
+                            {% elif request.user|has_group:"vip" %}
                                 <a href="#" class="dropdown-item d-md-block text-right  pr-3" style="color: black; cursor: pointer; font-size: 14px">
                                     <i class="fa fa-lock-open align-middle ml-2" style="width: 18px;"></i>
                                     <span class="small badge-pill mr-0 yellow ">VIP</span>
@@ -151,6 +156,16 @@
                                     <i id="companies-icon" class="fa fa-user align-middle mr-1" style="font-size: 12px; color: gray"></i>
                                     پنل مدیریت
                                     <span class="badge badge-info badge-pill">{{ events }}</span>
+                                </span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'bourseapp:user-panel' %}">
+                                <span id="companies" style="font-size: 16px; cursor: pointer; color: black">
+                                    <i id="companies-icon" class="fa fa-user align-middle mr-1" style="font-size: 12px; color: gray"></i>
+                                    پنل کاربری
                                 </span>
                             </a>
                         </li>
@@ -303,7 +318,7 @@
 
     {% if user.is_authenticated%}
         <!-- Footer -->
-        <footer class="page-footer font-small cyan darken-3">
+        <footer id="footer-base" class="page-footer font-small cyan darken-3">
 
             <!-- Footer Elements -->
             <div class="container">

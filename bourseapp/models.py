@@ -5,6 +5,7 @@ from django.utils import timezone
 import uuid
 from ckeditor_uploader.fields import RichTextUploadingField
 # from meta.models import ModelMeta
+from rest_framework.fields import JSONField
 
 
 def scramble_uploaded_filename(instance, filename):
@@ -80,6 +81,22 @@ class Company(models.Model):
 
     def get_absolute_url(self, request=None):
         return reverse("bourseapp:company-detail", kwargs={'company_id': self.pk})
+
+
+class StockPortfolio(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    company = models.ForeignKey(Company, null=True, blank=True, on_delete=models.CASCADE,
+                                help_text='نماد')
+    createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+
+
+class RequestSymbol(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    company = models.ForeignKey(Company, null=True, blank=True, on_delete=models.CASCADE,
+                                help_text='نماد')
+    createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
 
 
 class News(models.Model):
@@ -287,6 +304,23 @@ class Chart(models.Model):
     @property
     def owner(self):
         return self.user
+
+
+class Candle(models.Model):
+    dateTime = models.DateTimeField(default=timezone.now, help_text='تاریخ و زمان')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
+    timeFrame = models.CharField(max_length=20, help_text='تایم فریم', choices=TIME_FRAME_CHOICES, default='7')
+    open = models.IntegerField(default=0, null=True, blank=True, help_text='قیمت باز شدن')
+    close = models.IntegerField(default=0, null=True, blank=True, help_text='قیمت بسته شدن')
+    high = models.IntegerField(default=0, null=True, blank=True, help_text='بالاترین قیمت')
+    low = models.IntegerField(default=0, null=True, blank=True, help_text='پایین ترین قیمت')
+    volume = models.IntegerField(default=0, null=True, blank=True, help_text='حجم')
+
+    class Meta:
+        ordering = ["-dateTime"]
+
+    def __str__(self):
+        return self.company.symbol
 
 
 class TutorialCategory(models.Model):

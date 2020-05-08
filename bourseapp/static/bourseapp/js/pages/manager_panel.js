@@ -117,3 +117,91 @@ function userVIPByManager(user_id, status, user, first_name, last_name) {
     })
 
 }
+
+
+function loadUserRequestedSymbols(user_id) {
+
+    let url_symbolList = $("#url-symbol-req-list").attr("data-url");
+// alert(url_symbolList + "-" + user_id);
+// return
+
+    $.ajax({
+        url: url_symbolList,
+        type: 'GET',
+        dataType: 'json',
+        data: {
+            'q': user_id
+        },
+        success: function (data) {
+            // console.log(data);
+            // return;
+            let container = $("#container-user-requests");
+            container.empty();
+            let base = $('#url-base').attr('data-url');
+
+            for(let i=0; i< data.length; i++){
+
+                let url_symbol_detail = $("#url-symbol-detail").attr('data-url');
+                url_symbol_detail = url_symbol_detail.replace('/1234', data[i].company);
+
+                container.append(
+                    `<a href="${base}${url_symbol_detail}" target="_blank">` +
+                        `<div  class="media white z-depth-0 border rounded mb-1 p-2">` +
+                            `<i class="fa fa-angle-double-left ml-2 mt-1 text-black-50"></i>`+
+                            `${data[i].symbol}` +
+                        `</div>`+
+                    `</a>`
+                );
+            }
+
+        },
+        fail: function (e) {
+            console.log('error', e);
+        }
+
+    })
+}
+
+function loadUserPortfolioSymbols(user_id) {
+
+    console.log(user_id)
+
+    let url_symbolList = $("#url-symbol-portfolio-list").attr("data-url");
+// alert(url_symbolList);
+// return
+
+    $.ajax({
+        url: url_symbolList,
+        type: 'GET',
+        dataType: 'json',
+        data: {
+            'q': user_id
+        },
+        success: function (data) {
+            console.log(data);
+            // return;
+            let base = $('#url-base').attr('data-url');
+            let container = $("#container-user-portfolio");
+            container.empty();
+
+            for(let i=0; i< data.length; i++){
+                let url_symbol_detail = $("#url-symbol-detail").attr('data-url');
+                url_symbol_detail = url_symbol_detail.replace('/1234', data[i].company);
+
+                container.append(
+                    `<a href="${base}${url_symbol_detail}" target="_blank">` +
+                        `<div  class="media white z-depth-0 border rounded mb-1 p-2">` +
+                            `<i class="fa fa-angle-double-left ml-2 mt-1 text-black-50"></i>`+
+                            `${data[i].symbol}` +
+                        `</div>`+
+                    `</a>`
+                );
+            }
+
+        },
+        fail: function (e) {
+            console.log('error', e);
+        }
+
+    })
+}

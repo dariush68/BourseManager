@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from rest_framework.pagination import PageNumberPagination
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from bourseapp import models
 from . import serializers
@@ -103,6 +104,22 @@ class SymbolsAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 
         return qs
 
+
+class ChartSymbolsAPIView(mixins.CreateModelMixin, generics.ListAPIView):
+    lookup_field = 'pk'  # slug, id # url(r'?P<pk>\d+')
+    serializer_class = serializers.ChartSymbolsSerializer
+
+    # search, ?q=tt
+    def get_queryset(self):
+        qs = models.Chart.objects.all()
+        query = self.request.GET.get("q")
+        if query is not None:
+            qs = qs.filter(
+                Q(company__symbol__startswith=query)
+                # | Q(pic__icontains=query)
+            ).distinct()
+
+        return qs
 
 
 class StandardResultsSetPagination(PageNumberPagination):
@@ -217,4 +234,83 @@ def ChartView(request):
     return JsonResponse(profile_json, safe=False)
 
 
+@login_required
+def AddSymbolAnalyze(request):
+
+    symbols = request.GET.getlist('symbols[]')
+    if symbols is not None:
+        company_list = models.Company.objects.filter(id__in=symbols)
+        for item in symbols:
+            company = get_object_or_404(models.Company, pk=int(item))
+            obj, created = models.RequestSymbol.objects.get_or_create(
+                user=request.user,
+                company=company,
+            )
+    else:
+        return JsonResponse({'data': 'nothing to add'}, safe=False)
+    return JsonResponse({'data': 'symbols added'}, safe=False)
+
+
+class ListSymbolAnalyze(mixins.CreateModelMixin, generics.ListAPIView):
+    lookup_field = 'pk'  # slug, id # url(r'?P<pk>\d+')
+    serializer_class = serializers.ListSymbolSerializer
+    permission_classes = [IsAuthenticated, ]  # [IsOwnerOrReadOnly]
+    # pagination_class = StandardResultsSetPagination
+
+    def get_queryset(self):
+        qs = []
+
+        query_rem = self.request.GET.get("remove")
+        if query_rem is not None:
+            models.RequestSymbol.objects.filter(id=query_rem).delete()
+            return qs
+
+        query = self.request.GET.get("q")
+        if query is not None:
+            qs = models.RequestSymbol.objects.filter(
+                Q(user=query)
+            ).distinct()
+
+        return qs
+
+
+
+@login_required
+def AddPortfolio(request):
+
+    symbols = request.GET.getlist('symbols[]')
+    if symbols is not None:
+        company_list = models.Company.objects.filter(id__in=symbols)
+        for item in symbols:
+            company = get_object_or_404(models.Company, pk=int(item))
+            obj, created = models.StockPortfolio.objects.get_or_create(
+                user=request.user,
+                company=company,
+            )
+    else:
+        return JsonResponse({'data': 'nothing to add'}, safe=False)
+    return JsonResponse({'data': 'symbols added'}, safe=False)
+
+
+class ListPortfolio(mixins.CreateModelMixin, generics.ListAPIView):
+    lookup_field = 'pk'  # slug, id # url(r'?P<pk>\d+')
+    serializer_class = serializers.ListStockPortfolio
+    permission_classes = [IsAuthenticated, ]  # [IsOwnerOrReadOnly]
+    # pagination_class = StandardResultsSetPagination
+
+    def get_queryset(self):
+        qs = []
+
+        query_rem = self.request.GET.get("remove")
+        if query_rem is not None:
+            models.StockPortfolio.objects.filter(id=query_rem).delete()
+            return qs
+
+        query = self.request.GET.get("q")
+        if query is not None:
+            qs = models.StockPortfolio.objects.filter(
+                Q(user=query)
+            ).distinct()
+
+        return qs
 

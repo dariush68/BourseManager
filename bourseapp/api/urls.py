@@ -12,7 +12,16 @@ urlpatterns = [
     # url(r'^Category/(?P<pk>\d+)/$', views.CategoryRudView.as_view(), name='post-rud'),
 
     url(r'^Symbols$', views.SymbolsAPIView.as_view(), name='symbols-view'),
+    url(r'^chart-symbols$', views.ChartSymbolsAPIView.as_view(), name='chart-symbols'),
     url(r'^user-list$', views.UserList.as_view(), name='user-list'),
+
+    url(r'^add-symbol-analyze$', views.AddSymbolAnalyze, name='add-symbol-analyze'),
+    url(r'^list-symbol-analyze$', views.ListSymbolAnalyze.as_view(), name='list-symbol-analyze'),
+
+    url(r'^add-symbol-portfolio$', views.AddPortfolio, name='add-symbol-portfolio'),
+    url(r'^list-symbol-portfolio$', views.ListPortfolio.as_view(), name='list-symbol-portfolio'),
+
+    # url(r'^set-candle$', views.UserList.as_view(), name='user-list'),
 
     url(r'^ChatMessage$', views.ChatMessageAPIView.as_view(), name='post-listcreate-chatMessage'),
     url(r'^ChatMessage/(?P<pk>\d+)/$', views.ChatMessageRudView.as_view(), name='post-rud-chatMessage'),

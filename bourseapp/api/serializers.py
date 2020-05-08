@@ -57,6 +57,21 @@ class SymbolSerializer(serializers.ModelSerializer):  # forms.ModelForm
         read_only_fields = ['id', 'symbol', 'fullName', 'bourseType', 'tse', 'site', 'isTarget']
 
 
+class ChartSymbolsSerializer(serializers.ModelSerializer):  # forms.ModelForm
+
+    class Meta:
+        model = models.Chart
+        fields = [
+            'id',
+            'company',
+            'createAt',
+            'timeFrame',
+            'data',
+        ]
+        read_only_fields = ['id', 'company', 'createAt', 'timeFrame', 'data']
+        depth = 1
+
+
 class UserSerializer(serializers.ModelSerializer):  # forms.ModelForm
 
     class Meta:
@@ -93,3 +108,49 @@ class ChatMessageSerializer(serializers.ModelSerializer):  # forms.ModelForm
 
     def get_sender_name(self, obj):
         return str(obj.sender.username)
+
+
+class ListSymbolSerializer(serializers.ModelSerializer):  # forms.ModelForm
+    symbol = serializers.SerializerMethodField(read_only=True)
+    symbolPic = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = models.RequestSymbol
+        fields = [
+            'id',
+            'company',
+            'symbol',
+            'symbolPic',
+            'user',
+            'createAt',
+        ]
+        read_only_fields = ['id', 'symbol', 'user', 'createAt']
+
+    def get_symbol(self, obj):
+        return str(obj.company.symbol)
+
+    def get_symbolPic(self, obj):
+        return str(obj.company.pic)
+
+
+class ListStockPortfolio(serializers.ModelSerializer):  # forms.ModelForm
+    symbol = serializers.SerializerMethodField(read_only=True)
+    symbolPic = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = models.StockPortfolio
+        fields = [
+            'id',
+            'company',
+            'symbol',
+            'symbolPic',
+            'user',
+            'createAt',
+        ]
+        read_only_fields = ['id', 'symbol', 'user', 'createAt']
+
+    def get_symbol(self, obj):
+        return str(obj.company.symbol)
+
+    def get_symbolPic(self, obj):
+        return str(obj.company.pic)

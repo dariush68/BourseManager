@@ -193,6 +193,24 @@ class ChartAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     }
 
 
+@admin.register(models.Candle)
+class CandleAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    formfield_overrides = {
+    }
+
+
+@admin.register(models.StockPortfolio)
+class StockPortfolioAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    list_display = ("company", "user", "createAt")
+    list_filter = ("company", )
+
+
+@admin.register(models.RequestSymbol)
+class RequestSymbolAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    list_display = ("company", "user", "createAt")
+    list_filter = ("company", )
+
+
 @admin.register(models.Tutorial)
 class TutorialAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     list_display = ("title", "user", "description", "subCategory", "externalLink", "isSuperUserPermition", "createAt",)
