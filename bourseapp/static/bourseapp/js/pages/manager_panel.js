@@ -119,7 +119,7 @@ function userVIPByManager(user_id, status, user, first_name, last_name) {
 }
 
 
-function loadUserRequestedSymbols(user_id) {
+function loadUserRequestedSymbols_admin(user_id) {
 
     let url_symbolList = $("#url-symbol-req-list").attr("data-url");
 // alert(url_symbolList + "-" + user_id);
@@ -162,7 +162,7 @@ function loadUserRequestedSymbols(user_id) {
     })
 }
 
-function loadUserPortfolioSymbols(user_id) {
+function loadUserPortfolioSymbols_admin(user_id) {
 
     console.log(user_id)
 
