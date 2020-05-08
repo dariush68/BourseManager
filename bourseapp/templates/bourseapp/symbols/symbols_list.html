@@ -158,7 +158,7 @@
                         <div class="list-group list-group-flush">
 
                             <!-- new/delete/edit buttons -->
-                            {% if request.user.is_superuser %}
+                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
                                 <div class="text-center">
                                     <a href="{% url 'admin:bourseapp_company_add' %}?category={{ request.GET.category_id }}&user={{ user.id }}" class="btn btn-rounded btn-info btn-sm" ><i class="fas fa-plus-circle mr-1"></i> افزودن</a>
                                     <a id="company-edit" href="{% url 'admin:bourseapp_company_change'  1%}?next={{ request.path|urlencode }}"  class="btn btn-rounded btn-info btn-sm"><i class="fas fa-edit mr-1"></i> ویرایش</a>
