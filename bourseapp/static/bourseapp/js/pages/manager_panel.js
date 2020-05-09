@@ -133,7 +133,7 @@ function loadUserRequestedSymbols_admin(user_id) {
             'q': user_id
         },
         success: function (data) {
-            // console.log(data);
+            console.log(data);
             // return;
             let container = $("#container-user-requests");
             container.empty();
@@ -144,11 +144,17 @@ function loadUserRequestedSymbols_admin(user_id) {
                 let url_symbol_detail = $("#url-symbol-detail").attr('data-url');
                 url_symbol_detail = url_symbol_detail.replace('/1234', data[i].company);
 
+                let analyze = '';
+                if(data[i].isAnalyzed == true){
+                    analyze = 'تحلیل شده (' + toJalaliDate(data[i].analyzedAt) + ')'
+                }
+
                 container.append(
                     `<a href="${base}${url_symbol_detail}" target="_blank">` +
                         `<div  class="media white z-depth-0 border rounded mb-1 p-2">` +
                             `<i class="fa fa-angle-double-left ml-2 mt-1 text-black-50"></i>`+
                             `${data[i].symbol}` +
+                            `<span class="float-left mr-2 small text-success">${analyze}</span>` +
                         `</div>`+
                     `</a>`
                 );

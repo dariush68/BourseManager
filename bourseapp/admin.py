@@ -95,6 +95,8 @@ class TechnicalAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
     # override add function
     def response_add(self, request, obj, post_url_continue=None):
+        # print(obj, obj.company.pk)
+        models.RequestSymbol.objects.filter(company=obj.company.pk).update(isAnalyzed=True, analyzedAt=obj.createAt)
         return redirect('bourseapp:technical-list')
 
     # override edit function
@@ -207,7 +209,7 @@ class StockPortfolioAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(models.RequestSymbol)
 class RequestSymbolAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
-    list_display = ("company", "user", "createAt")
+    list_display = ("company", "user", "createAt", "isAnalyzed", "analyzedAt")
     list_filter = ("company", )
 
 

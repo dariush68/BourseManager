@@ -211,19 +211,19 @@ def manager_panel(request):
     news_popular = models.News.objects.all().order_by('-hit_count')[:15]
     tecnical_popular = models.Technical.objects.all().order_by('-hit_count')[:15]
     events = (users_inactive.count() + news_inactive.count())
-    req_analyze = models.RequestSymbol.objects.values('company').order_by('company')\
+    req_analyze = models.RequestSymbol.objects.filter(isAnalyzed=False).values('company').order_by('company')\
         .annotate(num_symbol=Count('company'))\
-        .values('company', 'num_symbol', 'company__symbol', 'company__pic', 'createAt').order_by('-num_symbol')
+        .values('company', 'num_symbol', 'company__symbol', 'company__pic').order_by('-num_symbol')
     req_analyze_users = models.RequestSymbol.objects.values('user').order_by('user')\
         .annotate(num_symbol=Count('user'))\
         .values('user', 'user__username', 'num_symbol', 'user__first_name', 'user__last_name').order_by('-num_symbol')
     portfolio_symbols = models.StockPortfolio.objects.values('company').order_by('company')\
         .annotate(num_symbol=Count('company'))\
-        .values('company', 'num_symbol', 'company__symbol', 'company__pic', 'createAt').order_by('-num_symbol')
+        .values('company', 'num_symbol', 'company__symbol', 'company__pic').order_by('-num_symbol')
     portfolio_symbols_users = models.StockPortfolio.objects.values('user').order_by('user')\
         .annotate(num_symbol=Count('user'))\
         .values('user', 'user__username', 'num_symbol', 'user__first_name', 'user__last_name').order_by('-num_symbol')
-    # print(portfolio_symbols_users)
+    # print(portfolio_symbols)
 
     return render(request, 'bourseapp/manager_panel.html', {
         'users': users,
@@ -240,33 +240,35 @@ def manager_panel(request):
 
 @login_required
 def user_panel(request):
+    if request.user.is_superuser or request.user.groups.filter(name='level1').exists():
+        req_analyze = models.RequestSymbol.objects.filter(isAnalyzed=False).values('company').order_by('company')\
+            .annotate(num_symbol=Count('company'))\
+            .values('company', 'num_symbol', 'company__symbol', 'company__pic').order_by('-num_symbol')
+        req_analyze_users = models.RequestSymbol.objects.filter(isAnalyzed=False).values('user').order_by('user')\
+            .annotate(num_symbol=Count('user'))\
+            .values('user', 'user__username', 'num_symbol', 'user__first_name', 'user__last_name').order_by('-num_symbol')
+        portfolio_symbols = models.StockPortfolio.objects.values('company').order_by('company')\
+            .annotate(num_symbol=Count('company'))\
+            .values('company', 'num_symbol', 'company__symbol', 'company__pic').order_by('-num_symbol')
+        portfolio_symbols_users = models.StockPortfolio.objects.values('user').order_by('user')\
+            .annotate(num_symbol=Count('user'))\
+            .values('user', 'user__username', 'num_symbol', 'user__first_name', 'user__last_name').order_by('-num_symbol')
+        user_news_number = models.News.objects.filter(user=request.user).count()
+        user_analyze_number = models.Technical.objects.filter(user=request.user).count()
+        user_analyze_number += models.Fundamental.objects.filter(user=request.user).count()
+        user_tutorial_number = models.Tutorial.objects.filter(user=request.user).count()
 
-    req_analyze = models.RequestSymbol.objects.values('company').order_by('company')\
-        .annotate(num_symbol=Count('company'))\
-        .values('company', 'num_symbol', 'company__symbol', 'company__pic', 'createAt').order_by('-num_symbol')
-    req_analyze_users = models.RequestSymbol.objects.values('user').order_by('user')\
-        .annotate(num_symbol=Count('user'))\
-        .values('user', 'user__username', 'num_symbol', 'user__first_name', 'user__last_name').order_by('-num_symbol')
-    portfolio_symbols = models.StockPortfolio.objects.values('company').order_by('company')\
-        .annotate(num_symbol=Count('company'))\
-        .values('company', 'num_symbol', 'company__symbol', 'company__pic', 'createAt').order_by('-num_symbol')
-    portfolio_symbols_users = models.StockPortfolio.objects.values('user').order_by('user')\
-        .annotate(num_symbol=Count('user'))\
-        .values('user', 'user__username', 'num_symbol', 'user__first_name', 'user__last_name').order_by('-num_symbol')
-    user_news_number = models.News.objects.filter(user=request.user).count()
-    user_analyze_number = models.Technical.objects.filter(user=request.user).count()
-    user_analyze_number += models.Fundamental.objects.filter(user=request.user).count()
-    user_tutorial_number = models.Tutorial.objects.filter(user=request.user).count()
+        return render(request, 'bourseapp/userPanel/user_panel.html', {
+            'req_analyze': req_analyze,
+            'portfolio_symbols': portfolio_symbols,
+            'req_users': req_analyze_users,
+            'portfolio_users': portfolio_symbols_users,
+            'user_news_number': user_news_number,
+            'user_analyze_number': user_analyze_number,
+            'user_tutorial_number': user_tutorial_number,
 
+        })
     return render(request, 'bourseapp/userPanel/user_panel.html', {
-        'req_analyze': req_analyze,
-        'portfolio_symbols': portfolio_symbols,
-        'req_users': req_analyze_users,
-        'portfolio_users': portfolio_symbols_users,
-        'user_news_number': user_news_number,
-        'user_analyze_number': user_analyze_number,
-        'user_tutorial_number': user_tutorial_number,
-
     })
 
 

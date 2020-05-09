@@ -123,6 +123,8 @@ class ListSymbolSerializer(serializers.ModelSerializer):  # forms.ModelForm
             'symbolPic',
             'user',
             'createAt',
+            'analyzedAt',
+            'isAnalyzed',
         ]
         read_only_fields = ['id', 'symbol', 'user', 'createAt']
 

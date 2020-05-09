@@ -96,6 +96,8 @@ class RequestSymbol(models.Model):
                              help_text='کاربر')
     company = models.ForeignKey(Company, null=True, blank=True, on_delete=models.CASCADE,
                                 help_text='نماد')
+    isAnalyzed = models.BooleanField(default=False, help_text='آیا تحلیل برای این نماد انجام گرفته')
+    analyzedAt = models.DateField(default=timezone.now, help_text='تاریخ تحلیل')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
 
 

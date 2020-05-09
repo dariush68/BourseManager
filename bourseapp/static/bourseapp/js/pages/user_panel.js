@@ -169,11 +169,16 @@ function loadAllRequestedSymbols() {
                 let url_symbol_detail = $("#url-symbol-detail").attr('data-url');
                 url_symbol_detail = url_symbol_detail.replace('/1234', data[i].company);
 
+                let analyze =''
+                if(data[i].isAnalyzed == true){
+                    analyze = 'تحلیل شد (' + toJalaliDate(data[i].analyzedAt) + ')'
+                }
+
                 container.append(
                     `<div id="symbol-req-tile-${data[i].id}" class="media white z-depth-0 border rounded mb-1">` +
                         `<img src="${base}media/${data[i].symbolPic}" alt="" class="rounded-right z-depth-1" style="height: 53px; width: 53px; object-fit: contain">` +
                         `<div class="media-body p-1">` +
-                            `<p class="text-uppercase text-muted mb-1"><small>${data[i].createAt}</small></p>` +
+                            `<p class="text-uppercase text-muted mb-1"><span class="float-left small text-success">${analyze}</span><small>${toJalaliDate(data[i].createAt)}</small></p>` +
                             `<span class="float-left" onclick="removReqSymbol(${data[i].id}, 'symbol-req-tile-${data[i].id}')"> <i class="fa fa-trash text-black-50"></i></span>` +
                             `<a href="${base}${url_symbol_detail}" class=""><h5 class="font-weight-bold mb-0 small">` +
                                 `${data[i].symbol}` +
@@ -182,7 +187,6 @@ function loadAllRequestedSymbols() {
                     `</div>`
                 );
             }
-
         },
         fail: function (e) {
             console.log('error', e);
