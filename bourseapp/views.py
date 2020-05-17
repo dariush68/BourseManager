@@ -580,6 +580,8 @@ def company_detail(request, company_id):
     fundamental = models.Fundamental.objects.filter(company=company.id)
     technicals_watch = models.Technical.objects.filter(company=company.id).filter(user__username='d_abedi')
     charts = models.Chart.objects.filter(company=company)
+    financial = models.CompanyFinancial.objects.filter(company__id=company_id).first()
+    print(financial)
     if charts.count() > 0:
         chart_company = charts[0]
     else:
@@ -592,6 +594,7 @@ def company_detail(request, company_id):
         'fundamentals': fundamental,
         'technicals_watch': technicals_watch,
         'tutorialCategory': tutorialCategory,
+        'financial': financial,
     })
 
 

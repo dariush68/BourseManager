@@ -1,4 +1,5 @@
 # generic
+from datetime import datetime
 
 from django.db.models import Q
 from django.contrib.auth import get_user_model
@@ -14,11 +15,13 @@ import operator
 import functools
 
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
 
 from drf_rw_serializers import generics, viewsets, mixins
 
 from rest_framework.pagination import PageNumberPagination
 from django.http import JsonResponse
+from django.db.models import Count, F
 
 """
 -- Category class --
@@ -314,3 +317,143 @@ class ListPortfolio(mixins.CreateModelMixin, generics.ListAPIView):
 
         return qs
 
+
+@api_view(['POST'])
+def symbol_candle(request, company_name, time_frame):
+    # date = request.data.getlist('date[]')
+    candle = request.data
+    # print(request.data)
+    # json = loads(request.data)
+    # print(json)
+    if candle is not None:
+        # print('company')
+        company = get_object_or_404(models.Company, alias=company_name)
+        # print(company)
+        for itm in candle:
+            if len(itm) > 0 and models.Candle.objects.filter(Q(dateTime=itm['date'])&Q(company=company)).exists() is False:
+                # print(itm['date'])
+                models.Candle.objects.create(
+                    open=itm['open']
+                    , close=itm['close']
+                    , high=itm['high']
+                    , low=itm['low']
+                    , volume=itm['vol']
+                    , company=company
+                    , timeFrame=time_frame
+                    , dateTime=itm['date']
+                )
+
+    profile_json = {
+        "data": 'data recieved',
+    }
+
+    return JsonResponse(profile_json, safe=False)
+
+
+@api_view(['POST'])
+def symbol_candle_json(request, company_name, time_frame):
+    # date = request.data.getlist('date[]')
+    candle = request.data['jsonStr']
+    last_date = request.data['lastdate']
+    # print(request.data)
+    # print(candle)
+    # json = loads(request.data)
+
+    # return JsonResponse({ "data": 'data recieved',}, safe=False)
+
+    # print(json)
+    if candle is not None and last_date is not None:
+        print('company')
+        company = get_object_or_404(models.Company, alias=company_name)
+        print(company)
+        candleJson = models.CandleJson.objects.filter(Q(timeFrame=time_frame)&Q(company=company))
+        print(candleJson)
+
+        if len(candleJson) == 0:
+            # create new entry
+            models.CandleJson.objects.create(company=company
+                                             , timeFrame=time_frame
+                                             , candleData=candle
+                                             , lastCandleDate=last_date)
+        else:
+            # update las entry
+            candleJson_u = candleJson[0]
+            print(candleJson_u)
+            candleJson_u.candleData = candle
+            candleJson_u.lastCandleDate = last_date
+            candleJson_u.save()
+            # remove other entry
+            cntr = 0
+            for itm in candleJson:
+                if cntr == 0:
+                    pass
+                else:
+                    itm.delete()
+                cntr = cntr + 1
+
+    profile_json = {
+        "data": 'data recieved',
+    }
+
+    return JsonResponse(profile_json, safe=False)
+
+
+class SymbolCandleListAPIView(generics.ListAPIView):  # DetailView CreateView FormView
+    lookup_field = 'pk'  # slug, id # url(r'?P<pk>\d+')
+    serializer_class = serializers.CandleSerializer
+    permission_classes = [IsAuthenticated, ]  # [IsOwnerOrReadOnly]
+
+    def get_queryset(self):
+        qs = []
+
+        query = self.request.GET.get("company")
+        query_timeFrame = self.request.GET.get("timeFrame")
+        # query_last = self.request.GET.get("last")
+        if query is not None and query_timeFrame is not None:
+
+            # if query_last is not None:
+            #     return models.Candle.objects.latest('pk')
+
+            qs = models.Candle.objects.filter(
+                Q(company=query)
+                & Q(timeFrame=query_timeFrame)
+            ).distinct()
+
+
+        return qs
+
+
+class SymbolCandleJsonListAPIView(generics.ListAPIView):  # DetailView CreateView FormView
+    lookup_field = 'pk'
+    serializer_class = serializers.CandleJsonSerializer
+    permission_classes = [IsAuthenticated, ]  # [IsOwnerOrReadOnly]
+
+    def get_queryset(self):
+        qs = []
+        # qs = models.CandleJson.objects.all()
+
+        query = self.request.GET.get("company")
+        # query_time_frame = self.request.GET.get("timeFrame")
+        # if query is not None and query_time_frame is not None:
+        if query is not None:
+            qs = models.CandleJson.objects.filter(
+                Q(company=query)
+                # & Q(timeFrame=query_time_frame)
+            ).distinct()
+
+        return qs
+
+
+def SymbolListTitle(request):
+
+    if request.GET.get("timeframe") is not None:
+        list_symbol_tf = models.CandleJson.objects.values('company__id', 'company__symbol', 'company__alias'
+                                                          , 'timeFrame', 'lastCandleDate').order_by('company__id')
+        return JsonResponse(list(list_symbol_tf), safe=False)
+
+    list_symbol = models.CandleJson.objects.values('company__id', 'company__symbol', 'company__alias')\
+        .order_by('company__id')\
+        .annotate(dcount=Count('company__id'))\
+        .distinct()
+    # print(list_symbol)
+    return JsonResponse(list(list_symbol), safe=False)

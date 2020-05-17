@@ -28,6 +28,13 @@ urlpatterns = [
 
     url(r'^ChartBazaar$', views.ChartView, name='chart-bazaar-view'),
     url(r'^(?P<company_id>[0-9]+)/chart-detail/$', views.chart_detail, name='chart-detail'),
+    url(r'^(?P<company_name>[a-zA-Z]+)/(?P<time_frame>[a-zA-Z0-9]+)/symbol-candle/$', views.symbol_candle, name='symbol-candle'),
+    url(r'^symbol-candle-list$', views.SymbolCandleListAPIView.as_view(), name='post-symbol-candle-list'),
+
+    url(r'^(?P<company_name>[a-zA-Z]+)/(?P<time_frame>[a-zA-Z0-9]+)/symbol-candle-json/$', views.symbol_candle_json,
+        name='symbol-candle-json'),
+    url(r'^symbol-candle-json-list$', views.SymbolCandleJsonListAPIView.as_view(), name='symbol-candle-json-list'),
+    url(r'^symbol-candle-json-list-title$', views.SymbolListTitle, name='csymbol-candle-json-list-title'),
 
 ]
 

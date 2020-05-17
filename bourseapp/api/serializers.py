@@ -156,3 +156,41 @@ class ListStockPortfolio(serializers.ModelSerializer):  # forms.ModelForm
 
     def get_symbolPic(self, obj):
         return str(obj.company.pic)
+
+
+class CandleSerializer(serializers.ModelSerializer):  # forms.ModelForm
+
+    class Meta:
+        model = models.Candle
+        fields = [
+            # 'id',
+            # 'company',
+            # 'timeFrame',
+            'dateTime',
+            'open',
+            'close',
+            'high',
+            'low',
+            'volume',
+        ]
+        read_only_fields = ['dateTime', 'open', 'close', 'high', 'low', 'volume']
+
+
+class CandleJsonSerializer(serializers.ModelSerializer):  # forms.ModelForm
+    symbol = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = models.CandleJson
+        fields = [
+            # 'id',
+            'lastCandleDate',
+            'company',
+            'symbol',
+            'timeFrame',
+            'candleData',
+        ]
+        read_only_fields = ['lastCandleDate', 'company', 'timeFrame', 'candleData']
+
+    def get_symbol(self, obj):
+        return str(obj.company.symbol)
+

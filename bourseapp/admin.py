@@ -197,8 +197,14 @@ class ChartAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(models.Candle)
 class CandleAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
-    formfield_overrides = {
-    }
+    list_display = ("company", "dateTime", "timeFrame", "open", "close", "high", "low", "volume")
+    list_filter = ("company", "timeFrame", )
+
+
+@admin.register(models.CandleJson)
+class CandleJsonAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    list_display = ("company", "createAt", "lastCandleDate", "timeFrame")
+    list_filter = ("timeFrame","company", )
 
 
 @admin.register(models.StockPortfolio)
@@ -278,4 +284,20 @@ class ChatMessageAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 class TutorialSubCategoryAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     list_display = ("title", "categoryLevel", "user", "description", "category", "createAt",)
     list_filter = ("category", )
+
+
+@admin.register(models.CompanyFinancial)
+class CompanyFinancialAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    list_display = ("company", "user", "createAt",)
+    list_filter = ("company", )
+    fields = (
+        ('user', 'company', 'createAt'),
+        ('file', 'isSuperUserPermition'),
+        ('previousFinancialPeriodProfitability', 'previousFinancialPeriodSell', 'previousFinancialPeriodProduction',
+         'previousFinancialPeriodAccumulatedProfits', 'previousFinancialPeriodSymbolPrice'),
+        ('newFinancialPeriodProfitability', 'newFinancialPeriodSell', 'newFinancialPeriodProduction',
+         'newFinancialPeriodAccumulatedProfits', 'newFinancialPeriodSymbolPrice'),
+        ('forecastProfitability', 'forecastSell', 'forecastProduction',
+         'forecastAccumulatedProfits', 'forecastSymbolPrice')
+    )
 

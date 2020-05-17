@@ -47,7 +47,14 @@
         <section class="dark-grey-text text-center">
 
             <h6 class="font-weight-normal text-uppercase font-small grey-text mb-4">{{ company.symbol }}</h6>
-            <h3 class="font-weight-bold black-text mb-4 pb-2">{{ company.fullName }}</h3>
+            <h3 class="font-weight-bold black-text mb-4 pb-2">{{ company.fullName }}
+                {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                <a href="{% url 'admin:bourseapp_company_change' company.id %}" class="small mr-2" target="_blank">
+                    ویرایش
+                    <i class="fas fa-edit small"></i>
+                </a>
+                {% endif %}
+            </h3>
             <hr class="w-header">
             <span class="small text-black-50 mr-1 ml-1 float-left" > {{ company.hit_count }} <i class="fa fa-eye" style="color: #c1c1c1"></i></span>
             <p class="lead text-muted mx-auto mt-4 pt-2 mb-5">{{ company.description }} ({{ company.bourseType }})</p>
@@ -125,7 +132,9 @@
                         <!-- Card content -->
                         <div class="card-body my-4">
 
+
                             <p><i class="fas fa-edit fa-2x text-muted"></i></p>
+
                             <h5 class="black-text mb-0">ویرایش</h5>
 
                         </div>
@@ -141,13 +150,93 @@
 
     </div>
 
-
     <!-- news and chart -->
-    <div class="container my-1">
+    <div class="container-fluid my-1">
 
-        <!-- chart -->
+
+        <!-- financial and chart -->
         <section>
-            <div class="card mb-2">
+
+            <div class="row">
+
+                <!-- financial -->
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="text-center font-weight-bold mb-4">اطلاعات مالی
+                            {% if request.user.is_superuser or request.user|has_group:"level1" %}
+                            {% if financial %}
+                                <a href="{% url 'admin:bourseapp_companyfinancial_change' financial.id %}" target="_blank" class="mr-3 small">
+                                <i class="fas fa-edit small"></i> ویرایش اطلاعات
+                                </a>
+                            {% else %}
+                                <a href="{% url 'admin:bourseapp_companyfinancial_add' %}" target="_blank" class="mr-3 small">
+                                <i class="fas fa-plus small "></i> افزودن اطلاعات
+                                </a>
+                            {% endif %}
+                            {% endif %}
+
+                            </h5>
+                            <hr>
+                            <!--Grid row-->
+                            <div class="row pt-5 pb-5">
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col" class="font-weight-bold">دوره مالی قبلی</th>
+                                        <th scope="col" class="font-weight-bold">دوره مالی جدید</th>
+                                        <th scope="col" class="font-weight-bold">پیش بینی</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row" class="font-weight-bold">سودآوری</th>
+                                        <td>%{{financial.previousFinancialPeriodProfitability}}</td>
+                                        <td>%{{financial.newFinancialPeriodProfitability}}</td>
+                                        <td>%{{financial.forecastProfitability}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="font-weight-bold">فروش</th>
+                                        <td>%{{financial.previousFinancialPeriodSell}}</td>
+                                        <td>%{{financial.newFinancialPeriodSell}}</td>
+                                        <td>%{{financial.forecastSell}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="font-weight-bold">تولید</th>
+                                        <td>%{{financial.previousFinancialPeriodProduction}}</td>
+                                        <td>%{{financial.newFinancialPeriodProduction}}</td>
+                                        <td>%{{financial.forecastProduction}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="font-weight-bold">سود انباشته</th>
+                                        <td>%{{financial.previousFinancialPeriodAccumulatedProfits}}</td>
+                                        <td>%{{financial.newFinancialPeriodAccumulatedProfits}}</td>
+                                        <td>%{{financial.forecastAccumulatedProfits}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="font-weight-bold">قیمت سهم</th>
+                                        <td>%{{financial.previousFinancialPeriodSymbolPrice}}</td>
+                                        <td>%{{financial.newFinancialPeriodSymbolPrice}}</td>
+                                        <td>%{{financial.forecastSymbolPrice}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                {% if financial.file %}
+                                <a href="{{financial.file.url}}" target="_blank" class="mr-4"><i class="fa fa-file-archive ml-2"></i>فایل ضمیمه</a>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- chart -->
+                <div class="col-md-6">
+                    <div class="card mb-2">
                 <div class="card-body">
                     <h5 class="mt-1 mb-0">
                         <span>چارت قیمتی</span>
@@ -171,6 +260,10 @@
                     {% include 'bourseapp/charts/CandelStake.html' %}
                 </div>
             </div>
+                </div>
+
+            </div>
+
         </section>
 
         <!-- news -->
@@ -612,11 +705,7 @@
             <!-- Section: Block Content -->
 
         </div>
-
     {% endif %}
-
-
-
 
     <!-- base url address -->
     <input type="hidden" id="url-base" data-url="http://{{ request.get_host }}/" />

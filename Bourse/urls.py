@@ -5,6 +5,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path
+from rest_framework_simplejwt import views as jwt_views
 
 from bourseapp import views as core_views
 from bourseapp import sitemaps
@@ -26,6 +27,12 @@ urlpatterns = [
 
     # api urls
     url(r'^api/bourse/', include(('bourseapp.api.urls', 'api-bourseapp'), namespace='api-bourseapp')),
+
+    # jwt_simple token urls
+    # url(r'^api/auth/login/$', obtain_jwt_token, name='api-login'),
+    url(r'^api/token/$', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    url(r'^api/token/refresh/$', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    url(r'^api/token/verify/$', jwt_views.TokenVerifyView.as_view(), name='token_verify'),
 
     # Add Django site authentication urls (for login, logout, password management)
     # accounts/ login/ [name='login']

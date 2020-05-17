@@ -58,6 +58,7 @@ class Company(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, help_text='گروه')
     symbol = models.CharField(max_length=120, null=True, blank=True, help_text='نماد')
     fullName = models.CharField(max_length=120, null=True, blank=True, help_text='نام شرکت')
+    alias = models.CharField(max_length=120, null=True, blank=True, help_text='نام معادل انگلیسی')
     type = models.CharField(max_length=20, help_text='نوع نماد', choices=SYMBOL_TYPE_CHOICES, default='1')
     bourseType = models.CharField(max_length=120, null=True, blank=True, help_text='بازار بورس')
     pic = models.ImageField('uploaded image', null=True, blank=True, help_text='تصویر')
@@ -278,23 +279,22 @@ class Bazaar(models.Model):
 
 
 TIME_FRAME_CHOICES = (
-    ('0', "1 دقیقه"),
-    ('1', "5 دقیقه"),
-    ('2', "15 دقیقه"),
-    ('3', "30 دقیقه"),
-    ('4', "45 دقیقه"),
-    ('5', "۱ ساعت"),
-    ('6', "4 ساعت"),
-    ('7', "1 روز"),
-    ('8', "1 هفته"),
-    ('9', "1 ماه"),
+    ('M1', "1 دقیقه"),
+    ('M5', "5 دقیقه"),
+    ('M15', "15 دقیقه"),
+    ('M30', "30 دقیقه"),
+    ('H1', "۱ ساعت"),
+    ('H4', "4 ساعت"),
+    ('D1', "1 روز"),
+    ('W1', "1 هفته"),
+    ('MN1', "1 ماه"),
 )
 class Chart(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
-    timeFrame = models.CharField(max_length=20, help_text='تایم فریم', choices=TIME_FRAME_CHOICES, default='7')
+    timeFrame = models.CharField(max_length=20, help_text='تایم فریم', choices=TIME_FRAME_CHOICES, default='D1')
     data = models.FileField('uploaded chart file', null=True, blank=True, help_text='فایل csv چارت نماد')
 
     class Meta:
@@ -309,7 +309,8 @@ class Chart(models.Model):
 
 
 class Candle(models.Model):
-    dateTime = models.DateTimeField(default=timezone.now, help_text='تاریخ و زمان')
+    # dateTime = models.DateTimeField(unique=True, help_text='تاریخ و زمان')
+    dateTime = models.DateTimeField(unique=True, help_text='تاریخ و زمان')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
     timeFrame = models.CharField(max_length=20, help_text='تایم فریم', choices=TIME_FRAME_CHOICES, default='7')
     open = models.IntegerField(default=0, null=True, blank=True, help_text='قیمت باز شدن')
@@ -323,6 +324,26 @@ class Candle(models.Model):
 
     def __str__(self):
         return self.company.symbol
+
+
+class CandleJson(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+    lastCandleDate = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
+    timeFrame = models.CharField(max_length=20, help_text='تایم فریم', choices=TIME_FRAME_CHOICES, default='D1')
+    candleData = models.TextField(blank=True, help_text='فایل متنی شده json')
+
+    class Meta:
+        ordering = ["-lastCandleDate"]
+
+    def __str__(self):
+        return self.company.symbol
+
+    @property
+    def owner(self):
+        return self.user
 
 
 class TutorialCategory(models.Model):
@@ -411,6 +432,40 @@ class Message(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def owner(self):
+        return self.user
+
+
+class CompanyFinancial(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
+    createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+    file = models.FileField(upload_to='CompanyFinancial/', null=True, blank=True, help_text='فایل')
+    isSuperUserPermition = models.BooleanField(default=False, help_text='دسترسی سطح بالا')
+    previousFinancialPeriodProfitability = models.IntegerField(default=0, help_text='سودآوری-دوره مالی قبل')
+    previousFinancialPeriodSell = models.IntegerField(default=0, help_text='فروش-دوره مالی قبل')
+    previousFinancialPeriodProduction = models.IntegerField(default=0, help_text='تولی-دوره مالی قبلد')
+    previousFinancialPeriodAccumulatedProfits = models.IntegerField(default=0, help_text='سود انباشته-دوره مالی قبل')
+    previousFinancialPeriodSymbolPrice = models.IntegerField(default=0, help_text='قیمت سهم-دوره مالی قبل')
+    newFinancialPeriodProfitability = models.IntegerField(default=0, help_text='سودآوری-دوره مالی جدید')
+    newFinancialPeriodSell = models.IntegerField(default=0, help_text='فروش-دوره مالی جدید')
+    newFinancialPeriodProduction = models.IntegerField(default=0, help_text='تولید-دوره مالی جدید')
+    newFinancialPeriodAccumulatedProfits = models.IntegerField(default=0, help_text='سود انباشته-دوره مالی جدید')
+    newFinancialPeriodSymbolPrice = models.IntegerField(default=0, help_text='قیمت سهم-دوره مالی جدید')
+    forecastProfitability = models.IntegerField(default=0, help_text='سودآوری-پیشبینی')
+    forecastSell = models.IntegerField(default=0, help_text='فروش-پیشبینی')
+    forecastProduction = models.IntegerField(default=0, help_text='تولید-پیشبینی')
+    forecastAccumulatedProfits = models.IntegerField(default=0, help_text='سود انباشته-پیشبینی')
+    forecastSymbolPrice = models.IntegerField(default=0, help_text='قیمت سهم-پیشبینی')
+
+    class Meta:
+        ordering = ["-isSuperUserPermition", "-createAt"]
+
+    def __str__(self):
+        return self.company.symbol
 
     @property
     def owner(self):
