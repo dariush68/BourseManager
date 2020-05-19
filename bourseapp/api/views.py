@@ -351,6 +351,30 @@ def symbol_candle(request, company_name, time_frame):
 
 
 @api_view(['POST'])
+# def symbol_candle_file(request, company_name, time_frame, last_date):
+def symbol_candle_file(request, company_name, time_frame, last_date):
+    print('request')
+    # print(company_name)
+    # print(time_frame)
+    # print(last_date)
+    # print(request.user)
+
+    company = get_object_or_404(models.Company, alias=company_name)
+    # print(company)
+    models.Chart.objects.create(company=company
+                                , data=request.FILES['file']
+                                , timeFrame=time_frame
+                                , user=request.user
+                                , lastCandleDate=last_date)
+
+    profile_json = {
+        "data": 'data recieved',
+    }
+
+    return JsonResponse(profile_json, safe=False)
+
+
+@api_view(['POST'])
 def symbol_candle_json(request, company_name, time_frame):
     # date = request.data.getlist('date[]')
     candle = request.data['jsonStr']
@@ -425,7 +449,7 @@ class SymbolCandleListAPIView(generics.ListAPIView):  # DetailView CreateView Fo
 
 class SymbolCandleJsonListAPIView(generics.ListAPIView):  # DetailView CreateView FormView
     lookup_field = 'pk'
-    serializer_class = serializers.CandleJsonSerializer
+    serializer_class = serializers.ChartSerializer
     permission_classes = [IsAuthenticated, ]  # [IsOwnerOrReadOnly]
 
     def get_queryset(self):
@@ -436,7 +460,7 @@ class SymbolCandleJsonListAPIView(generics.ListAPIView):  # DetailView CreateVie
         # query_time_frame = self.request.GET.get("timeFrame")
         # if query is not None and query_time_frame is not None:
         if query is not None:
-            qs = models.CandleJson.objects.filter(
+            qs = models.Chart.objects.filter(
                 Q(company=query)
                 # & Q(timeFrame=query_time_frame)
             ).distinct()
@@ -447,11 +471,11 @@ class SymbolCandleJsonListAPIView(generics.ListAPIView):  # DetailView CreateVie
 def SymbolListTitle(request):
 
     if request.GET.get("timeframe") is not None:
-        list_symbol_tf = models.CandleJson.objects.values('company__id', 'company__symbol', 'company__alias'
+        list_symbol_tf = models.Chart.objects.values('company__id', 'company__symbol', 'company__alias'
                                                           , 'timeFrame', 'lastCandleDate').order_by('company__id')
         return JsonResponse(list(list_symbol_tf), safe=False)
 
-    list_symbol = models.CandleJson.objects.values('company__id', 'company__symbol', 'company__alias')\
+    list_symbol = models.Chart.objects.values('company__id', 'company__symbol', 'company__alias')\
         .order_by('company__id')\
         .annotate(dcount=Count('company__id'))\
         .distinct()

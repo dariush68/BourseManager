@@ -176,20 +176,20 @@ class CandleSerializer(serializers.ModelSerializer):  # forms.ModelForm
         read_only_fields = ['dateTime', 'open', 'close', 'high', 'low', 'volume']
 
 
-class CandleJsonSerializer(serializers.ModelSerializer):  # forms.ModelForm
+class ChartSerializer(serializers.ModelSerializer):  # forms.ModelForm
     symbol = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
-        model = models.CandleJson
+        model = models.Chart
         fields = [
             # 'id',
             'lastCandleDate',
             'company',
             'symbol',
             'timeFrame',
-            'candleData',
+            'data',
         ]
-        read_only_fields = ['lastCandleDate', 'company', 'timeFrame', 'candleData']
+        read_only_fields = ['lastCandleDate', 'company', 'timeFrame', 'data']
 
     def get_symbol(self, obj):
         return str(obj.company.symbol)

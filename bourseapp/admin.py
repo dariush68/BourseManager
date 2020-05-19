@@ -191,8 +191,8 @@ class FundamentalAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(models.Chart)
 class ChartAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
-    formfield_overrides = {
-    }
+    list_display = ("company", "createAt", "lastCandleDate", "timeFrame")
+    list_filter = ("timeFrame","company", )
 
 
 @admin.register(models.Candle)

@@ -289,16 +289,17 @@ TIME_FRAME_CHOICES = (
     ('W1', "1 هفته"),
     ('MN1', "1 ماه"),
 )
-class Chart(models.Model):
+class   Chart(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
+    lastCandleDate = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
     timeFrame = models.CharField(max_length=20, help_text='تایم فریم', choices=TIME_FRAME_CHOICES, default='D1')
-    data = models.FileField('uploaded chart file', null=True, blank=True, help_text='فایل csv چارت نماد')
+    data = models.FileField('uploaded chart file', null=True, blank=True, help_text='فایل csv,  prn, txt چارت نماد')
 
     class Meta:
-        ordering = ["-createAt"]
+        ordering = ["-lastCandleDate"]
 
     def __str__(self):
         return self.company.symbol
