@@ -349,11 +349,11 @@ def symbol_candle(request, company_name, time_frame):
 
     return JsonResponse(profile_json, safe=False)
 
-
+from django.db import models as md
 @api_view(['POST'])
 # def symbol_candle_file(request, company_name, time_frame, last_date):
 def symbol_candle_file(request, company_name, time_frame, last_date):
-    print('request')
+    # print('request')
     # print(company_name)
     # print(time_frame)
     # print(last_date)
@@ -361,11 +361,32 @@ def symbol_candle_file(request, company_name, time_frame, last_date):
 
     company = get_object_or_404(models.Company, alias=company_name)
     # print(company)
-    models.Chart.objects.create(company=company
-                                , data=request.FILES['file']
-                                , timeFrame=time_frame
-                                , user=request.user
-                                , lastCandleDate=last_date)
+
+    chart = models.Chart.objects.filter(Q(timeFrame=time_frame) & Q(company=company))
+    # new item
+    if chart.exists() is False:
+        models.Chart.objects.create(company=company
+                                    , data=request.FILES['file']
+                                    , timeFrame=time_frame
+                                    , user=request.user
+                                    , lastCandleDate=last_date)
+    # update
+    else:
+        print('updated')
+        # dummy_obj = models.Chart.objects.first()
+        # dummy_obj.lastCandleDate = last_date
+        # new_date = dummy_obj.lastCandleDate
+        new_date = datetime.strptime(last_date, "%Y-%m-%d").date()
+        chart = chart.first()
+        chart_date = chart.lastCandleDate
+        type(chart_date)
+        type(new_date)
+        print(chart_date, new_date)
+        if new_date > chart_date:
+            print('updated success')
+            chart.lastCandleDate = last_date
+            chart.data = request.FILES['file']
+            chart.save()
 
     profile_json = {
         "data": 'data recieved',
