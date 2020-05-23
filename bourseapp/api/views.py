@@ -389,7 +389,10 @@ def symbol_candle_file(request, company_name, time_frame, last_date):
             chart.save()
 
     profile_json = {
-        "data": 'data recieved',
+        "msg": 'data recieved',
+        "symbol": company_name,
+        "lastDate": last_date,
+        "timeFrame": time_frame,
     }
 
     return JsonResponse(profile_json, safe=False)

@@ -25,8 +25,8 @@ class CategoryAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(models.Company)
 class CompanyAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
-    formfield_overrides = {
-    }
+    list_display = ("symbol", "category", "alias", "isTarget")
+    list_filter = ("category", "alias", "isTarget" )
 
     def get_fields(self, request, obj=None):
         fields = super(CompanyAdmin, self).get_fields(request, obj)
