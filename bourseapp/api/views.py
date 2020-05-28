@@ -221,7 +221,7 @@ class ChatMessageRudView(generics.RetrieveUpdateDestroyAPIView):  # DetailView C
 
 
 def chart_detail(request, company_id):
-    chart = get_object_or_404(models.Chart, company=company_id)
+    chart = get_object_or_404(models.Chart, company=company_id, timeFrame='D1')
     profile_json = {
         "data": chart.data.url,
     }
@@ -230,10 +230,20 @@ def chart_detail(request, company_id):
 
 def ChartView(request):
 
-    chart = get_object_or_404(models.Chart, company__symbol__icontains='شاخص بازار بورس')
-    profile_json = {
-        "data": chart.data.url,
-    }
+    # chart = get_object_or_404(models.Chart, company__symbol__icontains='شاخص بازار بورس', timeFrame='D1')
+    chart_list = models.Chart.objects.filter(Q(company__symbol__icontains='شاخص کل')
+                                             & Q(timeFrame='D1'))
+    # print(chart_list)
+    if len(chart_list) > 0:
+        chart = chart_list.first()
+        # print(chart.data.url)
+        profile_json = {
+            "data": chart.data.url,
+        }
+    else:
+        profile_json = {
+            "data": "not found",
+        }
     return JsonResponse(profile_json, safe=False)
 
 

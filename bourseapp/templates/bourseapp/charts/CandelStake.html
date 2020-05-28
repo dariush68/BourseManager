@@ -88,9 +88,9 @@
         let symbol_id = document.querySelector('#input-temp-current-symbol-id').dataset.symbol;
         let url_chartSymbol = document.querySelector('#url-chart-symbol').dataset.url.replace(/12345/, symbol_id.toString());
 
-        console.log(symbol_id)
-        {#alert(url_chart);#}
-        {#return#}
+        console.log("symbol_id", symbol_id)
+        // alert(url_chart);
+        // return
 
         let url = "";
         if(symbol_id == "-1") url = url_chart;
@@ -98,12 +98,14 @@
 
         getCSVaddress(url, function (csvURL) {
             var xhttp = new XMLHttpRequest();
+            // console.log("read csv done")
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     // Typical action to be performed when the document is ready:
-                    {#console.log(xhttp.response);#}
+                    // console.log(xhttp.response);
+
+                    console.log("data::", $.csv.toObjects(xhttp.response));
                     let data = $.csv.toObjects(xhttp.response);
-                    {#console.log(data);#}
                     {#console.log(data);#}
                     {#console.log(data['<DTYYYYMMDD>']);#}
                     {#console.log(data['<DTYYYYMMDD>'][0]);#}
