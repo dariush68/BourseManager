@@ -26,6 +26,9 @@ urlpatterns = [
     url(r'^ChatMessage$', views.ChatMessageAPIView.as_view(), name='post-listcreate-chatMessage'),
     url(r'^ChatMessage/(?P<pk>\d+)/$', views.ChatMessageRudView.as_view(), name='post-rud-chatMessage'),
 
+    url(r'^TechnicalUser$', views.TechnicalUserAPIView.as_view(), name='post-listcreate-technicalUser'),
+    url(r'^TechnicalUser/(?P<pk>\d+)/$', views.TechnicalUserRudView.as_view(), name='post-rud-technicalUser'),
+
     url(r'^ChartBazaar$', views.ChartView, name='chart-bazaar-view'),
     url(r'^(?P<company_id>[0-9]+)/chart-detail/$', views.chart_detail, name='chart-detail'),
     url(r'^(?P<company_name>[a-zA-Z]+)/(?P<time_frame>[a-zA-Z0-9]+)/symbol-candle/$', views.symbol_candle, name='symbol-candle'),

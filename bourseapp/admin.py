@@ -192,7 +192,13 @@ class FundamentalAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 @admin.register(models.Chart)
 class ChartAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     list_display = ("company", "createAt", "lastCandleDate", "timeFrame")
-    list_filter = ("timeFrame","company", )
+    list_filter = ("timeFrame", "company", )
+
+
+@admin.register(models.TechnicalUser)
+class ChartAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    list_display = ("user", "title", "company", "createAt", "isShare")
+    list_filter = ("user", "company", "isShare", )
 
 
 @admin.register(models.Candle)

@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils import timezone
 import uuid
 from ckeditor_uploader.fields import RichTextUploadingField
+import jsonfield
 # from meta.models import ModelMeta
 from rest_framework.fields import JSONField
 
@@ -289,7 +290,7 @@ TIME_FRAME_CHOICES = (
     ('W1', "1 هفته"),
     ('MN1', "1 ماه"),
 )
-class   Chart(models.Model):
+class Chart(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
                              help_text='کاربر')
     createAt = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
@@ -300,6 +301,27 @@ class   Chart(models.Model):
 
     class Meta:
         ordering = ["-lastCandleDate"]
+
+    def __str__(self):
+        return self.company.symbol
+
+    @property
+    def owner(self):
+        return self.user
+
+
+class TechnicalUser(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    createAt = models.DateTimeField(default=timezone.now, help_text='تاریخ ایجاد')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
+    title = models.CharField(max_length=120, null=True, blank=True, help_text='نام فایل')
+    isShare = models.BooleanField(default=False, help_text='اجازه اشتراک گذاریا')
+    # data = models.TextField(null=True, blank=True, help_text='فایل متنی شده json')
+    data = jsonfield.JSONField(help_text='فایل متنی شده json')
+
+    class Meta:
+        ordering = ["-createAt"]
 
     def __str__(self):
         return self.company.symbol

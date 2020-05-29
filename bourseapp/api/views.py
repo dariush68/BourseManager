@@ -220,6 +220,51 @@ class ChatMessageRudView(generics.RetrieveUpdateDestroyAPIView):  # DetailView C
         return models.ChatMessage.objects.all()
 
 
+class TechnicalUserAPIView(mixins.CreateModelMixin, generics.ListAPIView):  # DetailView CreateView FormView
+    lookup_field = 'pk'  # slug, id # url(r'?P<pk>\d+')
+    serializer_class = serializers.TechnicalUserSerializer
+    permission_classes = [IsAuthenticated, ]  # [IsOwnerOrReadOnly]
+
+    # search, ?q=tt
+    def get_queryset(self):
+
+        query = self.request.GET.get("share")
+        query_company = self.request.GET.get("company")
+        if query is not None and query_company is not None:
+            qs = models.TechnicalUser.objects.filter(
+                Q(isShare=True)
+                & Q(company=query_company)
+            ).distinct()
+            return qs
+
+        qs = models.TechnicalUser.objects.filter(user=self.request.user)
+
+        if query_company is not None:
+            qs = qs.filter(
+                Q(company=query_company)
+                # | Q(pic__icontains=query)
+            ).distinct()
+        return qs
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    # post method for creat item
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+
+class TechnicalUserRudView(generics.RetrieveUpdateDestroyAPIView):  # DetailView CreateView FormView
+    lookup_field = 'pk'  # slug, id # url(r'?P<pk>\d+')
+    serializer_class = serializers.TechnicalUserSerializer
+    permission_classes = [IsAuthenticated, ]  # [IsOwnerOrReadOnly]
+
+    # queryset                = BlogPost.objects.all()
+
+    def get_queryset(self):
+        return models.TechnicalUser.objects.all()
+
+
 def chart_detail(request, company_id):
     chart = get_object_or_404(models.Chart, company=company_id, timeFrame='D1')
     profile_json = {

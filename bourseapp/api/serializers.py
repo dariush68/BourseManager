@@ -110,6 +110,35 @@ class ChatMessageSerializer(serializers.ModelSerializer):  # forms.ModelForm
         return str(obj.sender.username)
 
 
+class TechnicalUserSerializer(serializers.ModelSerializer):  # forms.ModelForm
+    user_name = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = models.TechnicalUser
+        fields = [
+            'id',
+            'user',
+            'user_name',
+            'createAt',
+            'company',
+            'title',
+            'isShare',
+            'data',
+        ]
+        read_only_fields = ['id', 'user', 'user_name']
+
+    def get_user_name(self, obj):
+        return str(obj.user.username)
+
+    def validate_title(self, value):
+        qs = models.TechnicalUser.objects.filter(title__iexact=value)  # including instance
+        if self.instance:
+            qs = qs.exclude(pk=self.instance.pk)
+        if qs.exists():
+            raise serializers.ValidationError("This title has already been used")
+        return value
+
+
 class ListSymbolSerializer(serializers.ModelSerializer):  # forms.ModelForm
     symbol = serializers.SerializerMethodField(read_only=True)
     symbolPic = serializers.SerializerMethodField(read_only=True)
