@@ -297,7 +297,7 @@ class Chart(models.Model):
     lastCandleDate = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
     timeFrame = models.CharField(max_length=20, help_text='تایم فریم', choices=TIME_FRAME_CHOICES, default='D1')
-    data = models.FileField('uploaded chart file',upload_to='charts/', null=True, blank=True, help_text='فایل csv,  prn, txt چارت نماد')
+    data = models.FileField('uploaded chart file', upload_to='charts/', null=True, blank=True, help_text='فایل csv,  prn, txt چارت نماد')
 
     class Meta:
         ordering = ["-lastCandleDate"]
@@ -489,6 +489,25 @@ class CompanyFinancial(models.Model):
 
     def __str__(self):
         return self.company.symbol
+
+    @property
+    def owner(self):
+        return self.user
+
+
+class FileRepository(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                             help_text='کاربر')
+    file = models.FileField('uploaded file', upload_to='files/', null=True, blank=True)
+    createAt = models.DateTimeField(default=timezone.now)
+    fileTag = models.CharField(max_length=100, null=True, blank=True)
+    description = models.CharField(max_length=10000, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.pk)
+
+    class Meta:
+        ordering = ["-createAt"]
 
     @property
     def owner(self):

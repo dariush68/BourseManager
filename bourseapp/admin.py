@@ -307,3 +307,8 @@ class CompanyFinancialAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
          'forecastAccumulatedProfits', 'forecastSymbolPrice')
     )
 
+
+@admin.register(models.FileRepository)
+class TutorialSubCategoryAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    list_display = ("file", "fileTag", "user", "description", "createAt",)
+    list_filter = ("fileTag", )
