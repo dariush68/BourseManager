@@ -3,11 +3,13 @@
 /bourseapp/__pycache__/
 /Bourse/__pycache__/
 /bourseapp/migrations/
-/venv/ 
+/venv/
+/venv/*
 /__pycache__/
 /media/
 /tmp/
 /Bourse/*
+/charts/*
 
 
 # ignore a file type

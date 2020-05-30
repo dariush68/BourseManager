@@ -297,7 +297,7 @@ class Chart(models.Model):
     lastCandleDate = models.DateField(default=timezone.now, help_text='تاریخ ایجاد')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, help_text='نماد')
     timeFrame = models.CharField(max_length=20, help_text='تایم فریم', choices=TIME_FRAME_CHOICES, default='D1')
-    data = models.FileField('uploaded chart file', null=True, blank=True, help_text='فایل csv,  prn, txt چارت نماد')
+    data = models.FileField('uploaded chart file',upload_to='charts/', null=True, blank=True, help_text='فایل csv,  prn, txt چارت نماد')
 
     class Meta:
         ordering = ["-lastCandleDate"]

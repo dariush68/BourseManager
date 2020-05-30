@@ -13,4 +13,5 @@ pytz==2019.3
 sqlparse==0.3.0
 django_social_share==1.4.0
 django-jsonfield==1.4.0
+djangorestframework-simplejwt==4.4.0
 
