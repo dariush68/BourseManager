@@ -38,7 +38,7 @@ urlpatterns = [
         name='symbol-candle-json'),
     # url(r'^(?P<company_name>[a-zA-Z]+)/(?P<time_frame>[a-zA-Z0-9]+)/(?P<last_date>[a-zA-Z0-9]+)/symbol-candle-file/$'
     #     , views.symbol_candle_file, name='symbol-candle-file'),
-    url(r'^(?P<company_name>[a-zA-Z_]+)/(?P<time_frame>[a-zA-Z0-9]+)/(?P<last_date>\d{4}-\d{2}-\d{2})/symbol-candle-file/$'
+    url(r'^(?P<company_name>[a-zA-Z0-9_]+)/(?P<time_frame>[a-zA-Z0-9]+)/(?P<last_date>\d{4}-\d{2}-\d{2})/symbol-candle-file/$'
         , views.symbol_candle_file, name='symbol-candle-file'),
     url(r'^symbol-candle-json-list$', views.SymbolCandleJsonListAPIView.as_view(), name='symbol-candle-json-list'),
     url(r'^symbol-candle-json-list-title$', views.SymbolListTitle, name='csymbol-candle-json-list-title'),
